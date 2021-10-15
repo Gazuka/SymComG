@@ -1,0 +1,105 @@
+{#
+    require cartevisite
+#}
+<div class='row'>
+    {% if cartevisite.adresses | length > 0 %}
+        <div class="col-1 text-right">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="col-5">
+            {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____adresses.html.twig' with {'cartevisite': cartevisite} only %}
+        </div>
+    {% else %}
+        {# Si c'est une association qui n'a pas d'adresse, on affiche celle du Président #}
+        {% if cartevisite.organisme is not empty %}
+            {% if cartevisite.organisme.typeStructure == "association" %}                
+                {% for poste in cartevisite.organisme.postes %}
+                    {% if poste.fonction.titre == "Président" %}
+                        {% for profil in poste.profils %}
+                            {% if profil.cartevisite.adresses | length > 0 %}
+                                <div class="col-1 text-right">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="col-5">
+                                    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____adresses.html.twig' with {'cartevisite': profil.cartevisite} only %}
+                                </div>
+                            {% else %}
+                                {# On affiche une case vide si pas d'adresse #}
+                                <div class="col-6">
+                                    &nbsp;                                
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            {# On affiche une case vide si pas d'adresse #}
+            <div class="col-6">
+                &nbsp;                                    
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class='col-6'>
+        <div class='row'>
+            {% if cartevisite.telephones | length > 0 %}
+                <div class="col-1 text-right">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="col-11">
+                    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____telephones.html.twig' with {'cartevisite': cartevisite} only %}
+                </div>
+            {% else %}
+                {# Si c'est une association qui n'a pas de n° de téléphone, on affiche celui du Président #}
+                {% if cartevisite.organisme is not empty %}
+                    {% if cartevisite.organisme.typeStructure == "association" %}
+                        {% for poste in cartevisite.organisme.postes %}
+                            {% if poste.fonction.titre == "Président" %}
+                                {% for profil in poste.profils %}
+                                    {% if profil.cartevisite.telephones | length > 0 %}
+                                        <div class="col-1 text-right">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____telephones.html.twig' with {'cartevisite': profil.cartevisite} only %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            {% if cartevisite.mails | length > 0 %}
+                <div class="col-1 text-right">
+                    <i class="fas fa-at"></i>
+                </div>
+                <div class="col-11">
+                    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____mails.html.twig' with {'cartevisite': cartevisite} only %}
+                </div>
+            {% else %}
+                {# Si c'est une association qui n'a pas de mail, on affiche celui du Président #}
+                {% if cartevisite.organisme is not empty %}
+                    {% if cartevisite.organisme.typeStructure == "association" %}
+                        {% for poste in cartevisite.organisme.postes %}
+                            {% if poste.fonction.titre == "Président" %}
+                                {% for profil in poste.profils %}
+                                    {% if profil.cartevisite.mails | length > 0 %}
+                                        <div class="col-1 text-right">
+                                            <i class="fas fa-at"></i>
+                                        </div>
+                                        <div class="col-11">
+                                            {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____mails.html.twig' with {'cartevisite': profil.cartevisite} only %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}                
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

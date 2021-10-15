@@ -1,0 +1,17 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+{#
+    require demandeur
+    require choix
+#}
+{% block content %}
+    
+    {% for choix in choixPossible %}
+        {% embed 'composants/card/_card_lien.html.twig' with {'demandeur': demandeur, 'choix': choix} only %}
+            {% set taille = taille(3, 6) %}
+            {% set titreGlobal = choix %}
+            {% set iconeGlobal = 'fas fa-wrench' %}
+            {% set lienGlobal = path(demandeur, {'enumname': choix }) %}            
+        {% endembed %}
+    {% endfor %}
+
+{% endblock %}

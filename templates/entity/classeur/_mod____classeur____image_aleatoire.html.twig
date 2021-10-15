@@ -1,0 +1,10 @@
+{#
+    ==> Affichage d'une image aléatoire du classeur
+    require classeur
+    require liipFiltre
+#}
+
+{# Création d'un numéro aléatoire pour éviter les bugs si plusieurs carousel sur la même page #}
+{% for document in classeur.filtreAleatoireParSupport(1, 'image') %}
+    {% include 'entity/classeur/image/_voir____media____image.html.twig' with {'media': document.media, 'liipFiltre': liipFiltre} only %}
+{% endfor %}

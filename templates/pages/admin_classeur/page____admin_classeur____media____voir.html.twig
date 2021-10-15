@@ -1,0 +1,30 @@
+{% extends 'interfaces/admin/classeur/_interface.html.twig' %}
+
+{% block content_interface %}
+    
+            <div class='row'>
+                {% embed 'composants/card/_card.html.twig' with {'media': media} only %}
+                    {% set taille = taille(6,12) %}                
+                    {% block contenu %}
+                        {% include 'entity/classeur/media/_voir____media.html.twig' with {'media': media} only %}            
+                    {% endblock %}    
+                {% endembed %}
+
+                {% embed 'composants/card/_card.html.twig' with {'media': media, 'choix': choix} only %}
+                    {% set taille = taille(6,12) %}                
+                    {% block contenu %}
+                        {% for format in choix.formats %}
+                            
+                            {% embed 'composants/card/_card_lien.html.twig' with {'media': media, 'format': format} only %}
+                                {% set taille = taille(12,12) %}
+                                {% set lienGlobal = path('admin_medias_media_format_definir', {'idmedia': media.id, 'formatname': format.format}) %}
+                                {% set iconeGlobal = 'check-circle' %}
+                                {% set titreGlobal = format.formatLabel | trans %}                                
+                            {% endembed %}
+
+                        {% endfor %}
+                    {% endblock %}    
+                {% endembed %}
+            </div>
+        
+{% endblock %}

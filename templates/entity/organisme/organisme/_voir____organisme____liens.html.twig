@@ -1,0 +1,12 @@
+{#
+    require organisme
+#}
+
+{% if organisme.liens is not empty %}
+    {% for lien in organisme.liens %}
+        {% include 'entity/menu/lien/_voir____lien.html.twig' with {'lien': lien} only %}
+        {% if not loop.last %}
+            <hr/>
+        {% endif %}
+    {% endfor %}    
+{% endif %}

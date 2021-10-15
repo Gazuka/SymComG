@@ -1,0 +1,12 @@
+{#
+    require lien
+#}
+{% if lien.url is empty and lien.chemin is empty %}
+    DEBUG : lien invalide
+{% else %}
+    {% if lien.url is not empty %}
+        <a class='dropdown-item' href='{{ lien.url }}' target="_blank"><i class="fas fa-external-link-alt"></i> {{ lien.titre }}</a>
+    {% else %}
+        <a class='dropdown-item' href='{{ lien.chemin }}'>{{ lien.titre }}</a>
+    {% endif %}
+{% endif %}

@@ -1,0 +1,13 @@
+{#
+    require typeOrganisme
+    require form
+#}
+
+{{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.local) }}
+    {# Ajout des champs spécifique aux différents types d'organisme #}
+    {% include 'admin/organisme/formulaires/_ssform____' ~ typeOrganisme ~ '.html.twig' ignore missing with {'form': form} only %}
+    {{ form_row(form.presentation) }}
+    {{ 'twig.pages.admin.organisme.form.enregistrer' | trans | BoutonValiderFormulaire }}
+{{ form_end(form) }}

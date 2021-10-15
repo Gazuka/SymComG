@@ -1,0 +1,18 @@
+{#
+    require document (ArreteMunicipal) 
+#}
+
+<div class='row col-12'>
+    <div class='col-2 text-center alert alert-secondary text-danger mb-1'>
+        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+            <i class="far fa-file-pdf display-4"></i>
+        </a>
+    </div>
+    <div class='col-8'>
+        {{ document.media.pdf.ArreteMunicipal.titre }}
+    </div>
+    <div class='col-2'>
+        
+        {{ document.media.pdf.ArreteMunicipal.date | date("m/d/Y") }}
+    </div>
+</div>

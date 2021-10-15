@@ -1,0 +1,92 @@
+Structure du dossier pour le volume JCARION
+Le num‚ro de s‚rie du volume est 4A00004A 3884:B422
+F:.
+³   .gitignore
+³   Comission.php
+³   Role.php
+³   toto.txt
+³   Utilisateur.php
+³   
+ÃÄÄÄAgenda
+³       Evenement.php
+³       Horaire.php
+³       
+ÃÄÄÄArchitecture
+³       Page.php
+³       Tag.php
+³       
+ÃÄÄÄArticle
+³       Article.php
+³       
+ÃÄÄÄCarteVisite
+³   ³   CarteVisite.php
+³   ³   
+³   ÀÄÄÄContact
+³           Adresse.php
+³           Mail.php
+³           Telephone.php
+³           
+ÃÄÄÄClasseur
+³   ³   Classeur.php
+³   ³   Document.php
+³   ³   Dossier.php
+³   ³   EnumClasseurType.php
+³   ³   Fichier.php
+³   ³   Media.php
+³   ³   
+³   ÃÄÄÄFormat
+³   ³   ÃÄÄÄImage
+³   ³   ³       Affiche.php
+³   ³   ³       Icone.php
+³   ³   ³       Photo.php
+³   ³   ³       
+³   ³   ÀÄÄÄPdf
+³   ³           ArreteMunicipal.php
+³   ³           BulletinMunicipal.php
+³   ³           Deliberation.php
+³   ³           
+³   ÀÄÄÄSupport
+³           Image.php
+³           Pdf.php
+³           
+ÃÄÄÄCourrier
+³       Courrier.php
+³       
+ÃÄÄÄMenu
+³       Chemin.php
+³       Lien.php
+³       Menu.php
+³       
+ÃÄÄÄOrganisme
+³       Association.php
+³       AssociationGroupe.php
+³       Entreprise.php
+³       EnumAssociationType.php
+³       EnumEntrepriseType.php
+³       Organisme.php
+³       Service.php
+³       
+ÃÄÄÄPoste
+³       Fonction.php
+³       Poste.php
+³       Secteur.php
+³       Statut.php
+³       
+ÃÄÄÄProfil
+³       Humain.php
+³       Profil.php
+³       
+ÃÄÄÄQuizz
+³       QuizzBanquet.php
+³       
+ÀÄÄÄVisuel
+    ³   ElemX.php
+    ³   Visuel.php
+    ³   
+    ÀÄÄÄElement
+            ElemDiapo.php
+            ElemOrganisme.php
+            ElemTexte.php
+            ElemTitre.php
+            ElemZone.php
+            

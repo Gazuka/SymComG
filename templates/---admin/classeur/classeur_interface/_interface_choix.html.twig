@@ -1,0 +1,38 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+{#
+    require dossiers
+    option dossierActuel
+#}
+{% block content %}
+    
+    {# La page est divisé en 2 colonnes (une grande et une petite à gauche) #}
+    <div class='{{ taille(3,12) }} p-0'>
+        
+        {# Affichage d'une card pour l'arborescence #}
+        {% if dossierActuel is not defined %}
+            {% set dossierActuel = null %}
+        {% endif %}
+        {% embed 'composants/card/_card.html.twig' with {'dossiers': dossiers, 'dossierActuel': dossierActuel} only %}
+            {% set titre = 'TRAD:Arborescence' %}
+            {% block contenu %}
+                {# Insertion de l'arborescence #}
+                {% include 'interfaces/admin/classeur/_arborescence.html.twig' with {'dossiers': dossiers, 'dossierActuel': dossierActuel} only %}
+            {% endblock %}    
+        {% endembed %}
+
+    </div>
+
+    <div class='{{ taille(9,12) }} p-0'>
+        
+        {% set content_interface %}{% block content_interface %}{% endblock %}{% endset %}
+
+        {% embed 'composants/card/_card.html.twig' with {'content_interface': content_interface}  %}
+            {# Permet l'ajour de contenu dans l'interface #}
+            {% block contenu %}
+                {{ content_interface }}                
+            {% endblock %}
+        {% endembed %}
+        
+    </div>
+
+{% endblock %}

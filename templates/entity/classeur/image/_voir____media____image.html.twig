@@ -1,0 +1,7 @@
+{#
+    require media (image)
+    option liipFiltre
+#}
+{% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
+
+<img class='img-fluid' src='{{ asset(media.fichier.chemin) | imagine_filter(liipFiltre) }}' alt='{{ media.image.alt }}'/>

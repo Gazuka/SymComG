@@ -1,0 +1,7 @@
+{#
+    require cartevisite
+#}
+
+{% for adresse in cartevisite.adresses %}
+    <div>{% include 'entity/cartevisite/adresse/_voir____adresse.html.twig' with {'adresse': adresse} only %}</div>
+{% endfor %}

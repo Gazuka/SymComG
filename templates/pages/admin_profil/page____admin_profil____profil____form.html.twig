@@ -1,0 +1,22 @@
+{% extends 'entity/profil/profil/_int____profil.html.twig' %}
+
+{#
+    require form
+    require profils
+#}
+
+{% block content_interface %}
+
+    {# --- Affichage d'une card avec le formulaire --- #}
+    {% embed 'composants/card/_card.html.twig' with {'form': form} only %}
+        
+        {% block contenu %}
+
+            {# Affichage du formulaire #}
+            {% include 'entity/profil/profil/_form____profil.html.twig' with {'form': form} only %}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}

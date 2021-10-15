@@ -1,0 +1,27 @@
+{#
+    require poste
+#}
+{% set fonction = poste.fonction %}
+
+{% if poste.profils | length > 0 %}
+    {% if poste.profils | length > 1 %}
+        {# DEBUG prévoir le pluriel #}
+        {{ fonction. titre }}
+    {% else %}        
+        {% for profil in poste.profils %}
+            {% if profil.humain.sexe == 'f' %}
+                {{ fonction.titreFeminin }}
+            {% else %}
+                {{ fonction.titre }}
+            {% endif %}            
+        {% endfor %}
+    {% endif %}
+{% else %}
+    {# Si vide on affiche uniquement le masculin #}
+    {{ fonction.titre }} 
+{% endif %}
+
+{# On affiche ensuite le secteur si elle existe #}
+{% if poste.secteur is not empty %}
+    ({{ poste.secteur.titre }})
+{% endif %}

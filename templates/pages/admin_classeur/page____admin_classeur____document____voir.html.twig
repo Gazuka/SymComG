@@ -1,0 +1,69 @@
+{% extends 'interfaces/admin/classeur/_interface.html.twig' %}
+{#
+    require sousTitre
+    require classeurService
+#}
+{% block content_interface %}
+
+    <div class='row'>
+        {% embed 'composants/card/_card.html.twig' with {'document': document} only %}
+            {% set taille = taille(6,12) %}                
+            {% block contenu %}
+                {% include 'entity/classeur/media/_voir____media.html.twig' with {'media': document.getMedia} only %}            
+            {% endblock %}    
+        {% endembed %}
+
+        {% embed 'composants/card/_card.html.twig' with {'document': document, 'classeurService': classeurService} only %}
+            {% set taille = taille(6,12) %}                
+            {% block contenu %}
+
+                {# Ajout d'un bouton si nous sommes dans l'attente d'un choix de fichier #}
+                {% include 'entity/classeur/document/_btn____document____media____ajouter.html.twig' with {'document': document, 'classeurService': classeurService} only %}
+
+                {# Infos sur le dossier et le fichier #}
+                {% embed 'composants/card/_card.html.twig' with {'document': document} only %}
+                    {% set taille = taille(12,12) %}                
+                    {% block contenu %}
+                        <a href='{{ path('admin_medias_dossier', {'iddossier': document.media.fichier.dossier.id}) }}'>{{ document.media.fichier.dossier.getChemin }}</a>
+                        {{ document.media.fichier.getfileName }}
+                    {% endblock %}    
+                {% endembed %}
+
+                {# Infos sur le support et le format #}
+                {% embed 'composants/card/_card.html.twig' with {'document': document} only %}
+                    {% set taille = taille(12,12) %}                
+                    {% block contenu %}
+                        {# J'ai hésité à proposer la modification mais ca semble compliqué en cas d'utilisation du document. Le mieux semble de le supprimer entièrement et de le recréer... #}
+                        <span class='font-weight-bold'>{{ ('twig.pages.admin.media.info.' ~ document.media.supportName ~ '.' ~ document.media.support.formatName) | trans }}</span>                                                                
+                    {% endblock %}    
+                {% endembed %}
+
+                {# Détails du format #}
+                {% embed 'composants/card/_card.html.twig' with {'document': document} only %}
+                    {% set taille = taille(12,12) %}                
+                    {% block contenu %}
+                        <div class='row'>
+                            <div class='col-10'>
+                                {% include 'entity/classeur/support/_voir____support____info_format.html.twig' with {'support': document.media.support} only %}
+                            </div>
+                            <div class='col-2'>
+                                {# DEBUG : CREER LE LIEN DU BOUTON ////////////////////////////////////////////////////////////////// #}
+                                {{ '#' | BoutonLienEditerMini() }}
+                            </div>
+                        </div>
+                    {% endblock %}    
+                {% endembed %}
+
+                {# Détails du document #}
+                {% embed 'composants/card/_card.html.twig' with {'document': document} only %}
+                    {% set taille = taille(12,12) %}                
+                    {% block contenu %}
+                        <div>{{ 'twig.pages.admin.media.document.voir.info.nbrclasseurs' | trans({'nbrClasseurs': document.classeurs | length }) }}</div>
+                    {% endblock %}    
+                {% endembed %}
+
+            {% endblock %}    
+        {% endembed %}
+    </div>
+        
+{% endblock %}

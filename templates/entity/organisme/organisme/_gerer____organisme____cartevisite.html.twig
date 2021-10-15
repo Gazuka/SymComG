@@ -1,0 +1,10 @@
+{#
+    require organisme
+#}
+{% if organisme.carteVisite is empty %}{# La carte de visite n'existe pas #}
+    {{ path('admin_organisme_cartevisite', {'idorganisme': organisme.id}) | BoutonLienSimple('twig.pages.admin.organisme.voir.cartevisite.ajouter' | trans, 'fa-id-card', 'warning') }}
+{% else %} {# La carte de visite existe #}
+    {# On affiche le module : Carte de Visite #}
+    {% embed 'entity/cartevisite/cartevisite/_mod____cartevisite____gerer.html.twig' with {'cartevisite': organisme.cartevisite} only %}
+    {% endembed %}
+{% endif %}

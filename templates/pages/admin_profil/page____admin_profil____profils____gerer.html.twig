@@ -1,0 +1,20 @@
+{% extends 'entity/profil/profil/_int____profil.html.twig' %}
+
+{#
+    require profils
+#}
+
+{% block content_interface %}
+    
+    {# Affichage d'une card tableau avec les profil #}
+    {% embed 'composants/card/_card_table.html.twig' with {'profils': profils} only %}
+        {% set nomColonnes = ['#', '#', '#'] %}
+        {% set tbody %}
+
+            {# Affichage du tableau avec les humais #}
+            {% include 'entity/profil/profil/_table____profils____gerer.html.twig' with {'profils': profils} only %}
+
+        {% endset %}       
+    {% endembed %}
+        
+{% endblock %}

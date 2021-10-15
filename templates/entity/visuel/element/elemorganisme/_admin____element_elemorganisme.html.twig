@@ -1,0 +1,10 @@
+{#
+    require element (elemOrganisme)
+    require visuel
+#}
+
+{% embed 'composants/card/_card.html.twig' with {'visuel': visuel, 'element': element} only %}
+    {% block contenu %}
+        {{ element.organisme }}
+    {% endblock %}
+{% endembed %}

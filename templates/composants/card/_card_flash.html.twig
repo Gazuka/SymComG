@@ -1,0 +1,12 @@
+{#
+    require taille
+    require couleur
+    require message
+#}
+<div id='flash-{{couleur}}' class="{{taille}} mb-4">
+    <div class="card border-left-{{couleur}} border-bottom-{{couleur}}">
+        <div class="card-body">
+            {{ message | trans}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+/* Permet de masquer les numéros sur liste rouge */
+.listerouge .apres, .listerouge:hover .avant {
+    display : none;
+}
+
+.listerouge:hover .apres {
+    display : block;
+}

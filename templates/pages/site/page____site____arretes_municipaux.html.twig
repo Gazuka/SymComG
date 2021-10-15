@@ -1,0 +1,24 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = 'Arrêtés municipaux' %}
+{#
+    require classeur
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+
+    {# ---- Titre de la page --- #}
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}    
+
+    {# --- Affichage des arretes municipaux --- #}
+    {% for document in classeur.filtreParSupport('pdf', 'arrete') %}
+        {% if loop.first == false %}
+            <hr/>
+        {% endif %}
+        {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document} only %}    
+    {% endfor %}
+
+{% endblock %}

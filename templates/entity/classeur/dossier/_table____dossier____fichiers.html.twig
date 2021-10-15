@@ -1,0 +1,14 @@
+{% for fichier in dossierActuel.fichiers %}
+    {% if fichier.media.document.id is defined %}
+        <tr>
+            <td>
+                {{ fichier.media.document.id }}
+            </td>
+            <td>
+                <a href="{{ path('admin_medias_document', {'iddocument': fichier.media.document.id}) }}">
+                    {{ fichier.nom }}
+                </a>
+            </td>
+        </tr>
+    {% endif %}
+{% endfor %}

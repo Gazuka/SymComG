@@ -1,0 +1,29 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet le choix d'un type de structure
+    Elle ne peut être appelée que via redirection par le "demandeur"
+    
+    require demandeur
+    require choix
+#}
+
+{% block content %}
+
+    {# Texte d'introduction #}
+    <div class='col-12'><p>{{'twig.admin.organisme.redi.structure.choisir.intro' | trans }}</p></div>
+    
+    {# Affichage des différents choix possibles #}
+    {% for choix in choixPossible %}
+
+        {# Card représentant l'un des choix #}
+        {% embed 'composants/card/_card_lien.html.twig' with {'demandeur': demandeur, 'choix': choix} only %}
+            {% set taille = taille(3, 6) %}
+            {% set lienGlobal = path(demandeur, {'structureName': choix }) %}
+            {% set titreGlobal = ('twig.admin.organisme.structure.choisir.choix.' ~ choix) | trans %}
+            {% set iconeGlobal = 'fa-home' %}
+        {% endembed %}
+
+    {% endfor %}
+
+{% endblock %}

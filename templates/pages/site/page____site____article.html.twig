@@ -1,0 +1,31 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = article.titre %}
+{#
+    require article
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    <div class='col-8'>
+        <div class='row'>
+            {# --- Affichage du visuel de l'article --- #}        
+            {% include 'entity/article/_voir____article____visuel.html.twig' with {'article': article} only %}
+        </div>
+    </div>
+
+    <div class='col-4'>
+        {# Affichage d'une image d'intro #}
+        {% include 'entity/article/article/_mod____article____image_intro.html.twig' with {'article': article} only %}
+        <br/><br/>
+        {# --- Affichage des informations annexes (structure, evenement...) --- #}
+        {% include 'entity/article/_voir____article____annexe.html.twig' with {'article': article} only %}            
+    </div>
+
+{% endblock %}

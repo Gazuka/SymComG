@@ -1,0 +1,11 @@
+{#
+    require telephone
+    DEBUG : afficher le privé si autorisation uniquement
+#}
+<span>
+    {% if telephone.prive == false %}
+        {{ telephone.numero }} 
+    {% else %}
+        <span class='bg-danger'>{{ telephone.numero }}</span>
+    {% endif %}
+</span>

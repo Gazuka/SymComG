@@ -1,0 +1,106 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require organisme
+    require ajout_media
+#}
+
+{% block content %}
+
+    {# La page est divisé en 2 colonnes (une grande et une petite à droite) #}
+    <div class='{{taille(8,12)}} p-0'>
+
+        {# Affichage d'une card pour les informations de base de l'organisme #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = organisme.typeStructure | capitalize ~ ' : ' ~ organisme.structure | capitalize %}
+            {% block contenu %}
+
+                {# Affichage des informations de base de l'organisme #}
+                {% include 'entity/organisme/organisme/_gerer____organisme____infos_de_base.html.twig' with {'organisme': organisme} only %}
+
+            {% endblock %}
+        {% endembed %}
+
+        {# Card destinée à l'affichage des postes #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = 'TRAD : Postes' %}
+            {% block contenu %}
+
+                {# Affichage des postes #}
+                {% include 'entity/poste/poste/_mod____postes____gerer.html.twig' with {'postes': organisme.postes} only %}
+                
+                {# Affichage d'un bouton pour ajouter un poste #}                
+                {{ path('admin_poste_creer', {'idorganisme': organisme.id}) | BoutonLienSimple('twig.admin.organisme.voir.poste.ajouter' | trans, 'fa-chair', 'warning') }}
+                
+            {% endblock %}
+        {% endembed %}
+
+        {# Card destinée à l'affichage du visuel #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = 'TRAD : Visuel' %}
+            {% block contenu %}
+
+                {# Affichage du visuel #}
+                {% include 'entity/organisme/organisme/_gerer____organisme____visuel.html.twig' with {'organisme': organisme} only %}
+                
+            {% endblock %}
+        {% endembed %}
+
+    </div>
+
+    <div class='col-4 p-0'>
+        
+        {# Affichage d'une Card pour le module : Carte de Visite #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.organisme.voir.cartevisite' | trans) %}
+            {% block contenu %}           
+
+                {# Gestion de la carte de visite #}
+                {% include 'entity/organisme/organisme/_gerer____organisme____cartevisite.html.twig' with {'organisme': organisme} only %}
+
+            {% endblock %}
+        {% endembed %}
+
+        {# Card destinée à l'affichage de l'horaire #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = 'TRAD : Horaire' %}
+            {% block contenu %}
+
+                {# Affichage de l'horaire #}
+                {% include 'entity/organisme/organisme/_gerer____organisme____horaire.html.twig' with {'organisme': organisme} only %}
+                
+            {% endblock %}
+        {% endembed %}
+
+        {# Affichage d'une Card pour le module : Liens #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.organisme.voir.liens' | trans) %}
+            {% block contenu %}           
+
+                {# Gestion des liens #}
+                {% include 'entity/organisme/organisme/_gerer____organisme____liens.html.twig' with {'organisme': organisme} only %}
+
+            {% endblock %}
+        {% endembed %}
+        
+        {# Affichage d'une Card pour le module : Classeur #}
+        {% embed 'composants/card/_card.html.twig' with {'organisme': organisme, 'ajout_media': ajout_media} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.organisme.voir.classeur' | trans) %}
+            {% block contenu %} 
+
+                {# Gestion des classeurs #}                
+                {% include 'entity/organisme/organisme/_gerer____organisme____classeurs.html.twig' with {'organisme': organisme, 'ajout_media': ajout_media} only %}
+
+            {% endblock %}
+        {% endembed %}
+
+    </div>
+
+{% endblock %}

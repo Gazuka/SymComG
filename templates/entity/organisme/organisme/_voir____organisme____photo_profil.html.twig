@@ -1,0 +1,10 @@
+{#
+    require organisme
+    require liipFiltre
+#}
+
+{% for classeur in organisme.classeurs %}
+    {% if classeur.type.nom == '#profil' %}
+        {% include 'entity/classeur/_mod____classeur____image_aleatoire.html.twig' with {'classeur': classeur, 'liipFiltre': liipFiltre} only %}                                    
+    {% endif %}
+{% endfor %}

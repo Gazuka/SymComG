@@ -1,0 +1,16 @@
+{#
+    require organisme
+    require ajout_media
+#}
+{# Lien pour l'ajout d'un document #}
+{% for type in ajout_media %}
+    {# {{ path('admin_organisme_classeur_ajouter_media', {'idorganisme': organisme.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }} #}
+    {{ path('admin_classeur_ajouter_media', {'typeParent': 'organisme','idparent': organisme.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }}
+{% endfor %}
+{# Affichage des classeurs existants #}
+{% for classeur in organisme.classeurs %}
+    <div>
+        {{ classeur.id }} - {{ classeur.titre }}<br/>
+        {{ classeur.documents | length }} documents
+    </div>
+{% endfor %}

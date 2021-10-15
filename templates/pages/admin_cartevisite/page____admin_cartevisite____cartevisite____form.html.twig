@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    {% embed 'composants/card/_card.html.twig' with {'form': form, 'typeContact': typeContact} only %}
+        
+        {% set titre = ('twig.pages.admin.cartevisite.form.titre.' ~ typeContact) | trans %}
+        
+        {% block contenu %}
+            {{ form_start(form) }}
+            
+            {{ form_row(form.prive) }}
+            {% include 'admin/carte_de_visite/formulaires/_ssform____' ~ typeContact ~ '.html.twig' ignore missing %}
+            
+            {{ 'twig.pages.admin.cartevisite.form.enregistrer' | trans | capitalize | BoutonValiderFormulaire }}
+            {{ form_end(form) }}
+        {% endblock %}
+        
+    {% endembed %}
+
+{% endblock %}

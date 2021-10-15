@@ -1,0 +1,11 @@
+{#
+    require organisme
+#}
+{# On affiche un bouton d'ajout de lien #}
+{{ path('admin_organisme_lien', {'idorganisme': organisme.id}) | BoutonLienSimple('twig.pages.admin.organisme.voir.lien.ajouter' | trans, 'fa-id-card', 'warning') }}
+
+{# On affiche le module : Lien #}
+{# DEBUG : REMPLACER PAR _mod____lien____gerer afin de pouvoir modifier le lien et non juste le voir #}
+{% for lien in organisme.liens %}
+    {% include 'entity/menu/lien/_voir____lien.html.twig' with {'lien': lien} only %}
+{% endfor %}

@@ -1,0 +1,7 @@
+{#
+    require poste
+#}
+
+{% if poste.cartevisite is not empty %}
+    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite.html.twig' with {'cartevisite': poste.cartevisite} only %}                                    
+{% endif %}

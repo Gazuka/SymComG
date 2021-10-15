@@ -1,0 +1,7 @@
+{#
+    require cartevisite
+#}
+
+{% for mail in cartevisite.mails %}
+    <div>{% include 'entity/cartevisite/mail/_voir____mail.html.twig' with {'mail': mail} only %}</div>
+{% endfor %}

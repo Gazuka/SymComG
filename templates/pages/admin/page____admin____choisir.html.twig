@@ -1,0 +1,15 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+    <div class='col-12'><p>{{'twig.page.admin.choisir' | trans }}</p></div>
+
+    {% for choix, choixTexte in choixPossibles %}
+        {% embed 'composants/card/_card_lien.html.twig' with {'demandeurChemin': demandeurChemin, 'choix': choix, 'nomDuChoix': nomDuChoix, 'choixTexte': choixTexte} only %}
+            {% set taille = taille(3, 6) %}
+            {% set lienGlobal = path(demandeurChemin.getRoute, demandeurChemin.getParams|merge({(nomDuChoix): choix})) %}
+            {% set titreGlobal = (choixTexte | trans) %}
+            {% set iconeGlobal = 'fa-home' %}
+        {% endembed %}
+    {% endfor %}
+
+{% endblock %}

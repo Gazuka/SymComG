@@ -1,0 +1,22 @@
+{% extends 'interfaces/admin/classeur/_interface.html.twig' %}
+{#
+    require mediasOrphelins
+#}
+{% block content_interface %}
+    
+    <div class='row'>
+        {% for mediaOrphelin in mediasOrphelins %}
+            {% embed 'composants/card/_card.html.twig' %}
+                {% set taille = taille(4,12) %}
+                {% set iconeGlobal = 'cloud-download-alt' %}
+                {% set titre = '[' ~ mediaOrphelin.fichier.extension ~ '] ' ~ mediaOrphelin.fichier.nom %}
+                {% set iconeTitre = 'home' %}
+                {% set lienTitre = path('admin_medias_media', {'idmedia': mediaOrphelin.id}) %}
+                {% block contenu %}
+                    {% include 'entity/classeur/media/_voir____media.html.twig' with {'media': mediaOrphelin} only %}
+                {% endblock %}
+            {% endembed %}
+        {% endfor %}
+    </div>
+        
+{% endblock %}

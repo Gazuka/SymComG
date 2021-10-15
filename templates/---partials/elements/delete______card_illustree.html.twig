@@ -1,0 +1,28 @@
+{# require taille #}
+{# require titre #}
+{# require icone #}
+{# require colorIcone #}
+{# require contenu #}
+{# option image #}
+{# require lien #}
+{# require couleur #}
+
+
+<div class="{{ taille }}">
+    <div class='card'>
+        <a href="{{ lien }}">
+            <div class="card-body d-flex justify-content-center flex-column">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="mr-3">
+                        <i class="fa-2x text-gray-300 {{ icone }}"></i>
+                        <div class="text-xs font-weight-bold text-{{couleur}} text-uppercase mb-1">{{titre}}</div>
+                        <div class="text-muted">{{ contenu }}</div>
+                    </div>
+                    {% if image is defined %}
+                        <img class="card-img-top" src="{{ image }}" alt="..." style="width: 10rem;">
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

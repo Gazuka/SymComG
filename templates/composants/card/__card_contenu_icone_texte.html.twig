@@ -1,0 +1,33 @@
+{#
+    require iconeGlobal
+    option couleurIconeGlobal : couleur Bootstrap
+    require titreGlobal : texte
+    option couleurTitreGlobal : couleur bootstrap
+    option texteGlobal : texte 
+#}
+
+{# Configuration #}
+{% if couleurIconeGlobal is not defined %}
+    {% set couleurIconeGlobal = 'primary' %}
+{% endif %}
+{% if couleurTitreGlobal is not defined %}
+    {% set couleurTitreGlobal = 'primary' %}
+{% endif %}
+
+{# Affichage #}
+{% if lienGlobal is defined %}
+    <a href='{{ lienGlobal }}'>
+{% endif %}
+    <span class="font-weight-bold text-{{couleurTitreGlobal}} mb-1">
+        <i class="fa-2x fas fa-{{ iconeGlobal }} text-{{couleurIconeGlobal}}"></i>
+        {{ titreGlobal | capitalize }} 
+    </span>
+{% if lienGlobal is defined %}
+    </a>
+{% endif %}
+
+{% if texteGlobal is defined %}
+    <span class="text-muted">
+        {{ texteGlobal }}
+    </span>
+{% endif %}

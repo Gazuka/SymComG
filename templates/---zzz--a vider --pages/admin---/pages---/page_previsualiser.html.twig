@@ -1,0 +1,23 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    <div class='col-12 bg-primary text-white'>
+        Menu
+        <a href='{{ path('admin_page_contenu_creer', {idpage: page.id}) }}' class='text-white'>Ajouter un contenu</a>
+    </div>
+
+    {% for contenu in page.contenus %}
+        
+        {% embed 'partials/admin/modules/contenu/contenu.html.twig' with {'contenu': contenu} %}{% endembed %}
+
+        {# {% set parametres = {'twig': contenu.module.element.twig, 'texte': 'coucou2'} %}
+                
+        {% embed twig with parametres only %}
+            {% set titre = "TRAD:test" %}
+            {% set taille = 'col-12' %}
+            {% set actions = null %}
+        {% endembed %} #}
+    {% endfor %}
+
+{% endblock %}

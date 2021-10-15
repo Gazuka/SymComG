@@ -1,0 +1,23 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    {# Card avec un BoutonModal pour afficher un formulaire d'ajout #}
+    {% embed 'composants/card/_card.html.twig' with {'form': form, 'enumname': enumname} only %}
+        {% block contenu %}
+            {% embed 'interfaces/admin/_modal_form.html.twig' with {'form': form, 'enumname': enumname} only %}
+                {% set nomModal = 'formModal' %}
+                {% set titreBouton = 'TRAD:titre du bouton' %}
+                {% set titreModal = 'TRAD:titre du modal' %}
+                {% set twigForm = 'interfaces/formulaires/_form_' ~ enumname ~ '.html.twig' %}
+                {% set couleur = 'primary' %}
+                {% set taille = taille(12, 12) %}        
+                {% set icone = 'fa-home' %}
+            {% endembed %} 
+        {% endblock %}
+    {% endembed %}   
+
+    {# Tableau avec l'ensemble des elements #}
+    {% include 'interfaces/tables/_table_' ~ enumname ~ '.html.twig' with {'enums': enums, 'enumname': enumname} only %}    
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{#
+    require adresses
+#}
+{% for adresse in adresses %}
+    <tr>
+        <td>
+            <i class="fas fa-home"></i>
+        </td>
+        <td>
+            {# Affiche de l'adresse #}
+            {% include 'entity/cartevisite/adresse/_voir____adresse.html.twig' with {'adresse': adresse} only  %}
+        </td>
+        <td>
+            {# Bouton d'édition #}
+            {{ path('admin_cartevisite_editer', {'contactName': 'adresse', 'idcontact': adresse.id}) | BoutonLienEditerMini() }}
+            {# Bouton de suppression #}
+            {{ path('admin_cartevisite_contact_supprimer', {'contactName': 'adresse', 'idcontact': adresse.id}) | BoutonLienSupprimerMini() }}
+        </td>
+    </tr>
+{% endfor %}

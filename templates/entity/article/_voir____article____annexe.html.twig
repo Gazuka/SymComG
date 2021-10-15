@@ -1,0 +1,8 @@
+{#
+    require article 
+#}
+
+{# --- Affichage du visuel de l'annexe --- #}
+{% if article.annexe is not null %}
+    {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': article.annexe} only %}
+{% endif %}

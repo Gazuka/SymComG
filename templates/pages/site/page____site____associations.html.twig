@@ -1,0 +1,37 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = 'Associations' %}
+{% if titreAlternatif is defined %}
+    {% set titre = titreAlternatif %}
+{% endif %}
+{#
+    require associations
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}    
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    {% for association in associations %}
+        
+        {# --- Affichage d'une association --- #}
+        <div class='col-3'>
+            <div class="card mb-4">
+
+                {% include 'entity/organisme/organisme/_voir____organisme____photo_profil.html.twig' with {'organisme': association.organisme, 'liipFiltre': 'carre3'} only %}
+
+                <div class="card-body">
+                    <a href='{{ path('site_association', {'slugassociation': association.slug}) }}' class='text-dark'>
+                        <h5 class="card-title text-center">{{ association.nom }}</h5>
+                    </a>                    
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+    
+{% endblock %}

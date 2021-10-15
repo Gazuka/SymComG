@@ -1,0 +1,43 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd" #gd mais j'ai tenté imagick voir si compatible ovh
+    filter_sets: # Contient la liste des filtres
+        normal: # Permet de réduire les images beaucoup trop grande à la largeur maximum du template
+            quality: 100
+            filters:
+                downscale:
+                    max: [1140, 2200]
+        normal4: # Réduit les images pour un col-4
+            quality: 100
+            filters:
+                downscale:
+                    max: [400, 800]
+        carre3: # Nom du filtre
+            quality: 100 # Qualité de l'image
+            filters: # Liste des filtres à appliquer
+                thumbnail: # Filtre "Thumbnail"
+                    size: [300, 300] # Taille de l'image de sortie
+                    mode: outbound # Découpage de l'image
+                    allow_upscale: false
+        actu: # Nom du filtre
+            quality: 100 # Qualité de l'image
+            filters: # Liste des filtres à appliquer
+                thumbnail: # Filtre "Thumbnail"
+                    size: [350, 120] # Taille de l'image de sortie
+                    mode: outbound # Découpage de l'image
+                    allow_upscale: false
+        actuenimage: # Nom du filtre
+            quality: 100 # Qualité de l'image
+            filters: # Liste des filtres à appliquer
+                thumbnail: # Filtre "Thumbnail"
+                    size: [600, 400] # Taille de l'image de sortie
+                    mode: outbound # Découpage de l'image
+                    allow_upscale: true                    
+        carre8: # Nom du filtre
+            quality: 100 # Qualité de l'image
+            filters: # Liste des filtres à appliquer
+                thumbnail: # Filtre "Thumbnail"
+                    size: [200, 200] # Taille de l'image de sortie
+                    mode: outbound # Découpage de l'image
+                    allow_upscale: true

@@ -1,0 +1,12 @@
+{#
+    require cartevisite
+#}
+{% if cartevisite.adresses | length > 0 %}
+    <i class="fas fa-home"></i>{{ cartevisite.adresses | length }}
+{% endif %}
+{% if cartevisite.telephones | length > 0 %}
+    <i class="fas fa-phone"></i>{{ cartevisite.telephones | length }}
+{% endif %}
+{% if cartevisite.mails | length > 0 %}
+    <i class="fas fa-at"></i>{{ cartevisite.mails | length }}
+{% endif %}

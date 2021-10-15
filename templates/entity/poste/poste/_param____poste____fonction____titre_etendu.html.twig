@@ -1,0 +1,8 @@
+{#
+    require poste
+    option sexe
+#}
+{% if sexe is not defined %}{% set sexe = null %}{% endif %}
+<a href='{{ path('admin_organisme_gerer', {'idorganisme': poste.organisme.id}) }}'>
+    {% include 'entity/poste/fonction/_param____fonction____titre.html.twig' with {'fonction': poste.fonction, 'sexe': sexe} only %} - {% include 'entity/organisme/organisme/_param____organisme____structure_nom.html.twig' with {'organisme': poste.organisme} only %}
+</a>

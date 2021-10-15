@@ -1,0 +1,141 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = 'Annuaire' %}
+{#
+    require cartesVisites
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}    
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    <div class='col-3 mb-4 font-weight-bold'>
+        <div>
+            <a href='{{ path('site_annuaire', {'typestructure': 'service'}) }}'>
+                {% if services is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
+                Services
+            </a>
+        </div>
+        <div>
+            <a href='{{ path('site_annuaire', {'typestructure': 'association'}) }}'>
+                {% if associations is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
+                Associations
+            </a>
+        </div>
+        <div>
+            <a href='{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}'>
+                {% if entreprises is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
+                Artisants / Commerçants
+            </a>
+        </div>
+        <div>
+            <a href='{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}'>
+                {% if entreprises is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
+                santé
+            </a>
+        </div>
+    </div>
+    <div class='col-9 mb-4'>
+        <div class='row'>
+            
+            {# Gestion des services #}
+            {% if services is defined %}
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Services"} only %}
+                {% for service in services %}
+                    {% embed 'composants/card/_card.html.twig' with {'service': service} only %}
+                        {% block contenu %}
+                            <div class='col-12'>
+                                <a href='{{ path('site_service', {'slugservice': service.slug}) }}'><span class='font-weight-bold'>{{ service.nom }}</span></a>
+                            </div>
+                            <div class='col-12'>
+                                {% if service.organisme.cartevisite is not empty %}
+                                    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': service.organisme.cartevisite} only %}
+                                {% endif %}
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            {% endif %}
+
+            {# Gestion des associations #}
+            {% if associations is defined %}
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Associations"} only %}
+                {% for association in associations %}
+                    {% embed 'composants/card/_card.html.twig' with {'association': association} only %}
+                        {% block contenu %}
+                            <div class='col-12'>
+                                <a href='{{ path('site_association', {'slugassociation': association.slug}) }}'><span class='font-weight-bold'>{{ association.nom }}</span></a>
+                            </div>
+                            <div class='col-12'>
+                                {% if association.organisme.cartevisite is not empty %}
+                                    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': association.organisme.cartevisite} only %}
+                                {% else %}
+                                    {# Si pas de carte de visite on affiche celle du Président #}
+                                    {% for poste in association.organisme.postes %}
+                                        {% if poste.fonction.titre == "Président" %}
+                                            {% for profil in poste.profils %}
+                                                {% if profil.cartevisite is not empty %}
+                                                    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': profil.cartevisite} only %}
+                                                {% endif %}                                            
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            {% endif %}
+
+            {# Gestion des entreprise #}
+            {% if entreprises is defined %}
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Entreprises"} only %}
+                {% for entreprise in entreprises %}
+                    {% embed 'composants/card/_card.html.twig' with {'entreprise': entreprise} only %}
+                        {% block contenu %}
+                            <div class='col-12'>
+                                <span class='font-weight-bold text-primary'>{{ entreprise.nom }}</span>
+                                <span class='font-italic'>
+                                    (
+                                        {% for type in entreprise.types %}
+                                            {{ type }}
+                                        {% endfor %}
+                                    )
+                                </span>
+                            </div>
+                            <div class='col-12'>
+                                {% if entreprise.organisme.cartevisite is not empty %}
+                                    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': entreprise.organisme.cartevisite} only %}
+                                {% endif %}
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            {% endif %}
+
+            {# Gestion des profils #}
+            {# {% embed 'composants/card/_card_table.html.twig' with {'cartesVisites': cartesVisitesProfil} only %}
+                {% set taille = taille(12,12) %}
+                {% set nomColonnes = ['Humain (DEBUG : a ne pas afficher)', '#'] %}
+                {% set tbody %}
+                    {% for carteVisite in cartesVisites %}     
+                        <tr>
+                            <td>
+                                <span class='font-weight-bold'>{{ carteVisite.parent['objet'] }}</span>
+                            </td>
+                            <td>
+                                {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____denombrement_contacts.html.twig' with {'cartevisite': carteVisite} only %}
+                            </td>
+                        </tr>
+                    {% endfor %}       
+                {% endset %}
+            {% endembed %} #}
+            
+        </div>
+    </div>
+    
+{% endblock %}

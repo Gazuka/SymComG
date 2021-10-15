@@ -1,0 +1,9 @@
+{#
+    require organisme
+#}
+
+{% if organisme.postes is not empty %}
+    {% for poste in organisme.postes %}
+        {% include 'entity/poste/poste/_mod____poste____simple.html.twig' with {'poste': poste} only %}
+    {% endfor %}    
+{% endif %}

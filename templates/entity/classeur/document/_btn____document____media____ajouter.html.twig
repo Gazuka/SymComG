@@ -1,0 +1,19 @@
+{# 
+    require document
+    require classeurService
+#}
+
+{# On récupére le nom du format du document actuel #}
+{% set formatName = document.getMedia.getSupport.getFormatName %}
+
+{% for avisRechercheDocument in classeurService.afficherAvis(formatName) %}
+    
+    {% embed 'composants/card/_card.html.twig' with {'document': document, 'avisRechercheDocument': avisRechercheDocument} only %}
+        {% block contenu %}
+
+            {{ path('admin_classeur_joindre_document', {'iddocument': document.id,'idclasseur': avisRechercheDocument.classeur.id, 'nomAvis': avisRechercheDocument.nom}) | BoutonLienSimple(avisRechercheDocument.label | trans, 'fa-add', 'warning') }}
+
+        {% endblock %}    
+    {% endembed %}
+
+{% endfor %}

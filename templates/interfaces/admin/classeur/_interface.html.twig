@@ -1,0 +1,101 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+{#
+    require dossiers
+    require documents
+    require mediasOrphelins
+    require fichiersOrphelins
+    require classeurService
+
+    option dossierActuel
+#}
+{% block content %}
+
+    {# === Permet l'affichage d'un message lors d'une recherche de document à joindre dans un classeur === #}
+    {% include 'entity/classeur/classeur_service/_voir____classeur_service____format_recherche.html.twig' with {'classeurService': classeurService} only %}
+
+    {% if dossiers is defined and documents is defined and mediasOrphelins is defined and fichiersOrphelins is defined %}
+        {# Affichage du nombre de dossiers #}
+        {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'folder' %}
+            {% set couleurIconeGlobal = 'info' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.dossiers' | trans({'nbrDossiers': dossiers | length}) %}
+            {% set couleurTitreGlobal = 'info' %}
+        {% endembed %}
+
+        {# Affichage du nombre de médias #}
+        {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'file' %}
+            {% set couleurIconeGlobal = 'info' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.documents' | trans({'nbrDocuments': documents | length}) %}
+            {% set couleurTitreGlobal = 'info' %}
+        {% endembed %}
+
+        {# Affichage du nombre de medias orphelins #}
+        {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'mail-bulk' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.orphelins' | trans({'nbrOrphelins': mediasOrphelins | length}) %}
+            {% if mediasOrphelins | length == 0 %}
+                {% set couleurIconeGlobal = 'info' %}
+                {% set couleurTitreGlobal = 'info' %}
+            {% else %}
+                {% set lienGlobal = path('admin_medias_orphelins') %}
+                {% set couleurIconeGlobal = 'danger' %}
+                {% set couleurTitreGlobal = 'danger' %}
+            {% endif %}        
+        {% endembed %}
+
+        {# Affichage du nombre de nouveaux fichiers #}
+        {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'cloud-download-alt' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.detectes' | trans({'nbrDetectes': fichiersOrphelins | length}) %}
+            {% if fichiersOrphelins | length == 0 %}
+                {% set couleurIconeGlobal = 'info' %}
+                {% set couleurTitreGlobal = 'info' %}
+            {% else %}
+                {% set lienGlobal = path('admin_medias_fichiers_orphelins') %}
+                {% set couleurIconeGlobal = 'danger' %}
+                {% set couleurTitreGlobal = 'danger' %}
+            {% endif %}
+        {% endembed %}
+
+    {% endif %}
+
+    {# La page est divisé en 2 colonnes (une grande et une petite à gauche) #}
+    <div class='{{ taille(3,12) }} p-0'>
+        
+        {# Affichage d'une card pour l'arborescence #}
+        {% if dossierActuel is not defined %}
+            {% set dossierActuel = null %}
+        {% endif %}
+        {% embed 'composants/card/_card.html.twig' with {'dossiers': dossiers, 'dossierActuel': dossierActuel} only %}
+            {% set titre = 'TRAD:Arborescence' %}
+            {% block contenu %}
+                {# Insertion de l'arborescence #}
+                {% include 'interfaces/admin/classeur/_arborescence.html.twig' with {'dossiers': dossiers, 'dossierActuel': dossierActuel} only %}
+            {% endblock %}    
+        {% endembed %}
+
+    </div>
+
+    <div class='{{ taille(9,12) }} p-0'>
+        
+        {% set content_interface %}{% block content_interface %}{% endblock %}{% endset %}
+        {% if mediasOrphelins is not defined %}
+            {% set mediasOrphelins = null %}
+        {% endif %}
+
+        {% embed 'composants/card/_card.html.twig' with {'titre': sousTitre, 'dossierActuel': dossierActuel, 'mediasOrphelins': mediasOrphelins, 'content_interface': content_interface}  %}
+            {% set titre = titre | trans %}
+            {# Permet l'ajour de contenu dans l'interface #}
+            {% block contenu %}
+                {{ content_interface }}                
+            {% endblock %}
+        {% endembed %}
+        
+    </div>
+
+{% endblock %}

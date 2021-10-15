@@ -1,0 +1,6 @@
+{#
+    require structure
+#}
+{% for type in structure.types|sortByField('nom') %}
+    <span class="badge badge-primary">{{ type }}</span>
+{% endfor %}

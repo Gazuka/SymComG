@@ -1,0 +1,32 @@
+{#
+    require element (elemOrganisme)
+#}
+
+{# --- Affichage de l'élement --- #}
+
+{% embed 'composants/card/_card.html.twig' with {'element': element} only %}
+        {% set titre = element.organisme %}
+
+        {# Gestion du lien #}
+        {% if element.organisme.getTypeStructure == 'service' %}
+            {% set lienTitre = path('site_service', {'slugservice': element.organisme.structure.slug}) %}
+        {% else %}
+            {% if element.organisme.getTypeStructure == 'association' %}
+                {% set lienTitre = path('site_association', {'slugassociation': element.organisme.structure.slug}) %}
+            {% else %}
+                {% if element.organisme.getTypeStructure == 'entreprise' %}
+                    {# {% set lienTitre =  %} #}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+        
+        {% block contenu %}
+            {# {% include 'entity/organisme/organisme/_mod____organisme____cartevisite.html.twig' with {'organisme': element.organisme, 'titre': element.organisme} only %}         #}
+
+            <div class='col-12 mb-4 text-center'>
+                {% include 'entity/organisme/organisme/_voir____organisme____cartevisite.html.twig' with {'organisme': element.organisme} only %}        
+            </div>
+
+        {% endblock %}
+{% endembed %}

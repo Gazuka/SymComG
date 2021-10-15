@@ -1,0 +1,22 @@
+{#
+    require dossiers
+#}
+<ul>
+    {% for dossier in dossiers %}
+        <li>
+            <a href='{{ path('admin_medias_dossier', {'iddossier': dossier.id}) }}'>
+                {% if dossier == dossierActuel %}
+                    <span class='text-bold text-success'>
+                        <i class="fas fa-folder"></i>&nbsp;<span>{{ dossier.titre }} ({{ dossier.fichiers | length }})</span>
+                    </span>
+                {% else %}
+                    <i class="fas fa-folder"></i>&nbsp;<span>{{ dossier.titre }} ({{ dossier.fichiers | length }})</span>
+                {% endif %}
+            </a>
+            {% if dossier.enfants != null %}
+                {# On affiche l'arborescende des sous dossiers #}
+                {% include 'interfaces/admin/classeur/_arborescence.html.twig' with {'dossiers': dossier.enfants} only %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

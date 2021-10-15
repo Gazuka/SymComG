@@ -1,0 +1,20 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{#
+    require service (Conseil Municipal)
+#}
+
+{% set titre = 'Le Conseil Municipal' %}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}    
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    {# Affichage du module de postes #}
+    {% include 'entity/organisme/organisme/_mod____organisme____conseil_municipal.html.twig' with {'organisme': service.organisme, 'titre': "Bureau"} only %}        
+    
+{% endblock %}

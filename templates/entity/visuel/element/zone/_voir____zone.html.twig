@@ -1,0 +1,18 @@
+{#
+    require element (zone)    
+#}
+
+{% if element.nomClasse == "zone" %}
+    {% set elemZone = element %}
+    <div class='col-{{elemZone.tailleXl}}'>
+    
+            <div class='row'>                
+                
+                    {# Affichage de l'élement #}
+                    {% for elementEnfant in element.elements %}
+                        {% include 'entity/visuel/element/_voir____element.html.twig' with {'element': elementEnfant.element} only %}            
+                    {% endfor %}                    
+                
+            </div>
+    </div>
+{% endif %}

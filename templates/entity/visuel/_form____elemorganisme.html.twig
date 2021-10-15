@@ -1,0 +1,8 @@
+{#
+    require form
+#}
+
+{{ form_start(form) }}
+    {{ form_row(form.organisme) }}
+    {{ 'twig.admin.visuel.formulaires.organisme.form.enregistrer' | trans | BoutonValiderFormulaire }}
+{{ form_end(form) }}

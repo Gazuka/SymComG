@@ -1,0 +1,17 @@
+{#
+    require element (diapo)
+    require visuel
+#}
+
+{% embed 'composants/card/_card.html.twig' with {'visuel': visuel, 'element': element} only %}
+    {% block contenu %}
+        {# Lien pour l'ajout d'un document #}
+        {% for type in element.classeur.getTypesMediasAutorises('elemDiapo') %}
+            {{ path('admin_classeur_ajouter_media', {'typeParent': 'elemDiapo','idparent': element.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }}
+        {% endfor %}
+
+        {# Affichage du classeur #}
+        {% include 'entity/classeur/_mod____classeur____diaporama.html.twig' with {'classeur': element.classeur} only %}        
+        
+    {% endblock %}
+{% endembed %}

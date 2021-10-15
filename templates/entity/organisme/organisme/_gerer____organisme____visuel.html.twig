@@ -1,0 +1,10 @@
+{#
+    require organisme
+#}
+{% if organisme.visuel is empty %}{# Le visuel n'existe pas #}
+    {{ path('admin_organisme_visuel', {'idorganisme': organisme.id}) | BoutonLienSimple('twig.pages.admin.organisme.voir.visuel.ajouter' | trans, 'fa-puzzle-piece', 'warning') }}
+{% else %} {# Le visuel existe #}
+    {# On affiche le module : Visuel #}
+    {% embed 'entity/visuel/visuel/_admin____visuel.html.twig' with {'visuel': organisme.visuel} only %}
+    {% endembed %}
+{% endif %}

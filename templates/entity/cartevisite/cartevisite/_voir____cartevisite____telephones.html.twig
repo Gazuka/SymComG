@@ -1,0 +1,7 @@
+{#
+    require cartevisite
+#}
+
+{% for telephone in cartevisite.telephones %}
+    <div>{% include 'entity/cartevisite/telephone/_voir____telephone.html.twig' with {'telephone': telephone} only %}</div>
+{% endfor %}

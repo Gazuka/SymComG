@@ -1,0 +1,16 @@
+{#
+    require format (bulletin)
+#}
+{% set arrete = format %}
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.arrete.titre' | trans}} {{ arrete.titre }}
+</div>
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.arrete.date' | trans}} {{ arrete.date | date("m/d/Y") }}
+</div>
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.arrete.datedebut' | trans}} {{ arrete.datedebut | date("m/d/Y") }}
+</div>
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.arrete.datefin' | trans}} {{ arrete.datefin | date("m/d/Y") }}
+</div>

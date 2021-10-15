@@ -1,0 +1,9 @@
+{#
+    require element (titre)
+    require visuel
+#}
+{% if element.nomClasse == 'titre' %}
+    --- Element Titre ---
+    {# --- Bouton de modification --- #}
+    {% include 'entity/visuel/element/_admin_btn____element____modifier.html.twig' with {'visuel': visuel, 'element': element} only %}              
+{% endif %}

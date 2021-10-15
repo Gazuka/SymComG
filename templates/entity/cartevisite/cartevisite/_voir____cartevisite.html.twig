@@ -1,0 +1,21 @@
+{#
+    require cartevisite
+#}
+
+{% if (cartevisite.adresses is empty) and (cartevisite.telephones is empty) and (cartevisite.mails is empty) %}
+    {% include 'interfaces/_debug____message.html.twig' with {'message': "Aucun contact direct... Chercher une solution et on affiche le president"} only %}                                    
+{% else %}
+    <div>
+        {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____adresses.html.twig' with {'cartevisite': cartevisite} only %}
+            {# Affichage d'une séparation si nécessaire #}
+            {% if (cartevisite.adresses is not empty) and ((cartevisite.telephones is not empty) or (cartevisite.mails is not empty)) %}
+                <hr/>
+            {% endif %}
+        {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____telephones.html.twig' with {'cartevisite': cartevisite} only %}
+            {# Affichage d'une séparation si nécessaire #}
+            {% if (cartevisite.telephones is not empty) and (cartevisite.mails is not empty) %}
+                <hr/>
+            {% endif %}
+        {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____mails.html.twig' with {'cartevisite': cartevisite} only %}
+    </div>
+{% endif %}

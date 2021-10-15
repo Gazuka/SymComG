@@ -1,0 +1,22 @@
+{#
+    require adresse
+    DEBUG : afficher le privé si autorisation uniquement
+#}
+<span>
+    {% if adresse.prive == false %}
+        {{ adresse.numero }}
+        {{ adresse.rue1 }}
+        {{ adresse.rue2 }}
+        <br/>
+        {{ adresse.codePostal }}
+        {{ adresse.ville }}
+    {% else %}
+        <span class='bg-danger'> 
+            {{ adresse.numero }} 
+            {{ adresse.rue1 }} 
+            {{ adresse.rue2 }} 
+            {{ adresse.codePostal }} 
+            {{ adresse.ville }} 
+        </span>
+    {% endif %}
+</span>

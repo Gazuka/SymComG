@@ -1,0 +1,40 @@
+<div class='row'>
+
+    <div class='col-4'>
+        {# <div class="dropdown-divider"></div> #}
+        <p class='text-center bold'><strong>Culture et découverte</strong></p>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'mediatheque'}) }}">Médiathèque</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'maison-pour-tous'}) }}">Maison pour tous</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'ecole-de-musique'}) }}">Ecole de musique</a>
+        <a class="dropdown-item" href="{{ path('site_associations_types', {'typeRecherche': 'artistique-culturelle'}) }}">Associations</a>
+
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Sport</strong></p>
+        <a class="dropdown-item" href="#">° Equipements sportifs</a>
+        <a class="dropdown-item" href="{{ path('site_associations_types', {'typeRecherche': 'sportive'}) }}">Associations</a>
+
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Quoi faire ?</strong></p>
+        <a class="dropdown-item" href="#">° Agenda</a>
+        
+    </div>
+    <div class='col-4'>
+        {# <div class="dropdown-divider"></div> #}
+        <p class='text-center bold'><strong>Les grands événements</strong></p>
+        <a class="dropdown-item" href="#">° Fête du Nain Gaillou</a>
+        <a class="dropdown-item" href="#">° Festimars</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Nature</strong></p>
+        <a class="dropdown-item" href="#">° Le parc Pécourt</a>
+        <a class="dropdown-item" href="#">° Chemin des galibots</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Vie associative</strong></p>
+        <a class="dropdown-item" href="{{ path('site_associations') }}">Associations</a>
+        <a class="dropdown-item" href="{{ path('site_articles_associations')}}">L'actu des associations</a>
+
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Salles et hébergement</strong></p>
+        <a class="dropdown-item" href="#">° Location de salles</a>
+</div>

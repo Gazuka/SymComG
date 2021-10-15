@@ -1,0 +1,7 @@
+{#
+    require organisme
+#}
+
+{% if organisme.cartevisite is not empty %}
+    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite.html.twig' with {'cartevisite': organisme.cartevisite} only %}                                    
+{% endif %}

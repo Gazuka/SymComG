@@ -1,0 +1,7 @@
+{% for couleur, messages in app.flashes %}
+    {% for message in messages %}
+        {% embed 'composants/card/_card_flash.html.twig' with {'message': message, 'couleur': couleur} only  %}
+            {% set taille = taille(12, 12) %}
+        {% endembed %}    
+    {% endfor %}
+{% endfor %}

@@ -1,0 +1,11 @@
+{#
+    require element (texte)
+    require visuel
+#}
+
+{% embed 'composants/card/_card.html.twig' with {'visuel': visuel, 'element': element} only %}
+    {% block contenu %}
+        {# Affichage de l'élement #}
+        {{ element.html | raw }}
+    {% endblock %}
+{% endembed %}

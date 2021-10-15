@@ -1,0 +1,8 @@
+{# taille Xl #}
+{% if element.tailleXl is defined %}
+    <span class="badge badge-pill badge-warning">
+        <a href="{{ path('admin_visuel_element_modifier_zone_taille', {'idzone': element.id, 'taille': element.tailleXl - 1}) }}" class="badge badge-info"> <i class="fas fa-minus-circle"></i> </a>
+        {{ element.tailleXl }}
+        <a href="{{ path('admin_visuel_element_modifier_zone_taille', {'idzone': element.id, 'taille': element.tailleXl + 1}) }}" class="badge badge-info"> <i class="fas fa-plus-circle"></i> </a>
+    </span>
+{% endif %}

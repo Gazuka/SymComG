@@ -1,0 +1,8 @@
+{#
+    require profil
+#}
+{% for classeur in profil.classeurs %}
+    {% if classeur.type.nom == '#portrait' %}
+        {% include 'entity/classeur/_mod____classeur____diaporama.html.twig' with {'classeur': classeur} only %}    
+    {% endif %}
+{% endfor %}

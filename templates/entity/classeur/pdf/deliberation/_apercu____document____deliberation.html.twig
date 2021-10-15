@@ -1,0 +1,14 @@
+{#
+    require document (deliberation) 
+#}
+
+<div class='row col-12'>
+    <div class='col-2 text-center alert alert-secondary text-danger mb-1'>
+        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+            <i class="far fa-file-pdf display-4"></i>
+        </a>
+    </div>
+    <div class='col-10'>
+        Procès verbal de la réunion du Conseil Municipal du {{ document.media.pdf.deliberation.date | date("m/d/Y") }}
+    </div>
+</div>

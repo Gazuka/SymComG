@@ -1,0 +1,7 @@
+{#
+    Affiche un profil avec le lien vers sa page
+    require profil
+#}
+<a href='{{ path('admin_profil_gerer', {'idprofil': profil.id}) }}'>
+    {{ profil.humain.nom }} {{ profil.humain.prenom}}
+</a>

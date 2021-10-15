@@ -1,0 +1,15 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    form
+#}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.url) }}
+    {{ 'twig.pages.admin.menu.lien.form.enregistrer' | trans | BoutonValiderFormulaire }}
+    {{ form_end(form) }}
+
+{% endblock %}

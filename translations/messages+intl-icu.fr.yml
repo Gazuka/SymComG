@@ -1,0 +1,225 @@
+# ================================================================
+# === CONTROLLERS - AdminProfilController
+admin.profil.creer.titre: "Création d'un nouveau profil"
+admin.profil.form.flash.success: 'Le profil a bien été enregistré !'
+admin.profil.gerer.titre: 'Gestion du profil :'
+admin.profil.interface.titre: 'Gestion des profils'
+admin.profils.gerer.titre: 'Liste des profils :'
+# ================================================================
+# === FORMULAIRES - Humain
+form.humain.nom: 'Nom :'
+form.humain.prenom: 'Prénom :'
+form.humain.sexe: 'Sexe :'
+form.humain.sexe.null: '---'
+form.humain.sexe.homme: 'Homme'
+form.humain.sexe.femme: 'Femme'
+# ================================================================
+# === TWIG - Organisme
+twig.admin.organisme.redi.structure.choisir.intro: 'Veuillez choisir un type de structure :'
+twig.pages.admin.organisme.voir.liens: 'Liens'
+# ================================================================
+# === TWIG - Profil
+twig.admin.organisme.voir.poste.ajouter: 'Ajouter un nouveau poste'
+twig.admin.poste.partials.gerer.profil.ajouter: 'Assigner une personne à ce poste'
+twig.pages.admin.poste.gerer.cartevisite.ajouter: 'Ajouter une carte de visite à ce poste'
+# ================================================================
+# === TWIG - Profil
+twig.admin.profil.form.enregistrer: 'Enregistrer'
+twig.admin.profil.interface.nbr.profils: >-
+    {nbrProfils, plural,
+        zero {aucun profil}
+        one {# profil}
+        other {# profils}
+    }
+twig.admin.profil.interface.menu.profil.creer: 'Créer un nouveau profil'
+#=================================================================
+site.header.menu.activiteetloisirs: 'Activités et loisirs'
+site.header.menu.demarchesetservices: 'Démarches et services'
+site.header.menu.viemunicipale: 'Vie municipale'
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+# Admin Controller
+admin.accueil.titre: "Tableau de bord"
+# Admin CarteVisite Controller
+admin.cartevisite.choisir.adresse: "Adresse"
+admin.cartevisite.choisir.mail: "E-mail"
+admin.cartevisite.choisir.telephone: "Téléphone"
+admin.cartevisite.choisir.facebook: "Facebook"
+admin.cartevisite.contact.choisir: "Veuillez choisir le type de contact :"
+admin.cartevisite.creer.flash.success.adresse: "L'adresse est bien enregistrée !"
+admin.cartevisite.creer.flash.success.telephone: "Le numéro de téléphone est bien enregistré !"
+admin.cartevisite.creer.flash.success.mail: "L'adresse e-mail est bien enregistrée !"
+admin.cartevisite.creer.titre.adresse: "Ajouter une adresse"
+admin.cartevisite.creer.titre.mail: "Ajout d'un numéro d'une adresse e-mail"
+admin.cartevisite.creer.titre.telephone: "Ajout d'un numéro de téléphone"
+admin.cartevisite.contacts.choisir: "Veuillez choisir le type de contact :"
+admin.cartevisite.form.flash.success.telephone: "Le numéro de téléphone est bien enregistré !"
+admin.cartevisite.form.flash.success.adresse: "L'adresse est bien enregistrée !"
+admin.cartevisite.form.flash.success.mail: "L'e-mail est bien enregistré !"
+admin.cartevisite.form.flash.success.facebook: "La page Facebook est bien enregistrée !"
+admin.cartevisite.telephone.supprimer.flash.success: "Le numéro de téléphone a bien été supprimé !"
+# Admin Media Controller
+admin.medias.media.voir.titre: "Configuration du média"
+admin.media.add.format.form.flash.success.affiche: "L'affiche est bien configurée !"
+admin.medias.choisir.affiche: "C'est une affiche !"
+admin.medias.choisir.photo: "C'est une photo !"
+admin.medias.choisir.bulletin: "C'est un bulletin municipal !"
+admin.medias.choisir.deliberation: "C'est une délibération !"
+admin.medias.choisir.arrete: "C'est un arrêté municipal !"
+admin.medias.scan.depot.info: >-
+    {nbrNouveauxFichiers, plural,
+        one {# nouveau fichier a été détecté, n'oubliez pas de le traiter !}
+        other {# nouveaux fichiers ont été détectés, n'oubliez pas de les traiter !}
+    }
+admin.medias.interface.titre: "Gestion des médias"
+admin.medias.gerer.titre: "Accueil"
+admin.medias.dossier.creer.flash.success: "Le dossier {titre} a bien été créé !"
+admin.medias.orphelins.gerer.titre: "Gestion des fichiers à trier"
+dossier.depot.descriptif: "Dossier permettant le dépot de fichiers qui ne sont pas encore traités."
+dossier.triage.descriptif: "Dossier de transit pour les nouveaux fichier à traiter."
+admin.medias.fichiers.orphelins.gerer.titre: "Ces fichiers viennent d'être traités :"
+admin.medias.afficher.dossier.titre: "Contenu du dossier :"
+admin.organisme.ajout.media.association_profil: "Ajouter un photo de présentation"
+admin.organisme.ajout.media.association_plaquette: "Ajouter une plaquette de présentation"
+# Admin Organisme Controller
+admin.organisme.choisir.association: "Association"
+admin.organisme.choisir.service: "Service"
+admin.organisme.choisir.entreprise: "Entreprise"
+admin.organisme.creer.titre.association: "Création d'une nouvelle association"
+admin.organisme.creer.titre.service: "Création d'un nouveau service"
+admin.organisme.creer.titre.entreprise: "Création d'une nouvelle entreprise"
+admin.organisme.form.flash.success.association: "L'association est bien enregistrée !"
+admin.organisme.form.flash.success.service: "Le service est bien enregistré !"
+admin.organisme.form.flash.success.entreprise: "L'entreprise est bien enregistrée !"
+admin.organisme.editer.titre.association: "Modification d'une association"
+admin.organisme.editer.titre.service: "Modification d'un service"
+admin.organisme.editer.titre.entreprise: "Modification d'une entreprise"
+admin.organisme.voir.titre.association: "Administration d'une association"
+admin.organisme.voir.titre.service: "Administration d'un service"
+admin.organisme.voir.titre.entreprise: "Administration d'une entreprise"
+admin.organisme.supprimer.flash.success: "Cette structure a bien été supprimé !"
+admin.organisme.structures.choisir: "Veuillez choisir le type de structure :"
+admin.organisme.structures.voir.titre.association: "Listing des associations"
+admin.organisme.structures.voir.titre.service: "Listing des services"
+admin.organisme.structures.voir.titre.entreprise: "Listing des entreprises"
+form.adresse.numero: "Numéro :"
+form.adresse.rue1: "Libellé de la voie :"
+form.adresse.rue2: "libellé de la voie (2) :"
+form.adresse.codePostal: "Code Postal :"
+form.adresse.ville: "Ville :"
+form.association.sigle: "Sigle :"
+form.contact.prive: "Ce contact est privé"
+form.structure.local: "Cette structure est Guesninoise"
+form.structure.nom: "Nom complet :"
+form.structure.presentation: "Présentation :"
+form.telephone.nom: "Libellé du numéro :"
+form.telephone.numero: "Numéro :"
+form.mail.courriel: "Adresse e-mail :"
+form.affiche.date: "Date de l'évènement :"
+form.affiche.datefin: "Date de fin de l'évènement (facultatif) :"
+form.image.alt: "Descriptif de l'image :"
+form.photo.date: "Date de la prise de vue (facultatif) :"
+form.pdf.bulletin.date: "Date de publication :"
+form.pdf.bulletin.titre: "Titre du bulletin municipal :"
+form.pdf.bulletin.periode: "N° et période de couverture"
+form.pdf.arrete.date: "Date de signature de l'arrêté :"
+form.pdf.arrete.datedebut: "Date de début de validité :"
+form.pdf.arrete.datefin: "Date de fin de validité :"
+form.pdf.arrete.titre: "Titre :"
+#################
+# TWIG !!!!!!!!!!
+#################
+twig.pages.admin.organisme.voir.classeur: "Classeurs"
+twig.pages.admin.organisme.voir.classeur.ajouter: "Ajouter un classeur"
+twig.bouton.editer: "Modifier"
+twig.bouton.supprimer: "Supprimer"
+twig.bouton.supprimer.alerte: "Attention, suppression définitive !"
+twig.bouton.supprimer.alerte.finale: "Dernière chance, êtes-vous bien certain de vouloir supprimer ?"
+# Twig Media Admin
+twig.page.admin.media.nbr.dossiers: >-
+    {nbrDossiers, plural,
+        =0 {Aucun dossier}
+        one {# dossier}
+        other {# dossiers}
+    }
+twig.page.admin.media.nbr.documents: >-
+    {nbrDocuments, plural,
+        =0 {Aucun document}
+        one {# document}
+        other {# documents}
+    }
+twig.page.admin.media.nbr.orphelins: >-
+    {nbrOrphelins, plural,
+        =0 {Aucun média à traiter}
+        one {1 média à traiter}
+        other {# médias à traiter}
+    }
+twig.page.admin.media.nbr.detectes: >-
+    {nbrDetectes, plural,
+        =0 {Aucun nouveau fichier}
+        one {1 nouveau fichier}
+        other {# nouveaux fichiers}
+    }
+# Twig Pages Admin
+twig.pages.admin.media.document.voir.info.nbrclasseurs: >-
+    {nbrClasseurs, plural,
+        =0 {Ce document ne se trouve dans aucun classeur}
+        one {Ce document est utilisé dans 1 classeur}
+        other {Ce document est utilisé dans # classeurs}
+    }
+twig.partials.admin.modules.media.info.pdf.bulletin.date: "Date de publication : "
+twig.partials.admin.modules.media.info.pdf.bulletin.titre: "Titre : "
+twig.partials.admin.modules.media.info.pdf.bulletin.periode: "Période : "
+twig.partials.admin.modules.media.info.pdf.deliberation.date: "Date du conseil municipal : "
+twig.partials.admin.modules.media.info.image.alt: "Descriptif de l'image : "
+twig.partials.admin.modules.media.info.affiche.date: "Date : "
+twig.partials.admin.modules.media.info.affiche.datefin: "Date de fin : "
+twig.partials.admin.modules.media.info.photo.date: "Date de prise de vue : "
+twig.pages.admin.media.info.image.affiche: "Cette image est une affiche."
+twig.pages.admin.media.info.image.photo: "Cette image est une photo."
+twig.pages.admin.media.info.pdf.arrete: "Ce fichier pdf est un arrêté municipal."
+twig.pages.admin.media.info.pdf.bulletin: "Ce fichier pdf est un bulletin municipal."
+twig.pages.admin.media.form.enregistrer: "Enregistrer"
+twig.page.admin.choisir: "Veuillez choisir un type dans la liste suivante :"
+twig.page.admin.choisir.telephone: "Téléphone"
+twig.partials.admin.modules.media.info.pdf.arrete.titre: "Titre :"
+twig.partials.admin.modules.media.info.pdf.arrete.date: "Date de signature :"
+twig.partials.admin.modules.media.info.pdf.arrete.datedebut: "Début de validité :"
+twig.partials.admin.modules.media.info.pdf.arrete.datefin: "Fin de validité :"
+# Twig Pages Admin CarteVisite Form
+# Twig > Pages > Admin > Organismes > Structures > Voir
+twig.pages.admin.cartevisite.form.enregistrer: "Enregistrer"
+twig.pages.admin.cartevisite.form.titre.telephone: "Formulaire de contact : Téléphone"
+twig.pages.admin.cartevisite.form.titre.adresse: "Formulaire de contact : Adresse"
+twig.pages.admin.cartevisite.form.titre.mail: "Formulaire de contact : E-mail"
+twig.pages.admin.organisme.form.titre.association: "Formulaire d'association"
+twig.pages.admin.organisme.form.titre.entreprise: "Formulaire d'entreprise"
+twig.pages.admin.organisme.form.titre.service: "Formulaire de service"
+twig.pages.admin.organisme.voir.cartevisite: "Carte de visite"
+twig.pages.admin.organisme.structures.voir.colonne.nom: "Nom"
+twig.pages.admin.organisme.structures.voir.colonne.descriptif: "Description"
+twig.pages.admin.organisme.structures.voir.colonne.local: "Localisation"
+twig.pages.admin.organisme.structures.voir.colonne.actions: "Actions"
+twig.pages.admin.organisme.structures.voir.local.oui: "Guesninois(e)"
+twig.pages.admin.organisme.structures.voir.local.non: "Extérieur(e)"
+twig.pages.admin.organisme.form.enregistrer: "Enregistrer"
+twig.pages.admin.organisme.voir.cartevisite.ajouter: "Ajouter une carte de visite"
+twig.partials.admin.modules.cartevisite.ajouter: "Ajouter un contact"
+######################################################
+# A refaire
+# admin.entity.service.descriptif: "description"
+# admin.entity.service.local: "Est Guesninoise ?"
+# admin.entity.service.nom: "nom"
+# admin.twig.formulaire.enregistrer: "enregistrer"
+# admin.organisme.twig.action: "action"
+# admin.organisme.twig.actions: "actions"
+# admin.organisme.twig.services.denombrer: "Nombre de structures trouvées :"
+
+# admin.organisme.twig.structure.base: "informations générales"

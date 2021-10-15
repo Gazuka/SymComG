@@ -1,0 +1,7 @@
+{#
+    require support
+#}
+
+{% include 'entity/classeur/media/_voir____media____info_support.html.twig' with {'media': support.media} only %}
+<hr/>
+{% include 'entity/classeur/' ~ support.media.supportName ~ '/' ~ support.formatName ~ '/_info____format____' ~ support.formatName ~ '.html.twig' with {'format': support.format} only %}

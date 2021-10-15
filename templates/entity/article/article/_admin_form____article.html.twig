@@ -1,0 +1,10 @@
+{#
+    require form
+#}
+
+{{ form_start(form) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.dateDebutPublication) }}
+    {{ form_row(form.dateFinPublication) }}
+    {{ 'twig.admin.article.form.enregistrer' | trans | BoutonValiderFormulaire }}
+{{ form_end(form) }}

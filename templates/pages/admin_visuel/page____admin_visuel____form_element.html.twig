@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require form
+    require elementName
+#}
+
+{% block content %}
+
+    {# Affichage d'une card avec le formulaire #}
+    {% embed 'composants/card/_card.html.twig' with {'form': form, 'elementName': elementName} only %}
+        {# {% set titre = ('twig.pages.admin.organisme.form.titre.' ~ typeOrganisme) | trans %} #}
+        {% block contenu %}
+
+            {# Affichage du formulaire #}
+            {% include 'entity/visuel/_form____' ~ elementName ~ '.html.twig' with {'form': form, 'elementName': elementName} only %}
+
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

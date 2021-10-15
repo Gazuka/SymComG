@@ -1,0 +1,15 @@
+{#
+    require visuel
+    require element 
+#}
+
+{% if element.tailleXl is defined %}
+    <div class='col-{{ element.tailleXl }} p-3'>
+{% else %}
+    <div class='col-12 p-3'>
+{% endif %}
+    {# Zone de configuration haute #}
+    {% include 'entity/visuel/element/_admin_mod____element____zone_de_controle_haute.html.twig' with {'element': element, 'visuel': visuel} only %}
+    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_admin____element_' ~ element.nomClasse ~ '.html.twig' with {'visuel': visuel, 'element': element} only %}
+    {% include 'entity/visuel/element/_admin_mod____element____zone_de_controle_basse.html.twig' with {'element': element, 'visuel': visuel} only %}
+</div>

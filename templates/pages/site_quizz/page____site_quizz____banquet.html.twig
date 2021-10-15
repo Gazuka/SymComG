@@ -1,0 +1,26 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = "Formulaire d'inscription au Banquet des aînés" %}
+{#
+    require 
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}    
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+    {% if accuseDeReception is not defined %}
+        <div class='col-12'>
+            {% include 'interfaces/formulaires/quizz/_form____quizz____quizzBanquet.html.twig' with {'form': form} only %}
+        </div>
+    {% else %}
+        <div class='col-12'><p class='text-center'>
+            Votre préinscription est bien enregistrée sous le n°{{ accuseDeReception.id }}. Elle concerne {{ accuseDeReception.prenom }} {{ accuseDeReception.nom }}{% if accuseDeReception.prenom2 is not empty and accuseDeReception.nom2 is not empty %} et {{ accuseDeReception.prenom2 }} {{ accuseDeReception.nom2 }}{% endif %}.            
+        </p></div>
+        <div class='col-12'><p class='text-center'><a href='{{ path('site_accueil') }}'>Retour à l'accueil du site</a></p></div>
+    {% endif %}
+    
+{% endblock %}

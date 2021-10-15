@@ -1,0 +1,11 @@
+{#
+    require articles 
+#}
+
+<div class='row'>
+    
+    {% for article in articles %}
+        {% include 'entity/article/article/_mod____article____actualite.html.twig' with {'article': article} only %}
+    {% endfor %}    
+
+</div>

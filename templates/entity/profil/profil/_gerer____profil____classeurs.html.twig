@@ -1,0 +1,15 @@
+{#
+    require profil
+    require ajout_media
+#}
+{# Lien pour l'ajout d'un document #}
+{% for type in ajout_media %}
+    {{ path('admin_profil_ajouter_media', {'idprofil': profil.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }}
+{% endfor %}
+{# Affichage des classeurs existants #}
+{% for classeur in profil.classeurs %}
+    <div>
+        {{ classeur.id }} - {{ classeur.titre }}<br/>
+        {{ classeur.documents | length }} documents
+    </div>
+{% endfor %}

@@ -1,0 +1,29 @@
+{#
+    require element (zone)
+    require visuel
+#}
+
+{% if element.nomClasse == "zone" %}
+    
+    <div class='border border-info'>
+        <div class='row'>
+            {# Affichage de l'élement #}
+            {% for elementEnfant in element.elements %}
+                {% include 'entity/visuel/element/_admin____element.html.twig' with {'visuel': visuel, 'element': elementEnfant.element} only %}            
+            {% endfor %}    
+        </div>
+    </div>
+    
+            
+
+        {# {% embed 'composants/card/_card.html.twig' with {'visuel': visuel, 'element': element} only %}
+            {% block contenu %}
+                Affichage de l'élement
+                {% for elementEnfant in element.elements %}
+                    {{ dump(elementEnfant) }}
+                    {% include 'entity/visuel/element/_admin____element.html.twig' with {'visuel': visuel, 'element': elementEnfant.element} only %}            
+                {% endfor %}    
+            {% endblock %}
+        {% endembed %}         #}
+               
+{% endif %}

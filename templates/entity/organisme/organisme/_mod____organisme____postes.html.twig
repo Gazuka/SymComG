@@ -1,0 +1,13 @@
+{#
+    require organisme
+    require titre
+
+    Si des postes existent, on les affiches
+#}
+{% if organisme.postes is not empty %}
+    {# On affiche le module #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+    <div class='col-12 mb-4 text-center'>
+        {% include 'entity/organisme/organisme/_voir____organisme____postes.html.twig' with {'organisme': organisme} only %}        
+    </div>    
+{% endif %}

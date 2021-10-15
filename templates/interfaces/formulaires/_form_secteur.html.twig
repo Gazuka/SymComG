@@ -1,0 +1,10 @@
+{#
+    require form
+#}
+{{ form_start(form) }}
+
+    {{ form_row(form.titre) }}
+
+    {{ 'admin.twig.formulaire.enregistrer' | trans | capitalize | BoutonValiderFormulaire }}
+
+{{ form_end(form) }}

@@ -1,0 +1,7 @@
+{#
+    require poste
+#}
+
+{% if poste.fonction is not empty %}
+    {% include 'entity/poste/fonction/_voir____fonction.html.twig' with {'poste': poste} only %}    
+{% endif %}

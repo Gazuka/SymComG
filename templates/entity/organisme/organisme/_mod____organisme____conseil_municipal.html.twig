@@ -1,0 +1,132 @@
+{#
+    require organisme (Service : Conseil Municipal)
+    
+#}
+
+<div class='col-12'>
+    <div class='row'>
+        {% for poste in organisme.postes %}
+            
+            {% for profil in poste.profils %}
+                
+                <div class='col-12'>            
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                {% include 'entity/profil/profil/_voir____profil____portrait.html.twig' with {'profil': profil} only %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class='row'>
+                                        <div class='col-6'>
+                                            <h5 class="card-title">
+                                                {# Affichage du profil #}
+                                                {% include 'entity/profil/profil/_voir____profil____humain.html.twig' with {'profil': profil} only %}                                        
+                                            </h5>
+                                        </div>
+                                        <div class='col-6 text-right'>
+                                            <span class='font-weight-lighter'>
+                                                <a href='{{ path('site_courrier', {'idprofil': profil.id}) }}'>
+                                                    <i class="far fa-envelope"></i> Envoyer un message
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="card-text">
+                                        {# Affichage du titre de la fonction #}
+                                        <span class='font-weight-bold'>
+                                            {% if profil.humain.sexe == 'f' %}
+                                                {{ poste.fonction.titreFeminin}}
+                                            {% else %}
+                                                {{ poste.fonction.titre}}
+                                            {% endif %}
+                                        </span>
+                                        {# Affichage des délégations #}
+                                        {% if profil.commissionDeleguee != null %}
+                                            {% for commission in profil.commissionDeleguee %}
+                                                <p>
+                                                    {% if profil.humain.sexe == 'f' %}
+                                                        Déléguée aux affaires ayant trait
+                                                    {% else %}
+                                                        Délégué aux affaires ayant trait
+                                                    {% endif %}
+                                                    <!-- Button trigger modal -->
+                                                    <a type="button" class='font-weight-bold text-info' data-bs-toggle="modal" data-bs-target="#Modal{{ commission.id }}">
+                                                        {{ commission.titreLong }} <i class="far fa-comment-dots"></i>
+                                                    </a>
+                                                </p>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="Modal{{ commission.id }}" tabindex="-1" aria-labelledby="{{commission.titreCourt}}" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                                    <i class="far fa-comment-dots"></i>
+                                                                    Membres de la commission : {{commission.titreCourt}}
+                                                                </h5>                                                                
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class='font-weight-bold text-center'>
+                                                                    {% include 'entity/Profil/Profil/_voir____profil____humain.html.twig' with {'profil': commission.chef} only %}
+                                                                </div>
+                                                                <div class='text-center'>
+                                                                    {% for membre in commission.membres %}
+                                                                        <div>
+                                                                            {% include 'entity/Profil/Profil/_voir____profil____humain.html.twig' with {'profil': membre} only %}
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>                                                                
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                            {% endfor %}
+                                        {% endif %}
+                                        {# Affichage des commissions #}
+                                        {% if profil.comissions | length > 0 %}
+                                            {% set ccas = null %}
+                                            <p>
+                                                Membre des commissions : 
+                                                {% for commission in profil.comissions %}
+                                                    {% if commission.titreCourt != 'social' %}
+                                                        <a type="button" class='font-weight-bold text-info' data-bs-toggle="modal" data-bs-target="#Modal{{ commission.id }}">
+                                                            {{ commission.titreCourt }} <i class="far fa-comment-dots"></i>
+                                                        </a>{% if loop.last == false %},{% endif %}
+                                                    {% else %}    
+                                                        {% set ccas = commission %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </p>
+                                            {% if ccas is not null %}
+                                                <p>
+                                                    Membre du Conseil d'administration du 
+                                                    <a type="button" class='font-weight-bold text-info' data-bs-toggle="modal" data-bs-target="#Modal1">
+                                                        Centre Communal d'Action Sociale <i class="far fa-comment-dots"></i>
+                                                    </a>
+                                                </p>
+                                            {% endif %}
+                                        {% endif %}
+                                    </p>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            
+        {% endfor %}
+
+
+        
+
+
+
+                                            
+    </div>    
+</div>

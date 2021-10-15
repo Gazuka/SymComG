@@ -1,0 +1,43 @@
+{#
+    require poste
+#}
+{% embed 'composants/card/_card.html.twig' with {'poste': poste} only %}
+    {% set titre = poste.fonction %}
+    {% block contenu %}
+
+        <div class='{{ taille(6,12) }}'>
+        
+            {# --- Affichage des personnes assignées au poste --- #}
+            {% if poste.profils | length > 0 %}
+                <ul class='list-group list-group-flush'>
+                    {% for profil in poste.profils %}
+                        <li class='list-group-item'>                                
+                            {# --- Affichage du profil --- #}
+                            {% include 'entity/profil/profil/_lien____profil____gerer.html.twig' with {'profil': profil} only %}
+                            {# --- Affichage simplifié de la carte de visite --- #}
+                            {% if profil.carteVisite != null %}
+                                &nbsp;{% include 'entity/cartevisite/cartevisite/_mod____cartevisite____denombrement_contacts.html.twig' with {'cartevisite': profil.carteVisite} only %}
+                            {% endif %}                                
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        </div>
+        <div class='{{ taille(6,12) }}'>
+            
+            {# --- Affichage de la carte de visite du poste --- #}
+            {% embed 'composants/card/_card.html.twig' with {'poste': poste} only %}
+                {% block contenu %}
+                    {# Gestion de la carte de visite #}
+                    {% include 'entity/poste/poste/_param____poste____cartevisite_gerer.html.twig' with {'poste': poste} only %}
+                {% endblock %}
+            {% endembed %}
+
+        </div>
+
+        {# --- Affichage d'un bouton pour assigner une personne au poste --- #}
+        {{ path('admin_poste_joindre_profil', {'idposte': poste.id}) | BoutonLienSimple('twig.admin.poste.partials.gerer.profil.ajouter' | trans, 'fa-add', 'warning') }}
+
+    {% endblock %}
+{% endembed %}

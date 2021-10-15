@@ -1,0 +1,17 @@
+{# {% extends 'admin/classeur/classeur_interface/_interface_choix.html.twig' %} #}
+{% extends 'interfaces/admin/classeur/_interface.html.twig' %}
+{#
+    require classeur
+#}
+{% block content_interface %}
+
+    {% if app.session.get('configJoindreMedia') is not empty %}
+        DEBUG : TRAD : Vous pouvez choisir l'un de ces format pour insertion :
+        <ul>
+            {% for mediaAutorise in app.session.get('configJoindreMedia')['mediasAutorises']['formats'] %}
+                <li>{{ mediaAutorise }}</li>                                    
+            {% endfor %}
+        </ul>
+    {% endif %}
+        
+{% endblock %}

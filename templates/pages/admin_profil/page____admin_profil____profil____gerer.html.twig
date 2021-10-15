@@ -1,0 +1,74 @@
+{% extends 'entity/profil/profil/_int____profil.html.twig' %}
+
+{#
+    require profils
+    require profil
+    require ajout_media
+#}
+
+{% block content_interface %}
+    
+    {# Affichage d'un bouton si nous sommes dans l'attente d'un choix de profil #}
+    {% include 'entity/profil/profil/_btn____profil____joindre_poste.html.twig' with {'profil': profil} only %}
+    
+    {# Affichage du nom complet de l'humain #}
+    {% embed 'composants/card/_card.html.twig' with {'profil': profil} only %}
+        {% set taille = taille(12,12) %}
+        {% block contenu %}
+
+            <div class='col-12 font-weight-bolder text-center'>{% include 'entity/profil/profil/_lien____profil____gerer.html.twig' with {'profil': profil} only %}</div>
+    
+        {% endblock %}
+    {% endembed %}
+
+        
+    
+    {# <div class='row'> #}
+        {# Affichage de la carte de visite #}
+        {% embed 'composants/card/_card.html.twig' with {'profil': profil} only %}
+            {% set taille = taille(6,12) %}
+            {% set titre = 'TRAD : Carte de visite' %}
+            {% block contenu %}
+
+                {# --- Affichage de la carte de visite --- #}            
+                {% include 'entity/profil/profil/_param____profil____carte_de_visite____gerer.html.twig' with {'profil': profil} only %}
+        
+            {% endblock %}
+        {% endembed %}
+
+        {# --- Affichage des postes --- #}
+        {% embed 'composants/card/_card.html.twig' with {'profil': profil} only %}
+            {% set taille = taille(6,12) %}
+            {% set titre = 'TRAD : Postes' %}
+            {% block contenu %}
+
+                {# --- Insertion des postes --- #}
+                {% if profil.postes | length > 0 %}
+                    <ul class='list-group list-group-flush'>
+                        {% for poste in profil.postes %}
+                            <li class='list-group-item'> 
+                                {% include 'entity/poste/poste/_param____poste____fonction____titre_etendu.html.twig' with {'poste': poste, 'sexe': profil.humain.sexe} only %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                {% endif %}
+        
+            {% endblock %}
+        {% endembed %}
+
+        {# Affichage d'une Card pour le module : Classeur #}
+        {% embed 'composants/card/_card.html.twig' with {'profil': profil, 'ajout_media': ajout_media} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.profil.voir.classeur' | trans) %}
+            {% block contenu %} 
+
+                {# Gestion des classeurs #}                
+                {% include 'entity/profil/profil/_gerer____profil____classeurs.html.twig' with {'profil': profil, 'ajout_media': ajout_media} only %}
+
+            {% endblock %}
+        {% endembed %}
+
+    {# </div> #}
+        
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet l'affichage de l'ensemble des articles
+    require articles
+#}
+
+{% block content %}
+
+    {# Affichage d'une card tableau avec les articles #}
+    {% embed 'composants/card/_card_table.html.twig' with {'articles': articles} only %}
+        {% set nomColonnes = ['#', 'TRAD: titre' | capitalize, 'TRAD: actions' | capitalize] %}
+        {% set tbody %}
+
+            {# Affichage du tableau des articles #}
+            {% include 'entity/article/article/_admin_table____articles.html.twig' with {'articles': articles} only %}
+
+        {% endset %}       
+    {% endembed %}
+
+{% endblock %}

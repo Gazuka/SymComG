@@ -1,0 +1,24 @@
+{#
+    require element
+    require visuel
+#}
+
+{% if element.nomClasse == 'zone' %}
+    {% set couleur = 'info' %}
+{% else %}
+    {% set couleur = 'secondary' %}
+{% endif %}
+
+<div class='text-right border border-{{ couleur }} bg-{{ couleur }} text-white pr-1'>
+    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_admin_mod____element_' ~ element.nomClasse ~ '____zone_de_controle_haute.html.twig' with {'element': element, 'visuel': visuel} only %}
+    
+    {# position #}
+    <span class="badge badge-pill badge-warning">
+        <a href="{{ path('admin_visuel_element_modifier_position', {'idelemx': element.elemX.id, 'signe': 'moins'}) }}" class="badge badge-info"> <i class="fas fa-angle-up"></i> </a>
+        {{ element.elemX.position }}
+        <a href="{{ path('admin_visuel_element_modifier_position', {'idelemx': element.elemX.id, 'signe': 'plus'}) }}" class="badge badge-info"> <i class="fas fa-angle-down"></i> </a>
+    </span>
+    
+    {# suppression #}
+    {% include 'entity/visuel/element/_admin_btn____element____supprimer.html.twig' with {'elemX': element.elemX} only %}
+</div>

@@ -1,0 +1,149 @@
+{# <div class='row'>
+
+    <div>
+        <p class='text-center bold'><strong>Service public</strong></p>
+        <a class="dropdown-item" href="#">° Droits et démarches</a>
+        <a class="dropdown-item" href="#">° Annuaire</a>
+        
+        <p class='text-center bold'><strong>Etat civil</strong></p>
+        <a class="dropdown-item" href="#">° Carte d'identité / Passeports</a>
+        <a class="dropdown-item" href="#">° Mariage / Pacs</a>
+        <a class="dropdown-item" href="#">° Recensement</a>
+        <a class="dropdown-item" href="#">° Cimetières</a>
+
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Enfants</strong></p>        
+        <a class="dropdown-item" href="#">° Relais d'assistantes maternelles</a>
+        <a class="dropdown-item" href="#">° Ecole</a>
+        <a class="dropdown-item" href="#">° Service jeunesse</a>
+        <a class="dropdown-item" href="#">° Centre de loisirs</a>
+        <a class="dropdown-item" href="#">° Restauration scolaire</a>
+                
+    </div>
+    <div>
+        <p class='text-center bold'><strong>Santé</strong></p>
+        <a class="dropdown-item" href="#">° Annuaire</a>
+        <a class="dropdown-item" href="#">° Personnes vulnérables</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Aides</strong></p>
+        <a class="dropdown-item" href="#">° CCAS</a>
+        <a class="dropdown-item" href="#">° UTPAS</a>
+        <a class="dropdown-item" href="#">° Episol 59</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Déplacement</strong></p>
+        <a class="dropdown-item" href="#">° Transport en commun</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Emploi</strong></p>
+        <a class="dropdown-item" href="#">° Accompagnement à l'emploi</a>
+        <a class="dropdown-item" href="#">° Proposer ma candidature</a>
+        <a class="dropdown-item" href="#">° Chantier d'insertion</a>
+
+    </div>
+    <div>
+
+        <p class='text-center bold'><strong>Sécurité et prévention</strong></p>
+        <a class="dropdown-item" href="#">° Police</a>
+        <a class="dropdown-item" href="#">° Prévention</a>        
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Environnement</strong></p>
+        <a class="dropdown-item" href="#">° Eau potable</a>
+        <a class="dropdown-item" href="#">° Les déchets</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Vie économique</strong></p>
+        <a class="dropdown-item" href="#">° Marché</a>
+        <a class="dropdown-item" href="#">° Commerçants</a>
+        <a class="dropdown-item" href="#">° Artisans</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Numérique</strong></p>
+        <a class="dropdown-item" href="#">° Points d'accès</a>
+        <a class="dropdown-item" href="#">° Ateliers</a>
+</div>
+<br/><br/><br/> #}
+<div class='row'>
+{# <div style='column-count:3'> #}
+
+    <div class='col-4'>
+        <p class='text-center bold'><strong>Service public</strong></p>
+        <a class="dropdown-item" href="https://www.service-public.fr/" target="_blank"><i class="fas fa-external-link-alt"></i> Droits et démarches</a>
+        <a class="dropdown-item" href="{{ path('site_annuaire', {'typestructure': 'service'}) }}">Annuaire</a>
+        <div class="dropdown-divider"></div>
+      
+        <p class='text-center bold'><strong>Etat civil</strong></p>
+        <a class="dropdown-item" href="https://www.service-public.fr/particuliers/vosdroits/N358" target="_blank"><i class="fas fa-external-link-alt"></i> Carte d'identité / Passeports</a>
+        <a class="dropdown-item" href="https://www.service-public.fr/particuliers/vosdroits/N142" target="_blank"><i class="fas fa-external-link-alt"></i> Mariage / Pacs</a>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 7}) }}">Recensement</a>
+        <a class="dropdown-item" href="#">° Cimetières</a>
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Enfants</strong></p>        
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'relais-d-assistantes-maternelles'}) }}">Relais d'assistantes maternelles</a>
+        <a class="dropdown-item" href="#">° Ecole</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'service-jeunesse'}) }}">Service jeunesse</a>
+        {# <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'service-jeunesse'}) }}">* Centre de loisirs</a> #}
+        {# <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'service-jeunesse'}) }}">* Restauration scolaire</a> #}
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Séniors</strong></p>        
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'foyer-logement-les-jours-heureux'}) }}">Foyer logement "Les jours heureux"</a>        
+        <div class="dropdown-divider"></div>
+    </div>
+
+    <div class='col-4'>
+        <p class='text-center bold'><strong>Santé</strong></p>
+        <a class="dropdown-item" href="{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}">Annuaire</a>
+        <a class="dropdown-item" href="#">° Personnes vulnérables</a>
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Aides</strong></p>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'centre-communal-d-action-sociale-c-c-a-s'}) }}">CCAS</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'unite-territoriale-de-prevention-et-d-action-sociale-utpas'}) }}">UTPAS</a>
+        <a class="dropdown-item" href="{{ path('site_association', {'slugassociation': 'episol-59'}) }}">Episol 59</a>
+        <a class="dropdown-item" href="#">° Secours populaire</a>
+        <a class="dropdown-item" href="#">° Restos du coeur</a>
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Déplacement</strong></p>
+        <a class="dropdown-item" href="#">° Transport en commun</a>
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Emploi</strong></p>
+        <a class="dropdown-item" href="#">° Accompagnement à l'emploi</a>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 12}) }}">Proposer ma candidature</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'maison-pour-tous'}) }}">* Chantier d'insertion</a>
+        <div class="dropdown-divider"></div>
+
+        {# <p class='text-center bold'><strong>Artisant / Commerçants</strong></p>
+        <a class="dropdown-item" href="{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}">Annuaire</a>
+        <div class="dropdown-divider"></div> #}
+    </div>
+    <div class='col-3'>
+        <p class='text-center bold'><strong>Sécurité et prévention</strong></p>
+        <a class="dropdown-item" href="#">° Police</a>
+        <a class="dropdown-item" href="#">° Prévention</a>        
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Environnement</strong></p>
+        <a class="dropdown-item" href="#">° Eau potable</a>
+        <a class="dropdown-item" href="#">° Les déchets</a>
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Vie économique</strong></p>
+        <a class="dropdown-item" href="#">° Marché</a>
+        <a class="dropdown-item" href="{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}">Artisans / Commerçants</a>
+        {# <a class="dropdown-item" href="#">° Commerçants</a>
+        <a class="dropdown-item" href="#">° Artisans</a> #}
+        <div class="dropdown-divider"></div>
+    
+        <p class='text-center bold'><strong>Numérique</strong></p>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'mediatheque'}) }}">Points d'accès</a>        
+        <a class="dropdown-item" href="#">° Ateliers</a>
+        <div class="dropdown-divider"></div>
+    </div>
+    
+</div>

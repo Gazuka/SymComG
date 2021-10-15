@@ -1,0 +1,15 @@
+{#
+    require article
+    require ajout_media
+#}
+{# Lien pour l'ajout d'un document #}
+{% for type in ajout_media %}
+    {{ path('admin_article_ajouter_media', {'idarticle': article.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }}
+{% endfor %}
+{# Affichage des classeurs existants #}
+{% for classeur in article.classeurs %}
+    <div>
+        {{ classeur.id }} - {{ classeur.titre }}<br/>
+        {{ classeur.documents | length }} documents
+    </div>
+{% endfor %}

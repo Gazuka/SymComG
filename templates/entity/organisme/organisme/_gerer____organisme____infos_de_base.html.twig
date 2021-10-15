@@ -1,0 +1,17 @@
+{#
+    require organisme
+#}
+<div class="{{ taille(1, 1) }}">
+    {# Affichage de la valeur "local" #}
+    {% include 'entity/organisme/organisme/_param____organisme____structure_local.html.twig' with {'organisme': organisme} only %}
+</div>
+<div class="{{ taille(11, 11) }}">
+    {# Affichage des valeurs spécifique selon les différents types d'_organisme_gerer #}
+    {% include 'admin/organisme/partials/_organisme_gerer/_part____organisme_' ~ organisme.typestructure ~ '_infos_de_base.html.twig' ignore missing with {'organisme': organisme} only %}
+    {# Affichage de la valeur "presentation" #}
+    {% include 'entity/organisme/organisme/_param____organisme____structure_presentation.html.twig' with {'organisme': organisme} only %}
+</div>
+{# Lien pour l'édition de l'organisme #}
+{{ path('admin_organisme_editer', {'idorganisme': organisme.id}) | BoutonLienEditer(organisme.structure) }}
+{# Lien pour la suppression de l'organisme #}
+{{ path('admin_organisme_supprimer', {'idorganisme': organisme.id}) | BoutonLienSupprimer(organisme.structure) }}                

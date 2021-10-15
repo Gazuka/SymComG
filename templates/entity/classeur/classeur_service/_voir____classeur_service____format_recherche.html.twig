@@ -1,0 +1,19 @@
+{# 
+    require classeurService
+#}
+
+{% for avis in classeurService.afficherAvis() %}
+    
+    {% embed 'composants/card/_card.html.twig' with {'avis': avis} only %}
+        {% block contenu %}
+
+            {% set formats = '' %}
+            {% for formatAutorise in avis.getFormatsAutorises %}
+                {% set formats = formats ~ formatAutorise ~ ' ' %}
+            {% endfor %}
+            TRAD : Veuillez choisir un fichier ({{ formats }}) pour joindre à {{ avis.getParent }}
+
+        {% endblock %}    
+    {% endembed %}
+
+{% endfor %}

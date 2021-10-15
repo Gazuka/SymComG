@@ -1,0 +1,26 @@
+{% extends 'interfaces/admin/classeur/_interface.html.twig' %}
+
+{% block content_interface %}
+    
+            <div class='row'>
+                {% embed 'composants/card/_card.html.twig' with {'media': media} only %}
+                    {% set taille = taille(6,12) %}                
+                    {% block contenu %}
+                        {% include 'entity/classeur/media/_voir____media.html.twig' with {'media': media} only %}            
+                    {% endblock %}    
+                {% endembed %}
+
+                {% embed 'composants/card/_card.html.twig' with {'media': media, 'form': form, 'formatName': formatName} only %}
+                    {% set taille = taille(6,12) %}                
+                    {% block contenu %}
+                        
+                        {{ form_start(form) }}
+                            {% include 'admin/classeur/partials/' ~ media.supportName ~ '/' ~ formatName ~ '/__form_' ~ formatName ~ '.html.twig' ignore missing %}
+                            {{ 'twig.pages.admin.media.form.enregistrer' | trans | BoutonValiderFormulaire }}
+                        {{ form_end(form) }}
+
+                    {% endblock %}    
+                {% endembed %}
+            </div>
+        
+{% endblock %}

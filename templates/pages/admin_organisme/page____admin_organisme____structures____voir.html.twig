@@ -1,0 +1,22 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet l'affichage de l'ensemble des structures
+
+    require structures
+#}
+
+{% block content %}
+
+    {# Affichage d'une card tableau avec les structures #}
+    {% embed 'composants/card/_card_table.html.twig' with {'structures': structures} only %}
+        {% set nomColonnes = ['#', 'twig.pages.admin.organisme.structures.voir.colonne.nom' | trans | capitalize, 'twig.pages.admin.organisme.structures.voir.colonne.descriptif' | trans | capitalize, 'twig.pages.admin.organisme.structures.voir.colonne.local' | trans | capitalize, 'twig.pages.admin.organisme.structures.voir.colonne.actions' | trans | capitalize] %}
+        {% set tbody %}
+
+            {# Affichage du tableau des structures #}
+            {% include 'entity/organisme/structure/_admin_table____structures.html.twig' with {'structures': structures} only %}
+
+        {% endset %}       
+    {% endembed %}
+
+{% endblock %}

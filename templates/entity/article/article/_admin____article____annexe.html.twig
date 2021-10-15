@@ -1,0 +1,9 @@
+{#
+    require article
+#}
+
+{% if article.annexe is not null %}
+    {% include 'interfaces/_debug____message.html.twig' with {'message': "On affiche l'annexe pour modif"} only %}
+{% else %}
+    {{ path('admin_article_ajouter_annexe', {'idarticle': article.id}) | BoutonLienSimple('twig.admin.article.annexe.ajouter' | trans, 'fa-clipboard-list', 'warning') }}    
+{% endif %}

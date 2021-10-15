@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for E:\Guesnain\SymComG\src\Entity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">E:\Guesnain\SymComG\src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Entity</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ElementParagraphe.php.html#15">App\Entity\ElementParagraphe</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#18">App\Entity\Page</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#12">App\Entity\Telephone</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#14">App\Entity\Composant</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#11">App\Entity\ComposantCaracteristique</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#11">App\Entity\ComposantGenre</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#13">App\Entity\ComposantModele</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#11">App\Entity\ComposantValeur</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#12">App\Entity\Contenu</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#13">App\Entity\AssociationGroupe</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#14">App\Entity\Module</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#17">App\Entity\Role</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#13">App\Entity\EnumAssociationType</a></td><td class="text-right">15%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#13">App\Entity\EnumEntrepriseType</a></td><td class="text-right">19%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#23">App\Entity\Utilisateur</a></td><td class="text-right">24%</td></tr>
+       <tr><td><a href="CarteVisite.php.html#13">App\Entity\CarteVisite</a></td><td class="text-right">40%</td></tr>
+       <tr><td><a href="Association.php.html#20">App\Entity\Association</a></td><td class="text-right">42%</td></tr>
+       <tr><td><a href="Organisme.php.html#16">App\Entity\Organisme</a></td><td class="text-right">46%</td></tr>
+       <tr><td><a href="Entreprise.php.html#20">App\Entity\Entreprise</a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ComposantValeur.php.html#11">App\Entity\ComposantValeur</a></td><td class="text-right">2756</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#13">App\Entity\EnumAssociationType</a></td><td class="text-right">509</td></tr>
+       <tr><td><a href="Page.php.html#18">App\Entity\Page</a></td><td class="text-right">462</td></tr>
+       <tr><td><a href="ComposantModele.php.html#13">App\Entity\ComposantModele</a></td><td class="text-right">462</td></tr>
+       <tr><td><a href="Composant.php.html#14">App\Entity\Composant</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#13">App\Entity\AssociationGroupe</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#13">App\Entity\EnumEntrepriseType</a></td><td class="text-right">300</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#15">App\Entity\ElementParagraphe</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#11">App\Entity\ComposantCaracteristique</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Module.php.html#14">App\Entity\Module</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Telephone.php.html#12">App\Entity\Telephone</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Utilisateur.php.html#23">App\Entity\Utilisateur</a></td><td class="text-right">177</td></tr>
+       <tr><td><a href="Organisme.php.html#16">App\Entity\Organisme</a></td><td class="text-right">145</td></tr>
+       <tr><td><a href="Association.php.html#20">App\Entity\Association</a></td><td class="text-right">123</td></tr>
+       <tr><td><a href="Contenu.php.html#12">App\Entity\Contenu</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Role.php.html#17">App\Entity\Role</a></td><td class="text-right">106</td></tr>
+       <tr><td><a href="CarteVisite.php.html#13">App\Entity\CarteVisite</a></td><td class="text-right">49</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#11">App\Entity\ComposantGenre</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Entreprise.php.html#20">App\Entity\Entreprise</a></td><td class="text-right">34</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Utilisateur.php.html#130"><abbr title="App\Entity\Utilisateur::removeRole">removeRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#86"><abbr title="App\Entity\EnumEntrepriseType::setParent">setParent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#156"><abbr title="App\Entity\EnumAssociationType::getGroupes">getGroupes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#161"><abbr title="App\Entity\EnumAssociationType::addGroupe">addGroupe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#171"><abbr title="App\Entity\EnumAssociationType::removeGroupe">removeGroupe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#42"><abbr title="App\Entity\EnumEntrepriseType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#64"><abbr title="App\Entity\EnumEntrepriseType::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#69"><abbr title="App\Entity\EnumEntrepriseType::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#74"><abbr title="App\Entity\EnumEntrepriseType::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#81"><abbr title="App\Entity\EnumEntrepriseType::getParent">getParent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#96"><abbr title="App\Entity\EnumEntrepriseType::getEnfants">getEnfants</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#137"><abbr title="App\Entity\EnumAssociationType::addAssociation">addAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#101"><abbr title="App\Entity\EnumEntrepriseType::addEnfant">addEnfant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#111"><abbr title="App\Entity\EnumEntrepriseType::removeEnfant">removeEnfant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#126"><abbr title="App\Entity\EnumEntrepriseType::getEntreprise">getEntreprise</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#131"><abbr title="App\Entity\EnumEntrepriseType::addEntreprise">addEntreprise</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#140"><abbr title="App\Entity\EnumEntrepriseType::removeEntreprise">removeEntreprise</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#33"><abbr title="App\Entity\Module::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#38"><abbr title="App\Entity\Module::getElement">getElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#46"><abbr title="App\Entity\Module::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#146"><abbr title="App\Entity\EnumAssociationType::removeAssociation">removeAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#132"><abbr title="App\Entity\EnumAssociationType::getAssociation">getAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#59"><abbr title="App\Entity\Module::addContenu">addContenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entreprise.php.html#80"><abbr title="App\Entity\Entreprise::addType">addType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#46"><abbr title="App\Entity\ElementParagraphe::getModule">getModule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#50"><abbr title="App\Entity\ElementParagraphe::setModule">setModule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#55"><abbr title="App\Entity\ElementParagraphe::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#60"><abbr title="App\Entity\ElementParagraphe::getTexte">getTexte</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#65"><abbr title="App\Entity\ElementParagraphe::setTexte">setTexte</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#75"><abbr title="App\Entity\ElementParagraphe::getModules">getModules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#80"><abbr title="App\Entity\ElementParagraphe::addModule">addModule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#90"><abbr title="App\Entity\ElementParagraphe::removeModule">removeModule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entreprise.php.html#90"><abbr title="App\Entity\Entreprise::removeType">removeType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#117"><abbr title="App\Entity\EnumAssociationType::removeEnfant">removeEnfant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#47"><abbr title="App\Entity\EnumAssociationType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#70"><abbr title="App\Entity\EnumAssociationType::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#75"><abbr title="App\Entity\EnumAssociationType::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#80"><abbr title="App\Entity\EnumAssociationType::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#87"><abbr title="App\Entity\EnumAssociationType::getParent">getParent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#92"><abbr title="App\Entity\EnumAssociationType::setParent">setParent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#102"><abbr title="App\Entity\EnumAssociationType::getEnfants">getEnfants</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#107"><abbr title="App\Entity\EnumAssociationType::addEnfant">addEnfant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#54"><abbr title="App\Entity\Module::getContenus">getContenus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#69"><abbr title="App\Entity\Module::removeContenu">removeContenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#34"><abbr title="App\Entity\ElementParagraphe::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#66"><abbr title="App\Entity\Telephone::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#61"><abbr title="App\Entity\Role::getUtilisateurs">getUtilisateurs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#66"><abbr title="App\Entity\Role::addUtilisateur">addUtilisateur</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#75"><abbr title="App\Entity\Role::removeUtilisateur">removeUtilisateur</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#37"><abbr title="App\Entity\Telephone::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#42"><abbr title="App\Entity\Telephone::getNumero">getNumero</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#47"><abbr title="App\Entity\Telephone::setNumero">setNumero</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#54"><abbr title="App\Entity\Telephone::getCarteVisite">getCarteVisite</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#59"><abbr title="App\Entity\Telephone::setCarteVisite">setCarteVisite</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Telephone.php.html#71"><abbr title="App\Entity\Telephone::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#41"><abbr title="App\Entity\Role::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#55"><abbr title="App\Entity\Utilisateur::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#60"><abbr title="App\Entity\Utilisateur::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#65"><abbr title="App\Entity\Utilisateur::getPseudo">getPseudo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#70"><abbr title="App\Entity\Utilisateur::setPseudo">setPseudo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#77"><abbr title="App\Entity\Utilisateur::setPassword">setPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#84"><abbr title="App\Entity\Utilisateur::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#89"><abbr title="App\Entity\Utilisateur::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Utilisateur.php.html#120"><abbr title="App\Entity\Utilisateur::addRole">addRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#51"><abbr title="App\Entity\Role::setTitre">setTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role.php.html#36"><abbr title="App\Entity\Role::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#81"><abbr title="App\Entity\Module::getElementParagraphe">getElementParagraphe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#53"><abbr title="App\Entity\Page::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Module.php.html#86"><abbr title="App\Entity\Module::setElementParagraphe">setElementParagraphe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#82"><abbr title="App\Entity\Organisme::getAssociation">getAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#87"><abbr title="App\Entity\Organisme::setAssociation">setAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#99"><abbr title="App\Entity\Organisme::getService">getService</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#104"><abbr title="App\Entity\Organisme::setService">setService</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#116"><abbr title="App\Entity\Organisme::getEntreprise">getEntreprise</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Organisme.php.html#121"><abbr title="App\Entity\Organisme::setEntreprise">setEntreprise</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#47"><abbr title="App\Entity\Page::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#58"><abbr title="App\Entity\Page::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#128"><abbr title="App\Entity\Page::removeContenu">removeContenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#63"><abbr title="App\Entity\Page::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#70"><abbr title="App\Entity\Page::getTitre">getTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#75"><abbr title="App\Entity\Page::setTitre">setTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#82"><abbr title="App\Entity\Page::getSlug">getSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#87"><abbr title="App\Entity\Page::setSlug">setSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#101"><abbr title="App\Entity\Page::initializeSlug">initializeSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#113"><abbr title="App\Entity\Page::getContenus">getContenus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#118"><abbr title="App\Entity\Page::addContenu">addContenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#102"><abbr title="App\Entity\Association::addType">addType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#40"><abbr title="App\Entity\ElementParagraphe::getParametres">getParametres</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#54"><abbr title="App\Entity\Contenu::setPosition">setPosition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#52"><abbr title="App\Entity\ComposantCaracteristique::setTitre">setTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#61"><abbr title="App\Entity\Composant::getModele">getModele</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#66"><abbr title="App\Entity\Composant::setModele">setModele</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#75"><abbr title="App\Entity\Composant::initialiserComposant">initialiserComposant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#91"><abbr title="App\Entity\Composant::getValeurs">getValeurs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#96"><abbr title="App\Entity\Composant::addValeur">addValeur</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#106"><abbr title="App\Entity\Composant::removeValeur">removeValeur</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#42"><abbr title="App\Entity\ComposantCaracteristique::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#47"><abbr title="App\Entity\ComposantCaracteristique::getTitre">getTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#59"><abbr title="App\Entity\ComposantCaracteristique::getObligatoire">getObligatoire</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#49"><abbr title="App\Entity\Composant::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#64"><abbr title="App\Entity\ComposantCaracteristique::setObligatoire">setObligatoire</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#71"><abbr title="App\Entity\ComposantCaracteristique::getGenre">getGenre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#76"><abbr title="App\Entity\ComposantCaracteristique::setGenre">setGenre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#83"><abbr title="App\Entity\ComposantCaracteristique::getModele">getModele</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#88"><abbr title="App\Entity\ComposantCaracteristique::setModele">setModele</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#25"><abbr title="App\Entity\ComposantGenre::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#30"><abbr title="App\Entity\ComposantGenre::__tostring">__tostring</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#35"><abbr title="App\Entity\ComposantGenre::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#54"><abbr title="App\Entity\Composant::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#44"><abbr title="App\Entity\Composant::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#49"><abbr title="App\Entity\Contenu::getPosition">getPosition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#65"><abbr title="App\Entity\AssociationGroupe::getPresentation">getPresentation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#112"><abbr title="App\Entity\Association::removeType">removeType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#124"><abbr title="App\Entity\Association::getGroupes">getGroupes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#129"><abbr title="App\Entity\Association::addGroupe">addGroupe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#139"><abbr title="App\Entity\Association::removeGroupe">removeGroupe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#43"><abbr title="App\Entity\AssociationGroupe::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#48"><abbr title="App\Entity\AssociationGroupe::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#53"><abbr title="App\Entity\AssociationGroupe::getNom">getNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#58"><abbr title="App\Entity\AssociationGroupe::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#70"><abbr title="App\Entity\AssociationGroupe::setPresentation">setPresentation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Composant.php.html#39"><abbr title="App\Entity\Composant::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#77"><abbr title="App\Entity\AssociationGroupe::getAssociation">getAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#82"><abbr title="App\Entity\AssociationGroupe::setAssociation">setAssociation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#92"><abbr title="App\Entity\AssociationGroupe::getTypes">getTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#97"><abbr title="App\Entity\AssociationGroupe::addType">addType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#106"><abbr title="App\Entity\AssociationGroupe::removeType">removeType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CarteVisite.php.html#57"><abbr title="App\Entity\CarteVisite::getTelephones">getTelephones</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CarteVisite.php.html#62"><abbr title="App\Entity\CarteVisite::addTelephone">addTelephone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CarteVisite.php.html#72"><abbr title="App\Entity\CarteVisite::removeTelephone">removeTelephone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#40"><abbr title="App\Entity\ComposantGenre::setNom">setNom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#42"><abbr title="App\Entity\ComposantModele::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#48"><abbr title="App\Entity\ComposantModele::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#207"><abbr title="App\Entity\ComposantValeur::setVarDate">setVarDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#159"><abbr title="App\Entity\ComposantValeur::setVarFloat">setVarFloat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#166"><abbr title="App\Entity\ComposantValeur::getVarArray">getVarArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#171"><abbr title="App\Entity\ComposantValeur::setVarArray">setVarArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#178"><abbr title="App\Entity\ComposantValeur::getVarObject">getVarObject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#183"><abbr title="App\Entity\ComposantValeur::setVarObject">setVarObject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#190"><abbr title="App\Entity\ComposantValeur::getVarDatetime">getVarDatetime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#195"><abbr title="App\Entity\ComposantValeur::setVarDatetime">setVarDatetime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#202"><abbr title="App\Entity\ComposantValeur::getVarDate">getVarDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#214"><abbr title="App\Entity\ComposantValeur::getVarTime">getVarTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#53"><abbr title="App\Entity\ComposantModele::getTitre">getTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#219"><abbr title="App\Entity\ComposantValeur::setVarTime">setVarTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#226"><abbr title="App\Entity\ComposantValeur::getVarDateinterval">getVarDateinterval</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#231"><abbr title="App\Entity\ComposantValeur::setVarDateinterval">setVarDateinterval</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#238"><abbr title="App\Entity\ComposantValeur::getComposant">getComposant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#243"><abbr title="App\Entity\ComposantValeur::setComposant">setComposant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#250"><abbr title="App\Entity\ComposantValeur::setTypeValeur">setTypeValeur</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#32"><abbr title="App\Entity\Contenu::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#37"><abbr title="App\Entity\Contenu::getPage">getPage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Contenu.php.html#42"><abbr title="App\Entity\Contenu::setPage">setPage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#154"><abbr title="App\Entity\ComposantValeur::getVarFloat">getVarFloat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#147"><abbr title="App\Entity\ComposantValeur::setVarInteger">setVarInteger</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#142"><abbr title="App\Entity\ComposantValeur::getVarInteger">getVarInteger</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#125"><abbr title="App\Entity\ComposantModele::removeComposant">removeComposant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#80"><abbr title="App\Entity\ComposantModele::getCaracteristiques">getCaracteristiques</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#85"><abbr title="App\Entity\ComposantModele::addCaracteristique">addCaracteristique</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#95"><abbr title="App\Entity\ComposantModele::removeCaracteristique">removeCaracteristique</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#110"><abbr title="App\Entity\ComposantModele::getComposants">getComposants</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#58"><abbr title="App\Entity\ComposantModele::setTitre">setTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#115"><abbr title="App\Entity\ComposantModele::addComposant">addComposant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#135"><abbr title="App\Entity\ComposantValeur::setVarBoolean">setVarBoolean</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#89"><abbr title="App\Entity\ComposantValeur::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#65"><abbr title="App\Entity\ComposantModele::getTwig">getTwig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#94"><abbr title="App\Entity\ComposantValeur::getTitre">getTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#99"><abbr title="App\Entity\ComposantValeur::setTitre">setTitre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#106"><abbr title="App\Entity\ComposantValeur::getVarString">getVarString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#111"><abbr title="App\Entity\ComposantValeur::setVarString">setVarString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#118"><abbr title="App\Entity\ComposantValeur::getVarText">getVarText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#123"><abbr title="App\Entity\ComposantValeur::setVarText">setVarText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#130"><abbr title="App\Entity\ComposantValeur::getVarBoolean">getVarBoolean</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ComposantModele.php.html#70"><abbr title="App\Entity\ComposantModele::setTwig">setTwig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Association.php.html#88"><abbr title="App\Entity\Association::getTypes">getTypes</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Entreprise.php.html#66"><abbr title="App\Entity\Entreprise::getTypes">getTypes</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Organisme.php.html#73"><abbr title="App\Entity\Organisme::getStructure">getStructure</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Organisme.php.html#138"><abbr title="App\Entity\Organisme::setCarteVisite">setCarteVisite</abbr></a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ComposantModele.php.html#125"><abbr title="App\Entity\ComposantModele::removeComposant">removeComposant</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CarteVisite.php.html#72"><abbr title="App\Entity\CarteVisite::removeTelephone">removeTelephone</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Module.php.html#69"><abbr title="App\Entity\Module::removeContenu">removeContenu</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#111"><abbr title="App\Entity\EnumEntrepriseType::removeEnfant">removeEnfant</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Composant.php.html#106"><abbr title="App\Entity\Composant::removeValeur">removeValeur</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ComposantModele.php.html#95"><abbr title="App\Entity\ComposantModele::removeCaracteristique">removeCaracteristique</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#117"><abbr title="App\Entity\EnumAssociationType::removeEnfant">removeEnfant</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Page.php.html#128"><abbr title="App\Entity\Page::removeContenu">removeContenu</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#250"><abbr title="App\Entity\ComposantValeur::setTypeValeur">setTypeValeur</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#90"><abbr title="App\Entity\ElementParagraphe::removeModule">removeModule</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Association.php.html#139"><abbr title="App\Entity\Association::removeGroupe">removeGroupe</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Organisme.php.html#138"><abbr title="App\Entity\Organisme::setCarteVisite">setCarteVisite</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entreprise.php.html#90"><abbr title="App\Entity\Entreprise::removeType">removeType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#81"><abbr title="App\Entity\EnumEntrepriseType::getParent">getParent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#60"><abbr title="App\Entity\ElementParagraphe::getTexte">getTexte</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Module.php.html#59"><abbr title="App\Entity\Module::addContenu">addContenu</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Module.php.html#46"><abbr title="App\Entity\Module::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Module.php.html#38"><abbr title="App\Entity\Module::getElement">getElement</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#131"><abbr title="App\Entity\EnumEntrepriseType::addEntreprise">addEntreprise</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#80"><abbr title="App\Entity\ElementParagraphe::addModule">addModule</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#101"><abbr title="App\Entity\EnumEntrepriseType::addEnfant">addEnfant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#86"><abbr title="App\Entity\EnumEntrepriseType::setParent">setParent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#64"><abbr title="App\Entity\EnumEntrepriseType::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumEntrepriseType.php.html#69"><abbr title="App\Entity\EnumEntrepriseType::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#70"><abbr title="App\Entity\EnumAssociationType::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#171"><abbr title="App\Entity\EnumAssociationType::removeGroupe">removeGroupe</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#161"><abbr title="App\Entity\EnumAssociationType::addGroupe">addGroupe</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#137"><abbr title="App\Entity\EnumAssociationType::addAssociation">addAssociation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#107"><abbr title="App\Entity\EnumAssociationType::addEnfant">addEnfant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entreprise.php.html#80"><abbr title="App\Entity\Entreprise::addType">addType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#92"><abbr title="App\Entity\EnumAssociationType::setParent">setParent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#87"><abbr title="App\Entity\EnumAssociationType::getParent">getParent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EnumAssociationType.php.html#75"><abbr title="App\Entity\EnumAssociationType::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Utilisateur.php.html#130"><abbr title="App\Entity\Utilisateur::removeRole">removeRole</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#82"><abbr title="App\Entity\Organisme::getAssociation">getAssociation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Module.php.html#81"><abbr title="App\Entity\Module::getElementParagraphe">getElementParagraphe</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Role.php.html#41"><abbr title="App\Entity\Role::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Utilisateur.php.html#120"><abbr title="App\Entity\Utilisateur::addRole">addRole</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Utilisateur.php.html#84"><abbr title="App\Entity\Utilisateur::getEmail">getEmail</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Utilisateur.php.html#65"><abbr title="App\Entity\Utilisateur::getPseudo">getPseudo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Utilisateur.php.html#60"><abbr title="App\Entity\Utilisateur::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#71"><abbr title="App\Entity\Telephone::setNom">setNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#66"><abbr title="App\Entity\Telephone::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#59"><abbr title="App\Entity\Telephone::setCarteVisite">setCarteVisite</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#54"><abbr title="App\Entity\Telephone::getCarteVisite">getCarteVisite</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#42"><abbr title="App\Entity\Telephone::getNumero">getNumero</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Telephone.php.html#37"><abbr title="App\Entity\Telephone::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Role.php.html#75"><abbr title="App\Entity\Role::removeUtilisateur">removeUtilisateur</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Role.php.html#66"><abbr title="App\Entity\Role::addUtilisateur">addUtilisateur</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#118"><abbr title="App\Entity\Page::addContenu">addContenu</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Module.php.html#86"><abbr title="App\Entity\Module::setElementParagraphe">setElementParagraphe</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#101"><abbr title="App\Entity\Page::initializeSlug">initializeSlug</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#82"><abbr title="App\Entity\Page::getSlug">getSlug</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#75"><abbr title="App\Entity\Page::setTitre">setTitre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#70"><abbr title="App\Entity\Page::getTitre">getTitre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#58"><abbr title="App\Entity\Page::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Page.php.html#53"><abbr title="App\Entity\Page::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#121"><abbr title="App\Entity\Organisme::setEntreprise">setEntreprise</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#116"><abbr title="App\Entity\Organisme::getEntreprise">getEntreprise</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#104"><abbr title="App\Entity\Organisme::setService">setService</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#99"><abbr title="App\Entity\Organisme::getService">getService</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Organisme.php.html#87"><abbr title="App\Entity\Organisme::setAssociation">setAssociation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#46"><abbr title="App\Entity\ElementParagraphe::getModule">getModule</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ElementParagraphe.php.html#55"><abbr title="App\Entity\ElementParagraphe::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Contenu.php.html#42"><abbr title="App\Entity\Contenu::setPage">setPage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Contenu.php.html#54"><abbr title="App\Entity\Contenu::setPosition">setPosition</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#42"><abbr title="App\Entity\ComposantCaracteristique::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantModele.php.html#65"><abbr title="App\Entity\ComposantModele::getTwig">getTwig</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantModele.php.html#53"><abbr title="App\Entity\ComposantModele::getTitre">getTitre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantModele.php.html#48"><abbr title="App\Entity\ComposantModele::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#35"><abbr title="App\Entity\ComposantGenre::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantGenre.php.html#25"><abbr title="App\Entity\ComposantGenre::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#88"><abbr title="App\Entity\ComposantCaracteristique::setModele">setModele</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#83"><abbr title="App\Entity\ComposantCaracteristique::getModele">getModele</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#76"><abbr title="App\Entity\ComposantCaracteristique::setGenre">setGenre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#71"><abbr title="App\Entity\ComposantCaracteristique::getGenre">getGenre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#59"><abbr title="App\Entity\ComposantCaracteristique::getObligatoire">getObligatoire</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantCaracteristique.php.html#47"><abbr title="App\Entity\ComposantCaracteristique::getTitre">getTitre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#96"><abbr title="App\Entity\Composant::addValeur">addValeur</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantModele.php.html#85"><abbr title="App\Entity\ComposantModele::addCaracteristique">addCaracteristique</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#75"><abbr title="App\Entity\Composant::initialiserComposant">initialiserComposant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#66"><abbr title="App\Entity\Composant::setModele">setModele</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#61"><abbr title="App\Entity\Composant::getModele">getModele</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#49"><abbr title="App\Entity\Composant::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Composant.php.html#44"><abbr title="App\Entity\Composant::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CarteVisite.php.html#62"><abbr title="App\Entity\CarteVisite::addTelephone">addTelephone</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#97"><abbr title="App\Entity\AssociationGroupe::addType">addType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#82"><abbr title="App\Entity\AssociationGroupe::setAssociation">setAssociation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#77"><abbr title="App\Entity\AssociationGroupe::getAssociation">getAssociation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#70"><abbr title="App\Entity\AssociationGroupe::setPresentation">setPresentation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#65"><abbr title="App\Entity\AssociationGroupe::getPresentation">getPresentation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#53"><abbr title="App\Entity\AssociationGroupe::getNom">getNom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Contenu.php.html#49"><abbr title="App\Entity\Contenu::getPosition">getPosition</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantModele.php.html#115"><abbr title="App\Entity\ComposantModele::addComposant">addComposant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Association.php.html#129"><abbr title="App\Entity\Association::addGroupe">addGroupe</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#202"><abbr title="App\Entity\ComposantValeur::getVarDate">getVarDate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Association.php.html#102"><abbr title="App\Entity\Association::addType">addType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Contenu.php.html#37"><abbr title="App\Entity\Contenu::getPage">getPage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Contenu.php.html#32"><abbr title="App\Entity\Contenu::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Association.php.html#112"><abbr title="App\Entity\Association::removeType">removeType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#243"><abbr title="App\Entity\ComposantValeur::setComposant">setComposant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#238"><abbr title="App\Entity\ComposantValeur::getComposant">getComposant</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#231"><abbr title="App\Entity\ComposantValeur::setVarDateinterval">setVarDateinterval</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#226"><abbr title="App\Entity\ComposantValeur::getVarDateinterval">getVarDateinterval</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#219"><abbr title="App\Entity\ComposantValeur::setVarTime">setVarTime</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#214"><abbr title="App\Entity\ComposantValeur::getVarTime">getVarTime</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#207"><abbr title="App\Entity\ComposantValeur::setVarDate">setVarDate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#195"><abbr title="App\Entity\ComposantValeur::setVarDatetime">setVarDatetime</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#89"><abbr title="App\Entity\ComposantValeur::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#190"><abbr title="App\Entity\ComposantValeur::getVarDatetime">getVarDatetime</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#171"><abbr title="App\Entity\ComposantValeur::setVarArray">setVarArray</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#166"><abbr title="App\Entity\ComposantValeur::getVarArray">getVarArray</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#159"><abbr title="App\Entity\ComposantValeur::setVarFloat">setVarFloat</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#154"><abbr title="App\Entity\ComposantValeur::getVarFloat">getVarFloat</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#147"><abbr title="App\Entity\ComposantValeur::setVarInteger">setVarInteger</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#142"><abbr title="App\Entity\ComposantValeur::getVarInteger">getVarInteger</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#135"><abbr title="App\Entity\ComposantValeur::setVarBoolean">setVarBoolean</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#130"><abbr title="App\Entity\ComposantValeur::getVarBoolean">getVarBoolean</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#118"><abbr title="App\Entity\ComposantValeur::getVarText">getVarText</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#106"><abbr title="App\Entity\ComposantValeur::getVarString">getVarString</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ComposantValeur.php.html#94"><abbr title="App\Entity\ComposantValeur::getTitre">getTitre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AssociationGroupe.php.html#48"><abbr title="App\Entity\AssociationGroupe::getId">getId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Association.php.html#88"><abbr title="App\Entity\Association::getTypes">getTypes</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Entreprise.php.html#66"><abbr title="App\Entity\Entreprise::getTypes">getTypes</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Organisme.php.html#73"><abbr title="App\Entity\Organisme::getStructure">getStructure</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 7.0.14</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.0</a> with <a href="https://xdebug.org/">Xdebug 2.8.0</a> and <a href="https://phpunit.de/">PHPUnit 8.5.15</a> at Sat Apr 3 8:18:42 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([11,1,2,1,0,3,1,0,0,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([174,0,0,0,0,0,2,1,0,1,0,30], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[42.42424242424242,23,"<a href=\"Association.php.html#20\">App\\Entity\\Association<\/a>"],[0,18,"<a href=\"AssociationGroupe.php.html#13\">App\\Entity\\AssociationGroupe<\/a>"],[40,13,"<a href=\"CarteVisite.php.html#13\">App\\Entity\\CarteVisite<\/a>"],[0,18,"<a href=\"Composant.php.html#14\">App\\Entity\\Composant<\/a>"],[0,16,"<a href=\"ComposantCaracteristique.php.html#11\">App\\Entity\\ComposantCaracteristique<\/a>"],[0,6,"<a href=\"ComposantGenre.php.html#11\">App\\Entity\\ComposantGenre<\/a>"],[0,21,"<a href=\"ComposantModele.php.html#13\">App\\Entity\\ComposantModele<\/a>"],[0,52,"<a href=\"ComposantValeur.php.html#11\">App\\Entity\\ComposantValeur<\/a>"],[0,10,"<a href=\"Contenu.php.html#12\">App\\Entity\\Contenu<\/a>"],[0,16,"<a href=\"ElementParagraphe.php.html#15\">App\\Entity\\ElementParagraphe<\/a>"],[50,13,"<a href=\"Entreprise.php.html#20\">App\\Entity\\Entreprise<\/a>"],[15,28,"<a href=\"EnumAssociationType.php.html#13\">App\\Entity\\EnumAssociationType<\/a>"],[19.35483870967742,23,"<a href=\"EnumEntrepriseType.php.html#13\">App\\Entity\\EnumEntrepriseType<\/a>"],[0,15,"<a href=\"Module.php.html#14\">App\\Entity\\Module<\/a>"],[46.875,28,"<a href=\"Organisme.php.html#16\">App\\Entity\\Organisme<\/a>"],[0,21,"<a href=\"Page.php.html#18\">App\\Entity\\Page<\/a>"],[7.6923076923076925,11,"<a href=\"Role.php.html#17\">App\\Entity\\Role<\/a>"],[100,5,"<a href=\"Service.php.html#18\">App\\Entity\\Service<\/a>"],[0,13,"<a href=\"Telephone.php.html#12\">App\\Entity\\Telephone<\/a>"],[24,19,"<a href=\"Utilisateur.php.html#23\">App\\Entity\\Utilisateur<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Association.php.html#50\">App\\Entity\\Association::__construct<\/a>"],[100,2,"<a href=\"Association.php.html#57\">App\\Entity\\Association::getId<\/a>"],[100,2,"<a href=\"Association.php.html#62\">App\\Entity\\Association::getSigle<\/a>"],[100,2,"<a href=\"Association.php.html#67\">App\\Entity\\Association::setSigle<\/a>"],[100,2,"<a href=\"Association.php.html#73\">App\\Entity\\Association::getOrganisme<\/a>"],[100,1,"<a href=\"Association.php.html#78\">App\\Entity\\Association::setOrganisme<\/a>"],[50,3,"<a href=\"Association.php.html#88\">App\\Entity\\Association::getTypes<\/a>"],[0,2,"<a href=\"Association.php.html#102\">App\\Entity\\Association::addType<\/a>"],[0,2,"<a href=\"Association.php.html#112\">App\\Entity\\Association::removeType<\/a>"],[0,1,"<a href=\"Association.php.html#124\">App\\Entity\\Association::getGroupes<\/a>"],[0,2,"<a href=\"Association.php.html#129\">App\\Entity\\Association::addGroupe<\/a>"],[0,3,"<a href=\"Association.php.html#139\">App\\Entity\\Association::removeGroupe<\/a>"],[0,1,"<a href=\"AssociationGroupe.php.html#43\">App\\Entity\\AssociationGroupe::__construct<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#48\">App\\Entity\\AssociationGroupe::getId<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#53\">App\\Entity\\AssociationGroupe::getNom<\/a>"],[0,1,"<a href=\"AssociationGroupe.php.html#58\">App\\Entity\\AssociationGroupe::setNom<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#65\">App\\Entity\\AssociationGroupe::getPresentation<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#70\">App\\Entity\\AssociationGroupe::setPresentation<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#77\">App\\Entity\\AssociationGroupe::getAssociation<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#82\">App\\Entity\\AssociationGroupe::setAssociation<\/a>"],[0,1,"<a href=\"AssociationGroupe.php.html#92\">App\\Entity\\AssociationGroupe::getTypes<\/a>"],[0,2,"<a href=\"AssociationGroupe.php.html#97\">App\\Entity\\AssociationGroupe::addType<\/a>"],[0,1,"<a href=\"AssociationGroupe.php.html#106\">App\\Entity\\AssociationGroupe::removeType<\/a>"],[100,1,"<a href=\"CarteVisite.php.html#32\">App\\Entity\\CarteVisite::__construct<\/a>"],[100,2,"<a href=\"CarteVisite.php.html#37\">App\\Entity\\CarteVisite::getId<\/a>"],[100,2,"<a href=\"CarteVisite.php.html#42\">App\\Entity\\CarteVisite::getOrganisme<\/a>"],[100,2,"<a href=\"CarteVisite.php.html#47\">App\\Entity\\CarteVisite::setOrganisme<\/a>"],[0,1,"<a href=\"CarteVisite.php.html#57\">App\\Entity\\CarteVisite::getTelephones<\/a>"],[0,2,"<a href=\"CarteVisite.php.html#62\">App\\Entity\\CarteVisite::addTelephone<\/a>"],[0,3,"<a href=\"CarteVisite.php.html#72\">App\\Entity\\CarteVisite::removeTelephone<\/a>"],[0,1,"<a href=\"Composant.php.html#39\">App\\Entity\\Composant::__construct<\/a>"],[0,2,"<a href=\"Composant.php.html#44\">App\\Entity\\Composant::getId<\/a>"],[0,2,"<a href=\"Composant.php.html#49\">App\\Entity\\Composant::getNom<\/a>"],[0,1,"<a href=\"Composant.php.html#54\">App\\Entity\\Composant::setNom<\/a>"],[0,2,"<a href=\"Composant.php.html#61\">App\\Entity\\Composant::getModele<\/a>"],[0,2,"<a href=\"Composant.php.html#66\">App\\Entity\\Composant::setModele<\/a>"],[0,2,"<a href=\"Composant.php.html#75\">App\\Entity\\Composant::initialiserComposant<\/a>"],[0,1,"<a href=\"Composant.php.html#91\">App\\Entity\\Composant::getValeurs<\/a>"],[0,2,"<a href=\"Composant.php.html#96\">App\\Entity\\Composant::addValeur<\/a>"],[0,3,"<a href=\"Composant.php.html#106\">App\\Entity\\Composant::removeValeur<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#42\">App\\Entity\\ComposantCaracteristique::getId<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#47\">App\\Entity\\ComposantCaracteristique::getTitre<\/a>"],[0,1,"<a href=\"ComposantCaracteristique.php.html#52\">App\\Entity\\ComposantCaracteristique::setTitre<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#59\">App\\Entity\\ComposantCaracteristique::getObligatoire<\/a>"],[0,1,"<a href=\"ComposantCaracteristique.php.html#64\">App\\Entity\\ComposantCaracteristique::setObligatoire<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#71\">App\\Entity\\ComposantCaracteristique::getGenre<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#76\">App\\Entity\\ComposantCaracteristique::setGenre<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#83\">App\\Entity\\ComposantCaracteristique::getModele<\/a>"],[0,2,"<a href=\"ComposantCaracteristique.php.html#88\">App\\Entity\\ComposantCaracteristique::setModele<\/a>"],[0,2,"<a href=\"ComposantGenre.php.html#25\">App\\Entity\\ComposantGenre::getId<\/a>"],[0,1,"<a href=\"ComposantGenre.php.html#30\">App\\Entity\\ComposantGenre::__tostring<\/a>"],[0,2,"<a href=\"ComposantGenre.php.html#35\">App\\Entity\\ComposantGenre::getNom<\/a>"],[0,1,"<a href=\"ComposantGenre.php.html#40\">App\\Entity\\ComposantGenre::setNom<\/a>"],[0,1,"<a href=\"ComposantModele.php.html#42\">App\\Entity\\ComposantModele::__construct<\/a>"],[0,2,"<a href=\"ComposantModele.php.html#48\">App\\Entity\\ComposantModele::getId<\/a>"],[0,2,"<a href=\"ComposantModele.php.html#53\">App\\Entity\\ComposantModele::getTitre<\/a>"],[0,1,"<a href=\"ComposantModele.php.html#58\">App\\Entity\\ComposantModele::setTitre<\/a>"],[0,2,"<a href=\"ComposantModele.php.html#65\">App\\Entity\\ComposantModele::getTwig<\/a>"],[0,1,"<a href=\"ComposantModele.php.html#70\">App\\Entity\\ComposantModele::setTwig<\/a>"],[0,1,"<a href=\"ComposantModele.php.html#80\">App\\Entity\\ComposantModele::getCaracteristiques<\/a>"],[0,2,"<a href=\"ComposantModele.php.html#85\">App\\Entity\\ComposantModele::addCaracteristique<\/a>"],[0,3,"<a href=\"ComposantModele.php.html#95\">App\\Entity\\ComposantModele::removeCaracteristique<\/a>"],[0,1,"<a href=\"ComposantModele.php.html#110\">App\\Entity\\ComposantModele::getComposants<\/a>"],[0,2,"<a href=\"ComposantModele.php.html#115\">App\\Entity\\ComposantModele::addComposant<\/a>"],[0,3,"<a href=\"ComposantModele.php.html#125\">App\\Entity\\ComposantModele::removeComposant<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#89\">App\\Entity\\ComposantValeur::getId<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#94\">App\\Entity\\ComposantValeur::getTitre<\/a>"],[0,1,"<a href=\"ComposantValeur.php.html#99\">App\\Entity\\ComposantValeur::setTitre<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#106\">App\\Entity\\ComposantValeur::getVarString<\/a>"],[0,1,"<a href=\"ComposantValeur.php.html#111\">App\\Entity\\ComposantValeur::setVarString<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#118\">App\\Entity\\ComposantValeur::getVarText<\/a>"],[0,1,"<a href=\"ComposantValeur.php.html#123\">App\\Entity\\ComposantValeur::setVarText<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#130\">App\\Entity\\ComposantValeur::getVarBoolean<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#135\">App\\Entity\\ComposantValeur::setVarBoolean<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#142\">App\\Entity\\ComposantValeur::getVarInteger<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#147\">App\\Entity\\ComposantValeur::setVarInteger<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#154\">App\\Entity\\ComposantValeur::getVarFloat<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#159\">App\\Entity\\ComposantValeur::setVarFloat<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#166\">App\\Entity\\ComposantValeur::getVarArray<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#171\">App\\Entity\\ComposantValeur::setVarArray<\/a>"],[0,1,"<a href=\"ComposantValeur.php.html#178\">App\\Entity\\ComposantValeur::getVarObject<\/a>"],[0,1,"<a href=\"ComposantValeur.php.html#183\">App\\Entity\\ComposantValeur::setVarObject<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#190\">App\\Entity\\ComposantValeur::getVarDatetime<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#195\">App\\Entity\\ComposantValeur::setVarDatetime<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#202\">App\\Entity\\ComposantValeur::getVarDate<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#207\">App\\Entity\\ComposantValeur::setVarDate<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#214\">App\\Entity\\ComposantValeur::getVarTime<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#219\">App\\Entity\\ComposantValeur::setVarTime<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#226\">App\\Entity\\ComposantValeur::getVarDateinterval<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#231\">App\\Entity\\ComposantValeur::setVarDateinterval<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#238\">App\\Entity\\ComposantValeur::getComposant<\/a>"],[0,2,"<a href=\"ComposantValeur.php.html#243\">App\\Entity\\ComposantValeur::setComposant<\/a>"],[0,3,"<a href=\"ComposantValeur.php.html#250\">App\\Entity\\ComposantValeur::setTypeValeur<\/a>"],[0,2,"<a href=\"Contenu.php.html#32\">App\\Entity\\Contenu::getId<\/a>"],[0,2,"<a href=\"Contenu.php.html#37\">App\\Entity\\Contenu::getPage<\/a>"],[0,2,"<a href=\"Contenu.php.html#42\">App\\Entity\\Contenu::setPage<\/a>"],[0,2,"<a href=\"Contenu.php.html#49\">App\\Entity\\Contenu::getPosition<\/a>"],[0,2,"<a href=\"Contenu.php.html#54\">App\\Entity\\Contenu::setPosition<\/a>"],[0,1,"<a href=\"ElementParagraphe.php.html#34\">App\\Entity\\ElementParagraphe::__construct<\/a>"],[0,1,"<a href=\"ElementParagraphe.php.html#40\">App\\Entity\\ElementParagraphe::getParametres<\/a>"],[0,2,"<a href=\"ElementParagraphe.php.html#46\">App\\Entity\\ElementParagraphe::getModule<\/a>"],[0,1,"<a href=\"ElementParagraphe.php.html#50\">App\\Entity\\ElementParagraphe::setModule<\/a>"],[0,2,"<a href=\"ElementParagraphe.php.html#55\">App\\Entity\\ElementParagraphe::getId<\/a>"],[0,2,"<a href=\"ElementParagraphe.php.html#60\">App\\Entity\\ElementParagraphe::getTexte<\/a>"],[0,1,"<a href=\"ElementParagraphe.php.html#65\">App\\Entity\\ElementParagraphe::setTexte<\/a>"],[0,1,"<a href=\"ElementParagraphe.php.html#75\">App\\Entity\\ElementParagraphe::getModules<\/a>"],[0,2,"<a href=\"ElementParagraphe.php.html#80\">App\\Entity\\ElementParagraphe::addModule<\/a>"],[0,3,"<a href=\"ElementParagraphe.php.html#90\">App\\Entity\\ElementParagraphe::removeModule<\/a>"],[100,1,"<a href=\"Entreprise.php.html#40\">App\\Entity\\Entreprise::__construct<\/a>"],[100,2,"<a href=\"Entreprise.php.html#46\">App\\Entity\\Entreprise::getId<\/a>"],[100,2,"<a href=\"Entreprise.php.html#51\">App\\Entity\\Entreprise::getOrganisme<\/a>"],[100,1,"<a href=\"Entreprise.php.html#56\">App\\Entity\\Entreprise::setOrganisme<\/a>"],[50,3,"<a href=\"Entreprise.php.html#66\">App\\Entity\\Entreprise::getTypes<\/a>"],[0,2,"<a href=\"Entreprise.php.html#80\">App\\Entity\\Entreprise::addType<\/a>"],[0,2,"<a href=\"Entreprise.php.html#90\">App\\Entity\\Entreprise::removeType<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#47\">App\\Entity\\EnumAssociationType::__construct<\/a>"],[100,1,"<a href=\"EnumAssociationType.php.html#54\">App\\Entity\\EnumAssociationType::__toString<\/a>"],[100,2,"<a href=\"EnumAssociationType.php.html#59\">App\\Entity\\EnumAssociationType::getNomComplet<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#70\">App\\Entity\\EnumAssociationType::getId<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#75\">App\\Entity\\EnumAssociationType::getNom<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#80\">App\\Entity\\EnumAssociationType::setNom<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#87\">App\\Entity\\EnumAssociationType::getParent<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#92\">App\\Entity\\EnumAssociationType::setParent<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#102\">App\\Entity\\EnumAssociationType::getEnfants<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#107\">App\\Entity\\EnumAssociationType::addEnfant<\/a>"],[0,3,"<a href=\"EnumAssociationType.php.html#117\">App\\Entity\\EnumAssociationType::removeEnfant<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#132\">App\\Entity\\EnumAssociationType::getAssociation<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#137\">App\\Entity\\EnumAssociationType::addAssociation<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#146\">App\\Entity\\EnumAssociationType::removeAssociation<\/a>"],[0,1,"<a href=\"EnumAssociationType.php.html#156\">App\\Entity\\EnumAssociationType::getGroupes<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#161\">App\\Entity\\EnumAssociationType::addGroupe<\/a>"],[0,2,"<a href=\"EnumAssociationType.php.html#171\">App\\Entity\\EnumAssociationType::removeGroupe<\/a>"],[0,1,"<a href=\"EnumEntrepriseType.php.html#42\">App\\Entity\\EnumEntrepriseType::__construct<\/a>"],[100,1,"<a href=\"EnumEntrepriseType.php.html#48\">App\\Entity\\EnumEntrepriseType::__toString<\/a>"],[100,2,"<a href=\"EnumEntrepriseType.php.html#53\">App\\Entity\\EnumEntrepriseType::getNomComplet<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#64\">App\\Entity\\EnumEntrepriseType::getId<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#69\">App\\Entity\\EnumEntrepriseType::getNom<\/a>"],[0,1,"<a href=\"EnumEntrepriseType.php.html#74\">App\\Entity\\EnumEntrepriseType::setNom<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#81\">App\\Entity\\EnumEntrepriseType::getParent<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#86\">App\\Entity\\EnumEntrepriseType::setParent<\/a>"],[0,1,"<a href=\"EnumEntrepriseType.php.html#96\">App\\Entity\\EnumEntrepriseType::getEnfants<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#101\">App\\Entity\\EnumEntrepriseType::addEnfant<\/a>"],[0,3,"<a href=\"EnumEntrepriseType.php.html#111\">App\\Entity\\EnumEntrepriseType::removeEnfant<\/a>"],[0,1,"<a href=\"EnumEntrepriseType.php.html#126\">App\\Entity\\EnumEntrepriseType::getEntreprise<\/a>"],[0,2,"<a href=\"EnumEntrepriseType.php.html#131\">App\\Entity\\EnumEntrepriseType::addEntreprise<\/a>"],[0,1,"<a href=\"EnumEntrepriseType.php.html#140\">App\\Entity\\EnumEntrepriseType::removeEntreprise<\/a>"],[0,1,"<a href=\"Module.php.html#33\">App\\Entity\\Module::__construct<\/a>"],[0,2,"<a href=\"Module.php.html#38\">App\\Entity\\Module::getElement<\/a>"],[0,2,"<a href=\"Module.php.html#46\">App\\Entity\\Module::getId<\/a>"],[0,1,"<a href=\"Module.php.html#54\">App\\Entity\\Module::getContenus<\/a>"],[0,2,"<a href=\"Module.php.html#59\">App\\Entity\\Module::addContenu<\/a>"],[0,3,"<a href=\"Module.php.html#69\">App\\Entity\\Module::removeContenu<\/a>"],[0,2,"<a href=\"Module.php.html#81\">App\\Entity\\Module::getElementParagraphe<\/a>"],[0,2,"<a href=\"Module.php.html#86\">App\\Entity\\Module::setElementParagraphe<\/a>"],[100,2,"<a href=\"Organisme.php.html#48\">App\\Entity\\Organisme::getId<\/a>"],[100,3,"<a href=\"Organisme.php.html#56\">App\\Entity\\Organisme::getTypeStructure<\/a>"],[66.66666666666666,3,"<a href=\"Organisme.php.html#73\">App\\Entity\\Organisme::getStructure<\/a>"],[0,2,"<a href=\"Organisme.php.html#82\">App\\Entity\\Organisme::getAssociation<\/a>"],[0,2,"<a href=\"Organisme.php.html#87\">App\\Entity\\Organisme::setAssociation<\/a>"],[0,2,"<a href=\"Organisme.php.html#99\">App\\Entity\\Organisme::getService<\/a>"],[0,2,"<a href=\"Organisme.php.html#104\">App\\Entity\\Organisme::setService<\/a>"],[0,2,"<a href=\"Organisme.php.html#116\">App\\Entity\\Organisme::getEntreprise<\/a>"],[0,2,"<a href=\"Organisme.php.html#121\">App\\Entity\\Organisme::setEntreprise<\/a>"],[100,2,"<a href=\"Organisme.php.html#133\">App\\Entity\\Organisme::getCarteVisite<\/a>"],[83.33333333333334,6,"<a href=\"Organisme.php.html#138\">App\\Entity\\Organisme::setCarteVisite<\/a>"],[0,1,"<a href=\"Page.php.html#47\">App\\Entity\\Page::__construct<\/a>"],[0,2,"<a href=\"Page.php.html#53\">App\\Entity\\Page::getId<\/a>"],[0,2,"<a href=\"Page.php.html#58\">App\\Entity\\Page::getNom<\/a>"],[0,1,"<a href=\"Page.php.html#63\">App\\Entity\\Page::setNom<\/a>"],[0,2,"<a href=\"Page.php.html#70\">App\\Entity\\Page::getTitre<\/a>"],[0,2,"<a href=\"Page.php.html#75\">App\\Entity\\Page::setTitre<\/a>"],[0,2,"<a href=\"Page.php.html#82\">App\\Entity\\Page::getSlug<\/a>"],[0,1,"<a href=\"Page.php.html#87\">App\\Entity\\Page::setSlug<\/a>"],[0,2,"<a href=\"Page.php.html#101\">App\\Entity\\Page::initializeSlug<\/a>"],[0,1,"<a href=\"Page.php.html#113\">App\\Entity\\Page::getContenus<\/a>"],[0,2,"<a href=\"Page.php.html#118\">App\\Entity\\Page::addContenu<\/a>"],[0,3,"<a href=\"Page.php.html#128\">App\\Entity\\Page::removeContenu<\/a>"],[0,1,"<a href=\"Role.php.html#36\">App\\Entity\\Role::__construct<\/a>"],[0,2,"<a href=\"Role.php.html#41\">App\\Entity\\Role::getId<\/a>"],[100,2,"<a href=\"Role.php.html#46\">App\\Entity\\Role::getTitre<\/a>"],[0,1,"<a href=\"Role.php.html#51\">App\\Entity\\Role::setTitre<\/a>"],[0,1,"<a href=\"Role.php.html#61\">App\\Entity\\Role::getUtilisateurs<\/a>"],[0,2,"<a href=\"Role.php.html#66\">App\\Entity\\Role::addUtilisateur<\/a>"],[0,2,"<a href=\"Role.php.html#75\">App\\Entity\\Role::removeUtilisateur<\/a>"],[100,2,"<a href=\"Service.php.html#33\">App\\Entity\\Service::getId<\/a>"],[100,2,"<a href=\"Service.php.html#38\">App\\Entity\\Service::getOrganisme<\/a>"],[100,1,"<a href=\"Service.php.html#43\">App\\Entity\\Service::setOrganisme<\/a>"],[0,2,"<a href=\"Telephone.php.html#37\">App\\Entity\\Telephone::getId<\/a>"],[0,2,"<a href=\"Telephone.php.html#42\">App\\Entity\\Telephone::getNumero<\/a>"],[0,1,"<a href=\"Telephone.php.html#47\">App\\Entity\\Telephone::setNumero<\/a>"],[0,2,"<a href=\"Telephone.php.html#54\">App\\Entity\\Telephone::getCarteVisite<\/a>"],[0,2,"<a href=\"Telephone.php.html#59\">App\\Entity\\Telephone::setCarteVisite<\/a>"],[0,2,"<a href=\"Telephone.php.html#66\">App\\Entity\\Telephone::getNom<\/a>"],[0,2,"<a href=\"Telephone.php.html#71\">App\\Entity\\Telephone::setNom<\/a>"],[0,1,"<a href=\"Utilisateur.php.html#55\">App\\Entity\\Utilisateur::__construct<\/a>"],[0,2,"<a href=\"Utilisateur.php.html#60\">App\\Entity\\Utilisateur::getId<\/a>"],[0,2,"<a href=\"Utilisateur.php.html#65\">App\\Entity\\Utilisateur::getPseudo<\/a>"],[0,1,"<a href=\"Utilisateur.php.html#70\">App\\Entity\\Utilisateur::setPseudo<\/a>"],[0,1,"<a href=\"Utilisateur.php.html#77\">App\\Entity\\Utilisateur::setPassword<\/a>"],[0,2,"<a href=\"Utilisateur.php.html#84\">App\\Entity\\Utilisateur::getEmail<\/a>"],[0,1,"<a href=\"Utilisateur.php.html#89\">App\\Entity\\Utilisateur::setEmail<\/a>"],[100,1,"<a href=\"Utilisateur.php.html#96\">App\\Entity\\Utilisateur::getRoles<\/a>"],[100,1,"<a href=\"Utilisateur.php.html#107\">App\\Entity\\Utilisateur::getPassword<\/a>"],[100,1,"<a href=\"Utilisateur.php.html#112\">App\\Entity\\Utilisateur::getSalt<\/a>"],[100,1,"<a href=\"Utilisateur.php.html#113\">App\\Entity\\Utilisateur::eraseCredentials<\/a>"],[100,1,"<a href=\"Utilisateur.php.html#115\">App\\Entity\\Utilisateur::getUsername<\/a>"],[0,2,"<a href=\"Utilisateur.php.html#120\">App\\Entity\\Utilisateur::addRole<\/a>"],[0,2,"<a href=\"Utilisateur.php.html#130\">App\\Entity\\Utilisateur::removeRole<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,91 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require profils
+#}
+
+{% block content %}
+    
+    <div class='col-12 p-0'>
+        {# Affichage du nombre d'profil #}
+        {% embed 'composants/card/_card_info.html.twig' with {'profils': profils} only %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'users' %}
+            {% set couleurIconeGlobal = 'info' %}
+            {% set titreGlobal = 'twig.admin.profil.interface.nbr.profils' | trans({'nbrProfils': profils | length}) %}
+            {% set couleurTitreGlobal = 'info' %}
+        {% endembed %}
+
+        {# Affichage du nombre de médias #}
+        {# {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'file' %}
+            {% set couleurIconeGlobal = 'info' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.documents' | trans({'nbrDocuments': documents | length}) %}
+            {% set couleurTitreGlobal = 'info' %}
+        {% endembed %} #}
+
+        {# Affichage du nombre de medias orphelins #}
+        {# {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'mail-bulk' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.orphelins' | trans({'nbrOrphelins': mediasOrphelins | length}) %}
+            {% if mediasOrphelins | length == 0 %}
+                {% set couleurIconeGlobal = 'info' %}
+                {% set couleurTitreGlobal = 'info' %}
+            {% else %}
+                {% set lienGlobal = path('admin_medias_orphelins') %}
+                {% set couleurIconeGlobal = 'danger' %}
+                {% set couleurTitreGlobal = 'danger' %}
+            {% endif %}        
+        {% endembed %} #}
+
+        {# Affichage du nombre de nouveaux fichiers #}
+        {# {% embed 'composants/card/_card_info.html.twig' %}
+            {% set taille = taille(3,12) %}
+            {% set iconeGlobal = 'cloud-download-alt' %}
+            {% set titreGlobal = 'twig.page.admin.media.nbr.detectes' | trans({'nbrDetectes': fichiersOrphelins | length}) %}
+            {% if fichiersOrphelins | length == 0 %}
+                {% set couleurIconeGlobal = 'info' %}
+                {% set couleurTitreGlobal = 'info' %}
+            {% else %}
+                {% set lienGlobal = path('admin_medias_fichiers_orphelins') %}
+                {% set couleurIconeGlobal = 'danger' %}
+                {% set couleurTitreGlobal = 'danger' %}
+            {% endif %}
+        {% endembed %} #}
+    </div>
+    
+
+    {# La page est divisé en 2 colonnes (une grande et une petite à gauche) #}
+    <div class='{{ taille(3,12) }} p-0'>
+        
+        {% embed 'composants/card/_card.html.twig' with {} only %}
+            {% block contenu %}
+
+                {# --- Affichage du menu de l'interface de gestion de Profils --- #}
+                {% include 'entity/profil/profil/_int____profil____menu.html.twig' %}
+
+            {% endblock %}
+        {% endembed %}
+        
+
+    </div>
+
+    <div class='{{ taille(9,12) }} p-0'>
+        
+        {% set content_interface %}{% block content_interface %}{% endblock %}{% endset %}
+        
+        {% embed 'composants/card/_card.html.twig' with {'titre': sousTitre, 'content_interface': content_interface}  %}
+            {% set titre = titre | trans %}
+            {# Permet l'ajour de contenu dans l'interface #}
+            {% block contenu %}
+
+                {{ content_interface }}                
+
+            {% endblock %}
+        {% endembed %}
+        
+    </div>
+
+{% endblock %}

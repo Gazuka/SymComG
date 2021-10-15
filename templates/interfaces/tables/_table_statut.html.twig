@@ -1,0 +1,20 @@
+{#
+    require enums
+    require enumname
+#}
+{% embed 'composants/card/_card_table.html.twig' with {'enums': enums, 'enumname': enumname} only %}
+    {% set titre = 'trad:titre' %}
+    {% set nomColonnes = ['#', 'TRAD:titre', 'TRAD:Action'] %}
+    {% set tbody %}
+        {% for enum in enums %}
+            <tr>
+                <td>{{ enum.id }}</td>
+                <td>{{ enum.titre }}</td>
+                <td>
+                    {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+                    {{ path('admin_config_enum_supprimer', {'enumname': enumname, 'idenum': enum.id}) | BoutonLienSupprimer() }}
+                </td>
+            </tr>
+        {% endfor %}
+    {% endset %}
+{% endembed %}

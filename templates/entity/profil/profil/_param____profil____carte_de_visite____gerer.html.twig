@@ -1,0 +1,10 @@
+{#
+    require profil
+#}
+{% if profil.carteVisite is empty %}{# La carte de visite n'existe pas #}
+    {{ path('admin_profil_cartevisite', {'idprofil': profil.id}) | BoutonLienSimple('twig.pages.admin.profil.gerer.cartevisite.ajouter' | trans, 'fa-id-card', 'warning') }}
+{% else %} {# La carte de visite existe #}
+    {# On affiche le module : Carte de Visite #}
+    {% embed 'entity/cartevisite/cartevisite/_mod____cartevisite____gerer.html.twig' with {'cartevisite': profil.cartevisite} only %}
+    {% endembed %}
+{% endif %}

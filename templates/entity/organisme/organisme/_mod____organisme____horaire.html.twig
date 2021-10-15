@@ -1,0 +1,15 @@
+{#
+    require organisme
+    require titre
+
+    Si des horaires existent, on les affiches
+#}
+{% if organisme.horaire is not empty %}
+    {% if organisme.horaire.visuel is not empty %}
+        {# On affiche le module #}
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+        <div class='col-12 mb-4 text-center'>
+            {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': organisme.horaire.visuel} only %}  
+        </div>    
+    {% endif %}
+{% endif %}

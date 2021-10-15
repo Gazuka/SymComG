@@ -1,0 +1,10 @@
+{#
+    require poste
+#}
+{% if poste.carteVisite is empty %}{# La carte de visite n'existe pas #}
+    {{ path('admin_poste_cartevisite', {'idposte': poste.id}) | BoutonLienSimple('twig.pages.admin.poste.gerer.cartevisite.ajouter' | trans, 'fa-id-card', 'warning') }}
+{% else %} {# La carte de visite existe #}
+    {# On affiche le module : Carte de Visite #}
+    {% embed 'entity/cartevisite/cartevisite/_mod____cartevisite____gerer.html.twig' with {'cartevisite': poste.cartevisite} only %}
+    {% endembed %}
+{% endif %}

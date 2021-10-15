@@ -1,0 +1,44 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = 'Bulletins municipaux' %}
+{#
+    require bulletins
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    {# --- Affichage des bulletins municipaux --- #}
+    {% for bulletin in bulletins %}
+        
+        {# Affichage avec calameo ? Attention aux pubs ! #}
+        {# <div style="text-align:center;"><iframe src="//v.calameo.com/?bkcode=005040477f102bad18c49&mode=mini&view=book&clickto=view&clicktarget=_blank" width="560" height="350" frameborder="0" scrolling="no" allowtransparency allowfullscreen style="margin:0 auto;"></iframe></div> #}
+
+        {% if loop.first == true %} 
+            {# On affiche le bulletin le plus récent en plus grand #}
+            <div class='col-12'>
+                <div class='text-center'>{{ bulletin.titre }} : {{ bulletin.periode }}</div>
+                <object type="application/pdf" class='col-12' height='665vh'>
+                    <param name="src" value="{{ asset(bulletin.support.media.fichier.getChemin) }}" /> 
+                    <strong>TRAD : Le plugin pdf est absent de votre navigateur ce qui vous empêche d'avoir un aperçu du fichier.</strong>
+                </object>
+            </div>
+        {% else %}
+            {# Les bulletins plus anciens sont petits #}
+            <div class='col-4'>
+                <div class='text-center'>{{ bulletin.titre }}<br/>{{ bulletin.periode }}</div>
+                <object type="application/pdf" class='col-12' height='480vh'>
+                    <param name="src" value="{{ asset(bulletin.support.media.fichier.getChemin) }}" /> 
+                    <strong>TRAD : Le plugin pdf est absent de votre navigateur ce qui vous empêche d'avoir un aperçu du fichier.</strong>
+                </object>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+    
+{% endblock %}

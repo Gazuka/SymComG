@@ -1,0 +1,49 @@
+{#
+    option taille
+    require contenu
+    option titre    
+#}
+{% if taille is not defined %}
+    {% set taille = 'col-12' %}
+{% endif %}
+
+<div class = "{{ taille }}">
+<div class="card shadow mb-4">
+    
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        {# Si titre #}
+        {% if titre is defined %}
+            <h6 class="m-0 font-weight-bold text-primary">
+                {% if iconeTitre is defined %}
+                    <i class="fas {{ iconeTitre }}"></i>
+                {% endif %}
+                {{ titre }}
+            </h6>        
+        {% endif %}
+        {% if actions is defined %}
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(17px, 19px, 0px);">
+                    <div class="dropdown-header">
+                        Actions :
+                    </div>
+                    {% for texte, url in actions %}
+                        {% if texte == '---' %}
+                            <div class="dropdown-divider"></div>
+                        {% else %}
+                            <a class="dropdown-item" href="{{url}}">{{texte}}</a>    
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    
+    {# Body #}
+    <div class="card-body">
+        {{ contenu }}
+    </div>
+</div>
+</div>

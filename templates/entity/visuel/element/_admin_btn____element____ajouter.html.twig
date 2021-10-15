@@ -1,0 +1,10 @@
+{#
+    require visuel
+    require element
+    option form_X (X est l'id de elementx du parent)
+#}
+
+<a href="{{ path('admin_visuel_element_ajouter', {'idvisuel': visuel.id, 'idelemxconteneur': element.elemx.id}) }}" class="text-white badge badge-success font-weight-bold">
+    <i class="fas fa-plus"></i>
+    <i class="fas fa-puzzle-piece"></i>
+</a>

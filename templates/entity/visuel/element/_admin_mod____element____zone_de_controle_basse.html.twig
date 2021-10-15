@@ -1,0 +1,13 @@
+{#
+    require element
+    require visuel
+#}
+{% if element.nomClasse == 'zone' %}
+    {% set couleur = 'info' %}
+{% else %}
+    {% set couleur = 'secondary' %}
+{% endif %}
+
+<div class='text-center bg-{{ couleur }} text-white mb-1'>
+    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_admin_mod____element_' ~ element.nomClasse ~ '____zone_de_controle_basse.html.twig' with {'element': element, 'visuel': visuel} only %}    
+</div>

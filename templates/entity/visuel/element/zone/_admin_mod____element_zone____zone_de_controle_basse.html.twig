@@ -1,0 +1,8 @@
+{#
+    require element (zone)
+    require visuel
+#}
+{% if element.nomClasse == 'zone' %}
+    {# Permet l'ajout d'un nouvel element #}
+    {% include 'entity/visuel/element/_admin_btn____element____ajouter.html.twig' with {'visuel': visuel, 'element': element} only %}
+{% endif %}

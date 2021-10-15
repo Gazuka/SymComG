@@ -1,0 +1,9 @@
+{# 
+    require postes
+#}
+{% for poste in postes %}
+
+    {# Affichage d'un poste pour la gestion #}
+    {% include 'entity/poste/poste/_mod____poste____gerer.html.twig' with {'poste': poste} only %}
+
+{% endfor %}

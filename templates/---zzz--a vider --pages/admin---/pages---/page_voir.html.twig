@@ -1,0 +1,19 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    {% for contenu in page.contenus %}
+        {% set parametres = {'twig': contenu.module.element.twig, 'texte': 'coucou2'} %}
+        {# {% embed twig with contenu.module.element.parametres only %}
+        {% endembed %} #}
+        
+        {# {% embed 'partials/elements/_card.html.twig' with {'page': page} only %} #}
+        {% embed twig with parametres only %}
+            {% set titre = "TRAD:test" %}
+            {% set taille = 'col-12' %}
+            {% set actions = null %}
+        {% endembed %}
+    {% endfor %}
+
+
+{% endblock %}

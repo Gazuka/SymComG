@@ -1,0 +1,12 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require article
+    require ajout_media
+#}
+
+{% block content %}
+
+    {% include 'entity/article/article/_admin____article.html.twig' with {'article': article, 'form': form, 'ajout_media': ajout_media} only %}
+    
+{% endblock %}

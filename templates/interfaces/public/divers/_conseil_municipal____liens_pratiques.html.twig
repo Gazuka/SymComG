@@ -1,0 +1,8 @@
+{# On affiche le module #}
+{% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Liens"} only %}
+<div class='col-12 mb-4 text-center'>
+    {# DEBUG - Trouver un systeme pour eviter le codage en brut (lien de type chemin dans les elements) #}
+    <a class="dropdown-item" href="{{ path('site_conseil_municipal') }}">Le maire et les élus</a>
+    <a class="dropdown-item" href="{{ path('site_deliberations') }}">Délibérations</a>
+    <a class="dropdown-item" href="{{ path('site_arretes_municipaux') }}">Arrêtés municipaux</a>
+</div>    

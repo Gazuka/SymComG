@@ -1,0 +1,37 @@
+@import url("xs_header.css") (min-width: 0px);
+@import url("md_header.css") (min-width: 992px);
+@import url("lg_header.css") (min-width: 1200px);
+
+#header
+{
+    top:0px;
+    width: 100%;
+    margin: 0px;
+    position : fixed;
+    z-index:50000;
+    border-bottom: 5px solid white;
+}
+
+/* Permet de rendre invisible le header de telephone sur ordinateur et inversement */
+.sc4-header-invisible
+{
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Titre de la page */
+.sc4-header-guesnain
+{
+    font-family: 'Alex Brush', cursive;
+}
+
+/* Mise en forme du diaporama */
+.sc4-header-diaporama
+{
+    width: 100%;
+    background-image: url('../../templates/photo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid white;
+}

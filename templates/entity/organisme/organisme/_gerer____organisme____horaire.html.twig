@@ -1,0 +1,10 @@
+{#
+    require organisme
+#}
+{% if organisme.horaire is empty %}{# L'horaire n'existe pas #}
+    {{ path('admin_organisme_horaire', {'idorganisme': organisme.id}) | BoutonLienSimple('twig.pages.admin.organisme.voir.horaire.ajouter' | trans, 'fa-puzzle-piece', 'warning') }}
+{% else %} {# L'horaire existe #}
+    {# On affiche le module : Horaire #}
+    {% embed 'entity/agenda/horaire/_admin____horaire.html.twig' with {'horaire': organisme.horaire} only %}
+    {% endembed %}
+{% endif %}

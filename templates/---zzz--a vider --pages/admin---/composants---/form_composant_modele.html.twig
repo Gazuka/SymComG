@@ -1,0 +1,105 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    {% embed 'partials/elements/_card.html.twig' with {'form': form} only %}
+        {% set titre = "TRAD:Formulaire de création de modèle de composant" %}
+        {% set taille = 'col-12' %}
+        {% set actions = null %}
+
+        {% set contenu %}
+            {{ form_start(form) }}
+
+            {{ form_row(form.titre) }}
+            {{ form_row(form.twig) }}
+
+            {# {{ form_row(form.caracteristiques) }} #}
+            
+            <div class="caracteristiques" data-prototype="{{ form_widget(form.caracteristiques.vars.prototype)|e('html_attr') }}">
+                {% for caracteristique in form.caracteristiques %}
+                    <div class='caracteristique'>
+                        {{ form_row(caracteristique.titre) }}Coucou
+                        {{ form_row(caracteristique.obligatoire) }}
+                        {{ form_row(caracteristique.genre) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {{ 'admin.twig.formulaire.enregistrer' | trans | capitalize | BoutonValiderFormulaire }}
+            {{ form_end(form) }}
+        {% endset %}
+        
+    {% endembed %}
+
+{% endblock %}
+
+
+
+
+{% block javascript %}
+    //Permet de rendre le formulaire dynamique
+    var $zoneCollection;
+
+    //Création du bouton
+    var $boutonAjouter = $("{{ 'TRANS : ajouter une caractéristique' | capitalize | BoutonSimple }}");
+    var $zoneBoutonAjouter = $('<div ></div>').append($boutonAjouter);
+
+    jQuery(document).ready(function() 
+    {
+        // Récupération de la zone de la collection
+        $zoneCollection = $('div.caracteristiques');
+
+        // Ajoute un bouton supprimer pour chaque caracteristique
+        $zoneCollection.find('div.caracteristique').each(function() 
+        {
+            supprimerCaracteristique($(this));
+        });
+        
+        // Ajouter le bouton ajouter
+        $zoneCollection.append($zoneBoutonAjouter);
+        
+        // Compte le nombre de sous caracteristiques
+        $zoneCollection.data('index', $zoneCollection.find(':input').length);
+        
+        // Détection du clic sur le bouton ajouter
+        $boutonAjouter.on('click', function(e) {            
+            ajouterCaracteristique($zoneCollection, $zoneBoutonAjouter);            
+        });
+    });
+
+    function ajouterCaracteristique($zoneCollection, $zoneBoutonAjouter)
+    {
+        // Récupérer le data-prototype
+        var prototype = $zoneCollection.data('prototype');
+
+        // Définit l'index en cours
+        var index = $zoneCollection.data('index');
+
+        var newForm = prototype;
+        // You need this only if you didn't set 'label' => false in your taskss field in TaskType
+        // Replace '__name__label__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        // newForm = newForm.replace(/__name__label__/g, index);
+
+        // Remplace '__name__' dans le prototype par le bon n°        
+        newForm = newForm.replace(/__name__/g, index);
+
+        // Incrementer le index
+        $zoneCollection.data('index', index + 1);
+
+        // Afficher le formulaire
+        var $newFormDiv = $('<div></div>').append(newForm);
+        $zoneBoutonAjouter.before($newFormDiv);
+    }
+
+    function supprimerCaracteristique($caracteristiqueFormDiv)
+    {
+        var $zoneBoutonSupprimer = $('<button type="button">Delete this task</button>');
+        $caracteristiqueFormDiv.append($zoneBoutonSupprimer);
+
+        $zoneBoutonSupprimer.on('click', function(e) {
+            // Supprimer la div de la caracteristique
+            $caracteristiqueFormDiv.remove();
+        });
+    }
+{% endblock %}

@@ -1,0 +1,7 @@
+{#
+    require organisme
+#}
+
+{% if organisme.visuel is not empty %}
+    {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': organisme.visuel} only %}                                    
+{% endif %}

@@ -1,0 +1,28 @@
+{#
+    require structures
+#}
+{% for structure in structures %}
+    <tr>
+        <td>
+            {{ structure.id }}
+        </td>
+        <td>
+            <a href="{{ path('admin_organisme_gerer', {'idorganisme': structure.organisme.id}) }}">
+                {{ structure.nom }}
+            </a>
+        </td>
+        <td>
+            {{ structure.presentation | raw}}
+        </td>
+        <td>
+            {% if structure.local == true %}
+                {{'twig.pages.admin.organisme.structures.voir.local.oui' | trans }}
+            {% else %}
+                {{'twig.pages.admin.organisme.structures.voir.local.non' | trans }}
+            {% endif %}
+        </td>
+        <td>
+            {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+        </td>
+    </tr>
+{% endfor %}

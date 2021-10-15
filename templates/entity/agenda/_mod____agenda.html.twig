@@ -1,0 +1,26 @@
+<div class='col-12 mb-4'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class="card">
+                <img class="img-fluid" src="http://symcomg/media/cache/normal/medias/photo/1632901901-dalida.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Concert hommage : Dalida</h5>
+                    <p class="card-text">Le 15 octobre à l'Espace Fêtes et Culture Jacques Duclos</p>
+                    <a href="{{ path('site_article', {'idarticle': 11}) }}" class="btn btn-danger col-12">En savoir plus...</a>
+                </div>
+            </div>
+        </div>
+        <div class='col-6'>
+            {% for evenement in evenements %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <a class='text-dark' href='http://symcomg/service/mediatheque'>{{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }} à {{ evenement.heureDebut | date('H:i') }}</br><span class='font-weight-bold'>{{ evenement.titre }}</span> / {{ evenement.lieu }}</a>
+                        {# {{evenement.date|localizeddate('none', 'none', null, null, 'EEEE mm MMMM YYYY')}}
+                        {{evenement.date|localizeddate('medium', 'none', null, null, 'EEEE mm MMMM YYYY')}} #}
+                        {# {{evenement.date|localizeddate('full', 'none', null, null, null)}} #}
+                    </div>
+                </div>
+            {% endfor %}            
+        </div>
+    </div>
+</div>

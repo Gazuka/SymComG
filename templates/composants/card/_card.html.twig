@@ -1,0 +1,73 @@
+{# == _card ==
+    option taille : taille de la div générale (col-12 par défaut)
+    option lienGlobal : (! Attention il désactive les actions !) url si clic sur la card
+    >>> Contenu
+    option imageTop : image
+    option imageBodyTop : image
+    option imageBodyBottom : image
+    option imageBottom : image
+    option imageTopDescription : texte
+    option imageBodyTopDescription : texte
+    option imageBodyBottomDescription : texte
+    option imageBottomDescription : texte
+#}
+{# == __card_header ==
+    option titre : texte
+    option lienTitre
+    option couleurTitre : couleur bootstrap
+    option iconeTitre : FontAwesome
+    option couleurIconeTitre : couleur bootstrap
+    option actions : tableau de ce type ({'action1':'url1', 'action2': 'url2', '---':'#'})
+    option titreActions : texte
+    option iconeActions : FontAwesome
+#}
+
+{# Configuration #}
+{% if taille is not defined %}{% set taille = taille(12,12) %}{% endif %}
+{# DEBUG : Si pas de taille on fait un div classique (toute la largeur sans bordure) #}
+{# {% if taille is not defined %}{% set taille = '' %}{% endif %}  #}
+
+{# Affichage #}
+<div class = "{{ taille }}">
+
+        <div class = "card shadow mb-4">
+        
+            {% if imageTop is defined and imageTopDescriptif is defined %}
+                {% include 'composants/card/__card_image.html.twig' with {'image': imageTop, 'imageDescriptif': imageTopDescriptif} only %}
+            {% endif %}
+
+            {# Card header #}
+            {% if titre is defined or actions is defined %}
+                {% include 'composants/card/__card_header.html.twig' %}
+            {% endif %}
+
+            {% if imageBodyTop is defined and imageBodyTopDescriptif is defined %}
+                {% include 'composants/card/__card_image.html.twig' with {'image': imageBodyTop, 'imageDescriptif': imageBodyTopDescriptif} only %}
+            {% endif %}
+
+            {# Card Body #}
+            <div class="card-body">
+                <div class='row'>
+                
+                    {# Lien global pour la card #}
+                    {% if lienGlobal is defined %}<a href="{{ lienGlobal }}">{% endif %}
+                        {% block contenu %}             
+                        {% endblock %}                   
+                    {% if lienGlobal is defined %}</a>{% endif %}
+                </div>
+            </div>
+
+            {% if imageBodyBottom is defined and imageBodyBottomDescriptif is defined %}
+                {% include 'composants/card/__card_image.html.twig' with {'image': imageBodyBottom, 'imageDescriptif': imageBodyBottomDescriptif} only %}
+            {% endif %}
+
+            {# Card Footer #}
+
+            {% if imageBottom is defined and imageBottomDescriptif is defined %}
+                {% include 'composants/card/__card_image.html.twig' with {'image': imageBottom, 'imageDescriptif': imageBottomDescriptif} only %}
+            {% endif %}
+
+        </div>
+
+    
+</div>

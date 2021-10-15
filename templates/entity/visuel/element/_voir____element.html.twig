@@ -1,0 +1,14 @@
+{#
+    require element 
+#}
+
+{# Si l'element est une zone, la valeur de col sera gérée directement par le elemZone #}
+{% if element.nomClasse != "zone" %}
+    <div class='col-12'>
+{% endif %}
+
+    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_voir____' ~ element.nomClasse ~ '.html.twig' with {'element': element} only %}
+
+{% if element.nomClasse != "zone" %}
+    </div>
+{% endif %}

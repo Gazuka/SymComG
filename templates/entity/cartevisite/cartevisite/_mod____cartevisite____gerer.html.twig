@@ -1,0 +1,26 @@
+{#
+    require cartevisite    
+#}
+{# === Affichage d'une card tableau avec les adresses === #}
+{% embed 'composants/_table.html.twig' with {'adresses': cartevisite.adresses} only %}
+    {% set tbody %}
+        {# Affichage du tableau avec les adresses #}
+        {% include 'entity/cartevisite/adresse/_table____adresses____gerer.html.twig' with {'adresses': adresses} only %}
+    {% endset %}       
+{% endembed %}
+{# Affichage d'une card tableau avec les numéros de téléphones #}
+{% embed 'composants/_table.html.twig' with {'telephones': cartevisite.telephones} only %}
+    {% set tbody %}
+        {# Affichage du tableau avec les numéros de téléphones #}
+        {% include 'entity/cartevisite/telephone/_table____telephones____gerer.html.twig' with {'telephones': telephones} only %}
+    {% endset %}       
+{% endembed %}
+{# Affichage d'une card tableau avec les e-mails #}
+{% embed 'composants/_table.html.twig' with {'mails': cartevisite.mails} only %}
+    {% set tbody %}
+        {# Affichage du tableau avec les emails #}
+        {% include 'entity/cartevisite/mail/_table____mails____gerer.html.twig' with {'mails': mails} only %}
+    {% endset %}       
+{% endembed %}
+{# Affichage d'un bouton pour ajouter un contact #}
+{{ path('admin_cartevisite_creer', {'idcartevisite': cartevisite.id}) | BoutonLienSimple('twig.partials.admin.modules.cartevisite.ajouter' | trans, 'fa-add', 'warning') }}

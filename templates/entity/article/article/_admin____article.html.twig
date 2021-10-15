@@ -1,0 +1,59 @@
+{#
+    require article
+    require ajout_media
+#}
+
+<div class='col-9'>
+    {# {% include 'entity/article/article/_voir____article____titre.html.twig' with {'article': article} only %} #}
+
+    {# Affichage du visuel de l'article #}
+    {% embed 'composants/card/_card.html.twig' with {'visuel': article.visuel} only %}
+        {% set titre = ('twig.admin.article.visuel') | trans %}
+        {% block contenu %}
+            {% include 'entity/visuel/visuel/_admin____visuel.html.twig' with {'visuel': visuel} only %}
+        {% endblock %}
+    {% endembed %}
+</div>
+
+<div class='col-3'>
+    <div class='row'>
+        {# Formulaire avec les informations de bases #}
+        {% embed 'composants/card/_card.html.twig' with {'form': form} only %}
+            {% set titre = ('twig.admin.article.form.titre') | trans %}
+            {% block contenu %}
+                {% include 'entity/article/article/_admin_form____article.html.twig' with {'form': form} only %}
+            {% endblock %}
+        {% endembed %}
+    </div>
+    <div class='row'>
+        {# Gestion de l'annexe #}
+        {% if article.annexe is not null %}
+            {% embed 'composants/card/_card.html.twig' with {'annexe': article.annexe} only %}
+                {% set titre = ('twig.admin.article.annexe') | trans %}
+                {% block contenu %}
+                    {% include 'entity/visuel/visuel/_admin____visuel.html.twig' with {'visuel': annexe} only %}
+                {% endblock %}
+            {% endembed %}
+        {% else %}
+            {% embed 'composants/card/_card.html.twig' with {'article': article} only %}
+                {% set titre = ('twig.admin.article.annexe') | trans %}
+                {% block contenu %}
+                    {% include 'entity/article/article/_admin____article____annexe.html.twig' with {'article': article} only %}
+                {% endblock %}
+            {% endembed %}
+            
+        {% endif %}
+
+        {# Affichage d'une Card pour le module : Classeur #}
+        {% embed 'composants/card/_card.html.twig' with {'article': article, 'ajout_media': ajout_media} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.article.voir.classeur' | trans) %}
+            {% block contenu %} 
+
+                {# Gestion des classeurs #}                
+                {% include 'entity/article/article/_gerer____article____classeurs.html.twig' with {'article': article, 'ajout_media': ajout_media} only %}
+
+            {% endblock %}
+        {% endembed %}
+    </div>
+</div>

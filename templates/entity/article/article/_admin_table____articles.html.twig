@@ -1,0 +1,18 @@
+{#
+    require articles
+#}
+{% for article in articles %}
+    <tr>
+        <td>
+            {{ article.id }}
+        </td>
+        <td>
+            <a href="{{ path('admin_article_gerer', {'idarticle': article.id}) }}">
+                {{ article.titre }}
+            </a>
+        </td>
+        <td>
+            {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+        </td>
+    </tr>
+{% endfor %}

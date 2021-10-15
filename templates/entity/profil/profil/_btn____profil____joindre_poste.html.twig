@@ -1,0 +1,16 @@
+{#
+    require profil
+#}
+
+{% if app.session.get('configJoindreProfil') is not empty %}
+
+    {% embed 'composants/card/_card.html.twig' with {'profil': profil} only %}                
+        {% block contenu %}
+
+            {% set configJoindreProfil = app.session.get('configJoindreProfil') %}
+            {{ path('admin_profil_ajouter_poste', {'idprofil': profil.id,'idposte': configJoindreProfil.idposte}) | BoutonLienSimple(configJoindreProfil.label | trans, 'fa-add', 'warning') }}
+
+        {% endblock %}    
+    {% endembed %}
+
+{% endif %}

@@ -1,0 +1,75 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% if service.local == true %}
+    {% set titre = 'Service municipal : '~ service.nom %}
+{% else %}
+    {% set titre = service.nom %}
+{% endif %}
+
+{#
+    require service
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}    
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    {# <div class='row mb-4'> #}
+        <div class='col-4 mb-4'>
+            {# --- Photo de profil --- #}
+            {% include 'entity/organisme/organisme/_voir____organisme____photo_profil.html.twig' with {'organisme': service.organisme, 'liipFiltre': 'normal'} only %}
+        </div>
+        <div class='col-8 mb-4'>
+            {# --- Texte de présentation du service --- #}
+            <h6><span class='font-weight-bold'>Présentation :</span></h6>
+            {{ service.presentation | raw }}              
+        </div>
+    {# </div> #}
+
+    <div class='col-8'>
+        {# Affichage des actualites #}
+        {% if service.organisme.elemOrganismes | length > 0 %}
+            {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Actualités"} only %}
+            <div class='row'>
+                {% for elemOrganisme in service.organisme.elemOrganismes %}
+                    {% include 'entity/article/article/_mod____article____actualite.html.twig' with {'article': elemOrganisme.elemX.visuel.articleAnnexe} only %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {# Affichage de l'agenda #}
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
+        {% include 'interfaces/_debug____message.html.twig' with {'message': "Affichage de l'agenda (???)"} only %}    
+
+        {# Affichage du visuel #}
+        {% include 'entity/organisme/organisme/_voir____organisme____visuel.html.twig' with {'organisme': service.organisme} only %}        
+    </div>
+    
+    <div class='col-4'>
+        {# Affichage du module de carte de visite #}
+        {% include 'entity/organisme/organisme/_mod____organisme____cartevisite.html.twig' with {'organisme': service.organisme, 'titre': "Coordonnées"} only %}
+        
+        {# Affichage du module d'horaire #}
+        {% include 'entity/organisme/organisme/_mod____organisme____horaire.html.twig' with {'organisme': service.organisme, 'titre': "Horaires"} only %}
+
+        {# Affichage du module de postes #}
+        {% if service.slug != 'conseil-municipal' %}
+            {% include 'entity/organisme/organisme/_mod____organisme____postes.html.twig' with {'organisme': service.organisme, 'titre': "Bureau"} only %}                    
+        {% else %}
+            {% include 'interfaces/public/divers/_conseil_municipal____liens_pratiques.html.twig' with {} only %}
+        {% endif %}
+
+        {# Affichage du module de liens #}
+        {% include 'entity/organisme/organisme/_mod____organisme____liens.html.twig' with {'organisme': service.organisme, 'titre': "Liens"} only %}        
+    </div>
+
+    <div class='col-12'>
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Albums photos et documents"} only %}
+        {% include 'interfaces/_debug____message.html.twig' with {'message': "Affichage des classeurs (organisme->classeurs)"} only %}    
+    </div>
+    
+{% endblock %}

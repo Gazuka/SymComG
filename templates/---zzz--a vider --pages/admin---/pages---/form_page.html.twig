@@ -1,0 +1,20 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{% block content %}
+
+    {% embed 'partials/elements/_card.html.twig' with {'form': form} only %}
+        {% set titre = "TRAD:Formulaire de page" %}
+        {% set taille = 'col-12' %}
+        {% set actions = null %}
+
+        {% set contenu %}
+            {{ form_start(form) }}
+            {{ form_row(form.nom) }}
+            {{ form_row(form.titre) }}            
+            {{ 'admin.twig.formulaire.enregistrer' | trans | capitalize | BoutonValiderFormulaire }}
+            {{ form_end(form) }}
+        {% endset %}
+        
+    {% endembed %}
+
+{% endblock %}

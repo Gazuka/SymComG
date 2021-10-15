@@ -1,0 +1,58 @@
+<div class='row'>
+
+    <div class='col-4'>
+        {# <div class="dropdown-divider"></div> #}
+        <p class='text-center bold'><strong>Découvrir Guesnain</strong></p>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 3})}}">Présentation</a>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 4})}}">Histoire</a>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 5})}}">Nain Gaillou</a>
+        <a class="dropdown-item" href="#">° Plan</a>
+
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Actualités</strong></p>        
+        <a class="dropdown-item" href="{{ path('site_articles') }}">Toutes les actualités</a>
+        <a class="dropdown-item" href="{{ path('site_bulletins_municipaux') }}">Bulletins municipaux</a>
+        <a class="dropdown-item" href="#">° Albums photos</a>
+        
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Collectivités</strong></p>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'mairie'}) }}">La Mairie</a>
+        <a class="dropdown-item" href="{{ path('site_service', {'slugservice': 'douaisis-agglo'}) }}">Douaisis Agglo</a>
+        
+    </div>
+    <div class='col-4'>
+        {# <div class="dropdown-divider"></div> #}
+        <p class='text-center bold'><strong>Conseil municipal</strong></p>
+        <a class="dropdown-item" href="{{ path('site_conseil_municipal') }}">Le maire et les élus</a>
+        <a class="dropdown-item" href="{{ path('site_articles_organisme', {'idorganisme': 29}) }}">Vie du Conseil Municipal</a>
+        <a class="dropdown-item" href="{{ path('site_deliberations') }}">Délibérations</a>
+        <a class="dropdown-item" href="{{ path('site_arretes_municipaux') }}">Arrêtés municipaux</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Citoyenneté</strong></p>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 7}) }}">Recensement</a>
+        <a class="dropdown-item" href="{{ path('site_article', {'idarticle': 8}) }}">Elections</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Services municipaux</strong></p>
+        <a class="dropdown-item" href="{{ path('site_services') }}">Présentation des services</a>
+        <a class="dropdown-item" href="{{ path('site_annuaire', {'typestructure': 'service'}) }}">Annuaire des services</a>        
+    
+    </div>
+    <div class='col-4'>
+
+        {# <div class="dropdown-divider"></div> #}
+        <p class='text-center bold'><strong>Urbanisme et espace public</strong></p>
+        <a class="dropdown-item" href="#">° Réglementation et démarches</a>
+        <a class="dropdown-item" href="#">° Logement</a>        
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Budget et fiscalité</strong></p>
+        <a class="dropdown-item" href="#">° Budget</a>
+        <a class="dropdown-item" href="#">° Impôts et taxes locales</a>
+    
+        <div class="dropdown-divider"></div>
+        <p class='text-center bold'><strong>Commande publique</strong></p>
+        <a class="dropdown-item" href="#">° Marchés publics</a>
+    
+</div>

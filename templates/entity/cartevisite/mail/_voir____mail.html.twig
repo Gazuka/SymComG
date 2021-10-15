@@ -1,0 +1,11 @@
+{#
+    require mail
+    DEBUG : afficher le privé si autorisation uniquement
+#}
+<span>
+    {% if mail.prive == false %}
+        <a href='mailto:{{ mail.courriel }}'>{{ mail.courriel }}</a>
+    {% else %}
+        <span class='bg-danger'>{{ mail.courriel }}</span>
+    {% endif %}
+</span>

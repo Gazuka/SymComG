@@ -1,0 +1,56 @@
+{# == __card_header ==
+    option titre : texte
+    option couleurTitre : couleur bootstrap
+    option iconeTitre : FontAwesome
+    option couleurIconeTitre : couleur bootstrap
+    option actions : tableau de ce type ({'action1':'url1', 'action2': 'url2', '---':'#'})
+    option titreActions : texte
+    option iconeActions : FontAwesome
+#}
+
+{# Configuration #}
+{% if couleurTitre is not defined %}{% set couleurTitre = 'primary' %}{% endif %}
+{% if couleurIconeTitre is not defined %}{% set couleurIconeTitre = couleurTitre %}{% endif %}
+{% if titreActions is not defined %}{% set titreActions = 'TRAD:Actions' %}{% endif %}
+{% if iconeActions is not defined %}{% set iconeActions = 'fa-ellipsis-v' %}{% endif %}
+
+<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    {# Si titre #}
+    {% if titre is defined %}
+        {% if lienTitre is defined %}
+            <a href='{{lienTitre}}'>
+        {% endif %}
+        <h6 class="m-0 font-weight-bold text-{{couleurTitre}}">
+            {% if iconeTitre is defined %}
+                <i class="fas fa-{{ iconeTitre }} text-{{couleurIconeTitre}}"></i>
+            {% endif %}
+            {{ titre }}
+        </h6>
+        {% if lienTitre is defined %}
+            </a>
+        {% endif %}
+    {% endif %}
+
+    {# Si actions #}
+    {% if lienGlobal is not defined %} {# Impossible d'avoir un menu si un lien global existe... #}
+        {% if actions is defined %}
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas {{ iconeActions }} fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(17px, 19px, 0px);">
+                    <div class="dropdown-header">
+                        {{ titreActions }}
+                    </div>
+                    {% for texte, url in actions %}
+                        {% if texte == '---' %}
+                            <div class="dropdown-divider"></div>
+                        {% else %}
+                            <a class="dropdown-item" href="{{url}}">{{texte}}</a>    
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+</div>

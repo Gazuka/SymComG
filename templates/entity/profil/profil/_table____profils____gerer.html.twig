@@ -1,0 +1,16 @@
+{#
+    require profils
+#}
+{% for profil in profils %}
+    <tr>
+        <td>
+            {{ profil.id }}
+        </td>
+        <td>
+            <a href="{{ path('admin_profil_gerer', {'idprofil': profil.id}) }}">{{ profil.humain.nom }} {{ profil.humain.prenom }}</a>
+        </td>
+        <td>
+            {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+        </td>
+    </tr>
+{% endfor %}

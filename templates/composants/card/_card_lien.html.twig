@@ -1,0 +1,17 @@
+{# == _card_lien ==
+    option taille : taille de la div générale (col-12 par défaut)
+    require lienGlobal : url    
+    option titreGlobal : texte
+    require iconeGlobal
+    option couleurIconeGlobal : couleur Bootstrap
+    require titreGlobal : texte
+    option couleurTitreGlobal : couleur bootstrap
+    option texteGlobal : texte 
+#}
+
+{% embed 'composants/card/_card.html.twig' %}
+    {% block contenu %}
+        {% embed 'composants/card/__card_contenu_icone_texte.html.twig' %}    
+        {% endembed %} 
+    {% endblock %}
+{% endembed %}
