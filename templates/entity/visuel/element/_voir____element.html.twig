@@ -7,7 +7,7 @@
     <div class='col-12'>
 {% endif %}
 
-    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_voir____' ~ element.nomClasse ~ '.html.twig' with {'element': element} only %}
+    {% include 'entity/visuel/element/' ~ element.nomClasse | lower ~ '/_voir____' ~ element.nomClasse | lower ~ '.html.twig' with {'element': element} only %}
 
 {% if element.nomClasse != "zone" %}
     </div>
