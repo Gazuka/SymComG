@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\ArticleType;
 use App\Entity\Visuel\Visuel;
 use App\Entity\Article\Article;
+use App\Entity\Agenda\Evenement;
 use App\Controller\AdminController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +13,13 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class AdminArticleController extends AdminController
 {
+    const CONTROLLER_NAME = 'admin_article';
+    const CLASS_OBJET = Article::class;
+    const CLASS_FORM = ArticleType::class;   
+    const NAMESPACE_OBJET = 'App\\Entity\\Article\\Article';    
+    const OBJETS_NAME = 'articles';
+    const OBJET_NAME = 'article';
+
     /**
      * PUBLIC : VOIR - Afficher l'ensemble des articles
      * 
@@ -20,15 +28,34 @@ class AdminArticleController extends AdminController
      */
     public function voirArticles(): Response
     {
-        //Récupérer tous les articles
-        $articles = $this->findAll(Article::class);
-        //Affichage            
-        $this->setTwig('pages/admin_article/page____admin_article____articles____voir.html.twig');
-        $this->addParamTwig('articles', $articles);
-        
-        return $this->afficher('admin.articles.voir.titre');
+        return $this->voirTout();
     }
 
+    /**
+     * @Route("/admin/article/creer", name="admin_article_creer")
+     * @return Response
+     */
+    public function creerArticle(): Response
+    {
+        $this->creerFormulaire(null, 'admin_article_gerer');
+        return $this->creerObjet();
+    }
+
+    /**
+     * @Route("/admin/article/evenement/creer/{idevenement}", name="admin_article_evenement_creer", requirements={"idevenement"="\-?[0-9]+"})
+     * @return Response
+     */
+    public function creerArticlePincipalEvenement($idevenement): Response
+    {
+        $evenement = $this->findById(Evenement::class, $idevenement);
+        $article = $this->creerFormulaire(null, 'admin_article_gerer');
+        dump($article);
+        if($article->getTitre() != null)
+        {
+            $article->addEvenementsPrincipaux($evenement);
+        }
+        return $this->creerObjet();
+    }
 
     /**
      * @Route("/admin/article/gerer/{idarticle}", name="admin_article_gerer", requirements={"idarticle"="\-?[0-9]+"})
@@ -36,15 +63,26 @@ class AdminArticleController extends AdminController
      */
     public function gererArticle($idarticle): Response
     {
-        $article = $this->findById(Article::class, $idarticle);
-        $this->genererFormulaire($article);
-        $this->setTwig('pages/admin_article/page____admin_article____article____gerer.html.twig');
-        $this->addParamTwig('article', $article);
-        $this->addParamTwig('sessionService', $this->sessionService);
-        $this->addParamTwig('ajout_media', $this->classeurService->recupAjoutMedia('article'));
-        $this->sessionService->enregistrerCheminActuel('gerer_article');
-        return $this->afficher('admin.article.gerer.titre');
+        $this->twigAjoutMedia('article', 'gerer_article');
+        return $this->gererObjet($idarticle, 'admin_article_gerer');
     }
+
+    /**
+     * PUBLIC : Ajouter un Média
+     * 
+     * @Route("/admin/article/classeur/joindre/{idarticle}/{typeName}", name="admin_article_ajouter_media", requirements={"idarticle"="\-?[0-9]+"})
+     * @param integer $idarticle
+     * @return Response
+     */
+    public function joindreMedia(int $idarticle, string $typeName): Response
+    {
+        //Affichage        
+        return $this->ajouterMedia($idarticle, $typeName);
+    }
+
+
+
+    
 
     /**
      * @Route("/admin/article/ajouter/annexe/{idarticle}", name="admin_article_ajouter_annexe", requirements={"idarticle"="\-?[0-9]+"})
@@ -60,64 +98,5 @@ class AdminArticleController extends AdminController
         $this->setRedirect('admin_article_gerer');
         $this->addParamRedirect('idarticle', $idarticle);
         return $this->afficher();
-    }
-    
-    /**
-     * @Route("/admin/article/creer", name="admin_article_creer")
-     * @return Response
-     */
-    public function creerArticle(): Response
-    {
-        $this->genererFormulaire();
-        return $this->afficher('admin.article.creer.titre');
-    }
-
-    /**
-     * PUBLIC : Ajouter un Média
-     * 
-     * @Route("/admin/article/classeur/joindre/{idarticle}/{typeName}", name="admin_article_ajouter_media", requirements={"idarticle"="\-?[0-9]+"})
-     * @param integer $idarticle
-     * @return Response
-     */
-    public function addMedia(int $idarticle, string $typeName): Response
-    {
-        //Récupérer l'article
-        $article = $this->findById(Article::class, $idarticle);
-        //Récupérer ou créer le classeur selon le type et l'enregistrer
-        $classeur = $this->classeurService->recupererLeBonClasseur($article, $typeName);
-        $this->manager->persist($classeur);
-        $this->manager->flush();
-        
-        //Création d'un avisRechecheDocument
-        $nomAvis = 'article';
-        $this->classeurService->creerAvisRechercheDocument($nomAvis, $article, $classeur, 'admin.article.joindre.media.bouton.label', $this->sessionService->recupChemin('cheminPrecedant'));
-        $this->classeurService->recupMediasAutorises($nomAvis, 'article', $typeName);
-        $this->classeurService->enregistrerAvis($nomAvis);
-        
-        //Redirection vers la gestion des medias
-        $this->setRedirect('admin_medias');
-        //Affichage        
-        return $this->afficher();
-    }
-
-    private function genererFormulaire($article = null): void
-    {
-        if($article == null)
-        {
-            $article = new Article();
-        }
-        //Formulaire        
-        $form = $this->createForm(ArticleType::class, $article);
-        if($this->formIsValid($form))
-        {
-            $this->manager->persist($article);
-            $this->manager->flush();
-            $this->addFlash('success', 'admin.article.form.flash.success');
-            $this->setRedirect('admin_article_gerer');
-            $this->addParamRedirect('idarticle', $article->getId());
-        }
-        //Affichage        
-        $this->setTwig('pages/admin_article/page____admin_article____article____form.html.twig');
-        $this->addParamTwig('form', $form->createView());        
-    }
+    }   
 }

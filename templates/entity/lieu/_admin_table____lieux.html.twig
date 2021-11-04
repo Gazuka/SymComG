@@ -1,0 +1,18 @@
+{#
+    require lieux
+#}
+{% for lieu in lieux %}
+    <tr>
+        <td>
+            {{ lieu.id }}
+        </td>
+        <td>
+            {# <a href="{{ path('admin_article_gerer', {'idarticle': article.id}) }}"> #}
+                {{ lieu.nom }}
+            {# </a> #}
+        </td>
+        <td>
+            {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+        </td>
+    </tr>
+{% endfor %}

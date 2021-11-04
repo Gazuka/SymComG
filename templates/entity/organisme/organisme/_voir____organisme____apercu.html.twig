@@ -1,0 +1,32 @@
+{#
+    require organisme
+#}
+
+{# --- Affichage de l'organisme --- #}
+
+{% embed 'composants/card/_card.html.twig' with {'organisme': organisme} only %}
+        {% set titre = organisme %}
+
+        {# Gestion du lien #}
+        {% if organisme.getTypeStructure == 'service' %}
+            {% set lienTitre = path('site_service', {'slugservice': organisme.structure.slug}) %}
+        {% else %}
+            {% if organisme.getTypeStructure == 'association' %}
+                {% set lienTitre = path('site_association', {'slugassociation': organisme.structure.slug}) %}
+            {% else %}
+                {% if organisme.getTypeStructure == 'entreprise' %}
+                    {# {% set lienTitre =  %} #}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+        
+        {% block contenu %}
+            {# {% include 'entity/organisme/organisme/_mod____organisme____cartevisite.html.twig' with {'organisme': element.organisme, 'titre': element.organisme} only %}         #}
+
+            <div class='col-12 mb-4 text-center'>
+                {% include 'entity/organisme/organisme/_voir____organisme____cartevisite.html.twig' with {'organisme': organisme} only %}        
+            </div>
+
+        {% endblock %}
+{% endembed %}

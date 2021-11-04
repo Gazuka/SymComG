@@ -1,0 +1,36 @@
+{#
+    require evenements
+#}
+{% for evenement in evenements %}
+    <tr>
+        <td>
+            {{ evenement.id }}
+        </td>
+        <td>
+            {% if evenement.majeur == true %}
+                <i class="fas fa-star"></i>
+            {% endif %}
+        </td>
+        <td>
+            <a href="{{ path('admin_evenement_gerer', {'idevenement': evenement.id}) }}">{{ evenement.titre }}</a>
+        </td>
+        <td>
+            {# Affichage de la date #}
+            {% include 'entity/agenda/evenement/_voir____evenement____date_complete.html.twig' with {'evenement': evenement} only %}
+            <br/>
+            {# Affichage de l'heure #}
+            {% include 'entity/agenda/evenement/_voir____evenement____horaires_complets.html.twig' with {'evenement': evenement} only %}
+        </td>
+                {# Affichage du/des lieu(x)
+                {% for lieu in evenement.lieux %}
+                    {{ lieu.nom }}
+                {% endfor %}
+                {# Affichage du/des organisteur(s) #}
+                {# {% for organisateur in evenement.organisateurs %}
+                    {{ organisateur.nom }}
+                {% endfor %} #}        
+        <td>
+            {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
+        </td>
+    </tr>
+{% endfor %}

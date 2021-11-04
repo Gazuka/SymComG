@@ -1,0 +1,10 @@
+{# 
+    require evenement
+#}
+
+{# Affichage des horaires #}
+{% if evenement.heureFin != null %}
+    De {{ evenement.heureDebut | date('H:i') }} à {{ evenement.heureFin | date('H:i') }}
+{% else %}
+    à {{ evenement.heureDebut | date('H:i') }}
+{% endif %}

@@ -42,9 +42,13 @@
             </div>
         {% endif %}
 
-        
-        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
-        {% include 'interfaces/_debug____message.html.twig' with {'message': "Affichage de l'agenda (???)"} only %}    
+        {# Affichage de l'agenda #}
+        {% if association.organisme.evenements | length > 0 %}
+            {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
+            {% for evenement in association.organisme.evenements %}
+                {% include 'entity/agenda/_mod____agenda____evenement____simple_avec_icone.html.twig' with {'evenement': evenement} only %}
+            {% endfor %}
+        {% endif %}
     </div>
     
     <div class='col-4'>

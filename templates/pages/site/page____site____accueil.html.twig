@@ -64,8 +64,7 @@
                     </span>                    
                 </div>                
                 <div class='col-12'>
-                    {# {% include 'interfaces/_debug____message.html.twig' with {'message': "Affichage de l'agenda"} only %}             #}
-                    {% include 'entity/agenda/_mod____agenda.html.twig' with {'evenements': evenements} only %}
+                    {% include 'entity/agenda/_mod____agenda.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux} only %}
                 </div>
             </div>
         </div>

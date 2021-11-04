@@ -14,7 +14,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{ path('admin_accueil') }}">
+        <a class="nav-link py-2" href="{{ path('admin_accueil') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Tableau de bord</span></a>
       </li>
@@ -28,252 +28,54 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_medias') }}">
+        <a class="nav-link py-1" href="{{ path('admin_medias') }}">
           <i class="fas fa-photo-video"></i>
           <span>TRAD:Gérer les médias</span>
         </a>
       </li>
-
-      <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Menu des médias -->
-      <div class="sidebar-heading">
-        Articles
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_article_creer') }}">
-          <i class="fas fa-plus"></i>
-          <span>Créer un nouvel article</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_articles_voir') }}">
-          <i class="fas fa-photo-video"></i>
-          <span>TRAD:Gérer les articles</span>
-        </a>
-      </li>
-
-      <!-- Divider -->
+      <!-- Menu des articles -->
+      {% include 'interfaces/admin/_menu_section.html.twig' with {'titre': 'Article', 'objetTitre': 'article', 'objetsTitre': 'articles'} only %}     
       <hr class="sidebar-divider">
-
+      
+      <!-- Menu de l'agenda -->      
+      {% include 'interfaces/admin/_menu_section.html.twig' with {'titre': 'Agenda', 'objetTitre': 'evenement', 'objetsTitre': 'evenements'} only %}     
+      <hr class="sidebar-divider">
+      
+      <!-- Menu des organismes -->
+      {% include 'interfaces/admin/_menu_section.html.twig' with {'titre': 'Organismes', 'objetTitre': 'organisme', 'objetsTitre': 'organismes'} only %}     
+      <hr class="sidebar-divider">
+      
+      <!-- Menu des lieux -->
+      {% include 'interfaces/admin/_menu_section.html.twig' with {'titre': 'Lieux', 'objetTitre': 'lieu', 'objetsTitre': 'lieux'} only %}     
+      <hr class="sidebar-divider">
+      
       <!-- Menu des profils -->
       <div class="sidebar-heading">
         Profils
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_profils') }}">
+        <a class="nav-link py-1" href="{{ path('admin_profils') }}">
           <i class="fas fa-users"></i>
           <span>TRAD:Gérer les profils</span>
         </a>
       </li>
-
-      <!-- Divider -->
       <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Organismes
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_organisme_creer') }}">
-          <i class="fas fa-plus"></i>
-          <span>Créer un nouvel organisme</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_organisme_structures_voir') }}">
-          <i class="fas fa-eye"></i>
-          <span>Voir les organismes</span>
-        </a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
+      
       <!-- Heading -->
       <div class="sidebar-heading">
         Configuration
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ path('admin_config_enums_voir') }}">
+        <a class="nav-link py-1" href="{{ path('admin_config_enums_voir') }}">
           <i class="fas fa-wrench"></i>
           <span>TRAD:Gérer les énums</span>
         </a>
       </li>
       
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-      
-      
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-
-        
-
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServices" aria-expanded="true" aria-controls="collapseServices">
-          <i class="fas fa-fw fa-eye"></i>
-          <span>Voir les organismes</span>
-        </a>
-        <div id="collapseServices" class="collapse" aria-labelledby="headingServices" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Que souhaitez-vous voir ?</h6>
-            {# <a class="collapse-item" href="{{ path('admin_services') }}"><i class="fas fa-eye"></i> Voir les services</a>             #}
-            <a class="collapse-item" href="#"><i class="fas fa-eye"></i> Les Associations</a>
-            <a class="collapse-item" href="#"><i class="fas fa-eye"></i> Les Entreprises</a>
-            <a class="collapse-item" href="#"><i class="fas fa-eye"></i> Les Structures</a>            
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAssociations" aria-expanded="true" aria-controls="collapseAssociations">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Associations</span>
-        </a>
-        <div id="collapseAssociations" class="collapse" aria-labelledby="headingAssociations" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Les associations :</h6>
-            {# <a class="collapse-item" href="{{ path('admin_structures_associations') }}"><i class="fas fa-eye"></i> Voir les associations</a>             #}
-            <a class="collapse-item" href="#"><i class="fas fa-eye"></i> Voir les associations</a>            
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEntreprises" aria-expanded="true" aria-controls="collapseEntreprises">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Entreprises</span>
-        </a>
-        <div id="collapseEntreprises" class="collapse" aria-labelledby="headingEntreprises" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Les entreprises :</h6>
-            {# <a class="collapse-item" href="{{ path('admin_structures_entreprises') }}"><i class="fas fa-eye"></i> Voir les entreprises</a>             #}
-            <a class="collapse-item" href="#"><i class="fas fa-eye"></i> Voir les entreprises</a>            
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFonctions" aria-expanded="true" aria-controls="collapseFonctions">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Fonctions</span>
-        </a>
-        <div id="collapseFonctions" class="collapse" aria-labelledby="headingFonctions" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Fonctions :</h6>
-            {# <a class="collapse-item" href="{{ path('admin_fonctions') }}">Voir les fonctions</a>             #}
-          </div>
-        </div>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Médias
-      </div>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        {# <a class="nav-link" href="{{ path('admin_photos') }}"> #}
-        <a class="nav-link" href="#">
-          <i class="fas fa-eye fa-table"></i>
-          <span>Voir les médias</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        {# <a class="nav-link" href="{{ path('admin_dossiers') }}"> #}
-        <a class="nav-link" href="#">
-          <i class="fas fa-eye fa-table"></i>
-          <span>Voir les dossiers</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Personnes
-      </div>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        {# <a class="nav-link" href="{{ path('admin_profils') }}"> #}
-        <a class="nav-link" href="#">
-          <i class="fas fa-eye fa-table"></i>
-          <span>Voir les personnes</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        {# <a class="nav-link" href="{{ path('admin_utilisateurs') }}"> #}
-        <a class="nav-link" href="#">
-          <i class="fas fa-eye fa-table"></i>
-          <span>Voir les utilisateurs</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Configuration
-      </div>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTypes" aria-expanded="true" aria-controls="collapseTypes">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Types</span>
-        </a>
-        <div id="collapseTypes" class="collapse" aria-labelledby="headingTypes" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Types :</h6>
-            {# <a class="collapse-item" href="{{ path('admin_structures_associations_types') }}">Types d'associations</a>
-            <a class="collapse-item" href="{{ path('admin_structures_entreprises_types') }}">Types d'entreprises</a>
-            <a class="collapse-item" href="{{ path('admin_fonctions_types') }}">Types de fonctions</a>
-            <a class="collapse-item" href="{{ path('admin_periodes_types') }}">Types de périodes</a> #}
-          </div>
-        </div>
-      </li>
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Agenda\Evenement;
 use App\Entity\CarteVisite\CarteVisite;
 use App\Entity\Organisme\Organisme;
 use App\Repository\LieuRepository;
@@ -46,9 +47,20 @@ class Lieu
      */
     private $carteVisite;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="lieux")
+     */
+    private $evenements;
+
     public function __construct()
     {
         $this->enfants = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 
     public function getId(): ?int
@@ -130,6 +142,33 @@ class Lieu
     public function setCarteVisite(?CarteVisite $carteVisite): self
     {
         $this->carteVisite = $carteVisite;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenements(): Collection
+    {
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenement $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements[] = $evenement;
+            $evenement->addLieux($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenement(Evenement $evenement): self
+    {
+        if ($this->evenements->removeElement($evenement)) {
+            $evenement->removeLieux($this);
+        }
 
         return $this;
     }

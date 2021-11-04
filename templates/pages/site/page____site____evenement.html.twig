@@ -1,0 +1,67 @@
+{% extends 'interfaces/public/_part____base_public.html.twig' %}
+{% set titre = evenement.titre %}
+{#
+    require evenement
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    <div class='col-8'>
+        <div class='row'>
+            <div class='col-12 mt-3'>
+                <div class="card mb-4 text-center">
+                    {# --- Affichage des informations pricipales de l'événement --- #}
+                    {# Affichage de la date #}
+                    {% include 'entity/agenda/evenement/_voir____evenement____date_complete.html.twig' with {'evenement': evenement} only %}
+                    {# Affichage de l'heure #}
+                    {% include 'entity/agenda/evenement/_voir____evenement____horaires_complets.html.twig' with {'evenement': evenement} only %}
+                    <br/>
+                    {# Affichage du/des lieu(x) #}
+                    {% for lieu in evenement.lieux %}
+                        {{ lieu.nom }}
+                    {% endfor %}                    
+                    
+                </div>
+            </div>            
+            {# --- Affichage du visuel de l'article principal --- #}
+            {% if evenement.articlePrincipal != null %}
+                {% include 'interfaces/public/_part____sous_titre_page.html.twig' with {'titre': evenement.articlePrincipal.titre} only %}                        
+                {% include 'entity/article/_voir____article____visuel.html.twig' with {'article': evenement.articlePrincipal} only %}                
+            {% endif %}
+
+            {# Affichage des articles secondaires #}
+            {% include 'entity/article/_mod____articles____actualites.html.twig' with {'articles': evenement.articlesSecondaires} only %}            
+        </div>
+    </div>
+
+    <div class='col-4'>
+        {# --- Organisateur(s) --- #}
+        {% if evenement.organisateurs | length > 0 %}
+            <div class='row'>
+                <div class='col-12'>
+                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': 'Organisé par'} only %}                        
+                    {% for organisateur in evenement.organisateurs %}
+                        {% include 'entity/organisme/organisme/_voir____organisme____apercu.html.twig' with {'organisme': organisateur} only %}                        
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+                
+        {# --- Affichage des affiches --- #}
+        <div class='row'>
+            <div class='col-12'>
+                {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+                {% include 'entity/classeur/_mod____classeurs____affiche.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}

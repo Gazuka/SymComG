@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet l'affichage de l'ensemble des lieux
+    require lieux
+#}
+
+{% block content %}
+
+    {# Affichage d'une card tableau avec les lieux #}
+    {% embed 'composants/card/_card_table.html.twig' with {'lieux': lieux} only %}
+        {% set nomColonnes = ['#', 'TRAD: nom' | capitalize, 'TRAD: actions' | capitalize] %}
+        {% set tbody %}
+
+            {# Affichage du tableau des lieux #}
+            {% include 'entity/lieu/_admin_table____lieux.html.twig' with {'lieux': lieux} only %}
+
+        {% endset %}       
+    {% endembed %}
+
+{% endblock %}

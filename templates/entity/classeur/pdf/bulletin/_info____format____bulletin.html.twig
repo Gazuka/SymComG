@@ -2,6 +2,6 @@
 
     {% set bulletin = format %}
 
-    <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.date' | trans}} {{ bulletin.date | date("m/d/Y") }}</div>
+    <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.date' | trans}} {{ bulletin.date | date("d/m/Y") }}</div>
     <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.titre' | trans}} {{ bulletin.titre }}</div>
     <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.periode' | trans}} {{ bulletin.periode }}</div>

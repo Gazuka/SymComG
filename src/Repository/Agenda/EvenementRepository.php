@@ -33,6 +33,18 @@ class EvenementRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findPrincipaux()
+    {
+        return $this->createQueryBuilder('e')
+            ->setParameter('date', new DateTime())
+            ->Where('e.date > :date or e.dateFin > :date')
+            ->AndWhere('e.majeur = true')
+            ->orderBy('e.date', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Evenement[] Returns an array of Evenement objects
     //  */

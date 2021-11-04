@@ -2,7 +2,13 @@
 
 namespace App\Entity\Agenda;
 
+use App\Entity\Article\Article;
+use App\Entity\Classeur\Classeur;
+use App\Entity\Lieu;
+use App\Entity\Organisme\Organisme;
 use App\Repository\Agenda\EvenementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,9 +54,42 @@ class Evenement
     private $majeur;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity=Lieu::class, inversedBy="evenements")
      */
-    private $lieu;
+    private $lieux;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="evenementsPrincipaux", cascade={"persist", "remove"})
+     */
+    private $articlePrincipal;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="evenementsSecondaires")
+     */
+    private $ArticlesSecondaires;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Organisme::class, inversedBy="evenements")
+     */
+    private $organisateurs;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Classeur::class, inversedBy="evenements")
+     */
+    private $classeurs;
+
+    public function __construct()
+    {
+        $this->lieux = new ArrayCollection();
+        $this->ArticlesSecondaires = new ArrayCollection();
+        $this->organisateurs = new ArrayCollection();
+        $this->classeurs = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
 
     public function getId(): ?int
     {
@@ -129,14 +168,110 @@ class Evenement
         return $this;
     }
 
-    public function getLieu(): ?string
+    /**
+     * @return Collection|Lieu[]
+     */
+    public function getLieux(): Collection
     {
-        return $this->lieu;
+        return $this->lieux;
     }
 
-    public function setLieu(?string $lieu): self
+    public function addLieux(Lieu $lieux): self
     {
-        $this->lieu = $lieu;
+        if (!$this->lieux->contains($lieux)) {
+            $this->lieux[] = $lieux;
+        }
+
+        return $this;
+    }
+
+    public function removeLieux(Lieu $lieux): self
+    {
+        $this->lieux->removeElement($lieux);
+
+        return $this;
+    }
+
+    public function getArticlePrincipal(): ?Article
+    {
+        return $this->articlePrincipal;
+    }
+
+    public function setArticlePrincipal(?Article $articlePrincipal): self
+    {
+        $this->articlePrincipal = $articlePrincipal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticlesSecondaires(): Collection
+    {
+        return $this->ArticlesSecondaires;
+    }
+
+    public function addArticlesSecondaire(Article $articlesSecondaire): self
+    {
+        if (!$this->ArticlesSecondaires->contains($articlesSecondaire)) {
+            $this->ArticlesSecondaires[] = $articlesSecondaire;
+        }
+
+        return $this;
+    }
+
+    public function removeArticlesSecondaire(Article $articlesSecondaire): self
+    {
+        $this->ArticlesSecondaires->removeElement($articlesSecondaire);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Organisme[]
+     */
+    public function getOrganisateurs(): Collection
+    {
+        return $this->organisateurs;
+    }
+
+    public function addOrganisateur(Organisme $organisateur): self
+    {
+        if (!$this->organisateurs->contains($organisateur)) {
+            $this->organisateurs[] = $organisateur;
+        }
+
+        return $this;
+    }
+
+    public function removeOrganisateur(Organisme $organisateur): self
+    {
+        $this->organisateurs->removeElement($organisateur);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classeur[]
+     */
+    public function getClasseurs(): Collection
+    {
+        return $this->classeurs;
+    }
+
+    public function addClasseur(Classeur $classeur): self
+    {
+        if (!$this->classeurs->contains($classeur)) {
+            $this->classeurs[] = $classeur;
+        }
+
+        return $this;
+    }
+
+    public function removeClasseur(Classeur $classeur): self
+    {
+        $this->classeurs->removeElement($classeur);
 
         return $this;
     }

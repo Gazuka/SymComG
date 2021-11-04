@@ -1,0 +1,12 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require evenement
+    require ajout_media
+#}
+
+{% block content %}
+
+    {% include 'entity/agenda/evenement/_admin____evenement.html.twig' with {'evenement': evenement, 'form': form, 'ajout_media': ajout_media} only %}
+    
+{% endblock %}

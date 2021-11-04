@@ -2,6 +2,7 @@
 
 namespace App\Entity\Organisme;
 
+use App\Entity\Agenda\Evenement;
 use App\Entity\Agenda\Horaire;
 use App\Entity\Lieu;
 use App\Entity\Menu\Lien;
@@ -91,6 +92,11 @@ class Organisme
      */
     private $lieu;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="organisateurs")
+     */
+    private $evenements;
+
     // /**
     //  * @ORM\OneToOne(targetEntity=ElemOrganisme::class, mappedBy="organisme", cascade={"persist", "remove"})
     //  */
@@ -102,6 +108,7 @@ class Organisme
         $this->postes = new ArrayCollection();
         $this->liens = new ArrayCollection();
         $this->elemOrganismes = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
     }
 
     public function __toString()
@@ -379,6 +386,33 @@ class Organisme
         }
 
         $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenements(): Collection
+    {
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenement $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements[] = $evenement;
+            $evenement->addOrganisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenement(Evenement $evenement): self
+    {
+        if ($this->evenements->removeElement($evenement)) {
+            $evenement->removeOrganisateur($this);
+        }
 
         return $this;
     }

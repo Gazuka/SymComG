@@ -1,0 +1,20 @@
+{# 
+    require titre
+#}
+<div class="sidebar-heading">
+    {{ titre }}
+</div>
+
+<li class="nav-item">
+    <a class="nav-link py-1" href="{{ path('admin_'~ objetTitre ~'_creer') }}">
+        <i class="fas fa-plus"></i>
+        <span>{{ ('twig.interface.admin.menu.'~ objetTitre ~'.creer') | trans }}</span>        
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link py-1" href="{{ path('admin_'~ objetsTitre ~'_voir') }}">
+        <i class="fab fa-elementor"></i>
+        <span>{{ ('twig.interface.admin.menu.'~ objetsTitre ~'.gerer') | trans }}</span>
+    </a>
+</li> 

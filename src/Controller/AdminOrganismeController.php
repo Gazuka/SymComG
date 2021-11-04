@@ -101,7 +101,7 @@ class AdminOrganismeController extends AdminController
     /**
      * PUBLIC : VOIR - Afficher l'ensemble des structures d'un type (association, entreprise, service...)
      * 
-     * @Route("/admin/organisme/{structureName?}", name="admin_organisme_structures_voir")
+     * @Route("/admin/organisme/{structureName?}", name="admin_organismes_voir")
      * @param string $structureName //Nom du type de structure à afficher (associations, services, entreprises...)
      * @return Response
      */

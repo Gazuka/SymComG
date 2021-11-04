@@ -6,11 +6,12 @@ use App\Form\OutilsType;
 use App\Entity\Agenda\Evenement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class EvenementType extends OutilsType
 {
@@ -22,11 +23,8 @@ class EvenementType extends OutilsType
                 'label' => $this->addLabel('form.evenement.titre'),
                 'required' => true
             ])
-            ->add('lieu', TextType::class,
-            [
-                'label' => $this->addLabel('form.evenement.lieu'),
-                'required' => false
-            ])
+            ->add('lieux')
+            ->add('organisateurs')
             ->add('date', DateType::class, 
             [
                 'label' => $this->addLabel('form.evenement.date.debut'),

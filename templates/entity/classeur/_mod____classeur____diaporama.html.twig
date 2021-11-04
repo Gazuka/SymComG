@@ -33,7 +33,7 @@
                         {# <h5>First slide label</h5> #}                        
                           <p class='bg-dark'>{{ document.media.image.alt}}
                             {% if datePhoto != false %}
-                              ({{ document.media.image.photo.date | date("m/d/Y") }})
+                              ({{ document.media.image.photo.date | date("d/m/Y") }})
                             {% endif %}
                           </p>
                       </div>

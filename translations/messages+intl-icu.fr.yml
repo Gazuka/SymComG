@@ -32,6 +32,14 @@ twig.admin.profil.interface.nbr.profils: >-
         other {# profils}
     }
 twig.admin.profil.interface.menu.profil.creer: 'Créer un nouveau profil'
+twig.interface.admin.menu.article.creer: 'Créer un nouvel article'
+twig.interface.admin.menu.articles.gerer: 'Gérer les articles'
+twig.interface.admin.menu.evenement.creer: 'Créer un nouvel événement'
+twig.interface.admin.menu.evenements.gerer: 'Gérer les événements'
+twig.interface.admin.menu.lieu.creer: 'Créer un nouvel lieu'
+twig.interface.admin.menu.lieux.gerer: 'Gérer les lieux'
+twig.interface.admin.menu.organisme.creer: 'Créer un nouvel organisme'
+twig.interface.admin.menu.organismes.gerer: 'Gérer les organismes'
 #=================================================================
 site.header.menu.activiteetloisirs: 'Activités et loisirs'
 site.header.menu.demarchesetservices: 'Démarches et services'

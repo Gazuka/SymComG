@@ -2,6 +2,7 @@
 
 namespace App\Entity\Article;
 
+use App\Entity\Agenda\Evenement;
 use App\Entity\Architecture\Page;
 use App\Entity\Classeur\Classeur;
 use App\Entity\Visuel\Visuel;
@@ -68,6 +69,16 @@ class Article
      */
     private $classeurs;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Evenement::class, mappedBy="articlePrincipal")
+     */
+    private $evenementsPrincipaux;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="ArticlesSecondaires")
+     */
+    private $evenementsSecondaires;
+
     public function __construct()
     {
         $this->dateCreation = new \DateTime('now');
@@ -75,6 +86,8 @@ class Article
         $this->visuel = new Visuel();
         $this->pages = new ArrayCollection();
         $this->classeurs = new ArrayCollection();
+        $this->evenementsPrincipaux = new ArrayCollection();
+        $this->evenementsSecondaires = new ArrayCollection();
     }
 
     public function __toString()
@@ -231,6 +244,63 @@ class Article
     public function removeClasseur(Classeur $classeur): self
     {
         $this->classeurs->removeElement($classeur);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenementsPrincipaux(): Collection
+    {
+        return $this->evenementsPrincipaux;
+    }
+
+    public function addEvenementsPrincipaux(Evenement $evenementsPrincipaux): self
+    {
+        if (!$this->evenementsPrincipaux->contains($evenementsPrincipaux)) {
+            $this->evenementsPrincipaux[] = $evenementsPrincipaux;
+            $evenementsPrincipaux->setArticlePrincipal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenementsPrincipaux(Evenement $evenementsPrincipaux): self
+    {
+        if ($this->evenementsPrincipaux->removeElement($evenementsPrincipaux)) {
+            // set the owning side to null (unless already changed)
+            if ($evenementsPrincipaux->getArticlePrincipal() === $this) {
+                $evenementsPrincipaux->setArticlePrincipal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenementsSecondaires(): Collection
+    {
+        return $this->evenementsSecondaires;
+    }
+
+    public function addEvenementsSecondaire(Evenement $evenementsSecondaire): self
+    {
+        if (!$this->evenementsSecondaires->contains($evenementsSecondaire)) {
+            $this->evenementsSecondaires[] = $evenementsSecondaire;
+            $evenementsSecondaire->addArticlesSecondaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenementsSecondaire(Evenement $evenementsSecondaire): self
+    {
+        if ($this->evenementsSecondaires->removeElement($evenementsSecondaire)) {
+            $evenementsSecondaire->removeArticlesSecondaire($this);
+        }
 
         return $this;
     }

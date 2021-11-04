@@ -11,6 +11,7 @@
 /public/bundles/
 /var/
 /vendor/
+/docs/
 ###< symfony/framework-bundle ###
 
 
@@ -24,4 +25,5 @@ phpunit.xml
 /public/media/cache/
 ###< liip/imagine-bundle ###
 
-/public/medias
+/public/
+/docs

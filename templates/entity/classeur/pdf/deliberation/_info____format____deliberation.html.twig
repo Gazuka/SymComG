@@ -1,6 +1,6 @@
-{# require format (deliberation) #}
+{# require fordam (deliberation) #}
 
-    {% set deliberation = format %}
+    {% set deliberation = fordam %}
 
-    <div>{{ 'twig.partials.admin.modules.media.info.pdf.deliberation.date' | trans}} {{ deliberation.date | date("m/d/Y") }}</div>
+    <div>{{ 'twig.partials.admin.modules.media.info.pdf.deliberation.date' | trans}} {{ deliberation.date | date("d/m/Y") }}</div>
     

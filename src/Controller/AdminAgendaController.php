@@ -10,19 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminAgendaController extends AdminController
 {
+    const CONTROLLER_NAME = 'admin_agenda';
+    const CLASS_OBJET = Evenement::class;
+    const CLASS_FORM = EvenementType::class;   
+    const NAMESPACE_OBJET = 'App\\Entity\\Agenda\\Evenement';    
+    const OBJETS_NAME = 'evenements';
+    const OBJET_NAME = 'evenement';
+
     /**
-     * PUBLIC : Gestion des évènements
+     * Afficher l'ensemble des événements
      * 
-     * @Route("/admin/evenements", name="admin_evenements")
+     * @Route("/admin/evenements", name="admin_evenements_voir")
      * @return Response
      */
-    public function gererEvenements(): Response
+    public function voirEvenements(): Response
     {
-        // DEBUG--------------------------------------------------------------------------------------PAS FONCTIONNEL, A FAIRE COMPLETEMENT
-        //Affichage
-        $this->setTwig('pages/admin_agenda/page____admin_agenda____evenements____gerer.html.twig');
-        $this->addParamTwig('sousTitre', 'admin.evenements.gerer.titre');
-        return $this->afficher('admin.profil.interface.titre');
+        return $this->voirTout();
     }
 
     /**
@@ -33,30 +36,30 @@ class AdminAgendaController extends AdminController
      */
     public function creerEvenement(): Response
     {
-        $this->genererFormulaire();
-        //Affichage
-        return $this->afficher('admin.evenement.creer.titre');
+        $this->creerFormulaire(null, 'admin_evenements'); //DEBUG : mettre admin_evenement_voir        
+        return $this->creerObjet();
     }
 
-
-
-    private function genererFormulaire(Evenement $evenement=null): void
+    /**
+     * @Route("/admin/evenement/gerer/{idevenement}", name="admin_evenement_gerer", requirements={"idevenement"="\-?[0-9]+"})
+     * @return Response
+     */
+    public function gererEvenement($idevenement): Response
     {
-        if($evenement == null)
-        {
-            $evenement = new Evenement();
-        }
-        //Formulaire        
-        $form = $this->createForm(EvenementType::class, $evenement);
-        if($this->formIsValid($form))
-        {
-            $this->manager->persist($evenement);
-            $this->manager->flush();
-            $this->addFlash('success', 'admin.evenement.form.flash.success');
-            $this->setRedirect('admin_profils');////////////////////////DEBUG : mettre admin_evenement_voir
-        }
+        $this->twigAjoutMedia('evenement', 'gerer_evenement');        
+        return $this->gererObjet($idevenement, 'admin_evenement_gerer');
+    }
+
+    /**
+     * Page qui permet de joindre un Média à l'événement
+     * 
+     * @Route("/admin/agenda/evenement/classeur/joindre/{idevenement}/{typeName}", name="admin_evenement_ajouter_media", requirements={"idevenement"="\-?[0-9]+"})
+     * @param integer $idevenement
+     * @return Response
+     */
+    public function joindreMedia(int $idevenement, string $typeName): Response
+    {
         //Affichage        
-        $this->setTwig('pages/admin_agenda/page____admin_agenda____evenement____form.html.twig');
-        $this->addParamTwig('form', $form->createView());        
+        return $this->ajouterMedia($idevenement, $typeName);
     }
 }

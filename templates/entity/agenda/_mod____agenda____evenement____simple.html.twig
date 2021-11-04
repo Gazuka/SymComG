@@ -1,0 +1,10 @@
+{#
+    require evenement
+#}
+<div class="card mb-2">
+    <div class="card-body">
+        <a class='text-dark' href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
+            {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }} à {{ evenement.heureDebut | date('H:i') }}</br><span class='font-weight-bold'>{{ evenement.titre }}</span> / {% for lieu in evenement.lieux %}{{ lieu.nom }}{% endfor %}
+        </a>
+    </div>
+</div>

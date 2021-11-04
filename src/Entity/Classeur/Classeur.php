@@ -2,6 +2,7 @@
 
 namespace App\Entity\Classeur;
 
+use App\Entity\Agenda\Evenement;
 use App\Entity\Article\Article;
 use App\Entity\Profil\Profil;
 use App\Entity\Classeur\Media;
@@ -65,6 +66,11 @@ class Classeur
      */
     private $articles;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="classeurs")
+     */
+    private $evenements;
+
     
 
     public function getTypesMediasAutorises($nom)
@@ -87,7 +93,8 @@ class Classeur
         $this->documents = new ArrayCollection();
         $this->organisme = new ArrayCollection();
         $this->profils = new ArrayCollection();
-        $this->articles = new ArrayCollection();        
+        $this->articles = new ArrayCollection();
+        $this->evenements = new ArrayCollection();        
     }
 
     public function getId(): ?int
@@ -287,6 +294,33 @@ class Classeur
     {
         if ($this->articles->removeElement($article)) {
             $article->removeClasseur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenements(): Collection
+    {
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenement $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements[] = $evenement;
+            $evenement->addClasseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenement(Evenement $evenement): self
+    {
+        if ($this->evenements->removeElement($evenement)) {
+            $evenement->removeClasseur($this);
         }
 
         return $this;

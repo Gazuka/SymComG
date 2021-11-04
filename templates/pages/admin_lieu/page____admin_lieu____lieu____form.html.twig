@@ -1,0 +1,10 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+{#
+    require form
+    require lieu
+#}
+
+{% block content %}
+    {# Affichage du formulaire #}
+    {% include 'entity/lieu/_form____lieu.html.twig' with {'form': form} only %}    
+{% endblock %}

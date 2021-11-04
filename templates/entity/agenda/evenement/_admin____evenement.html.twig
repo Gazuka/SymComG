@@ -1,0 +1,45 @@
+{#
+    require evenement
+    require ajout_media
+#}
+
+<div class='col-9'>
+    {% if evenement.articlePrincipal != null %}
+        {# Affichage de l'article principal #}
+        {% embed 'composants/card/_card.html.twig' with {'article': evenement.articlePrincipal} only %}
+            {% set titre = article.titre %}
+            {% block contenu %}
+                {% include 'entity/article/_voir____article____visuel.html.twig' with {'article': article} only %}
+            {% endblock %}
+        {% endembed %}        
+    {% else %}
+        {# Lien de création de l'article principal #}
+        {{ path('admin_article_evenement_creer', {'idevenement': evenement.id}) | BoutonLienSimple('twig.admin.evenement.creer.article.principal' | trans, 'fa-add', 'success') }}
+    {% endif %}
+
+    Article parlant de ces événements :
+</div>
+
+<div class='col-3'>
+    <div class='row'>
+        {# Formulaire de l'événement #}
+        {% embed 'composants/card/_card.html.twig' with {'form': form} only %}
+            {% set titre = ('twig.admin.evenement.form.titre') | trans %}
+            {% block contenu %}
+                {% include 'entity/agenda/evenement/_form____evenement.html.twig' with {'form': form} only %}
+            {% endblock %}
+        {% endembed %}
+
+        {# Affichage d'une Card pour le module : Classeur #}
+        {% embed 'composants/card/_card.html.twig' with {'evenement': evenement, 'ajout_media': ajout_media} only %}
+            {% set taille = taille(12,12) %}
+            {% set titre = ('twig.pages.admin.evenement.voir.classeur' | trans) %}
+            {% block contenu %} 
+
+                {# Gestion des classeurs #}                
+                {% include 'entity/classeur/classeurs/_gerer____entity____classeurs.html.twig' with {'entity': evenement, 'ajout_media': ajout_media} only %}
+
+            {% endblock %}
+        {% endembed %}        
+    </div>
+</div>

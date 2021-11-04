@@ -1,0 +1,15 @@
+{#
+    require entity (avec un parametre "classeurs")
+    require ajout_media
+#}
+{# Lien pour l'ajout d'un document #}
+{% for type in ajout_media %}
+    {{ path('admin_evenement_ajouter_media', {'idevenement': entity.id, 'typeName': type.nom}) | BoutonLienSimple(type.descriptif | trans, 'fa-folder-open', 'warning') }}
+{% endfor %}
+{# Affichage des classeurs existants #}
+{% for classeur in entity.classeurs %}
+    <div>
+        {{ classeur.id }} - {{ classeur.titre }}<br/>
+        {{ classeur.documents | length }} documents
+    </div>
+{% endfor %}

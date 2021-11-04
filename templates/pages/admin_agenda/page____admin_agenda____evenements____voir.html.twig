@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet l'affichage de l'ensemble des événements
+    require evenements
+#}
+
+{% block content %}
+
+    {# Affichage d'une card tableau avec les événements #}
+    {% embed 'composants/card/_card_table.html.twig' with {'evenements': evenements} only %}
+        {% set nomColonnes = ['#', 'majeur', 'TRAD: titre' | capitalize, 'date', 'TRAD: actions' | capitalize] %}
+        {% set tbody %}
+
+            {# Affichage du tableau des événements #}
+            {% include 'entity/agenda/evenement/_table____evenements.html.twig' with {'evenements': evenements} only %}
+
+        {% endset %}       
+    {% endembed %}
+
+{% endblock %}

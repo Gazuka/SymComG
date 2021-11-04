@@ -46,7 +46,9 @@ class SiteController extends SymComGController
         // --- Affichage de l'agenda ---
         $limit = $this->getParameter('page_accueil.nbr_evenement');
         $evenements = $this->manager->getRepository(Evenement::class)->findProchains($limit);
+        $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipaux(); //DEBUG : A transformer par la suite avec la vrai requette
         $this->addParamTwig('evenements', $evenements);
+        $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
 
         // --- Affichage du panneau d'affichage (classeur avec toutes les affiches)
         $classeurAffiches = $this->recupererClasseurAffiches();  
@@ -135,6 +137,17 @@ class SiteController extends SymComGController
         $article = $this->findById(Article::class, $idarticle);
         $this->setTwig('pages/site/page____site____article.html.twig');
         $this->addParamTwig('article', $article);
+        return $this->afficher();
+    }
+
+    /**
+     * @Route("/evenement/{idevenement}", name="site_evenement", requirements={"idevenement"="\-?[0-9]+"})
+     */
+    public function voirEvenement($idevenement): Response
+    {
+        $evenement = $this->findById(Evenement::class, $idevenement);
+        $this->setTwig('pages/site/page____site____evenement.html.twig');
+        $this->addParamTwig('evenement', $evenement);
         return $this->afficher();
     }
 

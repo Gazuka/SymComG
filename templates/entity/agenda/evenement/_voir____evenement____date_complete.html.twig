@@ -1,0 +1,10 @@
+{# 
+    require evenement
+#}
+
+{# Affichage de la date #}
+{% if evenement.dateFin != null %}
+    Du {{evenement.date|localizeddate('full', 'none', null, null, null) }} au {{evenement.dateFin|localizeddate('full', 'none', null, null, null) }}
+{% else %}
+    {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }}
+{% endif %}

@@ -96,7 +96,23 @@ class ClasseurService {
                                                                 'formats' => ['photo']
                                                             ]
                                             ]
-                            ]  
+                            ],  
+        'evenement' =>    [
+                                'types' =>  [
+                                                'nom' => '#affiche',
+                                                'descriptif' => 'admin.evenement.ajout.media.affiche',
+                                                'mediasAutorises' => [
+                                                                'formats' => ['affiche']
+                                                            ]
+                                            ],
+                                            [
+                                                'nom' => '#icone',
+                                                'descriptif' => 'admin.evenement.ajout.media.icone',
+                                                'mediasAutorises' => [
+                                                                'formats' => ['icone']
+                                                            ]
+                                            ]
+                            ],
 
     ];
 

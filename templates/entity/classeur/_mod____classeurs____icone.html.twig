@@ -1,0 +1,11 @@
+{#
+    ==> Affichage d'une icone aléatoire dans un groupe de classeur
+    require classeurs
+    require liipFiltre
+#}
+
+{% for classeur in classeurs %}
+    {% if classeur.type.nom == '#icone' %}
+        {% include 'entity/classeur/_mod____classeur____image_aleatoire.html.twig' with {'classeur': classeur, 'liipFiltre': liipFiltre} only %}
+    {% endif %}
+{% endfor %}
