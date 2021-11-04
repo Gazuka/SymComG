@@ -27,3 +27,5 @@ phpunit.xml
 
 /public/
 /docs
+/.phpdoc
+phpDocumentor.phar
