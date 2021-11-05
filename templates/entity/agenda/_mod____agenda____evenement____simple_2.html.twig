@@ -1,7 +1,7 @@
 {#
     require evenement
 #}
-<div class="card">
+<div class="card mb-4">
     <a href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
         {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
     </a>

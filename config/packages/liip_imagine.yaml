@@ -13,6 +13,11 @@ liip_imagine:
             filters:
                 downscale:
                     max: [400, 800]
+        normal6: # Réduit les images pour un col-6
+            quality: 100
+            filters:
+                downscale:
+                    max: [400, 1200]
         carre3: # Nom du filtre
             quality: 100 # Qualité de l'image
             filters: # Liste des filtres à appliquer
