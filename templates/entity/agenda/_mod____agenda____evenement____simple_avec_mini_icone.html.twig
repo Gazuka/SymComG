@@ -9,7 +9,10 @@
                     {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
                 </div>
                 <div class='col-8'>
-                    {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }} à {{ evenement.heureDebut | date('H:i') }}
+                    {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }}
+                    {% if evenement.heureDebut != null %}
+                        à {{ evenement.heureDebut | date('H:i') }}
+                    {% endif %}
                     </br>
                     <span class='font-weight-bold'>{{ evenement.titre }}</span>
                     <br/>
