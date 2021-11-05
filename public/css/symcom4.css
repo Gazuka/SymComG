@@ -29,7 +29,10 @@
 {
     color: black;
 }
-
+.sc4-texte
+{
+    color: #212529;
+}
 /* Taille du texte */
 .sc4-size-2
 {

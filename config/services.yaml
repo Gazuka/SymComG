@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     page_accueil.nbr_article: 4
-    page_accueil.nbr_evenement: 5
+    page_accueil.nbr_evenement: 6
     page_articles.nbr_article: 99
 services:
     # default configuration for services in *this* file

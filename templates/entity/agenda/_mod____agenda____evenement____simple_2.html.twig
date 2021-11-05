@@ -1,0 +1,32 @@
+{#
+    require evenement
+#}
+<div class="card">
+    <a href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
+        {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+    </a>
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{{ path('site_evenement', {'idevenement': evenement.id}) }}" class='sc4-texte'>
+                {{ evenement.titre }}
+            </a>
+        </h5>
+        <p class="card-text">
+            {# Affichage de la date #}
+            {% include 'entity/agenda/evenement/_voir____evenement____date_complete.html.twig' with {'evenement': evenement} only %}
+            <br/>
+            {# Affichage de l'heure #}
+            {% include 'entity/agenda/evenement/_voir____evenement____horaires_complets.html.twig' with {'evenement': evenement} only %}
+            <br/>
+            {# Affichage du/des lieu(x) #}
+            <span class='font-italic'>
+                {% for lieu in evenement.lieux %}
+                    {% if loop.first == false %}
+                        /
+                    {% endif %}
+                    {{ lieu.nom }}
+                {% endfor %}
+            </span>
+        </p>
+    </div>
+</div>
