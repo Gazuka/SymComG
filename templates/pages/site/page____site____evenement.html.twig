@@ -42,6 +42,13 @@
     </div>
 
     <div class='col-4'>
+        {# --- Affichage des icones --- #}
+        <div class='row'>
+            <div class='col-12'>
+                {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+            </div>
+        </div>
+        
         {# --- Organisateur(s) --- #}
         {% if evenement.organisateurs | length > 0 %}
             <div class='row'>
@@ -56,8 +63,7 @@
                 
         {# --- Affichage des affiches --- #}
         <div class='row'>
-            <div class='col-12'>
-                {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+            <div class='col-12'>                
                 {% include 'entity/classeur/_mod____classeurs____affiche.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
             </div>
         </div>
