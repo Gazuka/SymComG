@@ -1,0 +1,21 @@
+{#
+    require evenement
+#}
+<div class="card mb-2">
+    <div class="card-body p-0">
+        <a class='text-dark' href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
+            <div class='row'>
+                <div class='col-4'>
+                    {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'normal4'} only %}
+                </div>
+                <div class='col-8'>
+                    {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }} à {{ evenement.heureDebut | date('H:i') }}
+                    </br>
+                    <span class='font-weight-bold'>{{ evenement.titre }}</span>
+                    <br/>
+                    {% for lieu in evenement.lieux %}{{ lieu.nom }}{% endfor %}            
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
