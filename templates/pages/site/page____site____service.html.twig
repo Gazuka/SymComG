@@ -42,8 +42,12 @@
         {% endif %}
 
         {# Affichage de l'agenda #}
-        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
-        {% include 'interfaces/_debug____message.html.twig' with {'message': "Affichage de l'agenda (???)"} only %}    
+        {% if service.organisme.evenements | length > 0 %}
+            {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
+            {% for evenement in service.organisme.evenements %}
+                {% include 'entity/agenda/_mod____agenda____evenement____simple_avec_icone.html.twig' with {'evenement': evenement} only %}
+            {% endfor %}
+        {% endif %}
 
         {# Affichage du visuel #}
         {% include 'entity/organisme/organisme/_voir____organisme____visuel.html.twig' with {'organisme': service.organisme} only %}        
