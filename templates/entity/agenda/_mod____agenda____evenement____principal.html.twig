@@ -14,6 +14,9 @@
             <br/>
             {# Affichage du/des lieu(x) #}
             {% for lieu in evenement.lieux %}
+                {% if loop.first == false %}
+                    /
+                {% endif %}
                 {{ lieu.nom }}
             {% endfor %}
         </p>

@@ -9,7 +9,13 @@
                 à {{ evenement.heureDebut | date('H:i') }}
             {% endif %}
             </br>
-            <span class='font-weight-bold'>{{ evenement.titre }}</span> / {% for lieu in evenement.lieux %}{{ lieu.nom }}{% endfor %}
+            <span class='font-weight-bold'>{{ evenement.titre }}</span> /
+            {% for lieu in evenement.lieux %}
+                {% if loop.first == false %}
+                    /
+                {% endif %}
+                {{ lieu.nom }}
+            {% endfor %}
         </a>
     </div>
 </div>

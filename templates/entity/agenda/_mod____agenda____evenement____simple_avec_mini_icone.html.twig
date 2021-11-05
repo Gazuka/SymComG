@@ -16,7 +16,12 @@
                     </br>
                     <span class='font-weight-bold'>{{ evenement.titre }}</span>
                     <br/>
-                    {% for lieu in evenement.lieux %}{{ lieu.nom }}{% endfor %}            
+                    {% for lieu in evenement.lieux %}
+                        {% if loop.first == false %}
+                            /
+                        {% endif %}
+                        {{ lieu.nom }}
+                    {% endfor %}            
                 </div>
             </div>
         </a>
