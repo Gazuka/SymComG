@@ -18,6 +18,11 @@ liip_imagine:
             filters:
                 downscale:
                     max: [600, 1200]
+        icone6: # Transforme les images pour un col-6
+            quality: 100
+            filters:
+                scale:
+                    dim: [700, 240]
         carre3: # Nom du filtre
             quality: 100 # Qualité de l'image
             filters: # Liste des filtres à appliquer
