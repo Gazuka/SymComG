@@ -36,7 +36,7 @@ class AdminAgendaController extends AdminController
      */
     public function creerEvenement(): Response
     {
-        $this->creerFormulaire(null, 'admin_evenements'); //DEBUG : mettre admin_evenement_voir        
+        $this->creerFormulaire(null, 'admin_evenements_voir'); //DEBUG : mettre admin_evenement_voir        
         return $this->creerObjet();
     }
 
