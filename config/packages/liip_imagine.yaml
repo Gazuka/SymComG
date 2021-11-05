@@ -45,8 +45,8 @@ liip_imagine:
         actu6: # Nom du filtre
             quality: 100 # Qualité de l'image
             filters: # Liste des filtres à appliquer
-                thumbnail: # Filtre "Thumbnail"
-                    size: [700, 240] # Taille de l'image de sortie
+                scale: # Filtre "Thumbnail"
+                    dim: [700, 240] # Taille de l'image de sortie
                     mode: outbound # Découpage de l'image
                     allow_upscale: false
         actuenimage: # Nom du filtre
