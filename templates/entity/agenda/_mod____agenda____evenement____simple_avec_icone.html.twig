@@ -6,7 +6,7 @@
         <a class='text-dark' href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
             <div class='row'>
                 <div class='col-5'>
-                    {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'icone4'} only %}
+                    {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'icone6'} only %}
                 </div>
                 <div class='col-7'>
                     {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }}
