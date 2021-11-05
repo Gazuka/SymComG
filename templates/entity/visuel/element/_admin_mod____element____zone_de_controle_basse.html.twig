@@ -9,5 +9,5 @@
 {% endif %}
 
 <div class='text-center bg-{{ couleur }} text-white mb-1'>
-    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_admin_mod____element_' ~ element.nomClasse ~ '____zone_de_controle_basse.html.twig' with {'element': element, 'visuel': visuel} only %}    
+    {% include 'entity/visuel/element/' ~ element.nomClasse | lower ~ '/_admin_mod____element_' ~ element.nomClasse | lower ~ '____zone_de_controle_basse.html.twig' with {'element': element, 'visuel': visuel} only %}    
 </div>

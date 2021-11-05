@@ -10,7 +10,7 @@
 {% endif %}
 
 <div class='text-right border border-{{ couleur }} bg-{{ couleur }} text-white pr-1'>
-    {% include 'entity/visuel/element/' ~ element.nomClasse ~ '/_admin_mod____element_' ~ element.nomClasse ~ '____zone_de_controle_haute.html.twig' with {'element': element, 'visuel': visuel} only %}
+    {% include 'entity/visuel/element/' ~ element.nomClasse | lower ~ '/_admin_mod____element_' ~ element.nomClasse | lower ~ '____zone_de_controle_haute.html.twig' with {'element': element, 'visuel': visuel} only %}
     
     {# position #}
     <span class="badge badge-pill badge-warning">
