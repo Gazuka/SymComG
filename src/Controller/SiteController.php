@@ -44,12 +44,8 @@ class SiteController extends SymComGController
         $this->addParamTwig('articles', $articles);
 
         // --- Affichage de l'agenda ---
-        $limit = $this->getParameter('page_accueil.nbr_evenement');
-        $evenements = $this->manager->getRepository(Evenement::class)->findProchains($limit);
-        $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipaux(); //DEBUG : A transformer par la suite avec la vrai requette
-        $this->addParamTwig('evenements', $evenements);
-        $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
-
+        $this->recupererEvenements($this->getParameter('page_accueil.nbr_evenement'));
+        
         // --- Affichage du panneau d'affichage (classeur avec toutes les affiches)
         $classeurAffiches = $this->recupererClasseurAffiches();  
         $this->addParamTwig('classeurAffiches', $classeurAffiches);
@@ -163,6 +159,19 @@ class SiteController extends SymComGController
         $this->addParamTwig('articles', $articles);
         return $this->afficher();
     }
+
+    /**
+     * @Route("/evenements", name="site_evenements")
+     */
+     public function voirAgenda(): Response
+     {
+        // --- Appel de la page d'agenda ---
+        $this->setTwig('pages/site/page____site____evenements.html.twig');
+
+        // --- Affichage de l'agenda ---
+        $this->recupererEvenements(100);        
+        return $this->afficher();
+     }
 
     /**
      * @Route("/articles/associations", name="site_articles_associations")
@@ -403,5 +412,13 @@ class SiteController extends SymComGController
             $classeurDeliberations->addDocument($deliberation->getSupport()->getMedia()->getDocument());
         }
         return $classeurDeliberations;
+    }
+
+    private function recupererEvenements($nbrEvenements)
+    {
+        $evenements = $this->manager->getRepository(Evenement::class)->findProchains($nbrEvenements);
+        $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipaux();
+        $this->addParamTwig('evenements', $evenements);
+        $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
     }
 }
