@@ -18,7 +18,7 @@ liip_imagine:
             filters:
                 downscale:
                     max: [600, 1200]
-        icone6: # Transforme les images pour un col-4
+        icone4: # Transforme les images pour un col-4
             quality: 100
             filters:
                 scale:
