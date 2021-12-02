@@ -142,7 +142,11 @@ class AdminCarteVisiteController extends AdminController
                 {
                     $carteVisite = $this->findById(CarteVisite::class, $idcartevisite);                    
                     $contact->setCarteVisite($carteVisite);                                       
-                }                
+                }            
+                else
+                {
+                    $carteVisite = $contact->getCarteVisite();
+                }    
                 $this->manager->persist($contact);
                 $this->manager->flush();
                 //Redirige vers la page de gestion du parent
