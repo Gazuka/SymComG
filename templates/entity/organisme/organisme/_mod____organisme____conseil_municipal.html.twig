@@ -68,12 +68,12 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class='font-weight-bold text-center'>
-                                                                    {% include 'entity/Profil/Profil/_voir____profil____humain.html.twig' with {'profil': commission.chef} only %}
+                                                                    {% include 'entity/profil/profil/_voir____profil____humain.html.twig' with {'profil': commission.chef} only %}
                                                                 </div>
                                                                 <div class='text-center'>
                                                                     {% for membre in commission.membres %}
                                                                         <div>
-                                                                            {% include 'entity/Profil/Profil/_voir____profil____humain.html.twig' with {'profil': membre} only %}
+                                                                            {% include 'entity/profil/profil/_voir____profil____humain.html.twig' with {'profil': membre} only %}
                                                                         </div>
                                                                     {% endfor %}
                                                                 </div>
