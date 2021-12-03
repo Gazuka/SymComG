@@ -5,7 +5,7 @@
 {# --- Affichage du visuel --- #}
 {% if article.visuel is not null %}
 
-    {% if date() < article.dateDebutPublication || article.dateDebutPublication is null %}
+    {% if date() < article.dateDebutPublication or article.dateDebutPublication is null %}
         DEBUG : Cet article n'est pas disponible pour le moment...
     {% else %}
         {% if date() > article.dateFinPublication %}
