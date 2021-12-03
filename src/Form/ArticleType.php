@@ -36,7 +36,7 @@ class ArticleType extends OutilsType
             [
                 'label_attr' => ['class' => 'switch-custom'],
                 'label' => $this->addLabel('form.article.actualite'),
-                'required' => true,
+                'required' => false,
                 'translation_domain' => 'false'
             ])
         ;

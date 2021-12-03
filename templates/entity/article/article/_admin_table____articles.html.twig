@@ -7,9 +7,46 @@
             {{ article.id }}
         </td>
         <td>
+            {% if article.actualite == 1 %}
+                <i class="fas fa-check-circle text-success"></i>
+            {% else %}
+                <i class="far fa-check-circle"></i>
+            {% endif %}
+        </td>
+        <td>
             <a href="{{ path('admin_article_gerer', {'idarticle': article.id}) }}">
                 {{ article.titre }}
             </a>
+        </td>
+        <td>
+            {# Dates de publication #}
+            {% if article.dateDebutPublication != null %}
+                {% if date() < article.dateDebutPublication %}
+                    {# La date de publication n'est pas encore arrivée #}
+                    <span class='text-primary'>
+                        <i class="fas fa-calendar-plus"></i> Sera en ligne le <span class='text-success'>{{ article.dateDebutPublication | date("d/m/Y") }}</span>
+                    </span>
+                {% else %}
+                    {# L'article a été publié #}
+                    {% if article.dateFinPublication != null %}
+                        {% if date() < article.dateFinPublication %}
+                            {# L'article est toujours en ligne #}
+                            <span class='text-success'>
+                                <i class="fas fa-calendar-plus"></i> Sera archivé le <span class="text-danger">{{ article.dateFinPublication | date("d/m/Y") }}</span>
+                            </span>
+                        {% else %}
+                            {# L'article n'est plus en ligne #}
+                            [Archive]
+                        {% endif %}
+                    {% else %}
+                        <span class='text-success'><i class="fas fa-calendar-alt"></i> Publication permanente</span>
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                <span class='text-warning'><i class="fas fa-calendar-times"></i> Pas de date de publication</span>
+            {% endif %}
+            
+            
         </td>
         <td>
             {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
