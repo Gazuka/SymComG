@@ -321,6 +321,17 @@ class SiteController extends SymComGController
     }
 
     /**
+     * @Route("/services/scolaire", name="site_services_scolaire")
+     */
+    public function voirServicesScolaire(): Response
+    {
+        $this->setTwig('pages/site/page____site____services.html.twig');
+        $services = $this->repoService->findBy(Service::class, ['id' => [70, 71, 72, 73]], ['nom' => 'asc']); 
+        $this->addParamTwig('services', $services);
+        return $this->afficher();
+    }
+
+    /**
      * @Route("/bulletins", name="site_bulletins_municipaux")
      */
     public function voirBulletinsMunicipaux(): Response
