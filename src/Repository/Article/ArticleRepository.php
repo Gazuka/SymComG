@@ -24,7 +24,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->setParameter('date', new DateTime())
-            ->Where('a.dateDebutPublication < :date or a.dateDebutPublication is null')
+            ->Where('a.dateDebutPublication < :date')
             ->andWhere('a.dateFinPublication > :date or a.dateFinPublication is null')
             ->andWhere('a.actualite = true')
             ->orderBy('a.dateDebutPublication', 'DESC')

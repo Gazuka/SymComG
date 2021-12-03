@@ -4,5 +4,13 @@
 
 {# --- Affichage du visuel --- #}
 {% if article.visuel is not null %}
-    {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': article.visuel} only %}
+
+    {% if date() < article.dateDebutPublication || article.dateDebutPublication is null %}
+        DEBUG : Cet article n'est pas disponible pour le moment...
+    {% else %}
+        {% if date() > article.dateFinPublication %}
+            DEBUG : Attention : Cet article est une archive, les informations qu'il contient ne sont peut être plus d'actualité...
+        {% endif %}
+        {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': article.visuel} only %}
+    {% endif %}
 {% endif %}
