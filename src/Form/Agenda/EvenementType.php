@@ -55,7 +55,7 @@ class EvenementType extends OutilsType
                 'label' => $this->addLabel('form.evenement.majeur'),
                 'required' => false,
                 'translation_domain' => 'false',
-                'data' => true
+                // 'data' => true
             ])
         ;
     }
