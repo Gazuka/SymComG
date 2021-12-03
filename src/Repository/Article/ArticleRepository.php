@@ -26,6 +26,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->setParameter('date', new DateTime())
             ->Where('a.dateDebutPublication < :date or a.dateDebutPublication is null')
             ->andWhere('a.dateFinPublication > :date or a.dateFinPublication is null')
+            ->andWhere('a.actualite = true')
             ->orderBy('a.dateDebutPublication', 'DESC')
             ->setMaxResults($limit)
             ->setFirstResult(($limit * $offset) - $limit)

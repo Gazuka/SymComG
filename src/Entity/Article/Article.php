@@ -79,6 +79,11 @@ class Article
      */
     private $evenementsSecondaires;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $actualite;
+
     public function __construct()
     {
         $this->dateCreation = new \DateTime('now');
@@ -301,6 +306,18 @@ class Article
         if ($this->evenementsSecondaires->removeElement($evenementsSecondaire)) {
             $evenementsSecondaire->removeArticlesSecondaire($this);
         }
+
+        return $this;
+    }
+
+    public function getActualite(): ?bool
+    {
+        return $this->actualite;
+    }
+
+    public function setActualite(bool $actualite): self
+    {
+        $this->actualite = $actualite;
 
         return $this;
     }
