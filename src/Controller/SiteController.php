@@ -379,7 +379,7 @@ class SiteController extends SymComGController
     private function recupererClasseurAffiches()
     {
         // On récupère toutes les affiches (DEBUG : ne prendre que celles qui sont d'actualité par la suite)
-        $affiches = $this->findAll(Affiche::class);
+        $affiches = $this->manager->getRepository(Affiche::class)->findActuelles();        
         // On crée le classeur et on lui donne toutes les affiches
         $classeurAffiches = new Classeur();
         foreach($affiches as $affiche)

@@ -19,6 +19,19 @@ class AfficheRepository extends ServiceEntityRepository
         parent::__construct($registry, Affiche::class);
     }
 
+    public function findActuelles($limit = 50, $offset = 1)
+    {
+        return $this->createQueryBuilder('a')
+            ->setParameter('date', new DateTime())
+            ->Where('a.datefin > :date')
+            ->orderBy('a.date', 'ASC')         
+            ->setMaxResults($limit)
+            ->setFirstResult(($limit * $offset) - $limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Affiche[] Returns an array of Affiche objects
     //  */
