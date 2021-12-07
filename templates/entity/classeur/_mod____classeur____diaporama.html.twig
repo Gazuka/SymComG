@@ -13,7 +13,7 @@
 {% set carouselNumber =  random(50000) %}
 
 {# --- Affichage d'un carousel --- #}
-<div id="carousel_{{carouselNumber}}" class="carousel slide" data-ride="carousel">
+<div id="carousel_{{carouselNumber}}" class="carousel slide mb-1" data-ride="carousel">
     <ol class="carousel-indicators">
         {% for i in 1..(classeur.documents | length) %}
             <li data-target="#carousel_{{carouselNumber}}" data-slide-to="{{ i - 1 }}" {% if loop.first %} class="active" {% endif %}></li>
