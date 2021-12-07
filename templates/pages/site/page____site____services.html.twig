@@ -16,7 +16,7 @@
     {% for service in services %}
         
         {# --- Affichage d'un service --- #}
-        {% if service.local == affichageLocalUniquement %}
+        {% if service.local == true or affichageLocalUniquement == false %}
             <div class='col-3'>
                 <div class="card mb-4">
 
