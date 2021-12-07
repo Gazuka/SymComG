@@ -317,6 +317,7 @@ class SiteController extends SymComGController
         $this->setTwig('pages/site/page____site____services.html.twig');
         $services = $this->repoService->findBy(Service::class, [], ['nom' => 'asc']);        
         $this->addParamTwig('services', $services);
+        $this->addParamTwig('affichageLocalUniquement', true);
         return $this->afficher();
     }
 
@@ -329,6 +330,7 @@ class SiteController extends SymComGController
         $services = $this->repoService->findBy(Service::class, ['id' => array(17, 18, 19, 20)], ['nom' => 'asc']);
         dump($services);
         $this->addParamTwig('services', $services);
+        $this->addParamTwig('affichageLocalUniquement', false);
         return $this->afficher();
     }
 
