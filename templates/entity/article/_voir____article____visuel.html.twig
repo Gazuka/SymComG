@@ -8,7 +8,7 @@
     {% if date() < article.dateDebutPublication or article.dateDebutPublication is null %}
         DEBUG : Cet article n'est pas disponible pour le moment...
     {% else %}
-        {% if date() > article.dateFinPublication %}
+        {% if date() > article.dateFinPublication and article.dateFinPublication is not null %}
             DEBUG : Attention : Cet article est une archive, les informations qu'il contient ne sont peut être plus d'actualité...
         {% endif %}
         {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': article.visuel} only %}
