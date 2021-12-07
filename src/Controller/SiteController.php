@@ -326,9 +326,8 @@ class SiteController extends SymComGController
     public function voirServicesScolaire(): Response
     {
         $this->setTwig('pages/site/page____site____services.html.twig');
-        $services = $this->repoService->findBy(Service::class, ['id' => array(17, 18, 19, 20)], ['nom' => 'asc']);         
-        // $services = $this->repoService->findBy(Service::class, ['id' => array(1, 2, 3, 4)], ['nom' => 'asc']); 
-        dd($services);
+        $services = $this->repoService->findBy(Service::class, ['id' => array(17, 18, 19, 20)], ['nom' => 'asc']);
+        dump($services);
         $this->addParamTwig('services', $services);
         return $this->afficher();
     }
