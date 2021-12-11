@@ -92,6 +92,12 @@ class Image extends Support
         return $this->formatName;
     }
 
+    public function getFormat()
+    {
+        $this->getFormatName();
+        return $this->format;
+    }
+
     
 
     // public function getAffiche(): ?Affiche

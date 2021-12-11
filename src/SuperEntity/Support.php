@@ -12,9 +12,5 @@ abstract class Support
     //Force à créer des fonctions spécifiques
     abstract public function getFormatName(): string;
     
-    public function getFormat(): Support
-    {
-        $this->getFormatName();
-        return $this->format;
-    }
+    abstract public function getFormat();
 }

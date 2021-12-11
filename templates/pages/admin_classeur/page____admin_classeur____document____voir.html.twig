@@ -48,7 +48,7 @@
                             </div>
                             <div class='col-2'>
                                 {# DEBUG : CREER LE LIEN DU BOUTON ////////////////////////////////////////////////////////////////// #}
-                                {{ '#' | BoutonLienEditerMini() }}
+                                {{ path('admin_medias_media_edit', {'idmedia': document.media.id}) | BoutonLienEditerMini() }}
                             </div>
                         </div>
                     {% endblock %}    

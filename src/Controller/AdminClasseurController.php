@@ -230,6 +230,28 @@ class AdminClasseurController extends AdminController
         return $this->afficher('admin.medias.orphelins.gerer.titre');
     }
 
+    /**
+     * PUBLIC : Edition du Média
+     * 
+     * @Route("/admin/medias/media/edit/{idmedia}", name="admin_medias_media_edit", requirements={"idmedia"="\-?[0-9]+"})
+     * @return Response
+     */
+    public function editerMedia($idmedia): Response
+    {
+        $this->initialiserGestionnaire();
+        $media = $this->repoService->findById(Media::class, $idmedia);
+        //Récupérer les infos du type
+        $support = $media->getSupport();
+        $format = $support->getFormat();        
+        $configFormat = self::CHOIX_SUPPORTS_MEDIAS[$media->getSupportName()]['formats'][$support->getFormatName()];
+        //On propose un formulaire en fonction du format
+        $this->genererFormulaire($configFormat, $format);
+        //Affichage        
+        $this->addParamTwig('media', $media);        
+        $this->addParamTwig('sousTitre', 'admin.medias.media.voir.titre');
+        return $this->afficher('admin.medias.orphelins.gerer.titre');
+    }
+
     private function genererFormulaire($configFormat, $format): void
     {
         //Formulaire        
@@ -241,8 +263,15 @@ class AdminClasseurController extends AdminController
             $dossier = $this->recupererDossier($configFormat['format'], "...");
             $fichier->deplacer($dossier); /////////DEBUG : A FAIRE : Si true ok si false message d'erreur
             //3 - On crée le document
-            $document = new Document();
-            $document->setMedia($format->getSupport()->getMedia());
+            if($fichier->getMedia()->getDocument() == null)
+            {
+                $document = new Document();
+                $document->setMedia($format->getSupport()->getMedia());
+            }     
+            else
+            {
+                $document = $fichier->getMedia()->getDocument();
+            }       
             //4 - On enregistre l'ensemble
             $this->manager->persist($format);
             $this->manager->flush();

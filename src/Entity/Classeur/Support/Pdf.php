@@ -87,6 +87,13 @@ class Pdf extends Support
         return $this->formatName;
     }
 
+    public function getFormat()
+    {
+        $this->getFormatName();
+        return $this->format;
+    }    
+
+
     public function getBulletinMunicipal(): ?BulletinMunicipal
     {
         return $this->bulletinMunicipal;
