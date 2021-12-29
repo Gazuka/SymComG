@@ -215,6 +215,9 @@ class SiteController extends SymComGController
             case 'conseil-municipal':
                 $this->addParamTwig('titreAlternatif', 'La vie du Conseil Municipal');
             break;
+            default :
+                $this->addParamTwig('titreAlternatif', 'Actualités de '.$organisme->getStructure()->getNom());
+            break;
         }
         
         return $this->afficher();
@@ -239,6 +242,8 @@ class SiteController extends SymComGController
         $service = $this->findBySlug(Service::class, $slugservice);
         $this->setTwig('pages/site/page____site____service.html.twig');
         $this->addParamTwig('service', $service);
+        $nbr_articles = $this->getParameter('page_service.nbr_articles');
+        $this->addParamTwig('nbr_article', $nbr_articles);
         return $this->afficher();
     }
 
