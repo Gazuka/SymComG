@@ -94,6 +94,7 @@ class Organisme
 
     /**
      * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="organisateurs")
+     * @ORM\OrderBy({"date" = "DESC"})
      */
     private $evenements;
 
