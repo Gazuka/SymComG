@@ -33,11 +33,42 @@ class EvenementRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findProchainsOrganisme($idorganisateur, $limit, $offset = 1)
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.organisateurs', 'organisme')
+            ->setParameter('date', new DateTime())
+            ->setParameter('idorganisateur', $idorganisateur)
+            ->Where('e.date > :date or e.dateFin > :date')
+            ->AndWhere('organisme.id = :idorganisateur')
+            ->orderBy('e.date', 'ASC')
+            ->setMaxResults($limit)
+            ->setFirstResult(($limit * $offset) - $limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function findPrincipaux()
     {
         return $this->createQueryBuilder('e')
             ->setParameter('date', new DateTime())
             ->Where('e.date > :date or e.dateFin > :date')
+            ->AndWhere('e.majeur = true')
+            ->orderBy('e.date', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findPrincipauxOrganisme($idorganisateur)
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.organisateurs', 'organisme')
+            ->setParameter('date', new DateTime())
+            ->setParameter('idorganisateur', $idorganisateur)
+            ->Where('e.date > :date or e.dateFin > :date')
+            ->AndWhere('organisme.id = :idorganisateur')
             ->AndWhere('e.majeur = true')
             ->orderBy('e.date', 'ASC')
             ->getQuery()

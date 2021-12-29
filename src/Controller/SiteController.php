@@ -174,6 +174,22 @@ class SiteController extends SymComGController
         return $this->afficher();
      }
 
+     /**
+     * @Route("/evenements/organisme/{idorganisme}", name="site_evenements_organisme", requirements={"idorganisme"="\-?[0-9]+"})
+     */
+    public function voirAgendaOrganisme($idorganisme): Response
+    {
+        // --- Appel de la page d'agenda ---
+        $this->setTwig('pages/site/page____site____evenements.html.twig');
+        // --- Affichage de l'agenda ---
+        $evenements = $this->manager->getRepository(Evenement::class)->findProchainsOrganisme($idorganisme, 100);
+        $this->addParamTwig('evenements', $evenements);
+        $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipauxOrganisme($idorganisme);
+        $this->addParamTwig('evenementsPrincipaux', $evenements);
+        
+        return $this->afficher();
+    }
+
     /**
      * @Route("/articles/associations", name="site_articles_associations")
      */
@@ -243,7 +259,9 @@ class SiteController extends SymComGController
         $this->setTwig('pages/site/page____site____service.html.twig');
         $this->addParamTwig('service', $service);
         $nbr_articles = $this->getParameter('page_service.nbr_articles');
-        $this->addParamTwig('nbr_article', $nbr_articles);
+        $this->addParamTwig('nbr_articles', $nbr_articles);
+        $nbr_evenements = $this->getParameter('page_service.nbr_evenements');
+        $this->addParamTwig('nbr_evenements', $nbr_evenements);
         return $this->afficher();
     }
 
