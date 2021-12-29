@@ -39,8 +39,8 @@ class SiteController extends SymComGController
         $this->setTwig('pages/site/page____site____accueil.html.twig');
 
         // --- Affichage des actualités ---
-        $limit = $this->getParameter('page_accueil.nbr_article');
-        $articles = $this->manager->getRepository(Article::class)->findActualites($limit);
+        $limitArticles = $this->getParameter('page_accueil.nbr_article');
+        $articles = $this->manager->getRepository(Article::class)->findActualites($limitArticles);
         $this->addParamTwig('articles', $articles);
 
         // --- Affichage de l'agenda ---
@@ -55,7 +55,8 @@ class SiteController extends SymComGController
         $this->addParamTwig('classeurActus', $classeurActus);
 
         // --- Affichage des derniers arrêtés municipaux ---
-        $classeurArretes = $this->recupererClasseurArretes();  
+        $limitArretes = $this->getParameter('page_accueil.nbr_arretes');
+        $classeurArretes = $this->recupererClasseurArretes($limitArretes);  
         $this->addParamTwig('classeurArretes', $classeurArretes);
 
         return $this->afficher();
@@ -402,10 +403,14 @@ class SiteController extends SymComGController
         return $classeurActus;
     }
 
-    private function recupererClasseurArretes()
+    private function recupererClasseurArretes($limit = null, $offset = 1)
     {
-        // On récupère toutes les arrêtés municipaux (DEBUG : ne prendre que les plus récents et valides)
-        $arretes = $this->findAll(ArreteMunicipal::class);
+        if($limit == null)
+        {
+            $limit = $this->getParameter('page_arretes.nbr_arretes');
+        }
+        // On récupère les arrêtés municipaux
+        $arretes = $this->manager->getRepository(ArreteMunicipal::class)->findArretes($limit, $offset);
         // On crée le classeur et on lui donne tous les arrêtés
         $classeurArretes = new Classeur();
         foreach($arretes as $arrete)

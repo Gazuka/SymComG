@@ -19,6 +19,17 @@ class ArreteMunicipalRepository extends ServiceEntityRepository
         parent::__construct($registry, ArreteMunicipal::class);
     }
 
+    public function findArretes($limit, $offset = 1)
+    {
+        return $this->createQueryBuilder('a')            
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults($limit)
+            ->setFirstResult(($limit * $offset) - $limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return ArreteMunicipal[] Returns an array of ArreteMunicipal objects
     //  */
