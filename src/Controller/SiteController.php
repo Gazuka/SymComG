@@ -204,7 +204,7 @@ class SiteController extends SymComGController
         $organisme = $this->findById(Organisme::class, $idorganisme);
         foreach($organisme->getElemOrganismes() as $elemOrganisme)
         {
-            array_push($articles, $elemOrganisme->getElemX()->getVisuel()->getArticleAnnexe());
+            array_unshift($articles, $elemOrganisme->getElemX()->getVisuel()->getArticleAnnexe());
         }
         
         $this->setTwig('pages/site/page____site____articles.html.twig');
