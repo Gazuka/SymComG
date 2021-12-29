@@ -2,15 +2,15 @@
 
 namespace App\Entity\Organisme;
 
-use App\Entity\Agenda\Evenement;
-use App\Entity\Agenda\Horaire;
+use DateTime;
 use App\Entity\Lieu;
+use ReflectionClass;
 use App\Entity\Menu\Lien;
 use App\Entity\Poste\Poste;
-use App\Entity\Visuel\Element\ElemOrganisme;
 use App\Entity\Visuel\Visuel;
-use ReflectionClass;
+use App\Entity\Agenda\Horaire;
 use App\SuperEntity\Structure;
+use App\Entity\Agenda\Evenement;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Classeur\Classeur;
 use App\Entity\Organisme\Service;
@@ -19,6 +19,7 @@ use App\Entity\Organisme\Association;
 use App\Entity\CarteVisite\CarteVisite;
 use App\Repository\OrganismeRepository;
 use Doctrine\Common\Collections\Collection;
+use App\Entity\Visuel\Element\ElemOrganisme;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -36,6 +37,7 @@ class Organisme
 
     private $typeStructure;
     private $structure;
+    private $evenementsActifs = null;
 
     /**
      * @ORM\OneToOne(targetEntity=Association::class, mappedBy="organisme", cascade={"persist", "remove"})
@@ -94,7 +96,7 @@ class Organisme
 
     /**
      * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="organisateurs")
-     * @ORM\OrderBy({"date" = "DESC"})
+     * @ORM\OrderBy({"date" = "ASC"})
      */
     private $evenements;
 
@@ -399,12 +401,30 @@ class Organisme
         return $this->evenements;
     }
 
+    public function getEvenementsActifs(): Array
+    {
+        if($this->evenementsActifs == null)
+        {
+            $dateActuelle = new DateTime();
+            $this->evenementsActifs = array();
+            foreach($this->evenements as $evenement)
+            {
+                if($evenement->getDate() >= $dateActuelle)
+                {
+                    array_push($this->evenementsActifs, $evenement);
+                }
+            }
+        }
+        return $this->evenementsActifs;
+    }
+
     public function addEvenement(Evenement $evenement): self
     {
         if (!$this->evenements->contains($evenement)) {
             $this->evenements[] = $evenement;
             $evenement->addOrganisateur($this);
         }
+        $this->evenementsActifs = null;
 
         return $this;
     }
@@ -414,6 +434,7 @@ class Organisme
         if ($this->evenements->removeElement($evenement)) {
             $evenement->removeOrganisateur($this);
         }
+        $this->evenementsActifs = null;
 
         return $this;
     }

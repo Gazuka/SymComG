@@ -58,7 +58,7 @@
         {% endif %}
 
         {# Affichage de l'agenda #}
-        {% if service.organisme.evenements | length > 0 %}
+        {% if service.organisme.evenementsActifs | length > 0 %}
             <div class='row'>
                 <div class='col-6'>
                     {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
@@ -72,7 +72,7 @@
                     {% endif %}
                 </div>
                 <div class='col-12'>
-                    {% for evenement in service.organisme.evenements %}
+                    {% for evenement in service.organisme.evenementsActifs %}
                         {% if loop.index <= nbr_evenements %}
                             {% include 'entity/agenda/_mod____agenda____evenement____simple_avec_icone.html.twig' with {'evenement': evenement} only %}
                         {% endif %}
