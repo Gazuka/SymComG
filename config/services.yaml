@@ -9,6 +9,8 @@ parameters:
     page_accueil.nbr_evenement: 6
     page_articles.nbr_article: 100
     page_arretes.nbr_arretes: 100
+    page_association.nbr_articles: 4
+    page_association.nbr_evenements: 3
     page_service.nbr_articles: 4
     page_service.nbr_evenements: 3
 services:

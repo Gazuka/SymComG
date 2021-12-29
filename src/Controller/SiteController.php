@@ -181,12 +181,13 @@ class SiteController extends SymComGController
     {
         // --- Appel de la page d'agenda ---
         $this->setTwig('pages/site/page____site____evenements.html.twig');
+        $organisme = $this->findById(Organisme::class, $idorganisme);
         // --- Affichage de l'agenda ---
         $evenements = $this->manager->getRepository(Evenement::class)->findProchainsOrganisme($idorganisme, 100);
         $this->addParamTwig('evenements', $evenements);
         $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipauxOrganisme($idorganisme);
         $this->addParamTwig('evenementsPrincipaux', $evenements);
-        
+        $this->addParamTwig('titreAlternatif', 'Agenda de '.$organisme->getStructure()->getNom());
         return $this->afficher();
     }
 
@@ -247,6 +248,10 @@ class SiteController extends SymComGController
         $association = $this->findBySlug(Association::class, $slugassociation);
         $this->setTwig('pages/site/page____site____association.html.twig');
         $this->addParamTwig('association', $association);
+        $nbr_articles = $this->getParameter('page_association.nbr_articles');
+        $this->addParamTwig('nbr_articles', $nbr_articles);
+        $nbr_evenements = $this->getParameter('page_association.nbr_evenements');
+        $this->addParamTwig('nbr_evenements', $nbr_evenements);
         return $this->afficher();
     }
 

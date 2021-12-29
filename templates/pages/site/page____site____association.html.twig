@@ -32,7 +32,62 @@
     {# </div> #}
 
     <div class='col-8'>
-        {# Affichage des Actualités #}
+        {# Affichage des actualites #}
+        {% if service.organisme.elemOrganismes | length > 0 %}
+            <div class='row'>
+                <div class='col-6'>
+                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Actualités"} only %}
+                </div>
+                <div class='col-6 text-right font-weight-bold'>
+                    {% set nbrArchives = service.organisme.elemOrganismes | length - nbr_articles %}
+                    {% if nbrArchives > 0 %}
+                        <span class="badge badge-pill badge-danger p-2 m-1">
+                            <a href='{{ path('site_articles_organisme', {'idorganisme': service.organisme.id}) }}' class='text-white'>Actualités archivées ({{ nbrArchives }})</a>
+                        </span>                    
+                    {% endif %}
+                </div>
+                <div class='col-12'>
+                    <div class='row'>
+                        {% for elemOrganisme in service.organisme.elemOrganismes | reverse %}
+                            {% if loop.index <= nbr_articles %}
+                                {% include 'entity/article/article/_mod____article____actualite.html.twig' with {'article': elemOrganisme.elemX.visuel.articleAnnexe} only %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Affichage de l'agenda #}
+        {% if service.organisme.evenements | length > 0 %}
+            <div class='row'>
+                <div class='col-6'>
+                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
+                </div>
+                <div class='col-6 text-right font-weight-bold'>
+                    {% set nbrAvenir = service.organisme.evenements | length - nbr_evenements %}
+                    {% if nbrAvenir > 0 %}
+                        <span class="badge badge-pill badge-danger p-2 m-1">
+                            <a href='{{ path('site_evenements_organisme', {'idorganisme': service.organisme.id}) }}' class='text-white'>Evénements à venir ({{ nbrAvenir }})</a>
+                        </span>
+                    {% endif %}
+                </div>
+                <div class='col-12'>
+                    {% for evenement in service.organisme.evenements %}
+                        {% if loop.index <= nbr_evenements %}
+                            {% include 'entity/agenda/_mod____agenda____evenement____simple_avec_icone.html.twig' with {'evenement': evenement} only %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {# Affichage du visuel #}
+        {% include 'entity/organisme/organisme/_voir____organisme____visuel.html.twig' with {'organisme': service.organisme} only %}        
+    </div>
+
+    {# <div class='col-8'>
+        Affichage des Actualités
         {% if association.organisme.elemOrganismes | length > 0 %}
             {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Actualités"} only %}        
             <div class='row'>
@@ -42,14 +97,14 @@
             </div>
         {% endif %}
 
-        {# Affichage de l'agenda #}
+        Affichage de l'agenda
         {% if association.organisme.evenements | length > 0 %}
             {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
             {% for evenement in association.organisme.evenements %}
                 {% include 'entity/agenda/_mod____agenda____evenement____simple_avec_icone.html.twig' with {'evenement': evenement} only %}
             {% endfor %}
         {% endif %}
-    </div>
+    </div> #}
     
     <div class='col-4'>
         {# Affichage du module de carte de visite #}
