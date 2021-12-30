@@ -3,16 +3,17 @@
 namespace App\Controller;
 
 use DateTime;
-use App\Entity\Agenda\Evenement;
-use App\Entity\Article\Article;
+use App\Entity\TypePublic;
 use App\Entity\Profil\Profil;
+use App\Entity\Article\Article;
+use App\Entity\Agenda\Evenement;
 use App\Entity\Classeur\Classeur;
 use App\Entity\Courrier\Courrier;
-use App\Form\Courrier\CourrierType;
 use App\Entity\Organisme\Service;
 use App\Entity\Organisme\Organisme;
-use App\Entity\Organisme\Association;
+use App\Form\Courrier\CourrierType;
 use App\Entity\Organisme\Entreprise;
+use App\Entity\Organisme\Association;
 use App\Entity\CarteVisite\CarteVisite;
 use App\Entity\Classeur\Format\Image\Photo;
 use App\Entity\Classeur\Format\Image\Affiche;
@@ -168,6 +169,9 @@ class SiteController extends SymComGController
      {
         // --- Appel de la page d'agenda ---
         $this->setTwig('pages/site/page____site____evenements.html.twig');
+
+        $legende = $this->findAll(TypePublic::class);
+        $this->addParamTwig('legende', $legende);
 
         // --- Affichage de l'agenda ---
         $this->recupererEvenements(100);        

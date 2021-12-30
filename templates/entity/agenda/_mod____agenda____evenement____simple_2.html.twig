@@ -26,7 +26,15 @@
                     {% endif %}
                     {{ lieu.nom }}
                 {% endfor %}
-            </span>
+            </span> 
         </p>
+        {# Affichage du type de public #}
+        {% if evenement.typesPublics | length > 0 %}
+            <p class="card-text text-right">
+                {% for typePublic in evenement.typesPublics %}
+                    <i style="color: {{ typePublic.couleur }};" class="{{ typePublic.icone }}"></i>
+                {% endfor %}
+            </p>
+        {% endif %}
     </div>
 </div>

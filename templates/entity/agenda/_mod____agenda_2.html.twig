@@ -5,6 +5,14 @@
                 {% include 'entity/agenda/_mod____agenda____evenements____principaux.html.twig' with {'evenements': evenementsPrincipaux} only %}
             </div>
         {% endif %}
+
+        {# LEGENDE DE L'AGENDA #}
+        {% if legende is defined %}
+            <div class='col-3'>
+                {% include 'entity/agenda/_tpl____agenda____legende.html.twig' with {'legende': legende} only %}
+            </div>
+        {% endif %}
+
         {% for evenement in evenements %}
             <div class='col-3'>
                 {% include 'entity/agenda/_mod____agenda____evenement____simple_2.html.twig' with {'evenement': evenement} only %}

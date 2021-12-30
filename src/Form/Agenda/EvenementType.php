@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class EvenementType extends OutilsType
@@ -57,6 +58,7 @@ class EvenementType extends OutilsType
                 'translation_domain' => 'false',
                 // 'data' => true
             ])
+            ->add('typesPublics')
         ;
     }
 

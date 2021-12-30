@@ -6,6 +6,7 @@ use App\Entity\Article\Article;
 use App\Entity\Classeur\Classeur;
 use App\Entity\Lieu;
 use App\Entity\Organisme\Organisme;
+use App\Entity\TypePublic;
 use App\Repository\Agenda\EvenementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -78,12 +79,18 @@ class Evenement
      */
     private $classeurs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=TypePublic::class, inversedBy="evenements")
+     */
+    private $typesPublics;
+
     public function __construct()
     {
         $this->lieux = new ArrayCollection();
         $this->ArticlesSecondaires = new ArrayCollection();
         $this->organisateurs = new ArrayCollection();
         $this->classeurs = new ArrayCollection();
+        $this->typesPublics = new ArrayCollection();
     }
 
     public function __toString()
@@ -272,6 +279,30 @@ class Evenement
     public function removeClasseur(Classeur $classeur): self
     {
         $this->classeurs->removeElement($classeur);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TypePublic[]
+     */
+    public function getTypesPublics(): Collection
+    {
+        return $this->typesPublics;
+    }
+
+    public function addTypesPublic(TypePublic $typesPublic): self
+    {
+        if (!$this->typesPublics->contains($typesPublic)) {
+            $this->typesPublics[] = $typesPublic;
+        }
+
+        return $this;
+    }
+
+    public function removeTypesPublic(TypePublic $typesPublic): self
+    {
+        $this->typesPublics->removeElement($typesPublic);
 
         return $this;
     }

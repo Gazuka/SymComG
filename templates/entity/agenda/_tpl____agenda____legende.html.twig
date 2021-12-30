@@ -1,0 +1,17 @@
+{#
+    require legende
+#}
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="#" class='sc4-texte'>
+                Légende
+            </a>
+        </h5>
+        {% for typePublic in legende %}
+            <p class="card-text">
+                <i style="color: {{ typePublic.couleur }};" class="{{ typePublic.icone }}"></i> {{ typePublic.nom}}
+            </p>        
+        {% endfor %}
+    </div>
+</div>
