@@ -29,13 +29,19 @@
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
                     <img src="{{ document.media.fichier.getChemin | imagine_filter(liipFiltre) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
                     {% if legende != false %}
-                      <div class="carousel-caption d-none d-md-block">
-                        {# <h5>First slide label</h5> #}                        
+                      {# <div class="carousel-caption d-none d-md-block">                        
                           <p class='bg-dark'>{{ document.media.image.alt}}
                             {% if datePhoto != false %}
                               ({{ document.media.image.photo.date | date("d/m/Y") }})
                             {% endif %}
                           </p>
+                      </div> #}
+                      <div>
+                        {{ document.media.image.alt}}
+                        {% if datePhoto != false %}
+                          <br/>
+                          ({{ document.media.image.photo.date | date("d/m/Y") }})
+                        {% endif %}                        
                       </div>
                     {% endif %}
                 </div>
