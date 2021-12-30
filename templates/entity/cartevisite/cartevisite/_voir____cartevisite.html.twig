@@ -3,7 +3,8 @@
 #}
 
 {% if (cartevisite.adresses is empty) and (cartevisite.telephones is empty) and (cartevisite.mails is empty) %}
-    {% include 'interfaces/_debug____message.html.twig' with {'message': "Aucun contact direct... Chercher une solution et on affiche le president"} only %}                                    
+    {# {% include 'interfaces/_debug____message.html.twig' with {'message': "Aucun contact direct... Chercher une solution et on affiche le president"} only %}                                     #}
+    
 {% else %}
     <div>
         {% include 'entity/cartevisite/cartevisite/_voir____cartevisite____adresses.html.twig' with {'cartevisite': cartevisite} only %}

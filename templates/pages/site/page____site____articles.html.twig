@@ -1,5 +1,5 @@
 {% extends 'interfaces/public/_part____base_public.html.twig' %}
-{% set titre = 'TRAD : Actualités' %}
+{% set titre = 'Actualités' %}
 {% if titreAlternatif is defined %}
     {% set titre = titreAlternatif %}
 {% endif %}
@@ -17,9 +17,9 @@
     {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
 
     {# --- Affichage des articles --- #}
-    <div class='col-4'>
+    {# <div class='col-4'>
         {% include 'interfaces/_debug____message.html.twig' with {'message': "Recherche d'article"} only %}
-    </div>
+    </div> #}
     <div class='col-8'>
         {% include 'entity/article/_mod____articles____actualites.html.twig' with {'articles': articles} only %}
     </div>
