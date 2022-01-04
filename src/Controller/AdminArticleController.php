@@ -49,7 +49,7 @@ class AdminArticleController extends AdminController
     {
         $evenement = $this->findById(Evenement::class, $idevenement);
         $article = $this->creerFormulaire(null, 'admin_article_gerer');
-        dump($article);
+        // dump($article);
         if($article->getTitre() != null)
         {
             $article->addEvenementsPrincipaux($evenement);

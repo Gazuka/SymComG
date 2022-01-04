@@ -43,7 +43,7 @@ class AdminVisuelController extends AdminController
     public function supprimerElement(int $idelemx): Response
     {
         $elemX = $this->findById(elemX::class, $idelemx);
-        dump($elemX);
+        // dump($elemX);
         if($elemX->getParent() != null)
         {
             $elemX->getParent()->removeElement($elemX);

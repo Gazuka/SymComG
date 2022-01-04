@@ -41,7 +41,7 @@ class AdminComposantController extends AdminController
         $modele = $this->findById(ComposantModele::class, '3');
         $composant = new Composant();
         $composant->setModele($modele);
-        dump($composant);
+        // dump($composant);
         dd('debug fin');
         return $this->render('composant/index.html.twig', [
             'controller_name' => 'ComposantController',

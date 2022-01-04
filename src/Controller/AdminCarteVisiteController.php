@@ -163,7 +163,7 @@ class AdminCarteVisiteController extends AdminController
     private function redirectParent($carteVisite)
     {
         $parent = $carteVisite->getParent();
-        dump($carteVisite);
+        // dump($carteVisite);
         $this->setRedirect('admin_'.$parent['nom'].'_gerer');
         $this->addParamRedirect('id'.$parent['nom'], $parent['objet']->getId());
     }
