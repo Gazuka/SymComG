@@ -32,7 +32,7 @@ class SiteController extends SymComGController
     //============================
 
     /**
-     * @Route("/site", name="site_accueil")
+     * @Route("/", name="site_accueil")
      */
     public function index(): Response
     {

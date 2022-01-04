@@ -34,17 +34,17 @@ security:
             logout:
                 path: admin_logout
                 target: admin_accueil
-        main:
-            pattern: ^/
-            lazy : true
-            provider: users_in_database
-            form_login: 
-                login_path: site_login
-                check_path: site_login
-                default_target_path: site_accueil
-            logout:
-                path: site_logout
-                target: site_accueil
+        # main:
+        #     pattern: ^/
+        #     lazy : true
+        #     provider: users_in_database
+        #     form_login: 
+        #         login_path: site_login
+        #         check_path: site_login
+        #         default_target_path: site_accueil
+        #     logout:
+        #         path: site_logout
+        #         target: site_accueil
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
