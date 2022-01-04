@@ -2,6 +2,8 @@
 liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd" #gd mais j'ai tenté imagick voir si compatible ovh
+    twig:
+        mode: lazy
     filter_sets: # Contient la liste des filtres
         normal: # Permet de réduire les images beaucoup trop grande à la largeur maximum du template
             quality: 100
