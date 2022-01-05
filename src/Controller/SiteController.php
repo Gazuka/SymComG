@@ -455,7 +455,8 @@ class SiteController extends SymComGController
     private function recupererClasseurDeliberations()
     {
         // On récupère toutes les délibérations
-        $deliberations = $this->findAll(Deliberation::class);
+        // $deliberations = $this->findAll(Deliberation::class);
+        $deliberations = $this->manager->getRepository(Deliberation::class)->findBy([],['date'=>'DESC'] );
         // On crée le classeur et on lui donne toutes les délibérations
         $classeurDeliberations = new Classeur();
         foreach($deliberations as $deliberation)
