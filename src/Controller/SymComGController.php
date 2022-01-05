@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Classes\Chemin;
+use App\Entity\Stats\Log;
 use App\Service\FormService;
 use App\Service\RepoService;
 use App\Service\EntityService;
@@ -73,8 +75,20 @@ class SymComGController extends AbstractController
 
         //Permet d'enregistrer la page précédante et l'actuelle
         $this->sessionService->gererHistorique();
+        $this->saveStats();
     }
     
+    protected function saveStats()
+    {
+        $cheminActuel = $this->sessionService->recupChemin('cheminActuel');
+        $logStats = new Log();
+        $logStats->setChemin($cheminActuel);
+        $logStats->setDateTime(new DateTime());
+        // dump($this->session);
+        $this->manager->persist($logStats);
+        $this->manager->flush();
+    }
+
     /**
      * Affiche la page requise grace au ControllerService
      */
