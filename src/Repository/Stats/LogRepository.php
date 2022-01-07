@@ -19,6 +19,15 @@ class LogRepository extends ServiceEntityRepository
         parent::__construct($registry, Log::class);
     }
 
+    public function findSerie($limit)
+    {
+        return $this->createQueryBuilder('l')         
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Log[] Returns an array of Log objects
     //  */

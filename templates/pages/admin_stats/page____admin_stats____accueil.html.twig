@@ -1,0 +1,31 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    require chemins
+#}
+
+{% block content %}
+
+    Accueil des stats
+    <a href='{{ path('admin_stats_analyser') }}'>Analyser</a>
+    <a href='{{ path('admin_stats_nommer') }}'>Nommer</a>
+    <ul>
+        {% for chemin in chemins %}
+            <li>
+                {% if chemin.nom != null %}
+                    {{ chemin.nom }}
+                {% else %}
+                    {{ chemin.route.nom }}
+                    [
+                        {% for param in chemin.routeParams %}
+                            {% if loop.first == false %} / {% endif %}
+                            {{ param.param }} : {{ param.valeur }}
+                        {% endfor %}                        
+                    ]
+                {% endif %}
+                 : {{ chemin.statsLogs | length }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
