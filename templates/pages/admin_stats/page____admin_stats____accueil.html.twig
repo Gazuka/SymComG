@@ -9,23 +9,36 @@
     Accueil des stats
     <a href='{{ path('admin_stats_analyser') }}'>Analyser</a>
     <a href='{{ path('admin_stats_nommer') }}'>Nommer</a>
+
+    {% embed 'composants/card/_card_table.html.twig' with {'chemins': chemins} only %}
+        {% set nomColonnes = ['#', 'chemin', 'Nombre de vues'] %}
+        {% set tbody %}
+
+            {% for chemin in chemins %}
+                <tr>
+                    <th>{{ chemin.id }}</th>
+                    {% if chemin.nom != null %}
+                        <th>{{ chemin.nom }}</th>
+                    {% else %}
+                        <th>
+                            {{ chemin.route.nom }}
+                            [
+                                {% for param in chemin.routeParams %}
+                                    {% if loop.first == false %} / {% endif %}
+                                    {{ param.param }} : {{ param.valeur }}
+                                {% endfor %}                        
+                            ]
+                        </th>
+                    {% endif %}
+                    <th>{{ chemin.statsLogs | length }}</th>
+                </tr>
+            {% endfor %}
+
+        {% endset %}       
+    {% endembed %}
+
     <ul>
-        {% for chemin in chemins %}
-            <li>
-                {% if chemin.nom != null %}
-                    {{ chemin.nom }}
-                {% else %}
-                    {{ chemin.route.nom }}
-                    [
-                        {% for param in chemin.routeParams %}
-                            {% if loop.first == false %} / {% endif %}
-                            {{ param.param }} : {{ param.valeur }}
-                        {% endfor %}                        
-                    ]
-                {% endif %}
-                 : {{ chemin.statsLogs | length }}
-            </li>
-        {% endfor %}
+        
     </ul>
     
 {% endblock %}

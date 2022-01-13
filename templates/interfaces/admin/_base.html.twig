@@ -18,7 +18,8 @@
     <link href="{{ asset('template_sb2/css/contact.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="{{ asset('template_sb2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    {# <link href="{{ asset('template_sb2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"> #}
+    <link href="{{ asset('datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 
   </head>
 
@@ -182,6 +183,9 @@
   <script src="{{ asset('template_sb2/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('template_sb2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+  <!-- Utilisation du plugin DataTables -->
+  <script src="{{ asset('datatables/media/js/jquery.dataTables.min.js') }}"></script>
+
   <!-- Core plugin JavaScript-->
   <script src="{{ asset('template_sb2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
@@ -190,15 +194,29 @@
 
   <!-- Page level plugins -->
   <script src="{{ asset('template_sb2/vendor/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('template_sb2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('template_sb2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+  {# <script src="{{ asset('template_sb2/vendor/datatables/jquery.dataTables.min.js') }}"></script> #}
+  {# <script src="{{ asset('template_sb2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script> #}
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('template_sb2/js/demo/chart-area-demo.js') }}"></script>
-  <script src="{{ asset('template_sb2/js/demo/chart-pie-demo.js') }}"></script>
-  <script src="{{ asset('template_sb2/js/demo/datatables-demo.js') }}"></script>
+  {# <script src="{{ asset('template_sb2/js/demo/chart-area-demo.js') }}"></script> #}
+  {# <script src="{{ asset('template_sb2/js/demo/chart-pie-demo.js') }}"></script> #}
+  {# <script src="{{ asset('template_sb2/js/demo/datatables-demo.js') }}"></script> #}
+
+  
 
   <script type='text/javascript'>
+
+    // Appel du plugin datatables pour les tableaux d'id dataTable (pas dans un fichier séparer pour pouvoir utilier l'asset)
+    $(document).ready(function() {
+      $('#dataTable').DataTable({
+        pageLength: 50,
+        language: {
+          url: "{{ asset('datatables/media/french.json') }}",        
+      }
+    });
+    });
+ {# alert('test'); #}
+
     /** Permet l'affichage de tooltip (des étiquettes au dessus des boutons sans texte */ 
     window.onload = tooltip();
     function tooltip()
