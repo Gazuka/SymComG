@@ -27,7 +27,6 @@ phpunit.xml
 /public/tests/
 ###< liip/imagine-bundle ###
 
-/public/
 /docs
 /.phpdoc
 phpDocumentor.phar
