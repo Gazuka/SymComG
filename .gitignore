@@ -23,6 +23,8 @@ phpunit.xml
 
 ###> liip/imagine-bundle ###
 /public/media/cache/
+/public/medias/
+/public/tests/
 ###< liip/imagine-bundle ###
 
 /public/
