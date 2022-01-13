@@ -26,6 +26,8 @@ class AdminStatsController extends AdminController
      */
     public function index(): Response
     {
+        $nbrLogsAAnalyser = $this->manager->getRepository(Log::class)->compter();
+        $this->addParamTwig('nbrLogsAAnalyser', $nbrLogsAAnalyser);
         $chemins = $this->manager->getRepository(Chemin::class)->findAll();
         $this->addParamTwig('chemins', $chemins);
         //Affichage

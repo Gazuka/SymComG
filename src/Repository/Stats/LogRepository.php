@@ -28,6 +28,15 @@ class LogRepository extends ServiceEntityRepository
         ;
     }
 
+    public function compter()
+    {
+        return $this->createQueryBuilder('l')                     
+            ->select('COUNT(l)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
     // /**
     //  * @return Log[] Returns an array of Log objects
     //  */

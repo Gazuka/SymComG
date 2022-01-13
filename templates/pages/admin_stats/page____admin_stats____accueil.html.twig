@@ -2,12 +2,13 @@
 
 {#
     require chemins
+    require nbrLogsAAnalyser
 #}
 
 {% block content %}
 
     Accueil des stats
-    <a href='{{ path('admin_stats_analyser') }}'>Analyser</a>
+    <a href='{{ path('admin_stats_analyser') }}'>Analyser ({{ nbrLogsAAnalyser }})</a>
     <a href='{{ path('admin_stats_nommer') }}'>Nommer</a>
 
     {% embed 'composants/card/_card_table.html.twig' with {'chemins': chemins} only %}
