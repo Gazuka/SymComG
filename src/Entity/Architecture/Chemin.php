@@ -23,6 +23,7 @@ class Chemin
 
     /**
      * @ORM\OneToMany(targetEntity=StatsLog::class, mappedBy="chemin")
+     * @ORM\OrderBy({"dateTime" = "DESC"})
      */
     private $statsLogs;
 
