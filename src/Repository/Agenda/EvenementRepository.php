@@ -24,7 +24,7 @@ class EvenementRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('e')
             ->setParameter('date', new DateTime())
-            ->Where('e.date > :date or e.dateFin > :date')
+            ->Where('e.date >= :date or e.dateFin > :date')
             ->orderBy('e.date', 'ASC')
             ->setMaxResults($limit)
             ->setFirstResult(($limit * $offset) - $limit)
