@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\TypePublic;
 use App\Entity\Profil\Profil;
+use App\Entity\Annonce\Annonce;
 use App\Entity\Article\Article;
 use App\Entity\Agenda\Evenement;
 use App\Entity\Classeur\Classeur;
@@ -38,6 +39,10 @@ class SiteController extends SymComGController
     {
         // --- Appel de la page d'accueil ---
         $this->setTwig('pages/site/page____site____accueil.html.twig');
+
+        // --- Affichage des annonces ---
+        $annonces = $this->manager->getRepository(Annonce::class)->findActuels();
+        $this->addParamTwig('annonces', $annonces);
 
         // --- Affichage des actualités ---
         $limitArticles = $this->getParameter('page_accueil.nbr_article');

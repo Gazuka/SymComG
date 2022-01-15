@@ -1,0 +1,13 @@
+{#
+    require form
+#}
+
+{{ form_start(form) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.texte) }}
+    {{ form_row(form.debut) }}
+    {{ form_row(form.fin) }}
+    {{ form_row(form.couleur) }}
+    {{ form_row(form.invisible) }}
+    {{ 'twig.admin.lieu.form.enregistrer' | trans | BoutonValiderFormulaire }}
+{{ form_end(form) }}

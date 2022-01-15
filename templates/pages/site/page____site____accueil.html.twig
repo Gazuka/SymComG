@@ -25,6 +25,11 @@
             {% include 'interfaces/public/_part____menu.html.twig' %}
         </div>
 
+        {# Bandeau d'annonce #}
+        <div class='col-12'>
+            {% include 'entity/annonce/_mod____annonces.html.twig' with {'annonces': annonces} only %}            
+        </div>
+
         {# --- Affichage des articles --- #}
         <div class='col-8'>
             <div class='row'>

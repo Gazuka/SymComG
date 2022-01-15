@@ -1,0 +1,21 @@
+{% extends 'interfaces/admin/_base.html.twig' %}
+
+{#
+    Cette page permet l'affichage de l'ensemble des annonces
+    require annonces
+#}
+
+{% block content %}
+
+    {# Affichage d'une card tableau avec les annonces #}
+    {% embed 'composants/card/_card_table.html.twig' with {'annonces': annonces} only %}
+        {% set nomColonnes = ['#', 'titre', 'texte', 'debut', 'fin', 'couleur', 'invisible'] %}
+        {% set tbody %}
+
+            {# Affichage du tableau des annonces #}
+            {% include 'entity/annonce/_admin_table____annonces.html.twig' with {'annonces': annonces} only %}
+
+        {% endset %}       
+    {% endembed %}
+
+{% endblock %}

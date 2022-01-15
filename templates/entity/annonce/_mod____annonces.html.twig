@@ -1,0 +1,13 @@
+{#
+    require annonces
+#}
+
+{% for annonce in annonces %}
+    {% if annonce.invisible == false %}
+        <div class="alert alert-{{ annonce.couleur }}" role="alert">
+            <marquee>
+                {{ annonce.texte }}
+            </marquee>
+        </div>
+    {% endif %}
+{% endfor %}

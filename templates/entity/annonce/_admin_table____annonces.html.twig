@@ -1,0 +1,28 @@
+{#
+    require annonces
+#}
+{% for annonce in annonces %}
+    <tr>
+        <td>
+            {{ annonce.id }}
+        </td>
+        <td>
+            {{ annonce.titre }}
+        </td>
+        <td>
+            {{ annonce.texte }}
+        </td>
+        <td>
+            {{ annonce.debut | date('d/m/y H:i') }}
+        </td>
+        <td>
+            {{ annonce.fin | date('d/m/y H:i') }}
+        </td>
+        <td>
+            {{ annonce.couleur }}
+        </td>
+        <td>
+            {{ annonce.invisible }}
+        </td>
+    </tr>
+{% endfor %}
