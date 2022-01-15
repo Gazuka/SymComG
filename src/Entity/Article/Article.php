@@ -84,6 +84,11 @@ class Article
      */
     private $actualite;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $invisible;
+
     public function __construct()
     {
         $this->dateCreation = new \DateTime('now');
@@ -318,6 +323,18 @@ class Article
     public function setActualite(bool $actualite): self
     {
         $this->actualite = $actualite;
+
+        return $this;
+    }
+
+    public function getInvisible(): ?bool
+    {
+        return $this->invisible;
+    }
+
+    public function setInvisible(bool $invisible): self
+    {
+        $this->invisible = $invisible;
 
         return $this;
     }

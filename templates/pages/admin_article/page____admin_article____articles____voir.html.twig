@@ -9,7 +9,7 @@
 
     {# Affichage d'une card tableau avec les articles #}
     {% embed 'composants/card/_card_table.html.twig' with {'articles': articles} only %}
-        {% set nomColonnes = ['#', 'TRAD: Actualite' | capitalize, 'TRAD: titre' | capitalize, 'TRAD: publication' | capitalize, 'TRAD: actions' | capitalize] %}
+        {% set nomColonnes = ['#', 'visibilité', 'TRAD: Actualite' | capitalize, 'TRAD: titre' | capitalize, 'TRAD: publication' | capitalize, 'TRAD: actions' | capitalize] %}
         {% set tbody %}
 
             {# Affichage du tableau des articles #}

@@ -32,6 +32,8 @@ twig.admin.profil.interface.nbr.profils: >-
         other {# profils}
     }
 twig.admin.profil.interface.menu.profil.creer: 'Créer un nouveau profil'
+twig.interface.admin.menu.annonce.creer: 'Créer une nouvelle annonce'
+twig.interface.admin.menu.annonces.gerer: 'Gérer les annonces'
 twig.interface.admin.menu.article.creer: 'Créer un nouvel article'
 twig.interface.admin.menu.articles.gerer: 'Gérer les articles'
 twig.interface.admin.menu.evenement.creer: 'Créer un nouvel événement'

@@ -7,7 +7,14 @@
             {{ annonce.id }}
         </td>
         <td>
-            {{ annonce.titre }}
+            {% if annonce.invisible == true %}
+                <i class="fas fa-eye-slash"></i>
+            {% else %}
+                <i class="fas fa-eye"></i>
+            {% endif %}
+        </td>
+        <td>
+            <a href='{{ path('admin_annonce_editer', {'idannonce': annonce.id}) }}'>{{ annonce.titre }}</a>
         </td>
         <td>
             {{ annonce.texte }}
@@ -20,9 +27,6 @@
         </td>
         <td>
             {{ annonce.couleur }}
-        </td>
-        <td>
-            {{ annonce.invisible }}
         </td>
     </tr>
 {% endfor %}

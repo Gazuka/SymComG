@@ -39,6 +39,13 @@ class ArticleType extends OutilsType
                 'required' => false,
                 'translation_domain' => 'false'
             ])
+            ->add('invisible', CheckboxType::class,
+            [
+                'label_attr' => ['class' => 'switch-custom'],
+                'label' => $this->addLabel('form.article.invisible'),
+                'required' => false,
+                'translation_domain' => 'false'
+            ])
         ;
     }
 

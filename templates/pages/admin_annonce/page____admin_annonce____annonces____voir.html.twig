@@ -9,7 +9,7 @@
 
     {# Affichage d'une card tableau avec les annonces #}
     {% embed 'composants/card/_card_table.html.twig' with {'annonces': annonces} only %}
-        {% set nomColonnes = ['#', 'titre', 'texte', 'debut', 'fin', 'couleur', 'invisible'] %}
+        {% set nomColonnes = ['#', 'visibilité', 'titre', 'texte', 'debut', 'fin', 'couleur'] %}
         {% set tbody %}
 
             {# Affichage du tableau des annonces #}

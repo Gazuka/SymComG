@@ -1,22 +1,25 @@
 {#
     require article
 #}
-<div class='col-6'>
+{# Si l'article est invisible on ne l'affiche pas ! #}
+{% if article.invisible == false %}
+    <div class='col-6'>
 
-    {# Affichage d'une image d'intro #}
-    {% include 'entity/article/article/_mod____article____image_intro.html.twig' with {'article': article} only %}    
+        {# Affichage d'une image d'intro #}
+        {% include 'entity/article/article/_mod____article____image_intro.html.twig' with {'article': article} only %}    
 
-    {# Affichage du visuel de l'article #}
-    <h5>
-        <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
-            {{ article.titre }}
-        </a>
-    </h5>
+        {# Affichage du visuel de l'article #}
+        <h5>
+            <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
+                {{ article.titre }}
+            </a>
+        </h5>
 
-    <p>
-        <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
-            {{ article.visuel.getApercu | striptags | u.truncate(200, '...') | raw  }}
-        </a>
-    </p>
+        <p>
+            <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
+                {{ article.visuel.getApercu | striptags | u.truncate(200, '...') | raw  }}
+            </a>
+        </p>
 
-</div>
+    </div>
+{% endif %}

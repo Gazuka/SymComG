@@ -41,6 +41,20 @@ class AdminAnnonceController extends AdminController
     }
 
     /**
+     * PUBLIC : EDITER - Editer une annonce
+     * @Route("/admin/annonce/editer/{idannonce}", name="admin_annonce_editer", requirements={"idannonce"="\-?[0-9]+"})
+     * @param integer $idannonce
+     * @return Response
+     */
+    public function editerAnnonce(int $idannonce):Response
+    {
+        //Récupérer l'annonce
+        $annonce = $this->findById(Annonce::class, $idannonce);
+        $this->genererFormulaire($annonce);
+        return $this->afficher('admin.annonce.editer.titre.'.$annonce->getTitre());
+    }
+
+    /**
      * Création d'un formulaire d'annonce
      */
     private function genererFormulaire(Annonce $annonce=null): void
