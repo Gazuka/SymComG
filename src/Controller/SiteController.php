@@ -473,8 +473,12 @@ class SiteController extends SymComGController
 
     private function recupererEvenements($nbrEvenements)
     {
-        $evenements = $this->manager->getRepository(Evenement::class)->findProchains($nbrEvenements);
         $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipaux();
+        if(sizeof($evenementsPrincipaux) == 0)
+        {
+            $nbrEvenements = $nbrEvenements + 2;
+        }
+        $evenements = $this->manager->getRepository(Evenement::class)->findProchains($nbrEvenements);
         $this->addParamTwig('evenements', $evenements);
         $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
     }
