@@ -14,7 +14,7 @@
             {% endif %}
         </td>
         <td>
-            <a href='{{ path('admin_annonce_editer', {'idannonce': annonce.id}) }}'>{{ annonce.titre }}</a>
+            <a href='{{ path('admin_annonce_gerer', {'idannonce': annonce.id}) }}'>{{ annonce.titre }}</a>
         </td>
         <td>
             {{ annonce.texte }}

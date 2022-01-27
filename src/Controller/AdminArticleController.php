@@ -21,8 +21,7 @@ class AdminArticleController extends AdminController
     const OBJET_NAME = 'article';
 
     /**
-     * PUBLIC : VOIR - Afficher l'ensemble des articles
-     * 
+     * Afficher l'ensemble des articles
      * @Route("/admin/articles", name="admin_articles_voir")
      * @return Response
      */
@@ -45,7 +44,7 @@ class AdminArticleController extends AdminController
      * @Route("/admin/article/evenement/creer/{idevenement}", name="admin_article_evenement_creer", requirements={"idevenement"="\-?[0-9]+"})
      * @return Response
      */
-    public function creerArticlePincipalEvenement($idevenement): Response
+    public function creerArticlePrincipalEvenement($idevenement): Response
     {
         $evenement = $this->findById(Evenement::class, $idevenement);
         $article = $this->creerFormulaire(null, 'admin_article_gerer');

@@ -8,9 +8,16 @@
     {% if date() < article.dateDebutPublication or article.dateDebutPublication is null %}
         DEBUG : Cet article n'est pas disponible pour le moment...
     {% else %}
-        {% if date() > article.dateFinPublication and article.dateFinPublication is not null %}
-            DEBUG : Attention : Cet article est une archive, les informations qu'il contient ne sont peut être plus d'actualité...
+        {% if article.etat == 'archive' %}
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-calendar-times"></i> Attention : Cet article est une <b>archive</b>, il reste disponible pour consultation mais les informations qu'il contient sont succeptible de ne plus être d'actualité.                
+            </div>
+            
         {% endif %}
+                
+                {# {% if date() > article.dateFinPublication and article.dateFinPublication is not null %}
+            DEBUG : 
+        {% endif %} #}
         {% include 'entity/visuel/visuel/_voir____visuel.html.twig' with {'visuel': article.visuel} only %}
     {% endif %}
 {% endif %}

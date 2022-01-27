@@ -2,14 +2,15 @@
 
 namespace App\Entity\Article;
 
+use DateTime;
+use App\Entity\Visuel\Visuel;
 use App\Entity\Agenda\Evenement;
+use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Architecture\Page;
 use App\Entity\Classeur\Classeur;
-use App\Entity\Visuel\Visuel;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\Article\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -88,6 +89,16 @@ class Article
      * @ORM\Column(type="boolean")
      */
     private $invisible;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archive;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $etat;
 
     public function __construct()
     {
@@ -337,5 +348,70 @@ class Article
         $this->invisible = $invisible;
 
         return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(bool $archive): self
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        $this->definirEtat();
+        return $this->etat;
+    }
+
+    public function setEtat(?string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+    public function definirEtat()
+    {
+        $now = new DateTime();
+        if($this->dateDebutPublication != null)
+        {
+            if($now < $this->dateDebutPublication)
+            {
+                // La date de publication n'est pas encore arrivée
+                $this->etat = 'pret';
+            }
+            else
+            {
+                // L'article a déjà été publié
+                if($this->dateFinPublication != null)
+                {
+                    if($now < $this->dateFinPublication)
+                    {
+                        // L'article est toujours en ligne
+                        $this->etat = 'actif';
+                    }
+                    else
+                    {
+                        // L'article n'est plus en ligne
+                        $this->etat = 'archive';
+                        $this->archive = true;
+                    }
+                }
+                else
+                {
+                    // L'article est permanent
+                    $this->etat = 'permanent';
+                }
+            }
+        }
+        else
+        {
+            // L'article n'a pas de date de publication
+            $this->etat = 'brouillon';
+        }
     }
 }
