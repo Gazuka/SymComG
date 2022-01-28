@@ -5,6 +5,7 @@ namespace App\Entity\Classeur\Support;
 use App\Entity\Classeur\Format\Pdf\ArreteMunicipal;
 use App\Entity\Classeur\Format\Pdf\BulletinMunicipal;
 use App\Entity\Classeur\Format\Pdf\Deliberation;
+use App\Entity\Classeur\Format\Pdf\MarchePublic;
 use App\Entity\Classeur\Media;
 use App\SuperEntity\Support;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,6 +45,11 @@ class Pdf extends Support
      */
     private $deliberation;
 
+    /**
+     * @ORM\OneToOne(targetEntity=MarchePublic::class, mappedBy="support", cascade={"persist", "remove"})
+     */
+    private $marchePublic;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,12 +84,17 @@ class Pdf extends Support
             $this->formatName = 'deliberation';
             $this->format = $this->deliberation;
         }
+        if($this->marchePublic != null)
+        {
+            $this->formatName = 'marchepublic';
+            $this->format = $this->marchePublic;
+        }
         //Par défaut on met inconnu
         if($this->formatName == null)
         {
             $this->formatName = 'inconnu';
             $this->format = null;
-        }
+        }        
         return $this->formatName;
     }
 
@@ -141,6 +152,23 @@ class Pdf extends Support
         }
 
         $this->deliberation = $deliberation;
+
+        return $this;
+    }
+
+    public function getMarchePublic(): ?MarchePublic
+    {
+        return $this->marchePublic;
+    }
+
+    public function setMarchePublic(MarchePublic $marchePublic): self
+    {
+        // set the owning side of the relation if necessary
+        if ($marchePublic->getSupport() !== $this) {
+            $marchePublic->setSupport($this);
+        }
+
+        $this->marchePublic = $marchePublic;
 
         return $this;
     }

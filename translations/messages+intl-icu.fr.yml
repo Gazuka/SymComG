@@ -184,10 +184,17 @@ twig.pages.admin.media.document.voir.info.nbrclasseurs: >-
         one {Ce document est utilisé dans 1 classeur}
         other {Ce document est utilisé dans # classeurs}
     }
+twig.partials.admin.modules.media.info.pdf.arrete.titre: "Titre :"
+twig.partials.admin.modules.media.info.pdf.arrete.date: "Date de signature :"
+twig.partials.admin.modules.media.info.pdf.arrete.datedebut: "Début de validité :"
+twig.partials.admin.modules.media.info.pdf.arrete.datefin: "Fin de validité :"
 twig.partials.admin.modules.media.info.pdf.bulletin.date: "Date de publication : "
 twig.partials.admin.modules.media.info.pdf.bulletin.titre: "Titre : "
 twig.partials.admin.modules.media.info.pdf.bulletin.periode: "Période : "
 twig.partials.admin.modules.media.info.pdf.deliberation.date: "Date du conseil municipal : "
+twig.partials.admin.modules.media.info.pdf.marchepublic.titre: "Titre : "
+twig.partials.admin.modules.media.info.pdf.marchepublic.datedebut: "Début de publication : "
+twig.partials.admin.modules.media.info.pdf.marchepublic.datefin: "Fin de publication : "
 twig.partials.admin.modules.media.info.image.alt: "Descriptif de l'image : "
 twig.partials.admin.modules.media.info.affiche.date: "Date : "
 twig.partials.admin.modules.media.info.affiche.datefin: "Date de fin : "
@@ -199,10 +206,6 @@ twig.pages.admin.media.info.pdf.bulletin: "Ce fichier pdf est un bulletin munici
 twig.pages.admin.media.form.enregistrer: "Enregistrer"
 twig.page.admin.choisir: "Veuillez choisir un type dans la liste suivante :"
 twig.page.admin.choisir.telephone: "Téléphone"
-twig.partials.admin.modules.media.info.pdf.arrete.titre: "Titre :"
-twig.partials.admin.modules.media.info.pdf.arrete.date: "Date de signature :"
-twig.partials.admin.modules.media.info.pdf.arrete.datedebut: "Début de validité :"
-twig.partials.admin.modules.media.info.pdf.arrete.datefin: "Fin de validité :"
 # Twig Pages Admin CarteVisite Form
 # Twig > Pages > Admin > Organismes > Structures > Voir
 twig.pages.admin.cartevisite.form.enregistrer: "Enregistrer"

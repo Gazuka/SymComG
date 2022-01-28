@@ -17,7 +17,9 @@ use App\Form\Classeur\Format\Image\IconeType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Classeur\Format\Pdf\Deliberation;
+use App\Entity\Classeur\Format\Pdf\MarchePublic;
 use App\Form\Classeur\Format\Pdf\DeliberationType;
+use App\Form\Classeur\Format\Pdf\MarchePublicType;
 use App\Entity\Classeur\Format\Pdf\ArreteMunicipal;
 use App\Entity\Classeur\Format\Pdf\BulletinMunicipal;
 use App\Form\Classeur\Format\Pdf\ArreteMunicipalType;
@@ -73,7 +75,13 @@ class AdminClasseurController extends AdminController
                                                                                 'formatLabel' => 'admin.medias.choisir.arrete',
                                                                                 'class' => ArreteMunicipal::class,
                                                                                 'typeClass' => ArreteMunicipalType::class
-                                                                            ]
+                                                                            ],
+                                                                'marchepublic' => [
+                                                                    'format' => 'marchepublic',
+                                                                    'formatLabel' => 'admin.medias.choisir.marchepublic',
+                                                                    'class' => MarchePublic::class,
+                                                                    'typeClass' => MarchePublicType::class
+                                                                ]
                                                             ]
                                         ],
                             ];

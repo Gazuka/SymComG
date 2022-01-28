@@ -1,0 +1,13 @@
+{#
+    require format (MarchePublic)
+#}
+{% set arrete = format %}
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.marchepublic.titre' | trans}} {{ arrete.titre }}
+</div>
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.marchepublic.datedebut' | trans}} {{ arrete.datedebut | date("d/m/Y") }}
+</div>
+<div>
+    {{ 'twig.partials.admin.modules.media.info.pdf.marchepublic.datefin' | trans}} {{ arrete.datefin | date("d/m/Y") }}
+</div>

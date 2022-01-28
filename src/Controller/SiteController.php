@@ -24,6 +24,7 @@ use App\Entity\Classeur\Format\Pdf\Deliberation;
 use Symfony\Component\Validator\Constraints\Date;
 use App\Entity\Classeur\Format\Pdf\ArreteMunicipal;
 use App\Entity\Classeur\Format\Pdf\BulletinMunicipal;
+use App\Entity\Classeur\Format\Pdf\MarchePublic;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SiteController extends SymComGController
@@ -77,6 +78,18 @@ class SiteController extends SymComGController
         // --- Récupération des arrêtés municipaux ---
         $classeurArretes = $this->recupererClasseurArretes();        
         $this->addParamTwig('classeur', $classeurArretes);
+        return $this->afficher();
+    }
+
+    /**
+     * @Route("/marchespublics", name="site_marches_publics")
+     */
+    public function voirMarchesPublics(): Response
+    {
+        $this->setTwig('pages/site/page____site____marches_publics.html.twig');
+        // --- Récupération des marchés publics ---
+        $classeurMarches = $this->recupererClasseurMarches();        
+        $this->addParamTwig('classeur', $classeurMarches);
         return $this->afficher();
     }
 
@@ -455,6 +468,23 @@ class SiteController extends SymComGController
             $classeurArretes->addDocument($arrete->getSupport()->getMedia()->getDocument());
         }
         return $classeurArretes;
+    }
+
+    private function recupererClasseurMarches($limit = null, $offset = 1)
+    {
+        if($limit == null)
+        {
+            $limit = 20; //DEBUG : mettre une variables en configuration : $this->getParameter('page_arretes.nbr_arretes');
+        }
+        // On récupère les marchés publics
+        $marches = $this->manager->getRepository(MarchePublic::class)->findMarches($limit, $offset);
+        // On crée le classeur et on lui donne tous les marchés
+        $classeurMarches = new Classeur();
+        foreach($marches as $marche)
+        {
+            $classeurMarches->addDocument($marche->getSupport()->getMedia()->getDocument());
+        }
+        return $classeurMarches;
     }
 
     private function recupererClasseurDeliberations()
