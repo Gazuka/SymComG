@@ -26,7 +26,7 @@ class MarchePublicRepository extends ServiceEntityRepository
         $now->setTime(0,0,0,0); // Définir l'heure actuelle a 0h00 afin d'avoir tous les évènements du jour
         return $this->createQueryBuilder('m')   
             ->setParameter('date', $now)
-            ->Where('m.datedebut >= :date or m.datefin > :date')         
+            ->Where('m.datedebut <= :date and m.datefin >= :date')         
             ->orderBy('m.datedebut', 'DESC')
             ->setMaxResults($limit)
             ->setFirstResult(($limit * $offset) - $limit)
