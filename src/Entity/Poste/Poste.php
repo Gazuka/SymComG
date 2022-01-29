@@ -47,6 +47,7 @@ class Poste
 
     /**
      * @ORM\ManyToMany(targetEntity=Profil::class, inversedBy="postes")
+     * @ORM\OrderBy({"hierarchie" = "DESC"})
      */
     private $profils;
 
