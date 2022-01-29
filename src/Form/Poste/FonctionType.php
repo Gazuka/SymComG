@@ -14,6 +14,8 @@ class FonctionType extends AbstractType
         $builder
             ->add('titre')
             ->add('titreFeminin')
+            ->add('titrePluriel')
+            ->add('titreFemininPluriel')
         ;
     }
 

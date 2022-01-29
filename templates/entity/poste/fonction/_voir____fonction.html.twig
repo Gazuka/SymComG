@@ -2,23 +2,37 @@
     require poste
 #}
 {% set fonction = poste.fonction %}
+{% set nbrProfils = poste.profils | length %}
 
-{% if poste.profils | length > 0 %}
-    {% if poste.profils | length > 1 %}
-        {# DEBUG prévoir le pluriel #}
-        {{ fonction. titre }}
-    {% else %}        
-        {% for profil in poste.profils %}
-            {% if profil.humain.sexe == 'f' %}
-                {{ fonction.titreFeminin }}
-            {% else %}
-                {{ fonction.titre }}
-            {% endif %}            
-        {% endfor %}
-    {% endif %}
+{% if nbrProfils == 0 %}
+    {# C'est vide on affiche le masculin #}
+    {{ fonction.titre }}
 {% else %}
-    {# Si vide on affiche uniquement le masculin #}
-    {{ fonction.titre }} 
+    {% if nbrProfils == 1 %}
+        {# Un seul profil on vérifie si c'est un homme ou une femme #}
+        {% if poste.profils[0].humain.sexe =='f' %}
+            {# C'est une femme qui occupe le poste #}
+            {{ fonction.titreFeminin }}
+        {% else %}
+            {# C'est un homme qui occupe le poste #}
+            {{ fonction.titre }}
+        {% endif %}
+    {% else %}
+        {# Plusieurs personnes occupent le poste #}
+        {% set homme = false %}
+        {% for profil in poste.profils %}
+            {% if profil.humain.sexe =='h' %}
+                {% set homme = true %}
+            {% endif %}
+        {% endfor %}
+        {% if homme == false %}
+            {# Il n'y a que des femmes à ce poste #}
+            {{ fonction.titreFemininPluriel }}
+        {% else %}
+            {# Il y a au moin un homme à ce poste #}
+            {{ fonction.titrePluriel }}
+        {% endif %}
+    {% endif %}
 {% endif %}
 
 {# On affiche ensuite le secteur si elle existe #}

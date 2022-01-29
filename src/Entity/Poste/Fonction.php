@@ -34,6 +34,16 @@ class Fonction
      */
     private $postes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titrePluriel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titreFemininPluriel;
+
     public function __toString()
     {
         return $this->getTitreWithSexe(null);
@@ -120,6 +130,30 @@ class Fonction
                 $poste->setFonction(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitrePluriel(): ?string
+    {
+        return $this->titrePluriel;
+    }
+
+    public function setTitrePluriel(string $titrePluriel): self
+    {
+        $this->titrePluriel = $titrePluriel;
+
+        return $this;
+    }
+
+    public function getTitreFemininPluriel(): ?string
+    {
+        return $this->titreFemininPluriel;
+    }
+
+    public function setTitreFemininPluriel(string $titreFemininPluriel): self
+    {
+        $this->titreFemininPluriel = $titreFemininPluriel;
 
         return $this;
     }

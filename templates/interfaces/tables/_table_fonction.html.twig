@@ -9,8 +9,8 @@
         {% for enum in enums %}
             <tr>
                 <td>{{ enum.id }}</td>
-                <td>{{ enum.titre }}</td>
-                <td>{{ enum.titreFeminin }}</td>
+                <td>{{ enum.titre }} ({{ enum.titrePluriel }})</td>
+                <td>{{ enum.titreFeminin }} ({{ enum.titreFemininPluriel }})</td>
                 <td>
                     {# {{ path('admin_service', {'idservice': service.id}) | LienBtnRond('Editer', 'fa-edit', 'primary') }} #}
                     {{ path('admin_config_enum_supprimer', {'enumname': enumname, 'idenum': enum.id}) | BoutonLienSupprimer() }}
