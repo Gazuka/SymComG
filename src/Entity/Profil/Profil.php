@@ -55,6 +55,11 @@ class Profil
      */
     private $commissionDeleguee;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $hierarchie;
+
     public function __construct()
     {
         $this->postes = new ArrayCollection();
@@ -229,6 +234,18 @@ class Profil
                 $commissionDeleguee->setChef(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHierarchie(): ?int
+    {
+        return $this->hierarchie;
+    }
+
+    public function setHierarchie(?int $hierarchie): self
+    {
+        $this->hierarchie = $hierarchie;
 
         return $this;
     }
