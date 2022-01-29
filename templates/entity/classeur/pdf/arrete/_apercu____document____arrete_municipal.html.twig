@@ -1,18 +1,27 @@
 {#
-    require document (ArreteMunicipal) 
+    require document (ArreteMunicipal)
+    require datesService
 #}
+{% set temporalite = datesService.localiserCreneau(document.media.pdf.ArreteMunicipal.datedebut, document.media.pdf.ArreteMunicipal.datefin) %}
 
 <div class='row col-12'>
-    <div class='col-2 text-center alert alert-secondary text-danger mb-1'>
-        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+    {% if temporalite =='_archive_' %}
+        {% set couleur = 'warning' %}
+    {% else %}
+        {% set couleur = 'danger' %}
+    {% endif %}
+    <div class='col-2 text-center alert alert-secondary text-{{couleur}} mb-1'>
+        <a href='{{ document.media.fichier.chemin }}' class='text-{{couleur}}' target='_blanck'>
             <i class="far fa-file-pdf display-4"></i>
         </a>
     </div>
     <div class='col-8'>
+        {% if temporalite =='_archive_' %}
+           <span class="badge bg-warning text-dark"><i class="fas fa-calendar-times"></i> Archivé</span>
+        {% endif %}
         {{ document.media.pdf.ArreteMunicipal.titre }}
     </div>
     <div class='col-2'>
-        
         {{ document.media.pdf.ArreteMunicipal.date | date("d/m/Y") }}
     </div>
 </div>

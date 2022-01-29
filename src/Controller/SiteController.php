@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\TypePublic;
 use App\Entity\Profil\Profil;
+use App\Service\DatesService;
 use App\Entity\Annonce\Annonce;
 use App\Entity\Article\Article;
 use App\Entity\Agenda\Evenement;
@@ -21,10 +22,10 @@ use App\Entity\Classeur\Format\Image\Affiche;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Classeur\Format\Pdf\Deliberation;
+use App\Entity\Classeur\Format\Pdf\MarchePublic;
 use Symfony\Component\Validator\Constraints\Date;
 use App\Entity\Classeur\Format\Pdf\ArreteMunicipal;
 use App\Entity\Classeur\Format\Pdf\BulletinMunicipal;
-use App\Entity\Classeur\Format\Pdf\MarchePublic;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SiteController extends SymComGController
@@ -36,7 +37,7 @@ class SiteController extends SymComGController
     /**
      * @Route("/", name="site_accueil")
      */
-    public function index(): Response
+    public function index(DatesService $datesService): Response
     {
         // --- Appel de la page d'accueil ---
         $this->setTwig('pages/site/page____site____accueil.html.twig');
@@ -64,6 +65,7 @@ class SiteController extends SymComGController
         // --- Affichage des derniers arrêtés municipaux ---
         $limitArretes = $this->getParameter('page_accueil.nbr_arretes');
         $classeurArretes = $this->recupererClasseurArretes($limitArretes);  
+        $this->addParamTwig('datesService', $datesService);
         $this->addParamTwig('classeurArretes', $classeurArretes);
 
         return $this->afficher();
@@ -72,12 +74,13 @@ class SiteController extends SymComGController
     /**
      * @Route("/arretes", name="site_arretes_municipaux")
      */
-    public function voirArretesMunicipaux(): Response
+    public function voirArretesMunicipaux(DatesService $datesService): Response
     {
         $this->setTwig('pages/site/page____site____arretes_municipaux.html.twig');
         // --- Récupération des arrêtés municipaux ---
         $classeurArretes = $this->recupererClasseurArretes();        
         $this->addParamTwig('classeur', $classeurArretes);
+        $this->addParamTwig('datesService', $datesService);
         return $this->afficher();
     }
 

@@ -1,11 +1,12 @@
 {#
     ==> Affichage d'un listing avec tous les arrêtés du classeur
     require classeur
+    require datesService
 #}
 
 {% for document in classeur.filtreParSupport('pdf', 'arrete') %}
     {% if loop.first == false %}
     <hr/>
     {% endif %}
-    {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document} only %}    
+    {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document, 'datesService': datesService} only %}    
 {% endfor %}

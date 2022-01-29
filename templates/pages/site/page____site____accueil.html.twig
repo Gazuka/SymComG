@@ -1,5 +1,9 @@
 {% extends 'interfaces/public/_part____base_accueil.html.twig' %}
 
+{#
+    require datesService
+#}
+
 {% block title %}
     {{ parent() }} - Accueil
 {% endblock %}
@@ -96,7 +100,7 @@
                     </span>                    
                 </div>
                 <div class='col-12'>
-                    {% include 'entity/classeur/_mod____classeur____arretes_municipaux.html.twig' with {'classeur': classeurArretes} only %}            
+                    {% include 'entity/classeur/_mod____classeur____arretes_municipaux.html.twig' with {'classeur': classeurArretes, 'datesService': datesService} only %}            
                 </div>
             </div>
         </div>
