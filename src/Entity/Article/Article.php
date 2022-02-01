@@ -109,6 +109,7 @@ class Article
         $this->classeurs = new ArrayCollection();
         $this->evenementsPrincipaux = new ArrayCollection();
         $this->evenementsSecondaires = new ArrayCollection();
+        $this->archive = false;
     }
 
     public function __toString()
