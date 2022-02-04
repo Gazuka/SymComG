@@ -12,8 +12,10 @@ use App\Controller\AdminController;
 use App\Form\EnumEntrepriseTypeType;
 use App\Form\EnumAssociationTypeType;
 use App\Entity\Organisme\EnumEntrepriseType;
+use App\Entity\CarteVisite\EnumCategAnnuaire;
 use App\Entity\Organisme\EnumAssociationType;
 use Symfony\Component\HttpFoundation\Response;
+use App\Form\CarteVisite\EnumCategAnnuaireType;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminConfigController extends AdminController
@@ -29,7 +31,7 @@ class AdminConfigController extends AdminController
      */
     public function choisirEnum($demandeur, $titre): Response
     {        
-        $choixPossible = ['entreprise', 'association', 'fonction', 'secteur', 'statut'];
+        $choixPossible = ['entreprise', 'association', 'fonction', 'secteur', 'statut', 'categAnnuaire'];
         $this->setTwig('pages/admin_configuration/page____admin_configuration____enum_choisir.html.twig');
         $this->setTitre($titre);
         $this->addParamTwig('demandeur', $demandeur);
@@ -138,6 +140,11 @@ class AdminConfigController extends AdminController
                 $resultat['enum'] = new Secteur();
                 $resultat['enumClasse'] = Secteur::class;
                 $resultat['enumTypeClasse'] = SecteurType::class;
+            break;
+            case 'categAnnuaire':
+                $resultat['enum'] = new EnumCategAnnuaire();
+                $resultat['enumClasse'] = EnumCategAnnuaire::class;
+                $resultat['enumTypeClasse'] = EnumCategAnnuaireType::class;
             break;
             default:
                 $this->setRedirect('admin_config_enum_choisir');

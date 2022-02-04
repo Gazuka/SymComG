@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Entity\Organisme;
+namespace App\Entity\CarteVisite;
 
-use App\Repository\EnumEntrepriseTypeRepository;
+use App\Repository\CarteVisite\EnumCategAnnuaireRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=EnumEntrepriseTypeRepository::class)
- * @ORM\Table(name="organisme__enum_entreprise_type")
+ * @ORM\Entity(repositoryClass=EnumCategAnnuaireRepository::class)
  */
-class EnumEntrepriseType
+class EnumCategAnnuaire
 {
     /**
      * @ORM\Id
@@ -26,40 +25,23 @@ class EnumEntrepriseType
     private $nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity=EnumEntrepriseType::class, inversedBy="enfants")
+     * @ORM\ManyToOne(targetEntity=EnumCategAnnuaire::class, inversedBy="enfants")
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=EnumEntrepriseType::class, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity=EnumCategAnnuaire::class, mappedBy="parent")
      */
     private $enfants;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Entreprise::class, mappedBy="types")
-     */
-    private $entreprise;
 
     public function __construct()
     {
         $this->enfants = new ArrayCollection();
-        $this->entreprise = new ArrayCollection();
     }
 
     public function __toString()
     {
-        return $this->getNomComplet();
-    }
-
-    public function getNomComplet()
-    {
-        $nomComplet = '';
-        if($this->parent != null)
-        {
-            $nomComplet .= $this->parent->getNomComplet();
-            $nomComplet .= " > ";
-        }
-        return $nomComplet.$this->nom;
+        return $this->nom;
     }
 
     public function getId(): ?int
@@ -119,40 +101,5 @@ class EnumEntrepriseType
         }
 
         return $this;
-    }
-
-    /**
-     * @return Collection|Entreprise[]
-     */
-    public function getEntreprise(): Collection
-    {
-        return $this->entreprise;
-    }
-
-    public function addEntreprise(Entreprise $entreprise): self
-    {
-        if (!$this->entreprise->contains($entreprise)) {
-            $this->entreprise[] = $entreprise;
-        }
-
-        return $this;
-    }
-
-    public function removeEntreprise(Entreprise $entreprise): self
-    {
-        $this->entreprise->removeElement($entreprise);
-
-        return $this;
-    }
-
-    public function getAllIds()
-    {
-        $allIds = array();
-        if($this->parent != null)
-        {
-            $allIds = $this->parent->getAllIds();
-        }
-        array_push($allIds, $this->id);
-        return $allIds;
     }
 }

@@ -1,0 +1,76 @@
+{#
+    require entrepriseTypes // Tous les types d'entreprise
+    require idParent 
+    require entrepriseTypeRecherche   
+#}
+{% if entrepriseTypeRecherche != null %}
+    {% set allIdsTypesRecherches = entrepriseTypeRecherche.allIds %}
+{% else %}
+    {% set allIdsTypesRecherches = [] %}
+{% endif %}
+
+<div class='pl-3'>
+    {% for entrepriseType in entrepriseTypes %}
+        {% set affichage = false %}
+        
+        {% if idParent == null %}
+            {% if entrepriseType.parent == idParent %}
+                {% set affichage = true %}
+            {% endif %}
+        {% else %}
+            {% if entrepriseType.parent != null %}
+                {% if entrepriseType.parent.id == idParent %}
+                    {% set affichage = true %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+        {% if affichage == true %}
+            {% if entrepriseType.id in allIdsTypesRecherches %}
+                <div>    
+                    <a href='{{ path('site_annuaire', {'typestructure': 'entreprise', 'idenumentreprisetype': entrepriseType.id}) }}'>
+                        <i class="fas fa-check-circle"></i> {{ entrepriseType.nom }}                        
+                    </a>
+                    {% include 'interfaces/public/annuaire/_sous_menu_entreprise.html.twig' with {'entrepriseTypeRecherche': entrepriseTypeRecherche, 'entrepriseTypes': entrepriseTypes, 'idParent': entrepriseType.id} only %}
+                </div>
+            {% else %}
+                <div>
+                    <a href='{{ path('site_annuaire', {'typestructure': 'entreprise', 'idenumentreprisetype': entrepriseType.id}) }}'>
+                        <i class="far fa-check-circle"></i> {{ entrepriseType.nom }}
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+
+
+{# {% if nbrParents > 0 %}
+    {% set nbrParents = nbrParents - 1 %}
+    {% for entrepriseType in entrepriseTypes %}        
+        {% if entrepriseType.parent == tabIdsParentsEntrepriseType[nbrParents] %}
+            <div class='pl-3'>
+                <a href='{{ path('site_annuaire', {'typestructure': 'entreprise', 'idenumentreprisetype': entrepriseType.id}) }}'>
+                    {% set actif = false %}
+                    {% for tabIdParentEntrepriseType in tabIdsParentsEntrepriseType %}
+                        {{ dump(entrepriseType.id ~ ':' ~ tabIdParentEntrepriseType ) }}
+                        {% if entrepriseType.id == tabIdParentEntrepriseType %}
+                            {% set actif = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if actif == true %} #}
+                        {# Le type est celui sélectionné ou l'un de ses parents #}
+                        {# <i class="fas fa-check-circle"></i> {{ entrepriseType.nom }}
+                    {% else %}
+                        <i class="far fa-check-circle"></i> {{ entrepriseType.nom }}
+                    {% endif %} #}
+
+                    {# {% include 'interfaces/public/annuaire/_sous_menu_entreprise.html.twig' with {'entrepriseTypes': entrepriseTypes, 'nbrParents': nbrParents, 'tabIdsParentsEntrepriseType': tabIdsParentsEntrepriseType} only %} #}
+                    
+                {# </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %} #}

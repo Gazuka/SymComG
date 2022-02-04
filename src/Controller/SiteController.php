@@ -18,6 +18,7 @@ use App\Entity\Organisme\Entreprise;
 use App\Entity\Organisme\Association;
 use App\Entity\CarteVisite\CarteVisite;
 use App\Entity\Classeur\Format\Image\Photo;
+use App\Entity\Organisme\EnumEntrepriseType;
 use App\Entity\Classeur\Format\Image\Affiche;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -97,11 +98,10 @@ class SiteController extends SymComGController
     }
 
     /**
-     * @Route("/annuaire/{typestructure}/{idenumtype}", name="site_annuaire", requirements={"idenumtype"="\-?[0-9]+"})
+     * @Route("/annuaire/{typestructure}/{idenumentreprisetype}", name="site_annuaire", requirements={"idenumentreprisetype"="\-?[0-9]+"})
      */
-    public function voirAnnuaire($typestructure = null, $idenumtype = null): Response
+    public function voirAnnuaire($typestructure = null, $idenumentreprisetype = null): Response
     {
-        //DEBUG : gerer le idenumtype pour affichage de certains types uniquement
         switch($typestructure)
         {
             case 'association':
@@ -116,19 +116,41 @@ class SiteController extends SymComGController
             break;
             case 'entreprise':
                 // --- Récupération des entreprises pour afficher les cartes de visites ---
-                $entreprises = $this->repoService->findBy(Entreprise::class, [], ['nom' => 'asc']); 
+                if($idenumentreprisetype == null)
+                {
+                    // On récupère toutes les entreprises
+                    $entreprises = $this->repoService->findBy(Entreprise::class, [], ['nom' => 'asc']);
+                }
+                else
+                {
+                    // On ne récupère que les entreprise du type demandé
+                    $enumEntrepriseType = $this->findById(EnumEntrepriseType::class, $idenumentreprisetype);
+                    $tabTypes = array();
+                    array_push($tabTypes, $enumEntrepriseType);
+                    foreach($enumEntrepriseType->getEnfants() as $enfant)
+                    {
+                        array_push($tabTypes, $enfant);
+                    }
+                    $entreprises = $this->manager->getRepository(Entreprise::class)->findByType($tabTypes);
+                    
+                    $allIds = $enumEntrepriseType->getAllIds();
+                    $this->addParamTwig('entrepriseTypeRecherche', $enumEntrepriseType);
+                }
                 $this->addParamTwig('entreprises', $entreprises);
+                // $this->addParamTwig('allIds', $allIds);
+                $entrepriseTypes = $this->repoService->findBy(EnumEntrepriseType::class, [], ['nom' => 'asc']);
+                $this->addParamTwig('entrepriseTypes', $entrepriseTypes);
             break;
             default:
                 // --- Récupération des associations pour afficher les cartes de visites ---
-                $associations = $this->repoService->findBy(Association::class, [], ['nom' => 'asc']); 
+                // $associations = $this->repoService->findBy(Association::class, [], ['nom' => 'asc']); 
                 // --- Récupération des services pour afficher les cartes de visites ---
                 $services = $this->repoService->findBy(Service::class, [], ['nom' => 'asc']); 
                 // --- Récupération des entreprises pour afficher les cartes de visites ---
-                $entreprises = $this->repoService->findBy(Entreprise::class, [], ['nom' => 'asc']); 
-                $this->addParamTwig('associations', $associations);
+                // $entreprises = $this->repoService->findBy(Entreprise::class, [], ['nom' => 'asc']); 
+                // $this->addParamTwig('associations', $associations);
                 $this->addParamTwig('services', $services);
-                $this->addParamTwig('entreprises', $entreprises);
+                // $this->addParamTwig('entreprises', $entreprises);
             break;
         }
         $this->setTwig('pages/site/page____site____annuaire.html.twig');

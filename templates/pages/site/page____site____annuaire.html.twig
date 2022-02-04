@@ -2,7 +2,12 @@
 {% set titre = 'Annuaire' %}
 {#
     require cartesVisites
+    option entrepriseTypes
+    option entrepriseTypeRecherche
 #}
+{% if entrepriseTypeRecherche is not defined %}
+    {% set entrepriseTypeRecherche = null %}
+{% endif %}
 
 {% block title %}
     {{ parent() }} - {{ titre }}    
@@ -28,16 +33,13 @@
         </div>
         <div>
             <a href='{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}'>
-                {% if entreprises is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
-                Artisants / Commerçants
+                {% if entreprises is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}                
+                Entreprises
             </a>
-        </div>
-        <div>
-            <a href='{{ path('site_annuaire', {'typestructure': 'entreprise'}) }}'>
-                {% if entreprises is defined %}<i class="fas fa-check-circle"></i>{% else %}<i class="far fa-check-circle"></i>{% endif %}
-                santé
-            </a>
-        </div>
+            {% if entreprises is defined %}
+                {% include 'interfaces/public/annuaire/_sous_menu_entreprise.html.twig' with {'entrepriseTypeRecherche': entrepriseTypeRecherche, 'entrepriseTypes': entrepriseTypes, 'idParent': null} only %}
+            {% endif %}
+        </div>        
     </div>
     <div class='col-9 mb-4'>
         <div class='row'>

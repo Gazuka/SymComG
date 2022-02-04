@@ -19,6 +19,17 @@ class EntrepriseRepository extends ServiceEntityRepository
         parent::__construct($registry, Entreprise::class);
     }
 
+    public function findByType($enumType)
+    {
+        return $this->createQueryBuilder('e')
+            ->join('e.types', 't', 'WITH', 't IN (:t)')
+            ->setParameter('t', $enumType)
+            ->orderBy('e.nom', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Entreprise[] Returns an array of Entreprise objects
     //  */
