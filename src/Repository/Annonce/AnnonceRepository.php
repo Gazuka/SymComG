@@ -24,7 +24,7 @@ class AnnonceRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->setParameter('date', new DateTime())
-            ->Where('a.debut < :date or a.fin > :date')
+            ->Where('a.debut < :date and a.fin > :date')
             ->getQuery()
             ->getResult()
         ;
