@@ -12,7 +12,7 @@
     <a href='{{ path('admin_stats_nommer') }}'>Nommer</a>
 
     {% embed 'composants/card/_card_table.html.twig' with {'chemins': chemins} only %}
-        {% set nomColonnes = ['#', 'chemin', 'Nombre de vues', 'Dernière vue'] %}
+        {% set nomColonnes = ['#', 'chemin', 'Nombre de vues', 'Dernière vue (Y/M/D)'] %}
         {% set tbody %}
 
             {% for chemin in chemins %}
@@ -32,7 +32,7 @@
                         </th>
                     {% endif %}
                     <th>{{ chemin.statsLogs | length }}</th>
-                    <th>{{ chemin.statsLogs[0].dateTime | date("d/m/y - H:i") }}</th>
+                    <th>{{ chemin.statsLogs[0].dateTime | date("Y/m/d - H:i") }}</th>
                 </tr>
             {% endfor %}
 
