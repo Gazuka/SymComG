@@ -33,8 +33,6 @@
 
     <div class='col-8'>
         {# Affichage des actualites #}
-        {{ dump(association.organisme.elemOrganismes) }}
-        {{ dump(association.organisme.elemOrganismes | length) }}
         {% if association.organisme.elemOrganismes | length > 0 %}
             <div class='row'>
                 <div class='col-6'>
