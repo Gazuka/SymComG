@@ -176,6 +176,9 @@ class SiteController extends SymComGController
     public function voirArticle($idarticle): Response
     {
         $article = $this->findById(Article::class, $idarticle);
+        //On récupère les évènements liés à l'article
+        $evenements = $this->manager->getRepository(Evenement::class)->findProchainesProgrammation($idarticle);
+        $this->addParamTwig('evenements', $evenements);
         $this->setTwig('pages/site/page____site____article.html.twig');
         $this->addParamTwig('article', $article);
         return $this->afficher();
@@ -235,6 +238,26 @@ class SiteController extends SymComGController
         $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipauxOrganisme($idorganisme);
         $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
         $this->addParamTwig('titreAlternatif', 'Agenda de '.$organisme->getStructure()->getNom());
+        // --- Affichage de la légende ---
+        $legende = $this->findAll(TypePublic::class);
+        $this->addParamTwig('legende', $legende);
+        return $this->afficher();
+    }
+
+    /**
+     * @Route("/evenements/article/{idarticle}", name="site_evenements_article", requirements={"idarticle"="\-?[0-9]+"})
+     */
+    public function voirAgendaArticle($idarticle): Response
+    {
+        // --- Appel de la page d'agenda ---
+        $this->setTwig('pages/site/page____site____evenements.html.twig');
+        $article = $this->findById(Article::class, $idarticle);
+        // --- Affichage de l'agenda ---
+        $evenements = $this->manager->getRepository(Evenement::class)->findProchainesProgrammation($idarticle, 100);
+        $this->addParamTwig('evenements', $evenements);
+        $evenementsPrincipaux = null;
+        $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
+        $this->addParamTwig('titreAlternatif', 'Agenda de '.$article->getTitre());
         // --- Affichage de la légende ---
         $legende = $this->findAll(TypePublic::class);
         $this->addParamTwig('legende', $legende);
@@ -407,7 +430,6 @@ class SiteController extends SymComGController
     {
         $this->setTwig('pages/site/page____site____services.html.twig');
         $services = $this->repoService->findBy(Service::class, ['id' => array(17, 18, 19, 20)], ['nom' => 'asc']);
-        // dump($services);
         $this->addParamTwig('services', $services);
         $this->addParamTwig('affichageLocalUniquement', false);
         return $this->afficher();

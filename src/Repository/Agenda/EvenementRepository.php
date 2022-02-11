@@ -21,6 +21,22 @@ class EvenementRepository extends ServiceEntityRepository
         parent::__construct($registry, Evenement::class);
     }
 
+    public function findProchainesProgrammation($idarticle, $limit = 100, $offset = 1)
+    {
+        return $this->createQueryBuilder('e')
+        ->innerJoin('e.articlePrincipal', 'article')
+        ->setParameter('date', new DateTime())
+        ->setParameter('idarticle', $idarticle)
+        ->Where('e.date > :date or e.dateFin > :date')
+        ->AndWhere('article.id = :idarticle')
+        ->orderBy('e.date', 'ASC')
+        ->setMaxResults($limit)
+        ->setFirstResult(($limit * $offset) - $limit)
+        ->getQuery()
+        ->getResult()
+    ;
+    }
+
     public function findProchains($limit, $offset = 1)
     {
         $now = new DateTime();
