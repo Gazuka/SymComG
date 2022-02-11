@@ -189,7 +189,17 @@ class AdminStatsController extends AdminController
         }
         
         //Affichage
-        $this->setRedirect('admin_stats');
+        $nbrLogsAAnalyser = $this->manager->getRepository(Log::class)->compter();
+        if($nbrLogsAAnalyser > 10)
+        {
+            //On poursuit l'analyse
+            $this->setRedirect('admin_stats_analyser');
+        }
+        else
+        {
+            //On affiche les stats
+            $this->setRedirect('admin_stats');
+        }
         return $this->afficher();
     }
 }

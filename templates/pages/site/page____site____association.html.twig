@@ -39,16 +39,16 @@
                     {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Actualités"} only %}
                 </div>
                 <div class='col-6 text-right font-weight-bold'>
-                    {% set nbrArchives = service.organisme.elemOrganismes | length - nbr_articles %}
+                    {% set nbrArchives = association.organisme.elemOrganismes | length - nbr_articles %}
                     {% if nbrArchives > 0 %}
                         <span class="badge badge-pill badge-danger p-2 m-1">
-                            <a href='{{ path('site_articles_organisme', {'idorganisme': service.organisme.id}) }}' class='text-white'>Actualités archivées ({{ nbrArchives }})</a>
+                            <a href='{{ path('site_articles_organisme', {'idorganisme': association.organisme.id}) }}' class='text-white'>Actualités archivées ({{ nbrArchives }})</a>
                         </span>                    
                     {% endif %}
                 </div>
                 <div class='col-12'>
                     <div class='row'>
-                        {% for elemOrganisme in service.organisme.elemOrganismes | reverse %}
+                        {% for elemOrganisme in association.organisme.elemOrganismes | reverse %}
                             {% if loop.index <= nbr_articles %}
                                 {% include 'entity/article/article/_mod____article____actualite.html.twig' with {'article': elemOrganisme.elemX.visuel.articleAnnexe} only %}
                             {% endif %}

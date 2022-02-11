@@ -235,6 +235,9 @@ class SiteController extends SymComGController
         $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipauxOrganisme($idorganisme);
         $this->addParamTwig('evenementsPrincipaux', $evenementsPrincipaux);
         $this->addParamTwig('titreAlternatif', 'Agenda de '.$organisme->getStructure()->getNom());
+        // --- Affichage de la légende ---
+        $legende = $this->findAll(TypePublic::class);
+        $this->addParamTwig('legende', $legende);
         return $this->afficher();
     }
 
