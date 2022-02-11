@@ -33,6 +33,8 @@
 
     <div class='col-8'>
         {# Affichage des actualites #}
+        {{ dump(association.organisme.elemOrganismes) }}
+        {{ dump(association.organisme.elemOrganismes | length) }}
         {% if association.organisme.elemOrganismes | length > 0 %}
             <div class='row'>
                 <div class='col-6'>
@@ -68,7 +70,7 @@
                     {% set nbrAvenir = association.organisme.evenements | length - nbr_evenements %}
                     {% if nbrAvenir > 0 %}
                         <span class="badge badge-pill badge-danger p-2 m-1">
-                            <a href='{{ path('site_evenements_organisme', {'idorganisme': service.organisme.id}) }}' class='text-white'>Evénements à venir ({{ nbrAvenir }})</a>
+                            <a href='{{ path('site_evenements_organisme', {'idorganisme': association.organisme.id}) }}' class='text-white'>Evénements à venir ({{ nbrAvenir }})</a>
                         </span>
                     {% endif %}
                 </div>
