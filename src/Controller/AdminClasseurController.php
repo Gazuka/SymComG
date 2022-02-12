@@ -470,6 +470,7 @@ class AdminClasseurController extends AdminController
             $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
             $result = system($commande);
             $this->addFlash('info', $result);
+            $this->addFlash('info', $commande);
         }
         else
         {
