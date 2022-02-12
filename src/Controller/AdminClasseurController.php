@@ -448,4 +448,34 @@ class AdminClasseurController extends AdminController
         //Affichage        
         return $this->afficher();
     }
+
+    // A tester en local puis sur OVH pour extraction de la première page des bulletins municipaux
+    private function extractJpgToPdf($source, $destination)
+    {
+        if (!extension_loaded('Imagick')) {
+            return false;
+        }
+        $imagick = new \Imagick($source . '[0]');
+        $imagick->setFormat('jpg');
+        return $imagick->writeImage($destination);
+    }
+
+    /**
+     * PUBLIC : Test
+     * 
+     * @Route("/admin/test", name="admin_test")
+     * @return Response
+     */
+    public function test()
+    {
+        if (!extension_loaded('Imagick')) 
+        {
+            dump("non");
+        }
+        else
+        {
+            dump("yes");
+        }
+        dd('fin du test');
+    }
 }
