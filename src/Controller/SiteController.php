@@ -440,8 +440,7 @@ class SiteController extends SymComGController
      */
     public function voirBulletinsMunicipaux(): Response
     {
-        $bulletins = $this->repoService->findBy(BulletinMunicipal::class, [], ['date' => 'desc']);
-        // $bulletins = $this->FindAll(BulletinMunicipal::class);
+        $bulletins = $this->repoService->findBy(BulletinMunicipal::class, [], ['date' => 'desc']);        
         $this->setTwig('pages/site/page____site____bulletins_municipaux.html.twig');
         $this->addParamTwig('bulletins', $bulletins);
         return $this->afficher();

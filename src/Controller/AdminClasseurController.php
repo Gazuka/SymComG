@@ -449,33 +449,36 @@ class AdminClasseurController extends AdminController
         return $this->afficher();
     }
 
-    // A tester en local puis sur OVH pour extraction de la première page des bulletins municipaux
-    private function extractJpgToPdf($source, $destination)
-    {
-        if (!extension_loaded('Imagick')) {
-            return false;
-        }
-        $imagick = new \Imagick($source . '[0]');
-        $imagick->setFormat('jpg');
-        return $imagick->writeImage($destination);
-    }
-
     /**
      * PUBLIC : Test
      * 
-     * @Route("/admin/test", name="admin_test")
+     * @Route("/admin/classeur/pdf/creer/vignette/{idmedia}", name="admin_classeur_pdf_creer_vignette", requirements={"idmedia"="\-?[0-9]+"})
      * @return Response
      */
-    public function test()
+    public function creerVignettePdf($idmedia)
     {
-        if (!extension_loaded('Imagick')) 
+        $media = $this->findById(Media::class, $idmedia);
+
+        if($media->getPdf() != null)
         {
-            $this->setRedirect('admin_medias');
+            $this->addFlash('success', "C'est un pdf");
+            //dump("C'est un pdf");
+            //On récupère le chemin du pdf
+            $cheminPdf = $media->getFichier()->getChemin();
+            //On choisi un chemin pour la vignette
+            $cheminVignette = substr_replace($cheminPdf, "jpg", -3, 3);
+            $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
+            system($commande);
+            //dump($commande);
         }
         else
         {
-            $this->setRedirect('site_accueil');
+            //dump("Ce n'est pas un pdf");
+            $this->addFlash('danger', "Ce n'est pas un pdf");
         }
+        
+        //Affichage        
+        $this->setRedirect('admin_medias');
         return $this->afficher();
     }
 }
