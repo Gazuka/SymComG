@@ -468,8 +468,8 @@ class AdminClasseurController extends AdminController
             //On choisi un chemin pour la vignette
             $cheminVignette = substr_replace($cheminPdf, "jpg", -3, 3);
             $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
-            system($commande);
-            //dump($commande);
+            $result = system($commande);
+            $this->addFlash('info', $result);
         }
         else
         {
