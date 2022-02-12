@@ -467,7 +467,8 @@ class AdminClasseurController extends AdminController
             $cheminPdf = 'public/'.$media->getFichier()->getChemin();
             //On choisi un chemin pour la vignette
             $cheminVignette = substr_replace($cheminPdf, "jpg", -3, 3);
-            $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
+            // $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
+            $commande = "convert ".$cheminPdf."[0] ".$cheminVignette;
             $result = system($commande);
             $this->addFlash('info', $result);
             $this->addFlash('info', $commande);
