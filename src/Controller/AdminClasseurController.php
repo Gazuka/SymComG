@@ -470,12 +470,12 @@ class AdminClasseurController extends AdminController
     {
         if (!extension_loaded('Imagick')) 
         {
-            dump("non");
+            $this->setRedirect('admin_medias');
         }
         else
         {
-            dump("yes");
+            $this->setRedirect('site_accueil');
         }
-        dd('fin du test');
+        return $this->afficher();
     }
 }
