@@ -472,6 +472,7 @@ class AdminClasseurController extends AdminController
             $result = system($commande);
             $this->addFlash('info', $result);
             $this->addFlash('info', $commande);
+            $this->addFlash('info', system('dir'));
         }
         else
         {
