@@ -50,6 +50,11 @@ class Pdf extends Support
      */
     private $marchePublic;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $vignette;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,7 +108,6 @@ class Pdf extends Support
         $this->getFormatName();
         return $this->format;
     }    
-
 
     public function getBulletinMunicipal(): ?BulletinMunicipal
     {
@@ -169,6 +173,18 @@ class Pdf extends Support
         }
 
         $this->marchePublic = $marchePublic;
+
+        return $this;
+    }
+
+    public function getVignette(): ?string
+    {
+        return $this->vignette;
+    }
+
+    public function setVignette(?string $vignette): self
+    {
+        $this->vignette = $vignette;
 
         return $this;
     }

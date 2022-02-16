@@ -5,3 +5,10 @@
     <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.date' | trans}} {{ bulletin.date | date("d/m/Y") }}</div>
     <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.titre' | trans}} {{ bulletin.titre }}</div>
     <div>{{ 'twig.partials.admin.modules.media.info.pdf.bulletin.periode' | trans}} {{ bulletin.periode }}</div>
+    <div>
+        {% if bulletin.support.vignette is null %}
+            <a href='{{ path('admin_classeur_pdf_creer_vignette', {'idmedia': bulletin.support.media.id})}}' class='text-danger'><i class="fas fa-screwdriver"></i> Créer la vignette !</a>            
+        {% else %}
+            {{ 'twig.partials.admin.modules.media.info.pdf.bulletin.vignette' | trans}} {{ bulletin.support.vignette }}
+        {% endif %}
+    </div>

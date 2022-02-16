@@ -458,21 +458,18 @@ class AdminClasseurController extends AdminController
     public function creerVignettePdf($idmedia)
     {
         $media = $this->findById(Media::class, $idmedia);
-
-        if($media->getPdf() != null)
+        $pdf = $media->getPdf();
+        if($pdf != null)
         {
-            $this->addFlash('success', "C'est un pdf");
-            //dump("C'est un pdf");
             //On récupère le chemin du pdf
             $cheminPdf = $media->getFichier()->getChemin();
             //On choisi un chemin pour la vignette
             $cheminVignette = substr_replace($cheminPdf, "jpg", -3, 3);
-            // $commande = str_replace("/", "\\", "convert ".$cheminPdf."[0] ".$cheminVignette);
             $commande = "convert ".$cheminPdf."[0] ".$cheminVignette;
-            $result = system($commande);
-            $this->addFlash('info', $result);
-            $this->addFlash('info', $commande);
-            $this->addFlash('info', system('dir'));
+            system($commande);
+            $pdf->setVignette($cheminVignette);
+            $this->manager->persist($pdf);
+            $this->manager->flush();
         }
         else
         {
@@ -481,7 +478,8 @@ class AdminClasseurController extends AdminController
         }
         
         //Affichage        
-        $this->setRedirect('admin_medias');
+        $this->setRedirect('admin_medias_document');
+        $this->addParamRedirect('iddocument', $media->getDocument()->getId());
         return $this->afficher();
     }
 }
