@@ -22,7 +22,8 @@ class PhotoRepository extends ServiceEntityRepository
     public function findActualites($limit = 50, $offset = 1)
     {
         return $this->createQueryBuilder('p')
-            ->Where('p.actualite = 1')         
+            ->Where('p.actualite = 1')
+            ->orderBy('p.id', 'DESC')
             ->setMaxResults($limit)
             ->setFirstResult(($limit * $offset) - $limit)
             ->getQuery()
