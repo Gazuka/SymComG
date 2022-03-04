@@ -9,24 +9,29 @@
 #}
 
 <div class='row'>
-    <div class='col-6'>
+    <div class='col-12 col-xl-6'>
         {# Affichage du titre du module #}
         {% if titre is defined %}
             {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
         {% endif %}
     </div>
-    <div class='col-6 text-right font-weight-bold'>
-        {# Affichage du lien pour voir l'ensemble des arrétes #}
-        {% if lienAll is defined and titreAll is defined%}
-            <span class="badge badge-pill badge-danger p-2 m-1">
-                <a href='{{ path(lienAll) }}' class='text-white'>{{ titreAll }}</a>
-            </span>
-        {% endif %}
-    </div>
+
+    {# XL - Affichage du lien pour voir l'ensemble des arrêtés #}
+    {% if lienAll is defined and titreAll is defined%}
+        {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': 'XL', 'titre': titreAll, 'lien': lienAll} only %}
+    {% endif %}
+
+
     {% for document in classeur.filtreParSupport('pdf', 'arrete') %}
         {% if loop.first == false %}
             <hr/>
         {% endif %}
         {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document, 'datesService': datesService} only %}    
     {% endfor %}
+
+    {# < XL - Affichage du lien pour voir l'ensemble des arrêtés #}
+    {% if lienAll is defined and titreAll is defined%}
+        {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': '<XL', 'titre': titreAll, 'lien': lienAll} only %}
+    {% endif %}
+
 </div>

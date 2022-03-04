@@ -1,0 +1,19 @@
+{# Affiche un bouton "voir plus" selon la taille de l'écran #}
+{# 
+    require taille : taille qui permet l'affichage du bouton
+    require lien : chemin du lien
+    require titre : titre du lien
+#}
+
+{% if taille == 'XL' %}
+    <div class='col-12 col-xl-6 text-right font-weight-bold d-none d-xl-block'>
+{% else %}
+    {% if taille == '<XL' %}
+        <div class='col-12 text-right font-weight-bold d-xl-none mb-3'>
+    {% endif %}
+{% endif %}        
+
+    <span class="badge badge-pill badge-danger p-2 m-1">
+        <a href='{{ path(lien) }}' class='text-white'>{{ titre }}</a>
+    </span>                    
+</div>

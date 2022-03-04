@@ -1,5 +1,5 @@
 {# Affichage d'un module avec un titre, un lien vers tous les articles et une sélection d'articles #}
-{# V1 - 24/02/2022 #}
+{# V2 - 04/03/2022 #}
 {#
     require titre : titre du module
     require lienAll : chemin du lien
@@ -8,17 +8,20 @@
 #}
 
 <div class='row'>
-    <div class='col-6'>
+    <div class='col-12 col-xl-6'>
         {# Affichage du titre du module #}
         {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
     </div>
-    <div class='col-6 text-right font-weight-bold'>
-        {# Affichage du lien pour voir l'ensemble des articles #}
-        <span class="badge badge-pill badge-danger p-2 m-1">
-            <a href='{{ path(lienAll) }}' class='text-white'>{{ titreAll }}</a>
-        </span>                    
-    </div>
+
+    {# XL - Affichage du lien pour voir l'ensemble des articles #}
+    {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': 'XL', 'titre': titreAll, 'lien': lienAll} only %}
+
+    {# Affichage des articles #}
     <div class='col-12'>
         {% include 'entity/article/article/_mod____articles____actualites.html.twig' with {'articles': articles} only %}
     </div>
+
+    {# < XL - Affichage du lien pour voir l'ensemble des articles #}
+    {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': '<XL', 'titre': titreAll, 'lien': lienAll} only %}
+
 </div>
