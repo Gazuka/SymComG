@@ -1,8 +1,10 @@
-{% extends 'interfaces/public/_part____base_accueil.html.twig' %}
-
+{# Page d'accueil du site #}
+{# V1 - 25/02/2022 #}
+{# DEBUG : problème de menu avec les smartphones #}
 {#
     require datesService
 #}
+{% extends 'interfaces/public/_part____base_accueil.html.twig' %}
 
 {% block title %}
     {{ parent() }} - Accueil
@@ -22,87 +24,79 @@
         <div class="col-12 sc4-header-diaporama"></div>
     </div>
 
+    {# Contenu de la page d'Accueil #}
     <div class="row">
 
-        {# Menu du site #}
+        {# Menu rapide (avec les grosses icones) #}
         <div class='col-12'>
             {% include 'interfaces/public/_part____menu.html.twig' %}
         </div>
 
-        {# Bandeau d'annonce #}
+        {# Bandeau d'annonces #}
         <div class='col-12'>
             {% include 'entity/annonce/_mod____annonces.html.twig' with {'annonces': annonces} only %}            
         </div>
 
         {# --- Affichage des articles --- #}
-        <div class='col-8'>
-            <div class='row'>
-                <div class='col-6'>
-                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Actualités"} only %}
-                </div>
-                <div class='col-6 text-right font-weight-bold'>
-                    <span class="badge badge-pill badge-danger p-2 m-1">
-                        <a href='{{ path('site_articles') }}' class='text-white'>Voir toutes les actualités</a>
-                    </span>                    
-                </div>
-                <div class='col-12'>
-                    {% include 'entity/article/_mod____articles____actualites.html.twig' with {'articles': articles} only %}
-                </div>
-            </div>
+        <div class='col-12 col-lg-8'>
+            {% include 'entity/article/article/_mod____articles.html.twig'
+                with {
+                        'titre': 'Actualités',
+                        'lienAll': 'site_articles',
+                        'titreAll': 'Voir toutes les actualités',
+                        'articles': articles
+                } only
+            %}
         </div>
 
         {# --- Tableau d'affichage --- #}
-        <div class='col-4'>
-            <div class='row'>
-                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Tableau d'affichage"} only %}
-                <div class='col-12'>
-                    {% include 'entity/classeur/_mod____classeur____diaporama.html.twig' with {'classeur': classeurAffiches, 'liipFiltre': 'normal4'} only %}
-                </div>
-            </div>
+        <div class='col-12 col-lg-4'>
+            {% include 'entity/classeur/_mod____classeur____diaporama.html.twig'
+                with {
+                        'classeur': classeurAffiches,
+                        'liipFiltre': 'normal4',
+                        'titre': "Tableau d'affichage"
+                } only 
+            %}
         </div>
 
         {# --- Agenda --- #}
         <div class='col-12'>
-            <div class='row'>
-                <div class='col-6'>
-                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Agenda"} only %}
-                </div>
-                <div class='col-6 text-right font-weight-bold'>
-                    <span class="badge badge-pill badge-danger p-2 m-1">
-                        <a href='{{ path('site_evenements') }}' class='text-white'>Voir l'agenda complet</a>
-                    </span>                    
-                </div>                
-                <div class='col-12'>
-                    {% include 'entity/agenda/_mod____agenda_2.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux} only %}
-                </div>
-            </div>
+            {% include 'entity/agenda/_mod____agenda.html.twig'
+                with {
+                        'titre': 'Agenda',
+                        'lienAll': 'site_evenements',
+                        'titreAll': "Voir l'agenda complet",
+                        'evenements': evenements,
+                        'evenementsPrincipaux': evenementsPrincipaux
+                } only
+            %}
         </div>
 
         {# --- En image --- #}
-        <div class='col-6'>
-            <div class='row'>
-                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "L'actu en image"} only %}
-                <div class='col-12'>
-                    {% include 'entity/classeur/_mod____classeur____diaporama.html.twig' with {'classeur': classeurActus, 'liipFiltre': 'actuenimage', 'legende': true, 'datePhoto': false} only %}
-                </div>
-            </div>
+        <div class='col-12 col-lg-6'>
+            {% include 'entity/classeur/_mod____classeur____diaporama.html.twig'
+                with {
+                        'titre': "L'actu en image",
+                        'classeur': classeurActus,
+                        'liipFiltre': 'actuenimage',
+                        'legende': true,
+                        'datePhoto': false
+                } only 
+            %}
         </div>
 
         {# --- Derniers arrêtés --- #}
-        <div class='col-6'>
-            <div class='row'>
-                <div class='col-7'>
-                    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Arrêtés municipaux"} only %}
-                </div>
-                <div class='col-5 text-right font-weight-bold'>
-                    <span class="badge badge-pill badge-danger p-2 m-1">
-                        <a href='{{ path('site_arretes_municipaux') }}' class='text-white'>Voir tous les arrêtés</a>
-                    </span>                    
-                </div>
-                <div class='col-12'>
-                    {% include 'entity/classeur/_mod____classeur____arretes_municipaux.html.twig' with {'classeur': classeurArretes, 'datesService': datesService} only %}            
-                </div>
-            </div>
+        <div class='col-12 col-lg-6'>
+            {% include 'entity/classeur/_mod____classeur____arretes_municipaux.html.twig'
+                with {
+                        'classeur': classeurArretes,
+                        'datesService': datesService,
+                        'titre': 'Arrêtés municipaux',
+                        'lienAll': 'site_arretes_municipaux',
+                        'titreAll': 'Voir tous les arrêtés'
+                } only
+            %}
         </div>
 
     </div>

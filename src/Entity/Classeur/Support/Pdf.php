@@ -6,6 +6,7 @@ use App\Entity\Classeur\Format\Pdf\ArreteMunicipal;
 use App\Entity\Classeur\Format\Pdf\BulletinMunicipal;
 use App\Entity\Classeur\Format\Pdf\Deliberation;
 use App\Entity\Classeur\Format\Pdf\MarchePublic;
+use App\Entity\Classeur\Format\Pdf\Plaquette;
 use App\Entity\Classeur\Media;
 use App\SuperEntity\Support;
 use Doctrine\ORM\Mapping as ORM;
@@ -55,6 +56,11 @@ class Pdf extends Support
      */
     private $vignette;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Plaquette::class, mappedBy="support", cascade={"persist", "remove"})
+     */
+    private $plaquette;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +99,11 @@ class Pdf extends Support
         {
             $this->formatName = 'marchepublic';
             $this->format = $this->marchePublic;
+        }
+        if($this->plaquette != null)
+        {
+            $this->formatName = 'plaquette';
+            $this->format = $this->plaquette;
         }
         //Par défaut on met inconnu
         if($this->formatName == null)
@@ -185,6 +196,23 @@ class Pdf extends Support
     public function setVignette(?string $vignette): self
     {
         $this->vignette = $vignette;
+
+        return $this;
+    }
+
+    public function getPlaquette(): ?Plaquette
+    {
+        return $this->plaquette;
+    }
+
+    public function setPlaquette(Plaquette $plaquette): self
+    {
+        // set the owning side of the relation if necessary
+        if ($plaquette->getSupport() !== $this) {
+            $plaquette->setSupport($this);
+        }
+
+        $this->plaquette = $plaquette;
 
         return $this;
     }

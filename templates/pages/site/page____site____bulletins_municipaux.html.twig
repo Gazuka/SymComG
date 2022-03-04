@@ -16,15 +16,6 @@
     {# --- Affichage des bulletins municipaux --- #}
     {% for bulletin in bulletins %}
         
-        {# Affichage avec calameo ? Attention aux pubs ! #}
-        {# <div style="text-align:center;"><iframe src="//v.calameo.com/?bkcode=005040477f102bad18c49&mode=mini&view=book&clickto=view&clicktarget=_blank" width="560" height="350" frameborder="0" scrolling="no" allowtransparency allowfullscreen style="margin:0 auto;"></iframe></div> #}
-
-        {# {% if loop.first == true %} 
-            On affiche le bulletin le plus récent en plus grand
-            <div class='col-8'>                
-        {% else %}
-            <div class='col-4'>
-        {% endif %} #}
         <div class='col-4'>
             <div class='text-center'>
                 <a href="{{ asset(bulletin.support.media.fichier.getChemin) }}" target="_blanck">

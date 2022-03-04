@@ -41,7 +41,7 @@ liip_imagine:
             quality: 100 # Qualité de l'image
             filters: # Liste des filtres à appliquer
                 thumbnail: # Filtre "Thumbnail"
-                    size: [350, 120] # Taille de l'image de sortie
+                    size: [320, 120] # Taille de l'image de sortie 320*120
                     mode: outbound # Découpage de l'image
                     allow_upscale: false
         actu6: # Nom du filtre

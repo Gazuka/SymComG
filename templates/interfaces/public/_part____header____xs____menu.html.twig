@@ -1,0 +1,54 @@
+<div class="accordion md-accordion accordion-3 z-depth-1-half" id="menu-xs" role="tablist" aria-multiselectable="true">
+
+    {# Menu : Démarches et services #}
+    <!-- Accordion card -->
+    <div class="card">    
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="demarches_servies">
+            <a class='font-weight-bold' data-toggle="collapse" data-parent="#menu-xs" href="#demarches_servies_content" aria-expanded="false" aria-controls="vie_municipale_content">
+                {{ 'site.header.menu.demarchesetservices' | trans }}
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="demarches_servies_content" class="collapse" role="tabpanel" aria-labelledby="demarches_servies" data-parent="#menu-xs">
+            <div class="card-body pt-0">
+                {% include 'interfaces/public/_menu____demarches_services.html.twig' %}
+            </div>
+        </div>
+    </div>
+
+    {# Menu : Vie Municipale #}
+    <!-- Accordion card -->
+    <div class="card">    
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="vie_municipale">
+            <a class='font-weight-bold' data-toggle="collapse" data-parent="#menu-xs" href="#vie_municipale_content" aria-expanded="false" aria-controls="vie_municipale_content">
+                {{ 'site.header.menu.viemunicipale' | trans }}
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="vie_municipale_content" class="collapse" role="tabpanel" aria-labelledby="vie_municipale" data-parent="#menu-xs">
+            <div class="card-body pt-0">
+                {% include 'interfaces/public/_menu____vie_municipale.html.twig' %}
+            </div>
+        </div>
+    </div>
+
+    {# Menu : Activites loisirs #}
+    <!-- Accordion card -->
+    <div class="card">    
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="activites_loisirs">
+            <a class='font-weight-bold' data-toggle="collapse" data-parent="#menu-xs" href="#activites_loisirs_content" aria-expanded="false" aria-controls="vie_municipale_content">
+                {{ 'site.header.menu.activiteetloisirs' | trans }}
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="activites_loisirs_content" class="collapse" role="tabpanel" aria-labelledby="activites_loisirs" data-parent="#menu-xs">
+            <div class="card-body pt-0">
+                {% include 'interfaces/public/_menu____activites_loisirs.html.twig' %}
+            </div>
+        </div>
+    </div>
+
+</div>

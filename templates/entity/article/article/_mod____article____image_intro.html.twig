@@ -1,3 +1,6 @@
+{# Affichage de l'image d'intro de l'article #}
+{# V1 - 24/02/2022 #}
+{# DEBUG : passer le lien de l'image d'intro dans un fichier de config #}
 {#
     require article
 #}
@@ -5,16 +8,16 @@
 {% set default_icone %}<img src='{{ asset('medias/photo/1628069774-presentation-article.jpeg') | imagine_filter('actu') }}' class="mb-1" />{% endset %}
 
 {# Affichage d'une image d'intro #}
-    <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
-        {% if article.classeurs | length > 0 %}
-            {% for classeur in article.classeurs %}
-                {% if classeur.type.nom == '#icone' %}
-                    {% include 'entity/classeur/_mod____classeur____image_aleatoire.html.twig' with {'classeur': classeur, 'liipFiltre': 'actu'} only %}
-                {% else %}
-                    {{ default_icone }}
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            {{ default_icone }}
-        {% endif %}
-    </a>
+<a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
+    {% if article.classeurs | length > 0 %}
+        {% for classeur in article.classeurs %}
+            {% if classeur.type.nom == '#icone' %}
+                {% include 'entity/classeur/_mod____classeur____image_aleatoire.html.twig' with {'classeur': classeur, 'liipFiltre': 'actu'} only %}
+            {% else %}
+                {{ default_icone }}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {{ default_icone }}
+    {% endif %}
+</a>

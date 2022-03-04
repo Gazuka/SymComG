@@ -1,0 +1,18 @@
+{#
+    require organisme
+    require liipFiltre
+#}
+
+{% for classeur in organisme.classeurs %}
+    {% if classeur.type.nom == '#plaquette' %}
+        DEBUG : Affichage des plaquettes
+        {% for document in classeur.filtreParSupport('pdf', 'plaquette') %}
+
+            {% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
+            <a href="{{ asset(document.media.fichier.getChemin) }}" target="_blanck">
+                <img class='img-fluid' src='{{ asset(document.media.support.vignette) | imagine_filter(liipFiltre) }}' alt='Couverture de la plaquette'/>                    
+            </a>            
+
+        {% endfor %}
+    {% endif %}
+{% endfor %}

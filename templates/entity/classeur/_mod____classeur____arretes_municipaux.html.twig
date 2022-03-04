@@ -1,12 +1,32 @@
+{# Affichage d'un listing avec tous les arrêtés du classeur #}
+{# V1 - 25/02/2022 #}
 {#
-    ==> Affichage d'un listing avec tous les arrêtés du classeur
     require classeur
     require datesService
+    option titre : titre du module
+    option lienAll : chemin du lien
+    option titreAll : titre du lien pour voir tous les évenements
 #}
 
-{% for document in classeur.filtreParSupport('pdf', 'arrete') %}
-    {% if loop.first == false %}
-    <hr/>
-    {% endif %}
-    {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document, 'datesService': datesService} only %}    
-{% endfor %}
+<div class='row'>
+    <div class='col-6'>
+        {# Affichage du titre du module #}
+        {% if titre is defined %}
+            {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+        {% endif %}
+    </div>
+    <div class='col-6 text-right font-weight-bold'>
+        {# Affichage du lien pour voir l'ensemble des arrétes #}
+        {% if lienAll is defined and titreAll is defined%}
+            <span class="badge badge-pill badge-danger p-2 m-1">
+                <a href='{{ path(lienAll) }}' class='text-white'>{{ titreAll }}</a>
+            </span>
+        {% endif %}
+    </div>
+    {% for document in classeur.filtreParSupport('pdf', 'arrete') %}
+        {% if loop.first == false %}
+            <hr/>
+        {% endif %}
+        {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____arrete_municipal.html.twig' with {'document': document, 'datesService': datesService} only %}    
+    {% endfor %}
+</div>

@@ -1,13 +1,3 @@
-<!--
-<div id="zone_alert" class="row sc4-bg-red">
-    <div class="col-12 alert mb-0 sc4-bold sc4-white sc4-size-2">
-        <div class="container">
-            Message d'alerte
-        </div>
-    </div>
-</div>
--->
-
 {#######################################################################}
 {################ VERSION POUR LES TELEPHONES PORTABLES ################}
 {#######################################################################}
@@ -22,10 +12,15 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav mr-auto">
+                    {% include 'interfaces/public/_part____header____xs____menu.html.twig' %}
+                    {# <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Démarches et services</a>
+                            <div class="dropdown-menu" aria-labelledby="nav-viemunicipale">
+                                {% include 'interfaces/public/_menu____demarches_services.html.twig' %}
+                            </div>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Vie municipale</a>
                         </li>
@@ -35,7 +30,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-search"></i> Recherche</a>
                         </li>
-                    </ul>
+                    </ul> #}
                 </div>
             </nav>
         </div>

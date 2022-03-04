@@ -1,16 +1,19 @@
+{# Affichage de l'article sous forme de vignette #}
+{# V1 - 24/02/2022 #}
+{# DEBUG : supprimer le texte en francais #}
 {#
     require article
 #}
 
 {# Si l'article est invisible on ne l'affiche pas ! #}
 {% if article.invisible == false %}
-    <div class='col-6'>
+    <div class='col-12 col-md-6 mb-3'>
 
         {# Affichage d'une image d'intro #}
         {% include 'entity/article/article/_mod____article____image_intro.html.twig' with {'article': article} only %}    
 
         {# Affichage du titre #}
-        <h5>
+        <h5 class='mt-2'>
             <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
                 {% if article.etat == 'archive' %}
                     <span class="badge rounded-pill bg-warning text-dark">
@@ -20,6 +23,7 @@
                 {{ article.titre }}                
             </a>
         </h5>
+
         {# Affichage tronqué du corp #}
         <p>
             <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>

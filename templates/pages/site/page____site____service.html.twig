@@ -83,6 +83,10 @@
 
         {# Affichage du visuel #}
         {% include 'entity/organisme/organisme/_voir____organisme____visuel.html.twig' with {'organisme': service.organisme} only %}        
+
+        {# Affichage des plaquettes #}
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Plaquettes"} only %}
+        {% include 'entity/organisme/organisme/_voir____organisme____plaquettes.html.twig' with {'organisme': service.organisme} only %}
     </div>
     
     <div class='col-4'>

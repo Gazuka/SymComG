@@ -1,0 +1,13 @@
+{# require format (plaquette) #}
+
+    {% set plaquette = format %}
+
+    <div>{{ 'twig.partials.admin.modules.media.info.pdf.plaquette.date' | trans}} {{ plaquette.date | date("d/m/Y") }}</div>
+    <div>{{ 'twig.partials.admin.modules.media.info.pdf.plaquette.titre' | trans}} {{ plaquette.titre }}</div>
+    <div>
+        {% if plaquette.support.vignette is null %}
+            <a href='{{ path('admin_classeur_pdf_creer_vignette', {'idmedia': plaquette.support.media.id})}}' class='text-danger'><i class="fas fa-screwdriver"></i> Créer la vignette !</a>            
+        {% else %}
+            {{ 'twig.partials.admin.modules.media.info.pdf.plaquette.vignette' | trans}} {{ plaquette.support.vignette }}
+        {% endif %}
+    </div>

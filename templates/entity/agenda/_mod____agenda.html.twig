@@ -1,3 +1,57 @@
+{# Affichage d'événements et d'événements evenements Principaux #}
+{# V1 - 25/02/2022 #}
+{#
+    require evenementsPrincipaux : tableau d'événements classé principaux
+    require evenements : tableau d'événements à afficher
+    require titre : titre du module
+    require lienAll : chemin du lien
+    require titreAll : titre du lien pour voir tous les évenements
+#}
+<div class='row'>
+    <div class='col-6'>
+        {# Affichage du titre du module #}
+        {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+    </div>
+    <div class='col-6 text-right font-weight-bold'>
+        {# Affichage du lien pour voir l'ensemble des événements #}
+        <span class="badge badge-pill badge-danger p-2 m-1">
+            <a href='{{ path(lienAll) }}' class='text-white'>{{ titreAll }}</a>
+        </span>                    
+    </div>
+
+    <div class='mb-4'>
+        <div class='row'>
+            {# Affichage des événements principaux #}
+            {% if evenementsPrincipaux | length > 0 %}
+                <div class='col-12 col-lg-6 mb-4'>
+                    {% include 'entity/agenda/_mod____agenda____evenements____principaux.html.twig' with {'evenements': evenementsPrincipaux} only %}
+                </div>
+            {% endif %}
+
+            {# LEGENDE DE L'AGENDA #}
+            {% if legende is defined %}
+                <div class='col-6 col-lg-3'>
+                    {% include 'entity/agenda/_tpl____agenda____legende.html.twig' with {'legende': legende} only %}
+                </div>
+            {% endif %}
+
+            {# Affichage des évenements #}
+            {% for evenement in evenements %}
+                <div class='col-6 col-lg-3'>
+                    {% include 'entity/agenda/_mod____agenda____evenement____simple_2.html.twig' with {'evenement': evenement} only %}
+                </div>
+            {% endfor %}            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{# 
+    Ancien à conserver un peu en cas de probleme (25/02/2022)
 <div class='col-12 mb-4'>
     <div class='row'>
         <div class='col-6'>
@@ -9,4 +63,4 @@
             {% endfor %}            
         </div>
     </div>
-</div>
+</div> #}

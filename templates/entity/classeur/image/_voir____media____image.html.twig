@@ -1,7 +1,8 @@
+{# Affichage d'une image sur toute la largeur possible #}
+{# V1 - 24/02/2022 #}
 {#
     require media (image)
     option liipFiltre
 #}
 {% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
-
-<img class='img-fluid' src='{{ asset(media.fichier.chemin) | imagine_filter(liipFiltre) }}' alt='{{ media.image.alt }}'/>
+<img class='img-fluid' width='100%' src='{{ asset(media.fichier.chemin) | imagine_filter(liipFiltre) }}' alt='{{ media.image.alt }}'/>

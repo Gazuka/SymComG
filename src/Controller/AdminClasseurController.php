@@ -13,8 +13,10 @@ use App\Entity\Classeur\Support\Image;
 use App\Entity\Classeur\Format\Image\Icone;
 use App\Entity\Classeur\Format\Image\Photo;
 use App\Entity\Classeur\Format\Image\Affiche;
+use App\Entity\Classeur\Format\Pdf\Plaquette;
 use App\Form\Classeur\Format\Image\IconeType;
 use Symfony\Component\HttpFoundation\Response;
+use App\Form\Classeur\Format\Pdf\PlaquetteType;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Classeur\Format\Pdf\Deliberation;
 use App\Entity\Classeur\Format\Pdf\MarchePublic;
@@ -81,6 +83,12 @@ class AdminClasseurController extends AdminController
                                                                     'formatLabel' => 'admin.medias.choisir.marchepublic',
                                                                     'class' => MarchePublic::class,
                                                                     'typeClass' => MarchePublicType::class
+                                                                ],
+                                                                'plaquette' => [
+                                                                    'format' => 'plaquette',
+                                                                    'formatLabel' => 'admin.medias.choisir.plaquette',
+                                                                    'class' => Plaquette::class,
+                                                                    'typeClass' => PlaquetteType::class
                                                                 ]
                                                             ]
                                         ],
