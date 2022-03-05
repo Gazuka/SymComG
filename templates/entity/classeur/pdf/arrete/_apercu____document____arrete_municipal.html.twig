@@ -1,27 +1,43 @@
+{# Affichage de l'apercu d'un arrêté municipal #}
+{# -INVALIDE- #}
+{# TRAD : Archivé #}
 {#
     require document (ArreteMunicipal)
     require datesService
 #}
+
+{# Récupération de la "temporalité" de l'arrêté #}
 {% set temporalite = datesService.localiserCreneau(document.media.pdf.ArreteMunicipal.datedebut, document.media.pdf.ArreteMunicipal.datefin) %}
 
-<div class='row col-12'>
+<div class='row col-12 mb-2'>
     {% if temporalite =='_archive_' %}
         {% set couleur = 'warning' %}
     {% else %}
         {% set couleur = 'danger' %}
     {% endif %}
-    <div class='col-2 text-center alert alert-secondary text-{{couleur}} mb-1'>
+
+    {# Icone de l'arrêté #}
+    <div class='col-4 col-xl-2 text-center alert alert-secondary text-{{couleur}} mb-1'>
         <a href='{{ document.media.fichier.chemin }}' class='text-{{couleur}}' target='_blanck'>
             <i class="far fa-file-pdf display-4"></i>
         </a>
+        {# < XL - On affiche la date ici #}
+        <span class='text-dark d-xl-none'>
+            {{ document.media.pdf.ArreteMunicipal.date | date("d/m/y") }}
+        </span>
     </div>
+
+    {# Titre de l'arrêté #}
     <div class='col-8'>
         {% if temporalite =='_archive_' %}
            <span class="badge bg-warning text-dark"><i class="fas fa-calendar-times"></i> Archivé</span>
         {% endif %}
         {{ document.media.pdf.ArreteMunicipal.titre }}
     </div>
-    <div class='col-2'>
+
+    {# XL - Date de l'arrêté #}
+    <div class='col-2 text-right d-none d-xl-block'>
         {{ document.media.pdf.ArreteMunicipal.date | date("d/m/Y") }}
     </div>
+
 </div>

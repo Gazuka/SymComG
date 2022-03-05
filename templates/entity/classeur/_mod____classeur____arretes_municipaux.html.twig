@@ -1,5 +1,5 @@
 {# Affichage d'un listing avec tous les arrêtés du classeur #}
-{# V1 - 25/02/2022 #}
+{# -VALIDE- #}
 {#
     require classeur
     require datesService
@@ -9,8 +9,9 @@
 #}
 
 <div class='row'>
+
+    {# Affichage du titre du module #}
     <div class='col-12 col-xl-6'>
-        {# Affichage du titre du module #}
         {% if titre is defined %}
             {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
         {% endif %}
@@ -21,7 +22,7 @@
         {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': 'XL', 'titre': titreAll, 'lien': lienAll} only %}
     {% endif %}
 
-
+    {# Affichage des arrêtés #}
     {% for document in classeur.filtreParSupport('pdf', 'arrete') %}
         {% if loop.first == false %}
             <hr/>
