@@ -1,5 +1,5 @@
 {# Affichage de l'apercu d'un arrêté municipal #}
-{# -INVALIDE- #}
+{# -VALIDE- #}
 {# TRAD : Archivé #}
 {#
     require document (ArreteMunicipal)
@@ -30,7 +30,7 @@
     {# Titre de l'arrêté #}
     <div class='col-8'>
         {% if temporalite =='_archive_' %}
-           <span class="badge bg-warning text-dark"><i class="fas fa-calendar-times"></i> Archivé</span>
+           <span class="badge bg-warning text-dark"><i class="fas fa-calendar-times"></i> {{ 'twig.entity.classeur.pdf.arrete.archive' | trans }}</span>
         {% endif %}
         {{ document.media.pdf.ArreteMunicipal.titre }}
     </div>

@@ -14,6 +14,9 @@ form.humain.sexe.null: '---'
 form.humain.sexe.homme: 'Homme'
 form.humain.sexe.femme: 'Femme'
 # ================================================================
+# === TWIG - Classeur
+twig.entity.classeur.pdf.arrete.archive: 'Archivé'
+# ================================================================
 # === TWIG - Organisme
 twig.admin.organisme.redi.structure.choisir.intro: 'Veuillez choisir un type de structure :'
 twig.pages.admin.organisme.voir.liens: 'Liens'

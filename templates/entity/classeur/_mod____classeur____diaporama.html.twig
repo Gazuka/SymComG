@@ -34,7 +34,9 @@
             {% if document.media.getSupportName == 'image' %}
                 
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <img src="{{ document.media.fichier.getChemin | imagine_filter(liipFiltre) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
+                    <a href='#'>
+                      <img src="{{ document.media.fichier.getChemin | imagine_filter(liipFiltre) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
+                    </a>
                     {% if legende != false %}
                       {# <div class="carousel-caption d-none d-md-block">                        
                           <p class='bg-dark'>{{ document.media.image.alt}}

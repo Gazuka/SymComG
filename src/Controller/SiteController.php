@@ -377,12 +377,17 @@ class SiteController extends SymComGController
         $associationsType = array();
         foreach($associations as $association)
         {            
+            $valide = false;
             foreach($association->getTypes() as $type)
             {                
                 if(in_array(strtolower($type->getNom()), $typesRecherches))
                 {
-                    array_push($associationsType, $association);                    
+                    $valide = true;
                 }
+            }
+            if($valide == true)
+            {
+                array_push($associationsType, $association);
             }
         }
         $this->addParamTwig('associations', $associationsType);
