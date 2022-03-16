@@ -1,0 +1,20 @@
+{# Permet l'affichage d'un document en pleine page #}
+{# DEBUG texte fermer la fenêtre #}
+{#
+    require document
+#}
+{% extends 'interfaces/public/_part____base_public_mini.html.twig' %}
+{% set titre = document.id %}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+    {# ---- Titre de la page --- #}
+    {# {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %} #}
+    <div class='col-12'>
+        <img src="{{ asset(document.media.fichier.getChemin) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
+    </div>
+    <a href="javascript:window.close()" class='col-12 btn btn-lg btn-primary mt-3 mb-5 me-md-3'>Fermer la fenêtre</A>
+{% endblock %}

@@ -10,6 +10,7 @@ use App\Entity\Annonce\Annonce;
 use App\Entity\Article\Article;
 use App\Entity\Agenda\Evenement;
 use App\Entity\Classeur\Classeur;
+use App\Entity\Classeur\Document;
 use App\Entity\Courrier\Courrier;
 use App\Entity\Organisme\Service;
 use App\Entity\Organisme\Organisme;
@@ -82,6 +83,18 @@ class SiteController extends SymComGController
         $classeurArretes = $this->recupererClasseurArretes();        
         $this->addParamTwig('classeur', $classeurArretes);
         $this->addParamTwig('datesService', $datesService);
+        return $this->afficher();
+    }
+
+    /**
+     * @Route("/document/{iddocument}", name="site_affichage_document", requirements={"iddocument"="\-?[0-9]+"})
+     */
+    public function voirDocument($iddocument): Response
+    {
+        $this->setTwig('pages/site/page____site____document.html.twig');
+        // --- Récupération de l'image ---
+        $document =$this->findById(Document::class, $iddocument);
+        $this->addParamTwig('document', $document);
         return $this->afficher();
     }
 

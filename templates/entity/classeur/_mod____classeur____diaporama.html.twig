@@ -7,10 +7,12 @@
     option liipFiltre
     option legende (bool, permet l'affichage de la légende 'alt' des photos)
     option datePhoto (bool, permet l'affichage de la date de prise de vue)
+    option zoom (si true alors on autorise l'affichage de l'image en grand dans une nouvelle fenetre)
 #}
 {% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
 {% if legende is not defined %}{% set legende = false %}{% endif %}
 {% if datePhoto is not defined %}{% set datePhoto = false %}{% endif %}
+{% if zoom is not defined %}{% set zoom = false %}{% endif %}
 {# Création d'un numéro aléatoire pour éviter les bugs si plusieurs carousel sur la même page #}
 {% set carouselNumber =  random(50000) %}
 
@@ -34,9 +36,13 @@
             {% if document.media.getSupportName == 'image' %}
                 
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <a href='#'>
+                    {% if zoom == true %}
+                      <a href='{{ path('site_affichage_document', {'iddocument': document.id}) }}' target='_blanck'>
+                        <img src="{{ document.media.fichier.getChemin | imagine_filter(liipFiltre) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
+                      </a>
+                    {% else %}
                       <img src="{{ document.media.fichier.getChemin | imagine_filter(liipFiltre) }}" class="d-block w-100" alt="{{ document.media.image.alt }}">
-                    </a>
+                    {% endif %}
                     {% if legende != false %}
                       {# <div class="carousel-caption d-none d-md-block">                        
                           <p class='bg-dark'>{{ document.media.image.alt}}

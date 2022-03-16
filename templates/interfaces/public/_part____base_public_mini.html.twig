@@ -1,0 +1,39 @@
+{% extends 'interfaces/_base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/public/header.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid p-0">
+        <header id="header">
+            {% include 'interfaces/public/_part____header.html.twig' %}
+            {% block header %}{% endblock %}
+        </header>
+        <section id="content">
+            <div class="container-xl pt-1">                
+                       
+                <div class='row'>
+                    {% block content %}
+                    {% endblock %}                
+                </div>
+                
+            </div>
+        </section>
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{asset('js/public/header.js')}}"></script>
+{% endblock %}
