@@ -1,0 +1,40 @@
+{#
+    require evenement
+#}
+<div class="card mb-4">
+    <a href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
+        {% include 'entity/classeur/_mod____classeurs____icone.html.twig' with {'classeurs': evenement.classeurs, 'liipFiltre': 'icone6'} only %}
+    </a>
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{{ path('portail_mediatheque_evenement', {'idevenement': evenement.id}) }}" class='sc4-texte'>
+                {{ evenement.titre }}
+            </a>
+        </h5>
+        <p class="card-text">
+            {# Affichage de la date #}
+            {% include 'entity/agenda/evenement/_voir____evenement____date_complete.html.twig' with {'evenement': evenement} only %}
+            <br/>
+            {# Affichage de l'heure #}
+            {% include 'entity/agenda/evenement/_voir____evenement____horaires_complets.html.twig' with {'evenement': evenement} only %}
+            <br/>
+            {# Affichage du/des lieu(x) #}
+            <span class='font-italic'>
+                {% for lieu in evenement.lieux %}
+                    {% if loop.first == false %}
+                        /
+                    {% endif %}
+                    {{ lieu.nom }}
+                {% endfor %}
+            </span> 
+        </p>
+        {# Affichage du type de public #}
+        {% if evenement.typesPublics | length > 0 %}
+            <p class="card-text text-right">
+                {% for typePublic in evenement.typesPublics %}
+                    <i style="color: {{ typePublic.couleur }};" class="{{ typePublic.icone }}"></i>
+                {% endfor %}
+            </p>
+        {% endif %}
+    </div>
+</div>

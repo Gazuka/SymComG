@@ -33,4 +33,15 @@ class PortailMediathequeController extends SymComGController
         $this->addParamTwig('legende', $legende);
         return $this->afficher();
     }
+
+    /**
+     * @Route("/portail/mediatheque/evenement/{idevenement}", name="portail_mediatheque_evenement", requirements={"idevenement"="\-?[0-9]+"})
+     */
+    public function voirEvenement($idevenement): Response
+    {
+        $evenement = $this->findById(Evenement::class, $idevenement);
+        $this->setTwig('pages/portail_mediatheque/page____portail_mediatheque____evenement.html.twig');
+        $this->addParamTwig('evenement', $evenement);
+        return $this->afficher();
+    }
 }
