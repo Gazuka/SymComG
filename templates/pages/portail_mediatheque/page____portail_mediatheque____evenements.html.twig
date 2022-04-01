@@ -1,12 +1,15 @@
+{# Page d'accueil de l'agenda du portail médiathèque #}
+{# VALIDE #}
+{# DEBUG : TRAD : Voir l'agenda complet / Titre #}
+{#
+    require evenements
+    require evenementsPrincipaux
+#}
 {% extends 'interfaces/public/_part____base_portail_mediatheque.html.twig' %}
 {% set titre = 'Agenda' %}
 {% if titreAlternatif is defined %}
     {% set titre = titreAlternatif %}
 {% endif %}
-{#
-    require evenements
-    require evenementsPrincipaux
-#}
 
 {% block title %}
     {{ parent() }} - {{ titre }}
@@ -14,12 +17,18 @@
 
 {% block content %}
     
-    {# ---- Titre de la page --- #}
-    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
-
     {# --- Agenda --- #}
-        <div class='col-12'>
-            {% include 'entity/agenda/_mod____agenda_2_portail_mediatheque.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux, 'legende': legende} only %}
-        </div>
+    <div class='col-12'>
+        {% include 'entity/agenda/_mod____agenda.html.twig'
+            with {
+                    'titre': titre,
+                    'lienAll': 'portail_mediatheque_evenements',
+                    'titreAll': "Voir l'agenda complet",
+                    'evenements': evenements,
+                    'evenementsPrincipaux': evenementsPrincipaux,
+                    'moduleEvenement': '_mod____agenda____evenement____simple_2_portail_mediatheque'
+            } only
+        %}
+    </div>
 
 {% endblock %}

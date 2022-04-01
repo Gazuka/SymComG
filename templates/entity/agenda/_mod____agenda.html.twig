@@ -1,12 +1,17 @@
 {# Affichage d'événements et d'événements evenements Principaux #}
-{# V2 - 04/03/2022 #}
+{# V3 - 01/04/2022 #}
 {#
     require evenementsPrincipaux : tableau d'événements classé principaux
     require evenements : tableau d'événements à afficher
     require titre : titre du module
     require lienAll : chemin du lien
     require titreAll : titre du lien pour voir tous les évenements
+    option moduleEvenement : permet l'affichage d'un evenement sous une forme alternative
 #}
+{% if moduleEvenement is not defined %}
+    {% set moduleEvenement = '_mod____agenda____evenement____simple_2' %}
+{% endif %}
+
 <div class='row'>
     <div class='col-12 col-xl-6'>
         {# Affichage du titre du module #}
@@ -16,7 +21,7 @@
     {# XL - Affichage du lien pour voir l'ensemble de l'agenda #}
     {% include 'interfaces/public/element/_btn____voir_plus.html.twig' with {'taille': 'XL', 'titre': titreAll, 'lien': lienAll} only %}
     
-    <div class='mb-4'>
+    <div class='col-12 mb-4'>
         <div class='row'>
             {# Affichage des événements principaux #}
             {% if evenementsPrincipaux | length > 0 %}
@@ -35,7 +40,7 @@
             {# Affichage des évenements #}
             {% for evenement in evenements %}
                 <div class='col-12 col-md-6 col-lg-3'>
-                    {% include 'entity/agenda/_mod____agenda____evenement____simple_2.html.twig' with {'evenement': evenement} only %}
+                    {% include 'entity/agenda/'~ moduleEvenement ~'.html.twig' with {'evenement': evenement} only %}
                 </div>
             {% endfor %}            
         </div>
