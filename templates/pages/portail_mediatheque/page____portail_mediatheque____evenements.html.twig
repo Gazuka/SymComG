@@ -1,0 +1,25 @@
+{% extends 'interfaces/public/_part____base_portail_mediatheque.html.twig' %}
+{% set titre = 'Agenda' %}
+{% if titreAlternatif is defined %}
+    {% set titre = titreAlternatif %}
+{% endif %}
+{#
+    require evenements
+    require evenementsPrincipaux
+#}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+    
+    {# ---- Titre de la page --- #}
+    {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
+
+    {# --- Agenda --- #}
+        <div class='col-12'>
+            {% include 'entity/agenda/_mod____agenda_2.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux, 'legende': legende} only %}
+        </div>
+
+{% endblock %}
