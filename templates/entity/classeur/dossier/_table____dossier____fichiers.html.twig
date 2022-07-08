@@ -12,9 +12,9 @@
             <td>
                 {% if fichier.media.support.formatName == "photo" %}
                     {% if fichier.media.support.format.actualite == true %}
-                        <i class="fa-regular fa-images"></i>
+                        <i class="fas fa-regular fa-images text-success"></i> Actualité
                     {% else %}
-                        <i class="fa-regular fa-images"></i>
+                        <i class="fas fa-regular fa-images text-danger"></i> basic
                     {% endif %}
                 {% endif %}
             </td>
