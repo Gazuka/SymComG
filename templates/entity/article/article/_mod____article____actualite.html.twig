@@ -27,7 +27,7 @@
         {# Affichage tronqué du corp #}
         <p>
             <a href='{{ path('site_article', {'idarticle': article.id}) }}' class='text-body'>
-                {{ article.visuel.getApercu | striptags | u.truncate(200, '...') | raw  }}
+                {{ article.visuel.getApercu | striptags | u.truncate(200, '...') | raw}}
             </a>
         </p>
 

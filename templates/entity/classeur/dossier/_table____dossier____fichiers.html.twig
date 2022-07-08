@@ -9,6 +9,15 @@
                     {{ fichier.nom }}
                 </a>
             </td>
+            <td>
+                {% if fichier.media.support.formatName == "photo" %}
+                    {% if fichier.media.support.format.actualite == true %}
+                        <i class="fa-regular fa-images"></i>
+                    {% else %}
+                        <i class="fa-regular fa-images"></i>
+                    {% endif %}
+                {% endif %}
+            </td>
         </tr>
     {% endif %}
 {% endfor %}

@@ -6,7 +6,7 @@
 
     {# Affichage d'une card tableau avec les fichiers #}
     {% embed 'composants/card/_card_table.html.twig' with {'dossierActuel': dossierActuel} only %}
-        {% set nomColonnes = ['#', '#'] %}
+        {% set nomColonnes = ['#', '#', '#'] %}
         {% set tbody %}
             {# Affichage du tableau avec les fichiers #}
             {% include 'entity/classeur/dossier/_table____dossier____fichiers.html.twig' with {'dossierActuel': dossierActuel} only %}
