@@ -1,0 +1,172 @@
+{% extends 'interfaces/public/_part____base_mediatheque_accueil.html.twig' %}
+{% set titre = "Accueil Médiathèque" %}
+
+{% block title %}
+    {{ parent() }} - {{ titre }}
+{% endblock %}
+
+{% block content %}
+   
+    <div class='col-12'>
+        <h1>Médiathèque de Guesnain</h1>
+    </div>
+
+    {# Sites Principaux #}
+
+    <div class='col-2'>
+
+        <div class="card bg-warning">        
+            <div class="card-body">
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Favoris"} only %}
+                <div class='row'>
+                    <div class='col-12 p-1 mb-2'>
+                        <a href='https://www.google.fr' target='_blank'>
+                            <img src="../../../../template_mediatheque_accueil/google.jpg" class='col-12' />
+                            <h6 class='text-center text-dark'>Recherche sur Internet</h6>
+                        </a>
+                    </div>
+                    <div class='col-12 p-1 mt-2 mb-2'>
+                        <a href='https://www.mediatheque-guesnain.fr' target='_blank'>
+                            <img src="../../../../template_mediatheque_accueil/mediatheque.jpg" class='col-12' />
+                            <h6 class='text-center text-dark'>Portail de la Médiathèque</h6>
+                        </a>
+                    </div>
+                    <div class='col-12 p-1 mt-2 mb-2'>
+                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                            <h6 class='text-center text-dark'>Ville de Guesnain</h6>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+                
+        </div>
+    </div>
+
+    <div class='col-7'>
+
+        <div class="card bg-warning">        
+            <div class="card-body">
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Sélection de sites utiles"} only %}
+                
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h6 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Emploi
+                            </button>
+                        </h6>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class='row'>
+                                    {# Pole emploi #}
+                                    <div class='col-2 mt-2 mb-2'>
+                                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                                            <h6 class='text-center text-dark'>Pole emploi</h6>
+                                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                                        </a>
+                                    </div>
+                                    {# Mission locale #}
+                                    <div class='col-2 mt-2 mb-2'>
+                                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                                            <h6 class='text-center text-dark'>Pole emploi</h6>
+                                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h6 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Administratif
+                            </button>
+                        </h6>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class='row'>
+                                    {# CAF #}
+                                    <div class='col-2 mt-2 mb-2'>
+                                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                                            <h6 class='text-center text-dark'>CAF</h6>
+                                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                                        </a>
+                                    </div>
+                                    {# ANTS #}
+                                    <div class='col-2 mt-2 mb-2'>
+                                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                                            <h6 class='text-center text-dark'>ANTS</h6>
+                                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                                        </a>
+                                    </div>
+                                    {# Service public #}
+                                    <div class='col-2 mt-2 mb-2'>
+                                        <a href='https://www.ville-guesnain.fr' target='_blank'>
+                                            <h6 class='text-center text-dark'>Service public</h6>
+                                            <img src="../../../../template_mediatheque_accueil/guesnain.jpg" class='col-12' />
+                                        </a>
+                                    </div>                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-item">
+                        <h6 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                Social
+                            </button>
+                        </h6>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                ???
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='col-3'>
+
+        <div class="card bg-warning">        
+            <div class="card-body">
+                {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': "Tableau d'affichage"} only %}
+                {# --- Tableau d'affichage --- #}
+                <div class='col-12'>
+                    {% include 'entity/classeur/_mod____classeur____diaporama.html.twig'
+                        with {
+                                'classeur': classeurAffiches,
+                                'liipFiltre': 'normal4',                     
+                                'zoom': true
+                        } only 
+                    %}
+                </div>    
+            </div>
+        </div>
+    </div>
+   
+
+    <div class='col-12 mt-4'>
+        <div class="card bg-warning">        
+            <div class="card-body">
+                {# --- Agenda --- #}
+                <div class='col-12'>
+                    {% include 'entity/agenda/_mod____agenda.html.twig'
+                        with {
+                                'titre': "Agenda",                    
+                                'evenements': evenements,
+                                'evenementsPrincipaux': evenementsPrincipaux,
+                                'moduleEvenement': '_mod____agenda____evenement____simple_2_portail_mediatheque'
+                        } only
+                    %}
+                </div> 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
