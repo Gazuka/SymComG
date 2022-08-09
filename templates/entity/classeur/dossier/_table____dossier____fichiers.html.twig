@@ -1,23 +1,12 @@
+{#
+    require dossierActuel
+    require typeFichier
+#}
+
 {% for fichier in dossierActuel.fichiers %}
     {% if fichier.media.document.id is defined %}
-        <tr>
-            <td>
-                {{ fichier.media.document.id }}
-            </td>
-            <td>
-                <a href="{{ path('admin_medias_document', {'iddocument': fichier.media.document.id}) }}">
-                    {{ fichier.nom }}
-                </a>
-            </td>
-            <td>
-                {% if fichier.media.support.formatName == "photo" %}
-                    {% if fichier.media.support.format.actualite == true %}
-                        <i class="fas fa-regular fa-images text-success"></i> Actualité
-                    {% else %}
-                        <i class="fas fa-regular fa-images text-danger"></i> basic
-                    {% endif %}
-                {% endif %}
-            </td>
-        </tr>
+        
+        {% include 'entity/classeur/dossier/_table____dossier____fichier____'~ typeFichier ~'.html.twig' with {'fichier': fichier} only %}
+
     {% endif %}
 {% endfor %}

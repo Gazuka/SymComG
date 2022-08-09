@@ -10,6 +10,11 @@ liip_imagine:
             filters:
                 downscale:
                     max: [1140, 2200]
+        mini: # Réduit les images pour un col-2
+            quality: 100
+            filters:
+                downscale:
+                    max: [200, 400]
         normal4: # Réduit les images pour un col-4
             quality: 100
             filters:

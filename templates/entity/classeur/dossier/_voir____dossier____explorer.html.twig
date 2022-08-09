@@ -6,10 +6,19 @@
 
     {# Affichage d'une card tableau avec les fichiers #}
     {% embed 'composants/card/_card_table.html.twig' with {'dossierActuel': dossierActuel} only %}
-        {% set nomColonnes = ['#', '#', '#'] %}
+        {# On cherche à savoir le type de fichiers dans le dossier pour afficher les titres des colonnes #}
+        {% set typeFichier = 'default' %}
+        {% set nomColonnes = ['#', '#'] %}
+        {% set formatName = dossierActuel.fichiers[0].media.support.formatName %}
+
+        {% if formatName == "photo" %}
+            {% set typeFichier = formatName %}
+            {% set nomColonnes = ['#', '#', '#', '#'] %}
+        {% endif %}
+        
         {% set tbody %}
             {# Affichage du tableau avec les fichiers #}
-            {% include 'entity/classeur/dossier/_table____dossier____fichiers.html.twig' with {'dossierActuel': dossierActuel} only %}
+            {% include 'entity/classeur/dossier/_table____dossier____fichiers.html.twig' with {'dossierActuel': dossierActuel, 'typeFichier': typeFichier} only %}
         {% endset %}       
     {% endembed %}
     
