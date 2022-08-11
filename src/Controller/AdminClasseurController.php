@@ -392,6 +392,7 @@ class AdminClasseurController extends AdminController
                 break;
                 case 'jpg':
                 case 'jpeg':
+                case 'png':
                     $media = new Media();
                     $media->setfichier($fichier);
                     $image = new Image();
