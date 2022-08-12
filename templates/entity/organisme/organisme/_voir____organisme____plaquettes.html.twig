@@ -5,17 +5,15 @@
 
 {% for classeur in organisme.classeurs %}
     {% if classeur.type.nom == '#plaquette' %}
-        {% for document in classeur.filtreParSupport('pdf', 'plaquette') %}
-
-            {% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
-            <div class='row'>
+        <div class='row'>
+            {% for document in classeur.filtreParSupport('pdf', 'plaquette') %}
+                {% if liipFiltre is not defined %}{% set liipFiltre = 'normal' %}{% endif %}
                 <div class='col-4'>
                     <a href="{{ asset(document.media.fichier.getChemin) }}" target="_blanck">
                         <img class='img-fluid' src='{{ asset(document.media.support.vignette) | imagine_filter(liipFiltre) }}' alt='Couverture de la plaquette'/>                    
                     </a>            
-                </div>
-            </div>
-
-        {% endfor %}
+                </div>           
+            {% endfor %}
+        </div>
     {% endif %}
 {% endfor %}
