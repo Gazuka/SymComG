@@ -11,9 +11,14 @@
         {% set nomColonnes = ['#', '#'] %}
         {% set formatName = dossierActuel.fichiers[0].media.support.formatName %}
 
+        {% if formatName == "icone" %}
+            {% set typeFichier = formatName %}
+            {% set nomColonnes = ['#', '#', '#', '#', '#'] %}
+        {% endif %}
+
         {% if formatName == "photo" %}
             {% set typeFichier = formatName %}
-            {% set nomColonnes = ['#', '#', '#', '#'] %}
+            {% set nomColonnes = ['#', '#', '#', '#', '#'] %}
         {% endif %}
         
         {% set tbody %}

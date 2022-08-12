@@ -8,21 +8,14 @@
             {{ fichier.nom }}
         </a>
     </td>
-    <td class='col-2'>
+    <td class='col-3'>
         <a href="{{ path('admin_medias_document', {'iddocument': fichier.media.document.id}) }}">
-            {% include 'entity/classeur/image/_voir____media____image.html.twig' with {'media': fichier.media, 'liipFiltre': 'mini' } only %}            
+            {% include 'entity/classeur/image/_voir____media____image.html.twig' with {'media': fichier.media, 'liipFiltre': 'icone6' } only %}            
         </a>
     </td>
     <td>
         <a href="{{ path('admin_medias_document', {'iddocument': fichier.media.document.id}) }}">
             {{ fichier.media.image.alt }}
         </a>
-    </td>
-    <td>
-        {% if fichier.media.support.format.actualite == true %}
-            <i class="fas fa-regular fa-images text-success"></i> Actualité
-        {% else %}
-            <i class="fas fa-regular fa-images text-danger"></i> basic
-        {% endif %}
     </td>
 </tr>
