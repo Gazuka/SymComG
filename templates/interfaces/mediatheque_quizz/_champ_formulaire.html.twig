@@ -1,0 +1,35 @@
+{#
+    require correction (true / false / null)
+    require reponse
+    require id
+#}
+
+<div class='col-6 mb-2'>
+    <div class="card">
+        <div class="card-header">
+            {{titre}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Question</h5>
+        
+            {% if correction is not null %}
+                {% if correction == true %}
+                    <label for="{{id}}">{{titre}} :</label>
+                    <input type="hidden" id="{{id}}" name="{{id}}" value="{{reponse}}">
+                    <span>Bonne réponse</span>
+                {% else %}
+                    <label for="{{id}}">{{titre}} :</label>
+                    <input type="text" id="{{id}}" name="{{id}}" autocomplete="off">
+                    <span>Désolé, ce n'était pas la bonne réponse...</span>
+                {% endif %}
+            {% else %}
+                <label for="{{id}}">{{titre}} :</label>
+                <input type="text" id="{{id}}" name="{{id}}" autocomplete="off">
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+    

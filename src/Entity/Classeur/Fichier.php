@@ -114,7 +114,8 @@ class Fichier
         $this->slug = (new \DateTime())->getTimestamp();
         //Ecrit le nom du fichier dans un format correcte pour le serveur
         $slugify = new Slugify();
-        rename($this->dossier->getCheminComplet().$this->nom.'.'.$this->extension, $this->dossier->getCheminComplet().$this->getFileName());
+        //rename($this->dossier->getCheminComplet().$this->nom.'.'.$this->extension, $this->dossier->getCheminComplet().$this->getFileName());
+        rename($this->dossier->getCheminComplet().$nomFichier, $this->dossier->getCheminComplet().$this->getFileName());
         return $this;
     }
 
