@@ -1,31 +1,29 @@
 {#
-    require correction (true / false / null)
-    require reponse
-    require id
+    require question
 #}
 
 <div class='col-6 mb-2'>
     <div class="card">
         <div class="card-header">
-            {{titre}}
+            {{question.titre}}
         </div>
         <div class="card-body">
-            <h5 class="card-title">Question</h5>
+            <h5 class="card-title">{{question.ssTitre}}</h5>
         
-            {% if correction is not null %}
-                {% if correction == true %}
-                    <label for="{{id}}">{{titre}} :</label>
-                    <input type="hidden" id="{{id}}" name="{{id}}" value="{{reponse}}">
+            {% if question.correction is null %}
+                {# <label for="{{question.id}}">{{question.titre}} :</label> #}
+                <input type="text" id="{{question.id}}" name="{{question.id}}" autocomplete="off">
+            {% else %}
+                {% if question.correction == true %}
+                    {# <label for="{{question.id}}">{{question.titre}} :</label> #}
+                    <input type="hidden" id="{{question.id}}" name="{{question.id}}" value="{{question.reponse}}">
                     <span>Bonne réponse</span>
                 {% else %}
-                    <label for="{{id}}">{{titre}} :</label>
-                    <input type="text" id="{{id}}" name="{{id}}" autocomplete="off">
+                    {# <label for="{{question.id}}">{{question.titre}} :</label> #}
+                    <input type="text" id="{{question.id}}" name="{{question.id}}" autocomplete="off">
                     <span>Désolé, ce n'était pas la bonne réponse...</span>
                 {% endif %}
-            {% else %}
-                <label for="{{id}}">{{titre}} :</label>
-                <input type="text" id="{{id}}" name="{{id}}" autocomplete="off">
-            {% endif %}
+            {% endif %}            
 
         </div>
     </div>

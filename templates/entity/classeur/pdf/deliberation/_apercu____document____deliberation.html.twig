@@ -9,6 +9,21 @@
         </a>
     </div>
     <div class='col-10'>
-        Procès verbal de la réunion du Conseil Municipal du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
+        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+            {% if document.media.pdf.deliberation.type == 'a_pv' %}
+                {# Procès verbal #}
+                Procès verbal de la réunion du Conseil Municipal du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
+            {% else %}
+                {% if document.media.pdf.deliberation.type == 'b_liste' %}
+                    {# Liste des délibérations #}
+                    Liste des délibérations examinées par le Conseil Municipal du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
+                {% else %}
+                    {% if document.media.pdf.deliberation.type == 'c_delib' %}
+                        {# Délibération #}
+                        Délibération n° {{ document.media.pdf.deliberation.numero }} ({{ document.media.pdf.deliberation.date | date("d/m/Y") }}) : {{ document.media.pdf.deliberation.titre }}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </a>        
     </div>
 </div>
