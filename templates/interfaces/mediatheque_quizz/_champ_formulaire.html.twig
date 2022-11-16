@@ -2,32 +2,46 @@
     require question
 #}
 
-<div class='col-6 mb-2'>
-    <div class="card">
-        <div class="card-header">
-            {{question.titre}}
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">{{question.ssTitre}}</h5>
+{% set correction = question.correction %}
         
-            {% if question.correction is null %}
-                {# <label for="{{question.id}}">{{question.titre}} :</label> #}
+{% if correction is null %}
+    <div class='col-3 mb-2'>
+        <div class="card">
+            <div class="card-header">
+                {{question.titre}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{question.ssTitre}}</h5>
                 <input type="text" id="{{question.id}}" name="{{question.id}}" autocomplete="off">
-            {% else %}
-                {% if question.correction == true %}
-                    {# <label for="{{question.id}}">{{question.titre}} :</label> #}
-                    <input type="hidden" id="{{question.id}}" name="{{question.id}}" value="{{question.reponse}}">
-                    <span>Bonne réponse</span>
-                {% else %}
-                    {# <label for="{{question.id}}">{{question.titre}} :</label> #}
-                    <input type="text" id="{{question.id}}" name="{{question.id}}" autocomplete="off">
-                    <span>Désolé, ce n'était pas la bonne réponse...</span>
-                {% endif %}
-            {% endif %}            
-
+            </div>
         </div>
     </div>
-</div>
-
-
-    
+{% else %}
+    {% if correction == true %}
+        <div class='col-3 mb-2'>
+            <div class="card text-bg-success">
+                <div class="card-header">
+                    {{question.titre}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{question.ssTitre}}</h5>
+                    <input type="hidden" id="{{question.id}}" name="{{question.id}}" value="{{question.reponse}}">
+                    <span>Bonne réponse</span>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class='col-3 mb-2'>
+            <div class="card text-bg-danger">
+                <div class="card-header">
+                    {{question.titre}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{question.ssTitre}}</h5>
+                    <input type="text" id="{{question.id}}" name="{{question.id}}" autocomplete="off">
+                    <span>Désolé, ce n'était pas la bonne réponse...</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

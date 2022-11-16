@@ -37,7 +37,7 @@ class Question
 
     public function setSolution(string $solution)
     {
-        $this->solution = $solution;
+        $this->solution = mb_strtolower($solution);
     }
 
     public function getSolution()
@@ -63,7 +63,7 @@ class Question
 
     public function setReponse(string $reponse)
     {
-        $this->reponse = $reponse;
+        $this->reponse = mb_strtolower($reponse);
     }
 
     public function getReponse()

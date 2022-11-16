@@ -10,30 +10,54 @@
     <div class='col-12'>
         <h1 class="text-center">Médiathèque de Guesnain - 20 ans</h1>
         <h2 class="text-center">Êtes-vous prêts à rejoindre notre équipe ?</h2>
-        <h5 class="text-center">Pour le savoir, nous vous avons préparé une série de {{ questions | length }} tests !</h5>
-        <br/><br/>
+        <h5 class="text-center">Pour le savoir, nous vous avons préparé une série de {{ questions | length }} tests !</h5>        
     </div>
 
     <form action="" method="post">
         
         <div class="row">
 
+            {% set nbr_bon = 0 %}
             {% for question in questions %}
                
                {% include 'interfaces/mediatheque_quizz/_champ_formulaire.html.twig' with {'question': question} only %}
+               
+               {% if question.correction == true %}
+                    {% set nbr_bon = nbr_bon + 1 %}
+               {% endif %}
 
             {% endfor %}
 
         </div>
         
-        <br/><br/>
+        <div class='row'>
+            <div class='col-12 mb-2'>
+                <div class="card text-bg-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Score : {{ nbr_bon }} / 20</h5>
+                        {% if nbr_bon == 20 %}
+                            <h1 class="card-title">Félicitations !</h5>
+                        {% endif %}                  
+                    </div>
+                </div>
+            </div>
 
-        <div class='text-center'>
-            <input type="submit" value="Vérifier les réponses">
-            <br/><br/>
-            <a href='{{ path('mediatheque_quizz') }}'>Effacer les réponses</a>
+            <div class='col-6 mb-2'>
+                <div class="card text-bg-danger">
+                    <div class="card-body text-center">
+                        <a href='{{ path('mediatheque_quizz') }}' class='text-white btn btn-danger col-12'>Effacer mes réponses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-6 mb-2'>
+                <div class="card text-bg-success">
+                    <div class="card-body text-center">
+                        <input type="submit" value="Vérifier mes réponses" class='btn btn-success col-12'>                    
+                    </div>
+                </div>
+            </div>
         </div>
-
     </form>
 
     

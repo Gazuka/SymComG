@@ -76,7 +76,7 @@ class MediathequeQuizzController extends SymComGController
         $q7 = new Question();
         $q7->setId(7);
         $q7->setTitre("Test n°7");
-        $q7->setSsTitre('Avoir les mêmes connaissances qu\'un Juke-Box');
+        $q7->setSsTitre('Avoir les connaissances qu\'un Juke-Box');
         $q7->setSolution('violoncelles');
         $this->lireReponse($q7);
         array_push($questions, $q7);
@@ -148,8 +148,8 @@ class MediathequeQuizzController extends SymComGController
         $q15 = new Question();
         $q15->setId(15);
         $q15->setTitre("Test n°15");
-        $q15->setSsTitre('??? - Le conte est bon');
-        $q15->setSolution('???');
+        $q15->setSsTitre('Mots codés');
+        $q15->setSolution('livre');
         $this->lireReponse($q15);          
         array_push($questions, $q15);
 
@@ -157,8 +157,8 @@ class MediathequeQuizzController extends SymComGController
         $q16 = new Question();
         $q16->setId(16);
         $q16->setTitre("Test n°16");
-        $q16->setSsTitre('??? - ???');
-        $q16->setSolution('???');
+        $q16->setSsTitre('Certains préfèrent les bulles');
+        $q16->setSolution('dessinatrice');
         $this->lireReponse($q16);          
         array_push($questions, $q16);
 
@@ -166,8 +166,8 @@ class MediathequeQuizzController extends SymComGController
         $q17 = new Question();
         $q17->setId(17);
         $q17->setTitre("Test n°17");
-        $q17->setSsTitre('??? - ???');
-        $q17->setSolution('???');
+        $q17->setSsTitre('Une description approximative');
+        $q17->setSolution('folio');
         $this->lireReponse($q17);          
         array_push($questions, $q17);
 
@@ -175,8 +175,8 @@ class MediathequeQuizzController extends SymComGController
         $q18 = new Question();
         $q18->setId(18);
         $q18->setTitre("Test n°18");
-        $q18->setSsTitre('??? - ???');
-        $q18->setSolution('???');
+        $q18->setSsTitre('Le conte est bon');
+        $q18->setSolution('alphabétisation');
         $this->lireReponse($q18);          
         array_push($questions, $q18);
 
@@ -184,8 +184,8 @@ class MediathequeQuizzController extends SymComGController
         $q19 = new Question();
         $q19->setId(19);
         $q19->setTitre("Test n°19");
-        $q19->setSsTitre('??? - ???');
-        $q19->setSolution('???');
+        $q19->setSsTitre('Un âge pour tout');
+        $q19->setSolution('vigilance');
         $this->lireReponse($q19);          
         array_push($questions, $q19);
 
@@ -193,8 +193,8 @@ class MediathequeQuizzController extends SymComGController
         $q20 = new Question();
         $q20->setId(20);
         $q20->setTitre("Test n°20");
-        $q20->setSsTitre('??? - ???');
-        $q20->setSolution('???');
+        $q20->setSsTitre('Les dessous de la Médiathèque');
+        $q20->setSolution('cachotteries');
         $this->lireReponse($q20);          
         array_push($questions, $q20);
 
@@ -208,7 +208,7 @@ class MediathequeQuizzController extends SymComGController
     {
         if(isset($_POST[$question->getId()]))
         {
-            $question->setReponse(strtolower($_POST[$question->getId()]));   
+            $question->setReponse($_POST[$question->getId()]);   
         } 
     }
 }
