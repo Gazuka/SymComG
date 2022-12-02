@@ -11,12 +11,12 @@
 
 <div class='row col-12'>
     <div class='col-2 text-center alert alert-secondary text-danger mb-1'>
-        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+        <a href='{{ 'http://ville-guesnain.fr/' ~ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
             <i class="far fa-file-pdf display-4"></i>
         </a>
     </div>
     <div class='col-10'>
-        <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
+        <a href='{{ 'http://ville-guesnain.fr/' ~ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
             {% if document.media.pdf.deliberation.type == 'a_pv' %}
                 {# Procès verbal #}
                 Procès verbal de la réunion du {{nomGroupe}} du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
