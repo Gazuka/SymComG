@@ -1,6 +1,13 @@
 {#
-    require document (deliberation) 
+    require document (deliberation)
+    require groupe 
 #}
+{% if groupe == 'conseilmunicipal' %}
+    {% set nomGroupe = 'Conseil Municipal' %}
+{% endif %}
+{% if groupe == 'ccas' %}
+    {% set nomGroupe = 'CCAS' %}
+{% endif %}
 
 <div class='row col-12'>
     <div class='col-2 text-center alert alert-secondary text-danger mb-1'>
@@ -12,11 +19,11 @@
         <a href='{{ document.media.fichier.chemin }}' class='text-danger' target='_blanck'>
             {% if document.media.pdf.deliberation.type == 'a_pv' %}
                 {# Procès verbal #}
-                Procès verbal de la réunion du Conseil Municipal du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
+                Procès verbal de la réunion du {{nomGroupe}} du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
             {% else %}
                 {% if document.media.pdf.deliberation.type == 'b_liste' %}
                     {# Liste des délibérations #}
-                    Liste des délibérations examinées par le Conseil Municipal du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
+                    Liste des délibérations examinées par le {{nomGroupe}} du {{ document.media.pdf.deliberation.date | date("d/m/Y") }}
                 {% else %}
                     {% if document.media.pdf.deliberation.type == 'c_delib' %}
                         {# Délibération #}

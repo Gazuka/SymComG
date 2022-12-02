@@ -18,6 +18,15 @@ class DeliberationType extends FormatType
     {
         $builder = $this->buildFormatForm($builder, $options);
         $builder
+            ->add('groupe', ChoiceType::class, 
+            [
+                'choices' => [
+                    'Conseil Municipal' => 'conseilmunicipal',
+                    'CCAS' => 'ccas'
+                ],
+                'label' => $this->addLabel('form.pdf.deliberation.type'),
+                'required' => false,                
+            ])
             ->add('support', PdfType::class,
             [
                 'label' => false

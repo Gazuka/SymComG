@@ -46,6 +46,11 @@ class Deliberation extends Format
      */
     private $titre;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $groupe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,6 +112,18 @@ class Deliberation extends Format
     public function setTitre(?string $titre): self
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getGroupe(): ?string
+    {
+        return $this->groupe;
+    }
+
+    public function setGroupe(?string $groupe): self
+    {
+        $this->groupe = $groupe;
 
         return $this;
     }

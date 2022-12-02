@@ -1,5 +1,8 @@
 {% extends 'interfaces/public/_part____base_public.html.twig' %}
 {% set titre = 'Délibérations du Conseil Municipal' %}
+{% if groupe == 'ccas' %}
+    {% set titre = 'Délibérations du CCAS' %}
+{% endif %}
 {#
     require classeur
 #}
@@ -18,7 +21,7 @@
         {% if loop.first == false %}
             <hr/>
         {% endif %}
-        {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____deliberation.html.twig' with {'document': document} only %}    
+        {% include 'entity/classeur/pdf/' ~ document.media.support.FormatName ~ '/_apercu____document____deliberation.html.twig' with {'document': document, 'groupe': groupe} only %}    
     {% endfor %}
 
 {% endblock %}

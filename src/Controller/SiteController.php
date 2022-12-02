@@ -172,16 +172,17 @@ class SiteController extends SymComGController
     }
 
     /**
-     * @Route("/deliberations", name="site_deliberations")
+     * @Route("/deliberations/{groupe}", name="site_deliberations")
      */
-    public function voirDeliberations(): Response
+    public function voirDeliberations($groupe = 'conseilmunicipal'): Response
     {
         $this->setTwig('pages/site/page____site____deliberations.html.twig');
         // --- Récupération des délibérations ---
-        $classeurDeliberations = $this->recupererClasseurDeliberations();        
+        $classeurDeliberations = $this->recupererClasseurDeliberations($groupe);        
         $this->addParamTwig('classeur', $classeurDeliberations);
+        $this->addParamTwig('groupe', $groupe);
         return $this->afficher();
-    }
+    }    
 
     /**
      * @Route("/article/{idarticle}", name="site_article", requirements={"idarticle"="\-?[0-9]+"})
@@ -554,11 +555,10 @@ class SiteController extends SymComGController
         return $classeurMarches;
     }
 
-    private function recupererClasseurDeliberations()
+    private function recupererClasseurDeliberations($groupe = 'conseilmunicipal')
     {
-        // On récupère toutes les délibérations
-        // $deliberations = $this->findAll(Deliberation::class);
-        $deliberations = $this->manager->getRepository(Deliberation::class)->findBy([],['date'=>'DESC', 'type'=>'ASC', 'numero'=>'ASC'] );
+        // On récupère toutes les délibérations du groupe
+        $deliberations = $this->manager->getRepository(Deliberation::class)->findBy(['groupe'=>$groupe],['date'=>'DESC', 'type'=>'ASC', 'numero'=>'ASC'] );
         // On crée le classeur et on lui donne toutes les délibérations
         $classeurDeliberations = new Classeur();
         foreach($deliberations as $deliberation)
