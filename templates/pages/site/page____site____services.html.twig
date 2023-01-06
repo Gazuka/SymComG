@@ -17,7 +17,7 @@
         
         {# --- Affichage d'un service --- #}
         {% if service.local == true or affichageLocalUniquement == false %}
-            <div class='col-3'>
+            <div class='col-12 col-md-6 col-lg-3'>
                 <div class="card mb-4">
 
                     {% include 'entity/organisme/organisme/_voir____organisme____photo_profil.html.twig' with {'organisme': service.organisme, 'liipFiltre': 'carre3'} only %}
