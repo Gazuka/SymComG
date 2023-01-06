@@ -70,9 +70,11 @@ class EvenementRepository extends ServiceEntityRepository
 
     public function findPrincipaux()
     {
+        $now = new DateTime();
+        $now->setTime(0,0,0,0); // Définir l'heure actuelle a 0h00 afin d'avoir tous les évènements du jour
         return $this->createQueryBuilder('e')
-            ->setParameter('date', new DateTime())
-            ->Where('e.date > :date or e.dateFin > :date')
+            ->setParameter('date', $now)
+            ->Where('e.date >= :date or e.dateFin > :date')
             ->AndWhere('e.majeur = true')
             ->orderBy('e.date', 'ASC')
             ->getQuery()
