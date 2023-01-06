@@ -3,5 +3,19 @@
 #}
 
 {% if organisme.cartevisite is not empty %}
-    {% include 'entity/cartevisite/cartevisite/_voir____cartevisite.html.twig' with {'cartevisite': organisme.cartevisite} only %}                                    
+    {#{% include 'entity/cartevisite/cartevisite/_voir____cartevisite.html.twig' with {'cartevisite': organisme.cartevisite} only %}#}
+    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': organisme.cartevisite} only %}
+
+{% else %}
+    {# Si pas de carte de visite on affiche celle du Président #}
+    {% for poste in organisme.postes %}
+        {% if poste.fonction.titre == "Président" %}
+            {% for profil in poste.profils %}
+                {% if profil.cartevisite is not empty %}
+                    {% include 'entity/cartevisite/cartevisite/_mod____cartevisite____details.html.twig' with {'cartevisite': profil.cartevisite} only %}
+                {% endif %}                                            
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    
 {% endif %}

@@ -4,10 +4,10 @@
 
     Si une carte visite existe et n'est pas vide, affiche le module carte de visite de l'organisme
 #}
-{% if organisme.cartevisite is not empty %}
+{#{% if organisme.cartevisite is not empty %}#}
     {# On affiche le module #}
     {% include 'interfaces/public/_part____titre_page.html.twig' with {'titre': titre} only %}
     <div class='col-12 mb-4 text-center'>
         {% include 'entity/organisme/organisme/_voir____organisme____cartevisite.html.twig' with {'organisme': organisme} only %}        
     </div>    
-{% endif %}
+{#{% endif %}#}

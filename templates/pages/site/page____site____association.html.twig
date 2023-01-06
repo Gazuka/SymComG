@@ -32,6 +32,8 @@
     {# </div> #}
 
     <div class='col-8'>
+        {# Affichage du module de carte de visite #}
+        {% include 'entity/organisme/organisme/_mod____organisme____cartevisite.html.twig' with {'organisme': association.organisme, 'titre': "Coordonnées"} only %}
         {# Affichage des actualites #}
         {% if association.organisme.elemOrganismes | length > 0 %}
             <div class='row'>
@@ -107,9 +109,6 @@
     </div> #}
     
     <div class='col-4'>
-        {# Affichage du module de carte de visite #}
-        {% include 'entity/organisme/organisme/_mod____organisme____cartevisite.html.twig' with {'organisme': association.organisme, 'titre': "Coordonnées"} only %}
-        
         {# Affichage du module de postes #}
         {% include 'entity/organisme/organisme/_mod____organisme____postes.html.twig' with {'organisme': association.organisme, 'titre': "Bureau"} only %}        
 
