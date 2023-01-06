@@ -19,7 +19,11 @@
 
     {# --- Agenda --- #}
         <div class='col-12'>
-            {% include 'entity/agenda/_mod____agenda_2.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux, 'legende': legende} only %}
+            
+            {# Affichage des évenements #}
+            {% include 'entity/agenda/_mod____agenda____base.html.twig' with {'evenementsPrincipaux': evenementsPrincipaux, 'evenements': evenements, 'moduleEvenement': '_mod____agenda____evenement____simple_2', 'legende': legende} only %}    
+
+            {#{% include 'entity/agenda/_mod____agenda_2.html.twig' with {'evenements': evenements, 'evenementsPrincipaux': evenementsPrincipaux, 'legende': legende} only %}#}
         </div>
 
 {% endblock %}

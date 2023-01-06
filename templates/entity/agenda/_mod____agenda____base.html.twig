@@ -1,0 +1,31 @@
+{#
+    require evenementsPrincipaux
+    require evenements
+    option legende
+    require moduleEvenement
+#}
+
+<div class='col-12 mb-4'>
+        <div class='row'>
+            {# Affichage des événements principaux #}
+            {% if evenementsPrincipaux | length > 0 %}
+                <div class='col-12 col-lg-6 mb-4'>
+                    {% include 'entity/agenda/_mod____agenda____evenements____principaux.html.twig' with {'evenements': evenementsPrincipaux} only %}
+                </div>
+            {% endif %}
+
+            {# LEGENDE DE L'AGENDA #}
+            {% if legende is defined %}
+                <div class='col-12 col-md-6 col-lg-3'>
+                    {% include 'entity/agenda/_tpl____agenda____legende.html.twig' with {'legende': legende} only %}
+                </div>
+            {% endif %}
+
+            {# Affichage des évenements #}
+            {% for evenement in evenements %}
+                <div class='col-12 col-md-6 col-lg-3'>
+                    {% include 'entity/agenda/'~ moduleEvenement ~'.html.twig' with {'evenement': evenement} only %}
+                </div>
+            {% endfor %}            
+        </div>
+    </div>
