@@ -6,6 +6,7 @@
 {{ form_start(form) }}
     {{ form_row(form.nom) }}
     {{ form_row(form.local) }}
+    {{ form_row(form.actif) }}
     {# Ajout des champs spécifique aux différents types d'organisme #}
     {% include 'admin/organisme/formulaires/_ssform____' ~ typeOrganisme ~ '.html.twig' ignore missing with {'form': form} only %}
     {{ form_row(form.presentation) }}

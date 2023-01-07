@@ -375,7 +375,7 @@ class SiteController extends SymComGController
     public function voirAssociations(): Response
     {
         $this->setTwig('pages/site/page____site____associations.html.twig');
-        $associations = $this->repoService->findBy(Association::class, ['local' => true], ['nom' => 'asc']);        
+        $associations = $this->repoService->findBy(Association::class, ['local' => true, 'actif' => true], ['nom' => 'asc']);        
         $this->addParamTwig('associations', $associations);
         return $this->afficher();
     }

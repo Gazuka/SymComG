@@ -35,6 +35,14 @@ class StructureType extends OutilsType
                 'translation_domain' => 'false',
                 'data' => true
             ])
+            ->add('actif', CheckboxType::class,
+            [
+                'label_attr' => ['class' => 'switch-custom'],
+                'label' => $this->addLabel('form.structure.actif'),
+                'required' => false,
+                'translation_domain' => 'false',
+                'data' => true
+            ])
         ;   
         return $builder;
     }

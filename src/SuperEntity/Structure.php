@@ -40,6 +40,11 @@ abstract class Structure
     protected $local;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $actif;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     protected $slug;
@@ -83,6 +88,17 @@ abstract class Structure
     public function setLocal(bool $local): self
     {
         $this->local = $local;
+        return $this;
+    }
+
+    public function getActif(): ?bool
+    {
+        return $this->actif;
+    }
+
+    public function setActif(bool $actif): self
+    {
+        $this->actif = $actif;
         return $this;
     }
 
