@@ -6,6 +6,8 @@
     {% if telephone.prive == false %}
         {{ telephone.numero }} 
     {% else %}
-        <span class='bg-danger'>{{ telephone.numero }}</span>
+        {% if is_granted("ROLE_ADMIN") %}
+            <span class='bg-danger'>{{ telephone.numero }}</span>        
+        {% endif %}
     {% endif %}
 </span>

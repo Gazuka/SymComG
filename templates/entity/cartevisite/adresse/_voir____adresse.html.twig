@@ -11,12 +11,14 @@
         {{ adresse.codePostal }}
         {{ adresse.ville }}
     {% else %}
-        <span class='bg-danger'> 
-            {{ adresse.numero }} 
-            {{ adresse.rue1 }} 
-            {{ adresse.rue2 }} 
-            {{ adresse.codePostal }} 
-            {{ adresse.ville }} 
-        </span>
+        {% if is_granted("ROLE_ADMIN") %}
+            <span class='bg-danger'> 
+                {{ adresse.numero }} 
+                {{ adresse.rue1 }} 
+                {{ adresse.rue2 }} 
+                {{ adresse.codePostal }} 
+                {{ adresse.ville }} 
+            </span>
+        {% endif %}
     {% endif %}
 </span>
