@@ -35,7 +35,6 @@ class SiteController extends SymComGController
     //============================
     // --- AFFICHAGE DES PAGES ---
     //============================
-
     /**
      * @Route("/", name="site_accueil")
      */
