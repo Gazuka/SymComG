@@ -36,7 +36,9 @@ class SiteController extends SymComGController
     // --- AFFICHAGE DES PAGES ---
     //============================
     /**
+     * Page d'accueil du site Internet
      * @Route("/", name="site_accueil")
+     * @todo documenter
      */
     public function index(DatesService $datesService): Response
     {
@@ -74,6 +76,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/arretes", name="site_arretes_municipaux")
+     * @todo documenter
      */
     public function voirArretesMunicipaux(DatesService $datesService): Response
     {
@@ -87,6 +90,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/document/{iddocument}", name="site_affichage_document", requirements={"iddocument"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirDocument($iddocument): Response
     {
@@ -99,6 +103,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/marchespublics", name="site_marches_publics")
+     * @todo documenter
      */
     public function voirMarchesPublics(): Response
     {
@@ -111,6 +116,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/annuaire/{typestructure}/{idenumentreprisetype}", name="site_annuaire", requirements={"idenumentreprisetype"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirAnnuaire($typestructure = null, $idenumentreprisetype = null): Response
     {
@@ -172,6 +178,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/deliberations/{groupe}", name="site_deliberations")
+     * @todo documenter
      */
     public function voirDeliberations($groupe = 'conseilmunicipal'): Response
     {
@@ -185,6 +192,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/article/{idarticle}", name="site_article", requirements={"idarticle"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirArticle($idarticle): Response
     {
@@ -199,6 +207,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/evenement/{idevenement}", name="site_evenement", requirements={"idevenement"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirEvenement($idevenement): Response
     {
@@ -210,6 +219,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/articles", name="site_articles")
+     * @todo documenter
      */
     public function voirArticles(): Response
     {
@@ -223,6 +233,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/evenements", name="site_evenements")
+     * @todo documenter
      */
      public function voirAgenda(): Response
      {
@@ -239,6 +250,7 @@ class SiteController extends SymComGController
 
      /**
      * @Route("/evenements/organisme/{idorganisme}", name="site_evenements_organisme", requirements={"idorganisme"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirAgendaOrganisme($idorganisme): Response
     {
@@ -259,6 +271,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/evenements/article/{idarticle}", name="site_evenements_article", requirements={"idarticle"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirAgendaArticle($idarticle): Response
     {
@@ -279,6 +292,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/articles/associations", name="site_articles_associations")
+     * @todo documenter
      */
     public function voirArticlesAssociations(): Response
     {
@@ -299,6 +313,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/articles/organisme/{idorganisme}", name="site_articles_organisme", requirements={"idorganisme"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function voirArticlesOrganisme($idorganisme): Response
     {
@@ -328,6 +343,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/association/{slugassociation}", name="site_association")
+     * @todo documenter
      */
     public function voirAssociation($slugassociation): Response
     {
@@ -343,6 +359,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/service/{slugservice}", name="site_service")
+     * @todo documenter
      */
     public function voirService($slugservice): Response
     {
@@ -358,6 +375,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/conseilmunicipal/", name="site_conseil_municipal")
+     * @todo documenter
      */
     public function voirConseilMunicipal(): Response
     {
@@ -370,6 +388,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/associations", name="site_associations")
+     * @todo documenter
      */
     public function voirAssociations(): Response
     {
@@ -381,6 +400,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/associations/{typeRecherche}", name="site_associations_types")
+     * @todo documenter
      */
     public function voirAssociationsType($typeRecherche): Response
     {
@@ -431,6 +451,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/services", name="site_services")
+     * @todo documenter
      */
     public function voirServices(): Response
     {
@@ -443,6 +464,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/services/scolaire", name="site_services_scolaire")
+     * @todo documenter
      */
     public function voirServicesScolaire(): Response
     {
@@ -455,6 +477,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/bulletins", name="site_bulletins_municipaux")
+     * @todo documenter
      */
     public function voirBulletinsMunicipaux(): Response
     {
@@ -466,6 +489,7 @@ class SiteController extends SymComGController
 
     /**
      * @Route("/courrier/{idprofil}", name="site_courrier", requirements={"idprofil"="\-?[0-9]+"})
+     * @todo documenter
      */
     public function ecrireCourrier($idprofil): Response
     {
@@ -494,6 +518,9 @@ class SiteController extends SymComGController
     //==================
     // --- FONCTIONS ---
     //==================
+    /**
+     * @todo documenter
+     */
     private function recupererClasseurAffiches()
     {
         // On récupère toutes les affiches (DEBUG : ne prendre que celles qui sont d'actualité par la suite)
@@ -507,6 +534,9 @@ class SiteController extends SymComGController
         return $classeurAffiches;
     }
 
+    /**
+     * @todo documenter
+     */
     private function recupererClasseurActus()
     {
         // On récupère toutes les photos marquées comme actualité
@@ -520,6 +550,9 @@ class SiteController extends SymComGController
         return $classeurActus;
     }
 
+    /**
+     * @todo documenter
+     */
     private function recupererClasseurArretes($limit = null, $offset = 1)
     {
         if($limit == null)
@@ -537,6 +570,9 @@ class SiteController extends SymComGController
         return $classeurArretes;
     }
 
+    /**
+     * @todo documenter
+     */
     private function recupererClasseurMarches($limit = null, $offset = 1)
     {
         if($limit == null)
@@ -554,6 +590,9 @@ class SiteController extends SymComGController
         return $classeurMarches;
     }
 
+    /**
+     * @todo documenter
+     */
     private function recupererClasseurDeliberations($groupe = 'conseilmunicipal')
     {
         // On récupère toutes les délibérations du groupe
@@ -567,6 +606,9 @@ class SiteController extends SymComGController
         return $classeurDeliberations;
     }
 
+    /**
+     * @todo documenter
+     */
     private function recupererEvenements($nbrEvenements)
     {
         $evenementsPrincipaux = $this->manager->getRepository(Evenement::class)->findPrincipaux();
