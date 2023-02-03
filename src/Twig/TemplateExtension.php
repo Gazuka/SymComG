@@ -6,6 +6,9 @@ use Twig\TwigFunction;
 
 class TemplateExtension extends AbstractExtension
 {
+    /**
+     * @return array
+     */
     public function getFunctions()
     {
         return array(
