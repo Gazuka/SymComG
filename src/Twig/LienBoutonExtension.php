@@ -8,6 +8,9 @@ use Twig\Extension\AbstractExtension;
 
 class LienBoutonExtension extends GlobalExtension
 {    
+    /**
+     * @return array
+     */
     public function getFilters()
     {
         return [

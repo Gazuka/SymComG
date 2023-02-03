@@ -9,7 +9,8 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    protected function configureContainer(ContainerConfigurator $container): void
+    //protected function configureContainer(ContainerConfigurator $container): void    //DEBUG - changement pour eviter un bug lors de la migration...
+    protected function configureContainer($container): void
     {
         $container->import('../config/{packages}/*.yaml');
         $container->import('../config/{packages}/'.$this->environment.'/*.yaml');
@@ -22,7 +23,8 @@ class Kernel extends BaseKernel
         }
     }
 
-    protected function configureRoutes(RoutingConfigurator $routes): void
+    //protected function configureRoutes(RoutingConfigurator $routes): void - DEBUG...
+    protected function configureRoutes($routes): void
     {
         $routes->import('../config/{routes}/'.$this->environment.'/*.yaml');
         $routes->import('../config/{routes}/*.yaml');

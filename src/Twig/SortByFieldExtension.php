@@ -8,6 +8,9 @@ use Twig\Extension\AbstractExtension;
 
 class SortByFieldExtension extends GlobalExtension
 {
+    /**
+     * @return array
+     */
     public function getFilters()
     {
         return array(

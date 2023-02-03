@@ -55,7 +55,9 @@ class AdminController extends SymComGController
     {
         $c = get_called_class();
         $objet = $this->findById($c::CLASS_OBJET, $idObjet);
-        $this->creerFormulaire($objet, $page);
+
+        $this->creerFormulaire($page, $objet);
+        
         $this->setTwig('pages/'.$c::CONTROLLER_NAME.'/page____'.$c::CONTROLLER_NAME.'____'.$c::OBJET_NAME.'____gerer.html.twig');
         $this->addParamTwig($c::OBJET_NAME, $objet);
         return $this->afficher('admin.'.$c::OBJET_NAME.'.gerer.titre');    
@@ -65,7 +67,7 @@ class AdminController extends SymComGController
      * Création d'un formulaire pour une entité
      * @return Void
      */
-    protected function creerFormulaire($objet=null, $redirect): Object
+    protected function creerFormulaire($redirect, $objet=null): Object
     {
         $c = get_called_class();
         if($objet == null)
@@ -73,7 +75,7 @@ class AdminController extends SymComGController
             $class = $c::NAMESPACE_OBJET;
             $objet = new $class;
         }
-        //Formulaire        
+        //Formulaire                
         $form = $this->createForm($c::CLASS_FORM, $objet);
         if($this->formIsValid($form))
         {

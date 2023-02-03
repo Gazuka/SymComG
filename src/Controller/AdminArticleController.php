@@ -36,7 +36,7 @@ class AdminArticleController extends AdminController
      */
     public function creerArticle(): Response
     {
-        $this->creerFormulaire(null, 'admin_article_gerer');
+        $this->creerFormulaire('admin_article_gerer', null);
         return $this->creerObjet();
     }
 
@@ -47,7 +47,7 @@ class AdminArticleController extends AdminController
     public function creerArticlePrincipalEvenement($idevenement): Response
     {
         $evenement = $this->findById(Evenement::class, $idevenement);
-        $article = $this->creerFormulaire(null, 'admin_article_gerer');
+        $article = $this->creerFormulaire('admin_article_gerer', null);
         // dump($article);
         if($article->getTitre() != null)
         {
@@ -63,6 +63,7 @@ class AdminArticleController extends AdminController
     public function gererArticle($idarticle): Response
     {
         $this->twigAjoutMedia('article', 'gerer_article');
+        $this->gererObjet($idarticle, 'admin_article_gerer'); // Ligne à supprimer après résolution du pb
         return $this->gererObjet($idarticle, 'admin_article_gerer');
     }
 

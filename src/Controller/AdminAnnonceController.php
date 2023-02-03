@@ -26,7 +26,7 @@ class AdminAnnonceController extends AdminController
      */
     public function creerAnnonce(): Response
     {
-        $this->creerFormulaire(null, 'admin_annonce_gerer');
+        $this->creerFormulaire('admin_annonce_gerer', null);
         return $this->creerObjet();
     }
 

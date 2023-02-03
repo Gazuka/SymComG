@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Classes\Chemin;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+//use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class SessionService {
 
@@ -69,7 +69,8 @@ class SessionService {
     }
 
     //GET & SET
-    public function setSession(SessionInterface $session):self
+    //public function setSession(SessionInterface $session):self
+    public function setSession($session):self
     {
         $this->session = $session;
         return $this;

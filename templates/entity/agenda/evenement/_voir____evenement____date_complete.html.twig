@@ -4,7 +4,14 @@
 
 {# Affichage de la date #}
 {% if evenement.dateFin != null %}
-    Du {{evenement.date|localizeddate('full', 'none', null, null, null) }} au {{evenement.dateFin|localizeddate('full', 'none', null, null, null) }}
+    Du {{evenement.date|format_datetime('full', 'none') }} au {{evenement.dateFin|format_datetime('full', 'short') }}
 {% else %}
-    {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }}
+    {{evenement.date|format_datetime('full', 'none') | capitalize }}
 {% endif %}
+
+
+{# {% if evenement.dateFin != null %}
+    Du {{evenement.date|format_datetime('full', 'none', null, null, null) }} au {{evenement.dateFin|format_datetime('full', 'none', null, null, null) }}
+{% else %}
+    {{evenement.date|format_datetime('full', 'none', null, null, null) | capitalize }}
+{% endif %} #}

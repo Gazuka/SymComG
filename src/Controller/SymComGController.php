@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+//use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SymComGController extends AbstractController
@@ -35,11 +35,13 @@ class SymComGController extends AbstractController
     protected $traducteur;
     protected $entityService;
         
-    public function __construct(EntityManagerInterface $manager, AffichageService $affichageService, RepoService $repoService, FormService $formService, ControllerService $controllerService, RequestStack $requestStack, SessionInterface $session, TranslatorInterface $translator, SessionService $sessionService, ClasseurService $classeurService, EntityService $entityService)
+    //public function __construct(EntityManagerInterface $manager, AffichageService $affichageService, RepoService $repoService, FormService $formService, ControllerService $controllerService, RequestStack $requestStack, SessionInterface $session, TranslatorInterface $translator, SessionService $sessionService, ClasseurService $classeurService, EntityService $entityService)
+    public function __construct(EntityManagerInterface $manager, AffichageService $affichageService, RepoService $repoService, FormService $formService, ControllerService $controllerService, RequestStack $requestStack, TranslatorInterface $translator, SessionService $sessionService, ClasseurService $classeurService, EntityService $entityService)
     {
         //Gestion de la page en cours et précédante
         $this->requestStack = $requestStack;
-        $this->session = $session;
+        //$this->session = $session;
+        $this->session = $requestStack->getSession();
         $this->sessionService = $sessionService;
         $this->sessionService->setSession($this->session);
         $this->sessionService->setRequestStack($this->requestStack);

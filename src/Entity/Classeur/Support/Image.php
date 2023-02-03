@@ -49,6 +49,8 @@ class Image extends Support
      */
     private $icone;
 
+    private $formatName;
+
     public function getId(): ?int
     {
         return $this->id;

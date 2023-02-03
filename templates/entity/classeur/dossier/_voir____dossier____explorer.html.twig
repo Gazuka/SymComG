@@ -9,7 +9,7 @@
         {# On cherche à savoir le type de fichiers dans le dossier pour afficher les titres des colonnes #}
         {% set typeFichier = 'default' %}
         {% set nomColonnes = ['#', '#'] %}
-        {% set formatName = dossierActuel.fichiers[0].media.support.formatName %}
+        {% set formatName = dossierActuel.fichiers[0].media.support.FormatName %}
 
         {% if formatName == "icone" %}
             {% set typeFichier = formatName %}

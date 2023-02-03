@@ -4,7 +4,7 @@
 <div class="card mb-2">
     <div class="card-body">
         <a class='text-dark' href="{{ path('site_evenement', {'idevenement': evenement.id}) }}">
-            {{evenement.date|localizeddate('full', 'none', null, null, null) | capitalize }}
+            {{evenement.date|format_datetime('full', 'none') | capitalize }}
             {% if evenement.heureDebut != null %}
                 à {{ evenement.heureDebut | date('H:i') }}
             {% endif %}

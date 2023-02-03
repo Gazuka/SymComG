@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
@@ -20,7 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *  message="Cet adresse e-mail est déjà utilisée..."
  * )
  */
-class Utilisateur implements UserInterface
+class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id()
@@ -93,7 +94,7 @@ class Utilisateur implements UserInterface
         return $this;
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
         $roles = $this->roles->map(function($role){
             return $role->getTitre();
@@ -104,15 +105,24 @@ class Utilisateur implements UserInterface
         return $roles;
     }
 
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function getSalt(){}
+    public function getUserIdentifier(): string
+    {
+        return $this->pseudo; 
+    }
+
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
     public function eraseCredentials(){}
 
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->pseudo;
     }
