@@ -31,9 +31,9 @@ use App\Entity\Classeur\Dossier;use App\Entity\Classeur\Fichier;
 
 class AdminClasseurController extends AdminController
 {
-    const DOSSIER_DEPOT = 'depot';
-    const DOSSIER_TRIAGE = 'triage';
-    const CHOIX_SUPPORTS_MEDIAS = [
+    public const DOSSIER_DEPOT = 'depot';
+    public const DOSSIER_TRIAGE = 'triage';
+    public const CHOIX_SUPPORTS_MEDIAS = [
                                 'image' => [
                                                 'supportLabel' => 'admin.medias.choisir.image',
                                                 'formats' => [

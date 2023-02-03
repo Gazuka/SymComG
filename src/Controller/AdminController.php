@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends SymComGController
 {
     //Constantes à définir dans les classes filles
-    const CONTROLLER_NAME = 'undefined'; //nom du controller (pour twig)
-    const CLASS_OBJET = 'undefined'; //classe de l'entité
-    const CLASS_FORM = 'undefined'; //classe du formulaire de l'entité
-    const NAMESPACE_OBJET = 'undefined'; //NameSpace de l'entité
-    const OBJETS_NAME = 'undefined'; //nom de l'objet au pluriel
-    const OBJET_NAME = 'undefined'; //nom de l'objet au singulier
+    public const CONTROLLER_NAME = 'undefined'; //nom du controller (pour twig)
+    public const CLASS_OBJET = 'undefined'; //classe de l'entité
+    public const CLASS_FORM = 'undefined'; //classe du formulaire de l'entité
+    public const NAMESPACE_OBJET = 'undefined'; //NameSpace de l'entité
+    public const OBJETS_NAME = 'undefined'; //nom de l'objet au pluriel
+    public const OBJET_NAME = 'undefined'; //nom de l'objet au singulier
 
     /**
      * Page d'accueil de l'espace d'administration
@@ -139,7 +139,7 @@ class AdminController extends SymComGController
 
     protected function preparerChoix($constante)
     {
-        $choixPossibles = array();
+        $choixPossibles = [];
         foreach($constante as $choix => $choixTexte)
         {
             $choixPossibles[$choix] = $this->codeTrad($choixTexte);

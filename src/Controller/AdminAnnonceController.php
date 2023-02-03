@@ -11,12 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminAnnonceController extends AdminController
 {
-    const CONTROLLER_NAME = 'admin_annonce';
-    const CLASS_OBJET = Annonce::class;
-    const CLASS_FORM = AnnonceType::class;   
-    const NAMESPACE_OBJET = 'App\\Entity\\Annonce\\Annonce';    
-    const OBJETS_NAME = 'annonces';
-    const OBJET_NAME = 'annonce';
+    public const CONTROLLER_NAME = 'admin_annonce';
+    public const CLASS_OBJET = Annonce::class;
+    public const CLASS_FORM = AnnonceType::class;   
+    public const NAMESPACE_OBJET = 'App\\Entity\\Annonce\\Annonce';    
+    public const OBJETS_NAME = 'annonces';
+    public const OBJET_NAME = 'annonce';
 
     /**
      * Création d'une nouvelle annonce

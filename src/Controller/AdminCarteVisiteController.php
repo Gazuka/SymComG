@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminCarteVisiteController extends AdminController
 {
-    const CHOIX_POSSIBLES =  [
+    public const CHOIX_POSSIBLES =  [
                                 'adresse' => 'admin.cartevisite.choisir.adresse',
                                 'mail' => 'admin.cartevisite.choisir.mail',
                                 'telephone' => 'admin.cartevisite.choisir.telephone',

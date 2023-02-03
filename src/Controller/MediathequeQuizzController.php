@@ -16,7 +16,7 @@ class MediathequeQuizzController extends SymComGController
     {
         $this->setTwig('pages/mediatheque_quizz/page____mediatheque_quizz.html.twig');
 
-        $questions = array();
+        $questions = [];
 
         //Question 1
         $q1 = new Question();

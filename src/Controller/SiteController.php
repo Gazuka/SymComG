@@ -143,7 +143,7 @@ class SiteController extends SymComGController
                 {
                     // On ne récupère que les entreprise du type demandé
                     $enumEntrepriseType = $this->findById(EnumEntrepriseType::class, $idenumentreprisetype);
-                    $tabTypes = array();
+                    $tabTypes = [];
                     array_push($tabTypes, $enumEntrepriseType);
                     foreach($enumEntrepriseType->getEnfants() as $enfant)
                     {
@@ -297,7 +297,7 @@ class SiteController extends SymComGController
     public function voirArticlesAssociations(): Response
     {
         $articles = $this->findAll(Article::class);
-        $articlesAssos = array();
+        $articlesAssos = [];
         foreach($articles as $article)
         {
             if($article->testSiAssociationLiee() == true)
@@ -318,7 +318,7 @@ class SiteController extends SymComGController
     public function voirArticlesOrganisme($idorganisme): Response
     {
         // $limit = $this->getParameter('page_articles.nbr_article');
-        $articles = array();
+        $articles = [];
         $organisme = $this->findById(Organisme::class, $idorganisme);
         foreach($organisme->getElemOrganismes() as $elemOrganisme)
         {
@@ -407,7 +407,7 @@ class SiteController extends SymComGController
         $typesRecherches = explode('-', $typeRecherche);
         $this->setTwig('pages/site/page____site____associations.html.twig');
         $associations = $this->repoService->findBy(Association::class, ['actif' => true], ['nom' => 'asc']);
-        $associationsType = array();
+        $associationsType = [];
         foreach($associations as $association)
         {            
             $valide = false;
@@ -469,7 +469,7 @@ class SiteController extends SymComGController
     public function voirServicesScolaire(): Response
     {
         $this->setTwig('pages/site/page____site____services.html.twig');
-        $services = $this->repoService->findBy(Service::class, ['id' => array(17, 18, 19, 20)], ['nom' => 'asc']);
+        $services = $this->repoService->findBy(Service::class, ['id' => [17, 18, 19, 20]], ['nom' => 'asc']);
         $this->addParamTwig('services', $services);
         $this->addParamTwig('affichageLocalUniquement', false);
         return $this->afficher();

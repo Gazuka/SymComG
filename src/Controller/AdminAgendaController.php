@@ -10,12 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminAgendaController extends AdminController
 {
-    const CONTROLLER_NAME = 'admin_agenda';
-    const CLASS_OBJET = Evenement::class;
-    const CLASS_FORM = EvenementType::class;   
-    const NAMESPACE_OBJET = 'App\\Entity\\Agenda\\Evenement';    
-    const OBJETS_NAME = 'evenements';
-    const OBJET_NAME = 'evenement';
+    public const CONTROLLER_NAME = 'admin_agenda';
+    public const CLASS_OBJET = Evenement::class;
+    public const CLASS_FORM = EvenementType::class;   
+    public const NAMESPACE_OBJET = 'App\\Entity\\Agenda\\Evenement';    
+    public const OBJETS_NAME = 'evenements';
+    public const OBJET_NAME = 'evenement';
 
     /**
      * Afficher l'ensemble des événements

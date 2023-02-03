@@ -13,12 +13,12 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class AdminArticleController extends AdminController
 {
-    const CONTROLLER_NAME = 'admin_article';
-    const CLASS_OBJET = Article::class;
-    const CLASS_FORM = ArticleType::class;   
-    const NAMESPACE_OBJET = 'App\\Entity\\Article\\Article';    
-    const OBJETS_NAME = 'articles';
-    const OBJET_NAME = 'article';
+    public const CONTROLLER_NAME = 'admin_article';
+    public const CLASS_OBJET = Article::class;
+    public const CLASS_FORM = ArticleType::class;   
+    public const NAMESPACE_OBJET = 'App\\Entity\\Article\\Article';    
+    public const OBJETS_NAME = 'articles';
+    public const OBJET_NAME = 'article';
 
     /**
      * Afficher l'ensemble des articles

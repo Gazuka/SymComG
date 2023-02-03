@@ -24,7 +24,7 @@ use Symfony\Component\Translation\TranslatableMessage;
 class AdminOrganismeController extends AdminController
 {
     
-    const CHOIX_POSSIBLES = [
+    public const CHOIX_POSSIBLES = [
                                 'association' =>'admin.organisme.choisir.association',
                                 'service' => 'admin.organisme.choisir.service',
                                 'entreprise' => 'admin.organisme.choisir.entreprise'

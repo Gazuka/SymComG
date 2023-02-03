@@ -113,8 +113,7 @@ class AdminPageController extends AdminController
     {
         $page = new Page();
         $page->setNom('Ma page de test');
-        $page->setTitre('Le titre de ma page');
-        
+        $page->setTitre('Le titre de ma page');        
         $paragraphe = new ElementParagraphe();
         $paragraphe->setTexte("Hello world !");
 

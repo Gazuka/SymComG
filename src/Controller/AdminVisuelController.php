@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminVisuelController extends AdminController
 {
-    const CHOIX_POSSIBLES = [
+    public const CHOIX_POSSIBLES = [
         'elemZone' =>'admin.visuel.element.choisir.zone',
         'elemTexte' =>'admin.visuel.element.choisir.texte',
         'elemDiapo' =>'admin.visuel.element.choisir.diapo',
